@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import InputRequired, Length, ValidationError, Email
-from flask_bcrypt import Bcrypt
+
+# from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
+# from flask_wtf import FlaskForm
+# from wtforms import StringField, PasswordField, SubmitField
+# from wtforms.validators import InputRequired, Length, ValidationError, Email
+# from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 
@@ -31,17 +32,18 @@ class UserInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userID = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
     firstname = db.Column(db.String(64), nullable=False)
-    email = db.Column(db.String(120), nullable=False)
+    email = db.Column(db.String(120), nullable=False, unique=True)
 
 
 class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
     exerciseID = db.Column(db.Integer, primary_key=True)
-    exercise_name = db.Column(db.String(64), nullable=False)
+    exercise_name = db.Column(db.String(64), nullable=False, unique=True)
     exercise_instructions = db.Column(db.String(256), nullable=False)
+    exercise_description = db.Column(db.String(256), nullable=False)
     exercise_length = db.Column(db.Float, nullable=False)
-    user_rating = db.Column(db.Float, nullable=False)
-    cumulative_rating = db.Column(db.Float, nullable=False)
+    user_rating = db.Column(db.Float)
+    cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
 
     routines = db.relationship('Routine', backref='exercise', lazy=True)
@@ -77,7 +79,7 @@ class Category(db.Model):
     category_name = db.Column(db.String(50), nullable=False)
 
 
-class UserRaiting(db.Model):
+class UserRating(db.Model):
     __tablename__ = 'Exercise.UserRaiting'
     id = db.Column(db.Integer, primary_key=True)
     user_rating = db.Column(db.Float, nullable=False)
@@ -87,6 +89,22 @@ class UserRaiting(db.Model):
 
 with app.app_context():
     db.create_all()
+
+# Comment out unless you are building a new database, for testing I am doing testv01.db etc etc
+
+squareBreath = Exercise(exercise_name='Square Breathing',
+                        exercise_instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 4, and hold your empty lungs for a count of 4.  Repeat.',
+                        exercise_description='This is a useful breathing technique that is used to help calm your body. Try to use during stressful situations.',
+                        exercise_length=6, user_rating=None, cumulative_rating=None, category_id=1)
+
+squareBreath2 = Exercise(exercise_name='Square Breathing v2',
+                         exercise_instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 6, and hold your empty lungs for a count of 2.  Repeat.',
+                         exercise_description='A modified version of the Square Breathing method. The longer exhale activates the parasympathetic nervous system which slows your heart.  Try this before bed to help you relax.',
+
+                         exercise_length=6, user_rating=None, cumulative_rating=None, category_id=1)
+with app.app_context():
+    db.session.add(squareBreath)
+    db.session.add(squareBreath2)
 
 if __name__ == "__main__":
     app.run(debug=True)
