@@ -5,6 +5,26 @@
 
 {% block content %}
     <!-- content goes here -->
-    <h2>Sign up Page</h2>
+    <h2>Sign Up</h2>
+    <form>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your first name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="password-validation">Confirm password</label>
+            <input type="password" class="form-control" id="password-validation" placeholder="Re-type password">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
 
 {% endblock %}
