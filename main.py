@@ -18,21 +18,6 @@ db.init_app(app)
 with app.app_context():
     db.create_all()
 
-# Comment out unless you are building a new database, for testing I am doing testv01.db etc etc
-
-squareBreath = Exercise(exercise_name='Square Breathing',
-                        exercise_instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 4, and hold your empty lungs for a count of 4.  Repeat.',
-                        exercise_description='This is a useful breathing technique that is used to help calm your body. Try to use during stressful situations.',
-                        exercise_length=6, user_rating=None, cumulative_rating=None, category_id=1)
-
-squareBreath2 = Exercise(exercise_name='Square Breathing v2',
-                         exercise_instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 6, and hold your empty lungs for a count of 2.  Repeat.',
-                         exercise_description='A modified version of the Square Breathing method. The longer exhale activates the parasympathetic nervous system which slows your heart.  Try this before bed to help you relax.',
-
-                         exercise_length=6, user_rating=None, cumulative_rating=None, category_id=1)
-
-
-
 
 @app.route('/')
 @app.route('/home')
@@ -59,11 +44,6 @@ def dashboard():
 def logout():
     pass
 
-
-with app.app_context():
-    db.session.add(squareBreath)
-    db.session.add(squareBreath2)
-    db.session.commit()
 
 if __name__ == "__main__":
     app.run(debug=True)
