@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request, url_for, redirect
+from flask import Flask, render_template, request, url_for, redirect, flash
 
-from models import User, UserInfo, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
+from models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
+from forms import RegistrationForm
 
 # from flask_login import UserMixin, login_user, LoginManager, login_required, logout_user, current_user
 # from flask_wtf import FlaskForm
@@ -32,7 +33,11 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    return render_template("register.html")
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash(f'Account created successfully for {form.firstname.data}', category='success')
+        return redirect(url_for('login'))
+    return render_template("register.html", form=form)
 
 
 @app.route('/dashboard', methods=['GET', 'POST'])
