@@ -4,71 +4,76 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Sign Up</h2>
-    <div class="container w-50">
-        <form method="POST" action="">
-            {{form.hidden_tag()}}
+
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+        <form method="POST" action="" class="form-register">
+             {{ form.hidden_tag() }}
+
             <fieldset>
-                <legend class="border-bottom mb-4">Create an Account</legend>
-                <!--First name input-->
-                <div class="form-group">
-                    {{form.firstname.label(class="form-control-label")}}
-                    {%if form.firstname.errors%}
-                    {{form.firstname(class="form-control-lg is-invalid")}}
-                        {%for error in form.firstname.errors%}
-                            <span>{{error}}</span>
-                        {%endfor%}
-                        {%else%}
-                        {{form.firstname(class="form-control-lg")}}
-                    {%endif%}
+                <legend class="border-bottom mb-4">
+                    Create an Account
+                </legend>
 
+                <div class="mb-3">
+                    <!-- First name input -->
+                    {{ form.firstname.label(class='form-label') }}
+                    {% if form.firstname.errors %}
+                        {{ form.firstname(class="form-control is-invalid") }}
+                        {% for error in form.firstname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.firstname(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
-                <!--Email input-->
-                <div class="form-group mt-4">
-                    {{form.email.label(class="form-control-label")}}
-                    {%if form.email.errors%}
-                    {{form.email(class="form-control-lg is-invalid")}}
-                        {%for error in form.email.errors%}
-                            <span>{{error}}</span>
-                        {%endfor%}
-                        {%else%}
-                        {{form.email(class="form-control-lg")}}
-                    {%endif%}
 
+                <!-- Email input -->
+                <div class="mb-3">
+                    {{ form.email.label(class='form-label') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
-                <!--Password input-->
-                <div class="form-group mt-4">
-                    {{form.password.label(class="form-control-label")}}
-                    {%if form.password.errors%}
-                    {{form.password(class="form-control-lg is-invalid")}}
-                        {%for error in form.password.errors%}
-                            <span>{{error}}</span>
-                        {%endfor%}
-                        {%else%}
-                        {{form.password(class="form-control-lg")}}
-                    {%endif%}
 
+                <!-- Password input -->
+                <div class="mb-3">
+                    {{ form.password.label(class='form-label') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid") }}
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.password(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
-                <!--Confirm password input-->
-                <div class="form-group mt-4">
-                    {{form.confirm_password.label(class="form-control-label")}}
-                    {%if form.confirm_password.errors%}
-                    {{form.confirm_password(class="form-control-lg is-invalid")}}
-                        {%for error in form.confirm_password.errors%}
-                            <span>{{error}}</span>
-                        {%endfor%}
-                        {%else%}
-                        {{form.confirm_password(class="form-control-lg")}}
-                    {%endif%}
 
+                <!-- Confirm password input -->
+                <div class="mb-3">
+                    {{ form.confirm_password.label(class='form-label') }}
+                    {% if form.confirm_password.errors %}
+                        {{ form.confirm_password(class="form-control is-invalid") }}
+                        {% for error in form.confirm_password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.confirm_password(class='form-control form-control-lg') }}
+                    {% endif %}
                 </div>
             </fieldset>
-            <!--Submit button-->
-            <div class="form-group mt-4">
-                {{form.submit(class='btn btn-primary')}}
-            </div>
 
+            <div class="mb-3 mt-4">
+                {{ form.submit(class='btn btn-primary') }}
+            </div>
+            <div class="mb-3">
+                <a href="{{ url_for('login') }}">Already have an account? Sign in</a>
+            </div>
         </form>
     </div>
-
 {% endblock %}
+
