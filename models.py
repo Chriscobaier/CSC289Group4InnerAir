@@ -80,7 +80,7 @@ class Category(db.Model):
 
 
 class UserRating(db.Model):
-    __tablename__ = 'Exercise.UserRaiting'
+    __tablename__ = 'Exercise.UserRating'
     userratingid = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_rating = db.Column(db.Float, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
@@ -88,3 +88,10 @@ class UserRating(db.Model):
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+
+class DBVersion(db.Model):
+    __tablename__ = 'App.Version'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    version = db.Column(db.String(12), nullable=False)
+    load_time = db.Column(db.DateTime, default=db.func.current_timestamp())
