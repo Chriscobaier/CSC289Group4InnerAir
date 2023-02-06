@@ -17,15 +17,15 @@
         <!-- CSS -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
     </head>
 
     <!-- BODY -->
     <body>
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-expand-lg bg-dark shadow" data-bs-theme="dark">
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">LOGO</a>
+                <a class="navbar-brand" href="#">Navbar</a>
                 <button
                         class="navbar-toggler"
                         type="button"
@@ -37,49 +37,50 @@
                 >
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link active text-uppercase" href="{{ url_for('home') }}">home</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
                         </li>
                     </ul>
-                    <!-- IF current_user is authenticated -->
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="{{ url_for('dashboard') }}">dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="{{ url_for('logout') }}">logout</a>
-                            </li>
-                        </ul>
-                    <!-- ELSE -->
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="{{ url_for('login') }}">login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-uppercase" href="{{ url_for('register') }}">sign up</a>
-                            </li>
-                        </ul>
-                    <!-- ENDIF -->
+
+                    {% if current_user.is_authenticated %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('dashboard') }} ">dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">sign out</a>
+                        </li>
+                    </ul>
+                    {% else %}
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">sign in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('register') }}">sign up</a>
+                        </li>
+                    </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>
 
-    <!--Flash messages to display upon submission of Registration and Login forms-->
-        <div class="container w-50">
-            {%with messages=get_flashed_messages(with_categories=true)%}
-                {%if messages%}
-                    {%for category, message in messages%}
-                        <div class="alert alert-{{category}}">
-                            {{message}}
+        <!-- Flash messages to display upon submission for Registration and Login forms-->
+        <div id="hide-me" class="container mt-4 d-flex justify-content-center align-items-center">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
                         </div>
-                    {%endfor%}
-                {%endif%}
-            {%endwith%}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
         </div>
-
         {% block content %}
+
         {% endblock %}
 
     </body>
