@@ -1,5 +1,5 @@
 import pytest
-from models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
+from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
 from flask import Flask
 
 # Create Flask app
