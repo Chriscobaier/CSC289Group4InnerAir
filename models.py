@@ -5,7 +5,7 @@ db = SQLAlchemy()
 
 class User(db.Model):
     __tablename__ = 'User.Users'
-    userID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
     password = db.Column(db.String(128), nullable=False)
@@ -21,7 +21,7 @@ class User(db.Model):
 
 class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
-    exerciseID = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
     exercise_instructions = db.Column(db.String(256), nullable=False)
     exercise_description = db.Column(db.String(256), nullable=False)
@@ -40,9 +40,9 @@ class Exercise(db.Model):
 
 class Routine(db.Model):
     __tablename__ = 'Users.Routines'
-    routineid = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.exerciseID'), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -50,10 +50,10 @@ class Routine(db.Model):
 
 class Favorites(db.Model):
     __tablename__ = 'Users.Favorites'
-    favoritesid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.exerciseID'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -61,10 +61,10 @@ class Favorites(db.Model):
 
 class Statistics(db.Model):
     __tablename__ = 'Users.Statistics'
-    statisticsid = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
     exercises_completed = db.Column(db.Integer, nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.exerciseID'), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -72,7 +72,7 @@ class Statistics(db.Model):
 
 class Category(db.Model):
     __tablename__ = 'Exercise.Category'
-    categoryid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     category_name = db.Column(db.String(50), nullable=False)
 
     def as_dict(self):
@@ -81,10 +81,10 @@ class Category(db.Model):
 
 class UserRating(db.Model):
     __tablename__ = 'Exercise.UserRating'
-    userratingid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     user_rating = db.Column(db.Float, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.userID'), nullable=False)
-    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.exerciseID'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
+    exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}

@@ -112,65 +112,65 @@ def test_exercise_fixture(current_exercise):
 
 # Test we can find the user's routine
 def test_routine_model(db_session):
-    test_routine_add = Routine(user_id=db.session.query(User).first().userID,
-                               exercise_id=db.session.query(Exercise).first().exerciseID)
+    test_routine_add = Routine(user_id=db.session.query(User).first().id,
+                               exercise_id=db.session.query(Exercise).first().id)
     db.session.add(test_routine_add)
     db.session.commit()
-    test_routine_add2 = Routine(user_id=db.session.query(User).first().userID,
+    test_routine_add2 = Routine(user_id=db.session.query(User).first().id,
                                 exercise_id=db.session.query(Exercise).filter_by(
-                                    exercise_name='test_exercise_name2').one().exerciseID)
+                                    exercise_name='test_exercise_name2').one().id)
     db.session.add(test_routine_add2)
     db.session.commit()
     test_routine = db.session.query(Routine).first()
-    assert test_routine.user_id == db.session.query(User).first().userID
-    assert test_routine.exercise_id == db.session.query(Exercise).first().exerciseID
+    assert test_routine.id == db.session.query(User).first().id
+    assert test_routine.id == db.session.query(Exercise).first().id
     print(f"\n Dictionary of Routine Object: {test_routine.as_dict()} \n")
 
 
 # test pull all data / routines
 def test_routine_list_all_routines(db_session, current_user):
-    routine_table_for_user = db.session.query(Routine).filter_by(user_id=current_user.userID).all()
+    routine_table_for_user = db.session.query(Routine).filter_by(user_id=current_user.id).all()
     for exerciseID in routine_table_for_user:
         print(exerciseID.as_dict())
 
 
 # Test pull all routines for one user, and join relevant tables for neat info
 def test_routine_list_all_routines_with_join(db_session, current_user):
-    results = (db_session.query(Routine, Exercise, User).filter(Routine.exercise_id == Exercise.exerciseID).filter(
-        Routine.user_id == User.userID).filter(Routine.user_id == current_user.userID))
+    results = (db_session.query(Routine, Exercise, User).filter(Routine.exercise_id == Exercise.id).filter(
+        Routine.user_id == User.id).filter(Routine.user_id == current_user.id))
     for row in results:
-        print(row.Routine.user_id, row.User.firstname, row.Exercise.exercise_name)
+        print(row.Routine.id, row.User.firstname, row.Exercise.exercise_name)
 
 
 # Test add favorites
 def test_favorites_model(db_session):
-    test_favorites_add = Favorites(user_id=db.session.query(User).first().userID,
-                                   exercise_id=db.session.query(Exercise).first().exerciseID)
+    test_favorites_add = Favorites(user_id=db.session.query(User).first().id,
+                                   exercise_id=db.session.query(Exercise).first().id)
     db.session.add(test_favorites_add)
     db.session.commit()
-    assert test_favorites_add.user_id == db.session.query(User).first().userID
-    assert test_favorites_add.exercise_id == db.session.query(Exercise).first().exerciseID
+    assert test_favorites_add.id == db.session.query(User).first().id
+    assert test_favorites_add.id == db.session.query(Exercise).first().id
     print(f"\n Dictionary of Favorites Object: {test_favorites_add.as_dict()} \n")
 
 
 # Test add new statistics
 def test_statistics_model_new(db_session, current_user, current_exercise):
     # On exercise complete
-    if db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                              exercise_id=current_exercise.exerciseID).first() is None:
-        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.exerciseID,
-                                         user_id=current_user.userID)
+    if db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                              exercise_id=current_exercise.id).first() is None:
+        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.id,
+                                         user_id=current_user.id)
         db.session.add(test_add_statistics)
         db.session.commit()
 
     # for actual code we need an else, but for this test it isn't needed as I am doing a new test here
     else:
-        update_stats = db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                                              exercise_id=current_exercise.exerciseID).first()
+        update_stats = db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                                              exercise_id=current_exercise.id).first()
         update_stats.exercises_completed += 1
         db.session.commit()
-    assert db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                                  exercise_id=current_exercise.exerciseID).first().exercises_completed == 1
+    assert db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                                  exercise_id=current_exercise.id).first().exercises_completed == 1
     print("\n Dictionary of Statistics Table:\n")
     statsTable = db_session.query(Statistics).all()
     for stat in statsTable:
@@ -180,21 +180,21 @@ def test_statistics_model_new(db_session, current_user, current_exercise):
 # Test update statistics
 def test_statistics_model_update(db_session, current_user, current_exercise):
     # On exercise complete
-    if db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                              exercise_id=current_exercise.exerciseID).first() is None:
-        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.exerciseID,
-                                         user_id=current_user.userID)
+    if db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                              exercise_id=current_exercise.id).first() is None:
+        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.id,
+                                         user_id=current_user.id)
         db.session.add(test_add_statistics)
         db.session.commit()
 
     # for actual code we need an else, but for this test it isn't needed as I am doing a new test here
     else:
-        update_stats = db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                                              exercise_id=current_exercise.exerciseID).first()
+        update_stats = db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                                              exercise_id=current_exercise.id).first()
         update_stats.exercises_completed += 1
         db.session.commit()
-    assert db_session.query(Statistics).filter_by(user_id=current_user.userID,
-                                                  exercise_id=current_exercise.exerciseID).first().exercises_completed == 2
+    assert db_session.query(Statistics).filter_by(user_id=current_user.id,
+                                                  exercise_id=current_exercise.id).first().exercises_completed == 2
     print("\n Dictionary of Statistics Table:\n")
     statsTable = db_session.query(Statistics).all()
     for stat in statsTable:
@@ -217,38 +217,38 @@ def test_category_model(db_session, current_user, current_exercise):
 # test add new rating
 def test_userRating_model_new(db_session, current_user, current_exercise):
     # Check if rating exists
-    if db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                              exercise_id=current_exercise.exerciseID).first() is None:
+    if db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                              exercise_id=current_exercise.id).first() is None:
         print("Does not exist, creating new")
         db.session.add(
-            UserRating(user_rating=100, user_id=current_user.userID, exercise_id=current_exercise.exerciseID))
+            UserRating(user_rating=100, user_id=current_user.id, exercise_id=current_exercise.id))
         db.session.commit()
     else:
-        rating_to_update = db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                                  exercise_id=current_exercise.exerciseID).first()
+        rating_to_update = db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                                  exercise_id=current_exercise.id).first()
         rating_to_update.user_rating = 90
         print('\n')
-    print(db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                 exercise_id=current_exercise.exerciseID).first().as_dict())
-    assert db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                  exercise_id=current_exercise.exerciseID).first().user_rating == 100
+    print(db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                 exercise_id=current_exercise.id).first().as_dict())
+    assert db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                  exercise_id=current_exercise.id).first().user_rating == 100
 
 
 # test update user's rating
 def test_userRating_model_update(db_session, current_user, current_exercise):
     # Check if rating exists
-    if db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                              exercise_id=current_exercise.exerciseID).first() is None:
+    if db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                              exercise_id=current_exercise.id).first() is None:
         print("Does not exist, creating new")
         db.session.add(
-            UserRating(user_rating=100, user_id=current_user.userID, exercise_id=current_exercise.exerciseID))
+            UserRating(user_rating=100, user_id=current_user.id, exercise_id=current_exercise.id))
         db.session.commit()
     else:
-        rating_to_update = db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                                  exercise_id=current_exercise.exerciseID).first()
+        rating_to_update = db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                                  exercise_id=current_exercise.id).first()
         rating_to_update.user_rating = 90
     print('\n')
-    print(db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                 exercise_id=current_exercise.exerciseID).first().as_dict())
-    assert db_session.query(UserRating).filter_by(user_id=current_user.userID,
-                                                  exercise_id=current_exercise.exerciseID).first().user_rating == 90
+    print(db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                 exercise_id=current_exercise.id).first().as_dict())
+    assert db_session.query(UserRating).filter_by(user_id=current_user.id,
+                                                  exercise_id=current_exercise.id).first().user_rating == 90
