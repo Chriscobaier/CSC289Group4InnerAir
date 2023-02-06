@@ -1,0 +1,23 @@
+Version = 0.0.1
+AllExercises
+  Square 
+    name='Square Breathing'
+    instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 4, and hold your empty lungs for a count of 4.  Repeat.',
+    description='This is a useful breathing technique that is used to help calm your body. Try to use during stressful situations.',
+    length=6
+    rating=None
+    category_id=1
+  Squarev2
+    Name='Square Breathing v2'
+    exercise_instructions='Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 6, and hold your empty lungs for a count of 2.  Repeat.'
+    exercise_description='A modified version of the Square Breathing method. The longer exhale activates the parasympathetic nervous system which slows your heart.  Try this before bed to help you relax.'
+    exercise_length=6
+    cumulative_rating=None
+    category_id=1
+  NadiShodhana
+    Name='Nadi Shodhana'
+    exercise_instructions='Use your fingers to help if unable to control your nostrils. Your goal is to have two fingers, one hovering over your right nostril, and the other over the left. Begin by closing the right nostril and inhale through the left nostrils lowly. When you reach a full breath close both nostrils and hold your breath. Then lift the finger holding the right nostril and breath out of the right nostril. Now alternate, breathing in through the right, and out the the left. Repeat 5 to 10 times. Each cycle should take around 30 seconds'
+    exercise_description='An exercise used to lower hart rate, blood pressure, and sympathetic stress'
+    exercise_length=10
+    cumulative_rating=None
+    category_id=1
