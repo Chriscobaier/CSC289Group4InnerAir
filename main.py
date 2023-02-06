@@ -42,12 +42,14 @@ def register():
         # Add user input to database
         # This part is not working on 2/5 8:30pm
         # Error on form submission
+        # Added filter to check if email exists, does this still fail for you? Please test again.
         if db.session.query(User).filter_by(email=form.email) is None:
             db.session.add(user)
             db.session.commit()
             flash(f'Account created successfully for {form.firstname.data}', category='success')
             return redirect(url_for('login'))
         else:
+            # todo make pretty
             flash("Email already exists")
     return render_template("register.html", form=form)
 
