@@ -2,7 +2,7 @@ import pytest
 import json
 from models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '`5J<-lgHQaae_|LR*h)0%}`#k?sW@IK],P-9,A/}d`Ly&GwruSUh#omM]AdXwNP'
