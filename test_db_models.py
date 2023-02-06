@@ -64,5 +64,3 @@ def test_favorites_model(db_session):
     assert test_favorites_add.user_id == db.session.query(User).first().userID
     assert test_favorites_add.exercise_id == db.session.query(Exercise).first().exerciseID
     print(f"\n Dictionary of Favorites Object: {test_favorites_add.as_dict()} \n")
-
-

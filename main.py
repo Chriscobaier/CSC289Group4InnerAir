@@ -7,13 +7,14 @@ from forms import RegistrationForm
 # from flask_wtf import FlaskForm
 # from wtforms import StringField, PasswordField, SubmitField
 # from wtforms.validators import InputRequired, Length, ValidationError, Email
-# from flask_bcrypt import Bcrypt
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = '`5J<-lgHQaae_|LR*h)0%}`#k?sW@IK],P-9,A/}d`Ly&GwruSUh#omM]AdXwNP'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+bcrypt = Bcrypt(app)
 db.init_app(app)
 
 with app.app_context():
@@ -33,8 +34,16 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    """Return the register.html page"""
     form = RegistrationForm()
     if form.validate_on_submit():
+        encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')  # Encrypt password
+        user = User(firstname=form.firstname.data, email=form.email.data, password=encrypted_password)  # Get user input from Registration form
+        # Add user input to database
+        # This part is not working on 2/5 8:30pm
+        # Error on form submission
+        db.session.add(user)
+        db.session.commit()
         flash(f'Account created successfully for {form.firstname.data}', category='success')
         return redirect(url_for('login'))
     return render_template("register.html", form=form)
