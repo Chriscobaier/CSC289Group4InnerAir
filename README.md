@@ -1,7 +1,5 @@
 # CSC289Group4InnerAir
 
-# InnerAirApp
-
 ### Setup & Installation
 
 ```
