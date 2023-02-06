@@ -1,9 +1,15 @@
-from flask_sqlalchemy import SQLAlchemy
+from flask_login import UserMixin
+from inner_air import bcrypt, login_manager
 
-db = SQLAlchemy()
+from inner_air import db
 
 
-class User(db.Model):
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+
+class User(db.Model, UserMixin):
     __tablename__ = 'User.Users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(64), nullable=False)
@@ -14,6 +20,9 @@ class User(db.Model):
     routines = db.relationship('Routine', backref='User', lazy=True)
     favorites = db.relationship('Favorites', backref='User', lazy=True)
     statistics = db.relationship('Statistics', backref='User', lazy=True)
+
+    def verify_password(self, password):
+        return bcrypt.check_password_hash(self.password, password)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
