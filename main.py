@@ -40,17 +40,15 @@ def register():
         encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')  # Encrypt password
         user = User(firstname=form.firstname.data, email=form.email.data, password=encrypted_password)  # Get user input from Registration form
         # Add user input to database
-        # This part is not working on 2/5 8:30pm
-        # Error on form submission
-        # Added filter to check if email exists, does this still fail for you? Please test again.
-        if db.session.query(User).filter_by(email=form.email) is None:
+
+        if db.session.query(User).filter_by(email=form.email.data).first() is None:
             db.session.add(user)
             db.session.commit()
             flash(f'Account created successfully for {form.firstname.data}', category='success')
             return redirect(url_for('login'))
+
         else:
-            # todo make pretty
-            flash("Email already exists")
+            flash("Email exists in db")
     return render_template("register.html", form=form)
 
 
