@@ -28,6 +28,7 @@ class Exercise(db.Model):
     exercise_length = db.Column(db.Float, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
+    user_rating_count = db.Column(db.Integer)
 
     routines = db.relationship('Routine', backref='exercise', lazy=True)
     favorites = db.relationship('Favorites', backref='exercise', lazy=True)
