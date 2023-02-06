@@ -11,9 +11,9 @@ class User(db.Model):
     password = db.Column(db.String(128), nullable=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
 
-    routines = db.relationship('Routine', backref='user', lazy=True)
-    favorites = db.relationship('Favorites', backref='user', lazy=True)
-    statistics = db.relationship('Statistics', backref='user', lazy=True)
+    routines = db.relationship('Routine', backref='User', lazy=True)
+    favorites = db.relationship('Favorites', backref='User', lazy=True)
+    statistics = db.relationship('Statistics', backref='User', lazy=True)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
@@ -30,9 +30,9 @@ class Exercise(db.Model):
     category_id = db.Column(db.Integer, nullable=False)
     user_rating_count = db.Column(db.Integer)
 
-    routines = db.relationship('Routine', backref='exercise', lazy=True)
-    favorites = db.relationship('Favorites', backref='exercise', lazy=True)
-    statistics = db.relationship('Statistics', backref='exercise', lazy=True)
+    routines = db.relationship('Routine', backref='Exercise', lazy=True)
+    favorites = db.relationship('Favorites', backref='Exercise', lazy=True)
+    statistics = db.relationship('Statistics', backref='Exercise', lazy=True)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
