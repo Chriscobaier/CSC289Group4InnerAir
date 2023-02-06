@@ -6,7 +6,6 @@
 body {
     background-color: var(--body-color);
     padding-top: 56px !important;
-    font-family: 'Spectral', serif;
 }
 
 .overlay {
