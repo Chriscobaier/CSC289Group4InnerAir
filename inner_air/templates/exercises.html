@@ -30,17 +30,20 @@
                     <td>{{ exercise.exercise_description }} </td>
                     <td>{{ exercise.cumulative_rating }} </td>
                     <td>
-                        <!-- TODO HIDE IF userid + exerciseid already in DB-->
+                        {% if exercise.id not in showFavAdd %}
                         <form method="post">
                             <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
                             <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
                             <button type="submit" name="favoriteButton">Add to Favorites</button>
                         </form>
+                        {% endif %}
+                        {% if  exercise.id  in showFavAdd %}
                         <form method="post">
                             <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
                             <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
                             <button type="submit" name="favoriteButtonRemove">Remove to Favorites</button>
                         </form>
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

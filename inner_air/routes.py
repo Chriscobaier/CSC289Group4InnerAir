@@ -1,3 +1,5 @@
+import flask_login
+
 from inner_air import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required
@@ -22,7 +24,7 @@ def DeleteAndCreateDB():
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
-DeleteAndCreateDB()
+#DeleteAndCreateDB()
 
 
 @app.route('/')
@@ -107,7 +109,15 @@ def exercises():
             pass
     exercise_list = Exercise.query.all()
     favorite_list = Favorites.query.all()
-    return render_template('exercises.html', exercises=exercise_list, favorites=favorite_list)
+
+    def showFav():
+        listOfExerciseCurrentUserHasInFavorites = []
+        for favorite in favorite_list:
+            if favorite.as_dict()['user_id'] == flask_login.current_user.id:
+                listOfExerciseCurrentUserHasInFavorites.append(favorite.as_dict()['exercise_id'])
+        return listOfExerciseCurrentUserHasInFavorites
+
+    return render_template('exercises.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav())
 
 
 @app.route('/logout')
