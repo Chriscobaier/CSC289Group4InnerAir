@@ -81,7 +81,7 @@ def test_user_model(db_session):
     test_user = db.session.query(User).filter_by(firstname='testUser').one()
     assert test_user.firstname == "testUser"
     assert test_user.email == "testUser@example.com"
-    assert test_user.verify_password(password='changeme')
+    assert test_user.verify_password(attempted_password='changeme')
     print(f"\n Dictionary of User Object: {test_user.as_dict()} \n")
 
 
@@ -89,7 +89,7 @@ def test_user_model(db_session):
 def test_user_fixture(current_user):
     assert current_user.firstname == "testUser"
     assert current_user.email == "testUser@example.com"
-    assert current_user.verify_password(password='changeme')
+    assert current_user.verify_password(attempted_password='changeme')
 
 
 # Test we can query db for exercise data
