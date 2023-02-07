@@ -30,6 +30,7 @@
                     <td>{{ exercise.exercise_description }} </td>
                     <td>{{ exercise.cumulative_rating }} </td>
                     <td>
+                        <!-- TODO HIDE IF userid + exerciseid already in DB-->
                         <form method="post">
                             <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
                             <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
