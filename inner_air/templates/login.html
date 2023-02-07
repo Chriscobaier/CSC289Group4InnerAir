@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+
+    <div class="container overlay min-vh-100 position-fixed d-flex justify-content-center align-items-center">
+        <form method="POST" action="" class="form-register">
+
+            <div class="mb-3">
+                <a href="{{ url_for('register') }}">Don't have an account? Sign up</a>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
