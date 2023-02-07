@@ -16,7 +16,7 @@ class RegistrationForm(FlaskForm):
 
 # Add a class for LoginForm
 # Added this to allow program to compile
-def LoginForm():
+class LoginForm(FlaskForm):
     pass
 
 
