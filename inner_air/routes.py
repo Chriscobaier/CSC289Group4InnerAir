@@ -49,7 +49,7 @@ def register():
             return redirect(url_for('login'))
 
         else:
-            flash("Email exists in db", category='danger')
+            flash("This email already exists.  Try logging in, or register with a different email", category='danger')
     return render_template("register.html", form=form)
 
 
