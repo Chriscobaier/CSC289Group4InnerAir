@@ -60,9 +60,10 @@ class Routine(db.Model):
 class Favorites(db.Model):
     __tablename__ = 'Users.Favorites'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
     exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
+
+    __table_args__ = (db.UniqueConstraint('user_id', 'exercise_id', name='UniqueUserExercise'),)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
