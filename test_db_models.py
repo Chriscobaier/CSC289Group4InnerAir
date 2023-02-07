@@ -84,7 +84,7 @@ def test_user_model(db_session):
     print(f"\n Dictionary of User Object: {test_user.as_dict()} \n")
 
 
-# Test that we can use the "current user object" and read it's data
+# Test that we can use the "current user object" and read its data
 def test_user_fixture(current_user):
     assert current_user.firstname == "testUser"
     assert current_user.email == "testUser@example.com"
