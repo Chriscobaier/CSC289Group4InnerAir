@@ -24,7 +24,7 @@ def DeleteAndCreateDB():
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
-#DeleteAndCreateDB()
+DeleteAndCreateDB()
 
 
 @app.route('/')
@@ -40,7 +40,7 @@ def login():
     if form.validate_on_submit():
         user = db.session.query(User).filter_by(email=form.email.data).first()
 
-        if user and user.verify_password(password=form.password.data):
+        if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('dashboard'))

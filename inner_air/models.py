@@ -29,8 +29,8 @@ class User(db.Model, UserMixin):
     def password(self, plain_text_password):
         self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
 
-    def verify_password(self, password):
-        return bcrypt.check_password_hash(self.password_hash, password)
+    def verify_password(self, attempted_password):
+        return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
