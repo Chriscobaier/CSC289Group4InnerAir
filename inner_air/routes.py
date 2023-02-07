@@ -92,8 +92,17 @@ def exercises():
                 db.session.commit()
             else:
                 flash("This is already a favorite, TODO REMOVE BUTTON IF ALREADY FAVORITE", category='danger')
-        elif "routineButton" in request.form:
-            pass
+        elif "favoriteButtonRemove" in request.form:
+            currentUser = request.form['user_id']
+            currentExercise = request.form['exercise_id']
+            if db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
+                    Favorites.exercise_id == currentExercise).first() is None:
+                flash("This is not already a favorite, TODO REMOVE BUTTON IF not already FAVORITE", category='danger')
+            else:
+                toDelete = db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
+                    Favorites.exercise_id == currentExercise).first()
+                db.session.delete(toDelete)
+                db.session.commit()
         else:
             pass
     exercise_list = Exercise.query.all()
