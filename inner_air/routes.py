@@ -1,4 +1,4 @@
-from inner_air import app, db, bcrypt
+from inner_air import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required
 
@@ -52,12 +52,10 @@ def register():
     """Return the register.html page"""
     form = RegistrationForm()
     if form.validate_on_submit():
-        encrypted_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')  # Encrypt password
-
         user = User(
             firstname=form.firstname.data,
             email=form.email.data,
-            password=encrypted_password)  # Get user input from Registration form
+            password=form.password.data)  # Get user input from Registration form
         # Add user input to database
 
         if db.session.query(User).filter_by(email=form.email.data).first() is None:

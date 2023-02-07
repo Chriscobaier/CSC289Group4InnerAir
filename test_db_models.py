@@ -1,6 +1,7 @@
 import pytest
-from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
 from flask import Flask
+
+from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
 
 # Create Flask app
 app = Flask(__name__)
@@ -80,7 +81,7 @@ def test_user_model(db_session):
     test_user = db.session.query(User).filter_by(firstname='testUser').one()
     assert test_user.firstname == "testUser"
     assert test_user.email == "testUser@example.com"
-    assert test_user.password == "changeme"
+    assert test_user.verify_password(password='changeme')
     print(f"\n Dictionary of User Object: {test_user.as_dict()} \n")
 
 
@@ -88,7 +89,7 @@ def test_user_model(db_session):
 def test_user_fixture(current_user):
     assert current_user.firstname == "testUser"
     assert current_user.email == "testUser@example.com"
-    assert current_user.password == "changeme"
+    assert current_user.verify_password(password='changeme')
 
 
 # Test we can query db for exercise data

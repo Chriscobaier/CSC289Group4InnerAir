@@ -14,15 +14,23 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     firstname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
-    password = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(128), nullable=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
 
     routines = db.relationship('Routine', backref='User', lazy=True)
     favorites = db.relationship('Favorites', backref='User', lazy=True)
     statistics = db.relationship('Statistics', backref='User', lazy=True)
 
+    @property
+    def password(self):
+        return self.password
+
+    @password.setter
+    def password(self, plain_text_password):
+        self.password_hash = bcrypt.generate_password_hash(plain_text_password).decode('utf-8')
+
     def verify_password(self, password):
-        return bcrypt.check_password_hash(self.password, password)
+        return bcrypt.check_password_hash(self.password_hash, password)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
