@@ -17,6 +17,8 @@ class RegistrationForm(FlaskForm):
 # Add a class for LoginForm
 # Added this to allow program to compile
 class LoginForm(FlaskForm):
-    pass
+    email = StringField(label='Email', validators=[DataRequired(), Email()], render_kw={'placeholder': 'Email'})
+    password = PasswordField(label='Password', validators=[DataRequired()],render_kw={"placeholder": "Password"})
+    submit = SubmitField("Login")
 
 
