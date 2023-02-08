@@ -1,52 +1,54 @@
 {% extends 'base.html' %}
 {% block title %}
-    Login Page
+    Sign Up Page
 {% endblock %}
+
 {% block content %}
+
     <div class="container overlay min-vh-100 position-fixed d-flex justify-content-center align-items-center">
         <form method="POST" action="" class="form-register">
+             {{ form.hidden_tag() }}
 
+            <fieldset>
+                <legend class="border-bottom mb-4">
+                    Login!
+                </legend>
+
+
+                <!-- Email input -->
+                <div class="mb-3">
+                    {{ form.email.label(class='form-label') }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+                <!-- Password input -->
+                <div class="mb-3">
+                    {{ form.password.label(class='form-label') }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid") }}
+                        {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.password(class='form-control form-control-lg') }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+
+            <div class="mb-3 mt-4">
+                {{ form.submit(class='btn btn-primary') }}
+            </div>
             <div class="mb-3">
-                <title>Login Form</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <div class="container">
-                    <h2> Inner Air Login </h2>
-                    <form action="" method="post" role="form">
-                    {{ form.csrf }}
-
-                <div class="form-group">
-                <label for="email">Account Email:</label>
-                <input type="text" class="form-control" id="email" name="email" placeholder="Email you used to register.">
-                <p>
-
-                </p>
-                <label for="password">Account Password:</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password.">
-
-                </div>
-                        <p>
-
-                        </p>
-                    <button type="submit" class="btn btn-success">Login</button>
-                        </form>{% with messages = get_flashed_messages(with_categories=true) %}
-                        {% if messages %}
-                        {% for message in messages %}
-                        {% if "Error" not in message[1]: %}
-                <div class="alert alert-info">
-                <strong> Success! </strong> {{message[1]}}</div>
-                        {% endif %}
-                        {% if "Error" in message[1]: %}
-                <div class="alert alert-warning">
-                {{ message[1] }}
-                </div>
-                    {% endif %}
-                    {% endfor %}
-                    {% endif %}
-                    {% endwith %}
-                </div>
                 <a href="{{ url_for('register') }}">Don't have an account? Sign up</a>
             </div>
         </form>
     </div>
-
 {% endblock %}
