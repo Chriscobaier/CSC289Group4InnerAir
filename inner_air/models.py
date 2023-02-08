@@ -80,9 +80,10 @@ class Favorites(db.Model):
 class Statistics(db.Model):
     __tablename__ = 'Users.Statistics'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    exercises_completed = db.Column(db.Integer, nullable=False)
+    date_completed = db.Column(db.DateTime, default=db.func.current_timestamp())
     exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
+    hold_length = db.Column(db.Float)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
