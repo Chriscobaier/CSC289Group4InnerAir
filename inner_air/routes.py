@@ -24,7 +24,7 @@ def DeleteAndCreateDB():
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 # COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
-DeleteAndCreateDB()
+# DeleteAndCreateDB()
 
 
 @app.route('/')
@@ -63,9 +63,9 @@ def register():
         if db.session.query(User).filter_by(email=form.email.data).first() is None:
             db.session.add(user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(user)
             flash(f'Account created successfully for {form.firstname.data}', category='success')
-            return redirect(url_for('login'))
+            return redirect(url_for('dashboard'))
 
         else:
             flash("This email already exists.  Try logging in, or register with a different email", category='danger')
@@ -83,6 +83,7 @@ def dashboard():
 
 
 @app.route('/exercises', methods=['GET', 'POST'])
+@login_required
 def exercises():
     # Check if the request method is POST
     if request.method == 'POST':
@@ -127,6 +128,7 @@ def exercises():
 
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     flash('you\'ve been logged out', category='info')
