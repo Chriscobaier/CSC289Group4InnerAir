@@ -1,44 +1,26 @@
 @import "config";
 
 header {
-  @include flex-spread;
-  position: fixed;
-  top: 0;
-  height: $header-heigh;
-  width: 100%;
-  padding: 0.5rem 1rem;
-  background: $dark-black;
-
-  img {
-    max-width: 100px;
-  }
-
-  nav > ul {
     @include flex-spread;
+    position: fixed;
+    top: 0;
+    height: $header-heigh;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: $dark-black;
 
-    li {
-      display: flex;
-      list-style-type: none;
-      min-width: 5rem;
-      justify-content: center;
-
-      a {
-        background-color: $accent-warm;
-        padding: 0.5rem 0.7rem;
-        margin: 0 0.5rem;
-        border-radius: 10px;
-        color: white;
-        box-shadow: 0 0.3rem 10px rgba($accent-warm, 0.5);
-        text-decoration: none;
-        transition: all 0.2s ease-in-out;
-
-        &:hover {
-          margin: 0 0.8rem;
-          transform: scale(1.1);
-          background-color: $accent-warm-light;
-          color: $dark-steel;
-        }
-      }
+    img {
+        max-width: 100px;
     }
-  }
+
+    nav > ul {
+        @include flex-spread;
+
+        li {
+            display: flex;
+            list-style-type: none;
+            min-width: 5rem;
+            justify-content: center;
+        }
+    }
 }
