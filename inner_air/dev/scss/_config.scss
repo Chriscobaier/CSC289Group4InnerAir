@@ -16,33 +16,33 @@ $tinted-azure: #3254a5;
 $tinted-teal: #2180b3;
 
 $font-weights: (
-  "thin": 200,
-  "regular": 400,
-  "medium": 500,
-  "bold": 700,
+    "thin": 200,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
 );
 
 $header-heigh: 4rem;
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 /* Makes content go |O  O  O|*/
 @mixin flex-spread {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 @mixin grid-element($row-span) {
-  height: 100%;
-  width: 100%;
-  border-radius: 4px;
-  transition: all 500ms;
-  overflow: hidden;
-  grid-row: $row-span;
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    grid-row: $row-span;
 }
