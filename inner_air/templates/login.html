@@ -19,20 +19,20 @@
                     <span>{{ error }}</span>
                     {% endfor %}
                     {% else %}
-                    {{ form.email(class='form-control form-control-lg') }}
+                    {{ form.email }}
                     {% endif %}
                 </div>
 
                 <!-- Password input -->
                 <div class="form-section">
-                    {{ form.password.label(class='form-label') }}
+                    {{ form.password.label() }}
                     {% if form.password.errors %}
                     {{ form.password(class="form-controlis-invalid") }}
                     {% for error in form.password.errors %}
                     <span>{{ error }}</span>
                     {% endfor %}
                     {% else %}
-                    {{ form.password(class='form-control form-control-lg') }}
+                    {{ form.password }}
                     {% endif %}
                 </div>
             </div>

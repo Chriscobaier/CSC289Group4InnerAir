@@ -18,7 +18,7 @@
           <span>{{ error }}</span>
           {% endfor %}
           {% else %}
-          {{ form.firstname(class='form-control form-control-lg') }}
+          {{ form.firstname }}
           {% endif %}
         </div>
 
@@ -31,7 +31,7 @@
           <span>{{ error }}</span>
           {% endfor %}
           {% else %}
-          {{ form.email(class='form-control form-control-lg') }}
+          {{ form.email }}
           {% endif %}
         </div>
 
@@ -44,7 +44,7 @@
           <span>{{ error }}</span>
           {% endfor %}
           {% else %}
-          {{ form.password(class='form-control form-control-lg') }}
+          {{ form.password }}
           {% endif %}
         </div>
 
@@ -57,7 +57,7 @@
           <span>{{ error }}</span>
           {% endfor %}
           {% else %}
-          {{ form.confirm_password(class='form-control form-control-lg') }}
+          {{ form.confirm_password }}
           {% endif %}
         </div>
       </div>
