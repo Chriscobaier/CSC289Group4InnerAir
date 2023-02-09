@@ -1,5 +1,5 @@
-{% extends 'base.html' %} 
-{% block title %} Sign Up Page {% endblock %} 
+{% extends 'base.html' %}
+{% block title %} Sign Up Page {% endblock %}
 {% block content %}
 
 <div>
@@ -38,7 +38,7 @@
             </div>
         </fieldset>
 
-        {{ form.submit(class='btn btn-primary') }}
+        {{ form.submit(class="button") }}
 
         <a href="{{ url_for('register') }}">Don't have an account? Sign up</a>
     </form>
