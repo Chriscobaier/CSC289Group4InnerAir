@@ -39,6 +39,13 @@
             </nav>
         </header>
 
+        
+        <div class="container">
+            {% block content %}
+            
+            {% endblock %}
+        </div>
+        
         <!-- Flash messages to display upon submission for Registration and Login forms-->
         <div id="hide-me" class="container mt-4 d-flex justify-content-center align-items-center">
             {% with messages = get_flashed_messages(with_categories=true) %}
@@ -51,13 +58,6 @@
                 {% endif %}
             {% endwith %}
         </div>
-
-            <div class="container">
-                {% block content %}
-
-                {% endblock %}
-            </div>
-
 
     </body>
 </html>
