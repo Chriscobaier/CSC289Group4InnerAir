@@ -7,7 +7,7 @@ header {
   height: $header-heigh;
   width: 100%;
   padding: 0.5rem 1rem;
-  background: $pastel-blue;
+  background: $dark-black;
 
   img {
     max-width: 100px;
@@ -23,10 +23,15 @@ header {
       justify-content: center;
 
       a {
-        color: $dark-black;
+        background-color: $accent-warm;
+        padding: 0.5rem;
+        margin: 0 0.2rem;
+        border-radius: 10px;
+        color: white;
         text-decoration: none;
 
         &:hover {
+          background-color: $accent-warm-light;
           color: $dark-steel;
         }
       }

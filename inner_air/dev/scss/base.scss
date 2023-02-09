@@ -3,17 +3,19 @@
 @import "form";
 
 body {
-  @include flex-spread;
-  background-color: $dark-black;
-  color: $light-white;
-  font-size: 14px;
-  padding-top: $header-heigh;
-  height: 100vh;
-
-  .container {
-    margin: auto;
-    min-width: 90%;
+    @include flex-spread;
+    background-color: $pastel-pink;
+    background-image: linear-gradient($tinted-teal,$pastel-blue 60%, $pastel-pink, $pastel-yellow);
+    color: $light-white;
+    font-size: 14px;
+    padding-top: $header-heigh;
     height: 100vh;
-    background-color: $dark-steel;
-  }
+
+    .container {
+        margin: auto;
+        min-width: 85%;
+        height: 100vh;
+        background-color: $dark-steel;
+        background-image: linear-gradient(0deg ,$dark-steel 85%, $tinted-azure 99%);
+    }
 }
