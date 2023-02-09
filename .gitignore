@@ -1,6 +1,4 @@
-/.idea/
-/instance/test.db
-/instance/inner-air-dev.db
+/inner_air/inner-air-dev.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
