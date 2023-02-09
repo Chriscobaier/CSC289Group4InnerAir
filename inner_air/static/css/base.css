@@ -1,0 +1,129 @@
+#hide-me {
+  animation: cssAnimation 0s ease-in 5s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cssAnimation {
+  from {
+    visibility: hidden;
+  }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Makes content go |O  O  O|*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  height: 4rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #a4c3ef;
+}
+header img {
+  max-width: 100px;
+}
+header nav > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header nav > ul li {
+  display: flex;
+  list-style-type: none;
+  min-width: 5rem;
+  justify-content: center;
+}
+header nav > ul li a {
+  color: #050f1b;
+  text-decoration: none;
+}
+header nav > ul li a:hover {
+  color: #222f45;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Makes content go |O  O  O|*/
+form {
+  padding: 1rem;
+  margin: 5rem auto;
+  max-width: 18rem;
+}
+form fieldset {
+  border: none;
+}
+form fieldset legend {
+  text-align: center;
+  margin: auto;
+  text-underline-position: under;
+  font-size: 20px;
+}
+form fieldset .form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+form fieldset .form-container .form-section {
+  margin: 1rem 0;
+  width: 100%;
+}
+form fieldset .form-container .form-section label {
+  font-weight: 300;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+form fieldset .form-container .form-section input {
+  width: 100%;
+  padding: 0.3rem;
+}
+form a {
+  display: block;
+  text-align: center;
+  margin: auto;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #e6e8ff;
+}
+form a:hover {
+  color: #ffa66d;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #050f1b;
+  color: #e6e8ff;
+  font-size: 14px;
+  padding-top: 4rem;
+  height: 100vh;
+}
+body .container {
+  margin: auto;
+  min-width: 90%;
+  height: 100vh;
+  background-color: #222f45;
+}/*# sourceMappingURL=base.css.map */
