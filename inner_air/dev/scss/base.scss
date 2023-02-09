@@ -1,0 +1,19 @@
+@import "hide_me";
+@import "header_nav";
+@import "form";
+
+body {
+  @include flex-spread;
+  background-color: $dark-black;
+  color: $light-white;
+  font-size: 14px;
+  padding-top: $header-heigh;
+  height: 100vh;
+
+  .container {
+    margin: auto;
+    min-width: 90%;
+    height: 100vh;
+    background-color: $dark-steel;
+  }
+}
