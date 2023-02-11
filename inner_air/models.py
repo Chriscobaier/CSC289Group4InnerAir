@@ -40,8 +40,8 @@ class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
-    exercise_instructions = db.Column(db.String(256), nullable=False)
-    exercise_description = db.Column(db.String(256), nullable=False)
+    exercise_instructions = db.Column(db.String(4048), nullable=False)
+    exercise_description = db.Column(db.String(1024), nullable=False)
     exercise_length = db.Column(db.Float, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
