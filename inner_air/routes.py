@@ -35,7 +35,8 @@ def DeleteAndCreateDB():
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
-                                        password_hash=i["password_hash"]))
+                                        password_hash=i["password_hash"],
+                                        consecutive_days = i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
@@ -48,9 +49,9 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.01'))
+            db.session.add(DBVersion(version='0.02'))
             db.session.commit()
-        elif str(thisVersion.version) < '0.01':
+        elif str(thisVersion.version) < '0.02':
             db.drop_all()
             db.create_all()
             with open('importdata/data.json') as f:
@@ -66,7 +67,8 @@ def DeleteAndCreateDB():
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
-                                        password_hash=i["password_hash"]))
+                                        password_hash=i["password_hash"],
+                                        consecutive_days = i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
@@ -79,7 +81,7 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.01'))
+            db.session.add(DBVersion(version='0.02'))
             db.session.commit()
 
 
@@ -156,6 +158,7 @@ def login():
 
         if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
+            user.updateLastLogin()
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('profile'))
         else:
