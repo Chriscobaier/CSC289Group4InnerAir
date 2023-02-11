@@ -1,14 +1,13 @@
-import json
-
 import flask_login
-
+import json
 from inner_air import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required
 
 from inner_air.forms import RegistrationForm, LoginForm
 from inner_air.models import Exercise, User, Routine, Favorites, Statistics, Category, UserRating, DBVersion
-from datetime import datetime, timedelta
+from datetime import datetime,timedelta
+
 
 
 def DeleteAndCreateDB():
