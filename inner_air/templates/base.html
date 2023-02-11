@@ -32,7 +32,7 @@
             {% if current_user.is_authenticated %}
             <ul>
                 <li><a class="button--dynamic" href="{{ url_for('exercises') }}">EXERCISES</a></li>
-                <li><a class="button--dynamic" href="{{ url_for('dashboard') }}">PROFILE</a></li>
+                <li><a class="button--dynamic" href="{{ url_for('profile') }}">PROFILE</a></li>
                 <li><a class="button--dynamic" href="{{ url_for('logout') }}">SIGN OUT</a></li>
             </ul>
             {% else %}
@@ -42,6 +42,14 @@
             </ul>
             {% endif %}
         </nav>
+    </header>
+
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
 
     <!-- Flash messages to display upon submission for Registration and Login forms-->
     <div id="hide-me">
