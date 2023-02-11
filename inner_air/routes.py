@@ -6,8 +6,7 @@ from flask_login import login_user, logout_user, login_required
 
 from inner_air.forms import RegistrationForm, LoginForm
 from inner_air.models import Exercise, User, Routine, Favorites, Statistics, Category, UserRating, DBVersion
-from datetime import datetime,timedelta
-
+from datetime import datetime, timedelta
 
 
 def DeleteAndCreateDB():
@@ -34,7 +33,7 @@ def DeleteAndCreateDB():
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days = i['consecutive_days']))
+                                        consecutive_days=i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
@@ -66,7 +65,7 @@ def DeleteAndCreateDB():
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days = i['consecutive_days']))
+                                        consecutive_days=i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
