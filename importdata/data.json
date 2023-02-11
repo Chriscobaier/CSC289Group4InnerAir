@@ -88,5 +88,31 @@
 			"cumulative_rating":"none",
 			"category_id":1
 		}
+	],
+		"users": [
+		{
+			"firstname": "TestUserOne",
+			"email": "TestUserOne@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 420
+		},
+		{
+			"firstname": "TestUserTwo",
+			"email": "TestUserTwo@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 69
+		},
+		{
+			"firstname": "TestUserThree",
+			"email": "TestUserThree@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 6
+		},
+		{
+			"firstname": "TestUserFour",
+			"email": "TestUserFour@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 9
+		}
 	]
 }
