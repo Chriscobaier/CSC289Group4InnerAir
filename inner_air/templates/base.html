@@ -32,7 +32,8 @@
             {% if current_user.is_authenticated %}
             <ul>
                 <li><a class="button--dynamic" href="{{ url_for('exercises') }}">EXERCISES</a></li>
-                <li><a class="button--dynamic" href="{{ url_for('dashboard') }}">DASHBOARD</a></li>
+                <li><a class="button--dynamic" href="{{ url_for('userlist') }}">User List</a></li>
+                <li><a class="button--dynamic" href="{{ url_for('profile') }}">PROFILE</a></li>
                 <li><a class="button--dynamic" href="{{ url_for('logout') }}">SIGN OUT</a></li>
             </ul>
             {% else %}
