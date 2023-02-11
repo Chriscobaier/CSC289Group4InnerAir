@@ -6,7 +6,7 @@
 			"exersice_description":"This is a useful breathing technique that is used to help calm your body. Try to use during stressful situations.",
 			"exercise_length":6,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Square Breathing v2",
@@ -14,7 +14,7 @@
 			"exersice_description":"A modified version of the Square Breathing method. The longer exhale activates the parasympathetic nervous system which slows your heart. Try this before bed to help you relax.",
 			"exercise_length":6,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Nadi Shodhana",
@@ -22,7 +22,7 @@
 			"exersice_description":"'An exercise used to lower hart rate, blood pressure, and sympathetic stress'",
 			"exercise_length":10,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Resonant (Coherent) Breathing",
@@ -30,7 +30,7 @@
 			"exersice_description":"A calming practice that places the heart, lungs, and circulation into a state of coherence, where the systems of the body are working at peak efficiency.",
 			"exercise_length":10,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Buteyko Breathing",
@@ -38,7 +38,7 @@
 			"exersice_description":"The point of Buteyko techniques is to train the body to breathe in line with its metabolic needs. For the vast majority of us, that means breathing less.",
 			"exercise_length":30,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Breathing Coordination",
@@ -46,7 +46,7 @@
 			"exersice_description":"This technique helps to engage more movement from the diaphragm and increase respiratory efficiency. It should never be forced; each breath should feel soft and enriching.",
 			"exercise_length":5,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Decongest The Nose",
@@ -54,7 +54,7 @@
 			"exersice_description":"This exercise is used to help clear the nasal passages.",
 			"exercise_length":6,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"4-7-8 Breathing",
@@ -62,7 +62,7 @@
 			"exersice_description":"This technique places the body into a state of deep relaxation. I use it on long flights to help fall asleep.",
 			"exercise_length":4,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Tummo",
@@ -70,7 +70,7 @@
 			"exercise_description":"There are two forms of Tummo—one that stimulates the sympathetic nervous system, and another which triggers a parasympathetic response. Both work, but the former, made popular by Wim Hof, is much more accessible. It’s worth mentioning again that this technique should never be practiced near water, or while driving or walking, or in any other circumstances where you might get hurt should you pass out. Consult your doctor if you are pregnant or have a heart condition.",
 			"exercise_length":3,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Yogic Breathing Phase 1",
@@ -78,7 +78,7 @@
 			"exersice_description":"A standard technique for any aspiring yoga student.",
 			"exercise_length":5,
 			"cumulative_rating":"none",
-			"category_id":1,
+			"category_id":1
 		},
 		{
 			"name":"Yogic breathing Phase 2",
@@ -86,7 +86,7 @@
 			"exersice_description":"More advanced steps to extend the benefits Yogic Breathing Phase 1.",
 			"exercise_length":5,
 			"cumulative_rating":"none",
-			"category_id":1,
-		},
+			"category_id":1
+		}
 	]
 }

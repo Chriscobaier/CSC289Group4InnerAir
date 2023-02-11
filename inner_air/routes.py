@@ -1,9 +1,8 @@
 import flask_login
-import json
 from inner_air import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required
-
+import json
 from inner_air.forms import RegistrationForm, LoginForm
 from inner_air.models import Exercise, User, Routine, Favorites, Statistics, Category, UserRating, DBVersion
 from datetime import datetime, timedelta
@@ -21,14 +20,14 @@ def DeleteAndCreateDB():
             db.create_all()
             with open('importdata/data.json') as f:
                 data = json.load(f)
-                j = data['exercises']
+                j = data["exercises"]
                 for i in j:
                     db.session.add(Exercise(exercise_name=i["name"],
                                             exercise_instructions=i["exercise_instructions"],
                                             exercise_description=i["exercise_description"],
                                             exercise_length=i["exercise_length"], category_id=i["category_id"]))
                     db.session.commit()
-                j = data['users']
+                j = data["users"]
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
@@ -53,14 +52,14 @@ def DeleteAndCreateDB():
             db.create_all()
             with open('importdata/data.json') as f:
                 data = json.load(f)
-                j = data['exercises']
+                j = data["exercises"]
                 for i in j:
                     db.session.add(Exercise(exercise_name=i["name"],
                                             exercise_instructions=i["exercise_instructions"],
                                             exercise_description=i["exercise_description"],
                                             exercise_length=i["exercise_length"], category_id=i["category_id"]))
                     db.session.commit()
-                j = data['users']
+                j = data["users"]
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
