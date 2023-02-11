@@ -11,7 +11,6 @@ from inner_air.models import Exercise, User, Routine, Favorites, Statistics, Cat
 from datetime import datetime, timedelta
 
 
-# COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 def DeleteAndCreateDB():
     with app.app_context():
         try:

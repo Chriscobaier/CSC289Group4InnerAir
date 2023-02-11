@@ -1,8 +1,6 @@
-import datetime
-
 from flask_login import UserMixin
 from inner_air import bcrypt, login_manager
-
+from datetime import datetime,timedelta
 from inner_air import db
 
 
@@ -39,7 +37,6 @@ class User(db.Model, UserMixin):
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-    @last_login.setter
     def updateLastLogin(self):
         todayDate = datetime.datetime.today()
         if self.last_login > (todayDate - datetime.timedelta(hours=24)):
