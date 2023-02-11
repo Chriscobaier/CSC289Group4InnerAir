@@ -157,7 +157,7 @@ def login():
         if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('profile'))
         else:
             flash('You have entered an invalid email address or password.', category='danger')
     return render_template('login.html', form=form)
@@ -179,21 +179,21 @@ def register():
             db.session.commit()
             login_user(user)
             flash(f'Account created successfully for {form.firstname.data}', category='success')
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('profile'))
 
         else:
             flash("This email already exists.  Try logging in, or register with a different email", category='danger')
     return render_template("register.html", form=form)
 
 
-@app.route('/dashboard', methods=['GET', 'POST'])
+@app.route('/userlist', methods=['GET', 'POST'])
 @login_required
-def dashboard():
+def userlist():
     """
         I tried to create a table so that something can be displayed, nothing fancy.
     """
     users = User.query.all()
-    return render_template('dashboard.html', users=users)
+    return render_template('userlist.html', users=users)
 
 
 @app.route('/exercises', methods=['GET', 'POST'])
