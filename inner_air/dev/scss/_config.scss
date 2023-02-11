@@ -1,0 +1,48 @@
+// accents
+$accent-warm: #ef5562;
+$accent-cold: #0094ec;
+$accent-warm-light: #ffa66d;
+$accent-cold-light: #4acdff;
+// text colors
+$dark-black: #050f1b;
+$light-white: #e6e8ff;
+// light misc
+$pastel-pink: #f8afb4;
+$pastel-blue: #a4c3ef;
+$pastel-yellow: #fdf8c1;
+// dark misc
+$dark-steel: #222f45;
+$tinted-azure: #3254a5;
+$tinted-teal: #2180b3;
+
+$font-weights: (
+    "thin": 200,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
+);
+
+$header-heigh: 4rem;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Makes content go |O  O  O|*/
+@mixin flex-spread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@mixin grid-element($row-span) {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    grid-row: $row-span;
+}

@@ -1,0 +1,26 @@
+@import "config";
+
+header {
+    @include flex-spread;
+    position: fixed;
+    top: 0;
+    height: $header-heigh;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background: $dark-black;
+
+    img {
+        max-width: 100px;
+    }
+
+    nav > ul {
+        @include flex-spread;
+
+        li {
+            display: flex;
+            list-style-type: none;
+            min-width: 5rem;
+            justify-content: center;
+        }
+    }
+}
