@@ -1,8 +1,6 @@
-import datetime
-
 from flask_login import UserMixin
 from inner_air import bcrypt, login_manager
-
+from datetime import datetime, timedelta
 from inner_air import db
 
 
@@ -39,22 +37,23 @@ class User(db.Model, UserMixin):
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
-    @last_login.setter
     def updateLastLogin(self):
-        todayDate = datetime.datetime.today()
-        if self.last_login > (todayDate - datetime.timedelta(hours=24)):
+        todayDate = datetime.today()
+        if self.last_login is None:
+            self.consecutive_days = 0
+        elif self.last_login > (todayDate - timedelta(hours=24)):
             self.consecutive_days += 1
         else:
             self.consecutive_days = 0
-        self.last_login = datetime.datetime.today()
+        self.last_login = datetime.today()
 
 
 class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
-    exercise_instructions = db.Column(db.String(4048), nullable=False)
-    exercise_description = db.Column(db.String(1024), nullable=False)
+    exercise_instructions = db.Column(db.String(2048), nullable=False)
+    exercise_description = db.Column(db.String(2048), nullable=False)
     exercise_length = db.Column(db.Float, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)

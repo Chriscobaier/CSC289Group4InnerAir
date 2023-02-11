@@ -1,17 +1,13 @@
-import json
-
 import flask_login
-
 from inner_air import app, db
 from flask import render_template, redirect, url_for, flash, request
 from flask_login import login_user, logout_user, login_required
-
+import json
 from inner_air.forms import RegistrationForm, LoginForm
 from inner_air.models import Exercise, User, Routine, Favorites, Statistics, Category, UserRating, DBVersion
 from datetime import datetime, timedelta
 
 
-# COMMENT THIS OUT IF YOU DON'T WANT TO DELETE YOUR DATABASE
 def DeleteAndCreateDB():
     with app.app_context():
         try:
@@ -24,19 +20,19 @@ def DeleteAndCreateDB():
             db.create_all()
             with open('importdata/data.json') as f:
                 data = json.load(f)
-                j = data['exercises']
+                j = data["exercises"]
                 for i in j:
                     db.session.add(Exercise(exercise_name=i["name"],
                                             exercise_instructions=i["exercise_instructions"],
                                             exercise_description=i["exercise_description"],
                                             exercise_length=i["exercise_length"], category_id=i["category_id"]))
                     db.session.commit()
-                j = data['users']
+                j = data["users"]
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days = i['consecutive_days']))
+                                        consecutive_days=i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
@@ -56,19 +52,19 @@ def DeleteAndCreateDB():
             db.create_all()
             with open('importdata/data.json') as f:
                 data = json.load(f)
-                j = data['exercises']
+                j = data["exercises"]
                 for i in j:
                     db.session.add(Exercise(exercise_name=i["name"],
                                             exercise_instructions=i["exercise_instructions"],
                                             exercise_description=i["exercise_description"],
                                             exercise_length=i["exercise_length"], category_id=i["category_id"]))
                     db.session.commit()
-                j = data['users']
+                j = data["users"]
                 for i in j:
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days = i['consecutive_days']))
+                                        consecutive_days=i['consecutive_days']))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))

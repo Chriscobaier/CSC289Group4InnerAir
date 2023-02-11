@@ -1,0 +1,19 @@
+#hide-me {
+    animation: cssAnimation 0s ease-in 5s forwards;
+    animation-fill-mode: forwards;
+    left: 40%;
+    right: 40%;
+    position: absolute;
+}
+@keyframes cssAnimation {
+    from {
+        visibility: hidden;
+        display: none;
+    }
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        display: none;
+    }
+}

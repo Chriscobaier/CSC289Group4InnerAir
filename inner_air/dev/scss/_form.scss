@@ -1,0 +1,55 @@
+@import "config";
+
+form {
+  padding: 1rem;
+  margin: 5rem auto;
+  max-width: 18rem;
+
+  fieldset {
+    border: none;
+
+    legend {
+      text-align: center;
+      margin: auto;
+      text-underline-position: under;
+      font-size: 20px;
+    }
+
+    .form-container {
+      @include flex-spread;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .form-section {
+        margin: 1rem 0;
+        width: 100%;
+
+        label {
+          font-weight: 300;
+          margin-right: auto;
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.5rem;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  a {
+    display: block;
+    text-align: center;
+    margin: auto;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: $light-white;
+
+    &:hover {
+      color: $accent-warm-light;
+    }
+  }
+}

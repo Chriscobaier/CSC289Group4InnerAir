@@ -1,6 +1,5 @@
-/.idea/
-/instance/test.db
-/instance/inner-air-dev.db
+/inner_air/inner-air-dev.db
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -131,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/.idea/CSC289Group4InnerAir.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
