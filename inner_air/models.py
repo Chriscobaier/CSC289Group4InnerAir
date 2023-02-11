@@ -35,6 +35,14 @@ class User(db.Model, UserMixin):
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
+    def updateLastLogin(self):
+        todayDate = datetime.datetime.today()
+        if self.last_login > (todayDate - datetime.timedelta(hours=24)):
+            self.consecutive_days += 1
+        else:
+            self.consecutive_days = 0
+        self.last_login = datetime.datetime.today()
+
 
 class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
