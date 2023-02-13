@@ -38,14 +38,14 @@ class User(db.Model, UserMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def updateLastLogin(self):
-        todayDate = datetime.today()
+        todayDate = datetime.today().astimezone()
         if self.last_login is None:
             self.consecutive_days = 0
         elif self.last_login > (todayDate - timedelta(hours=24)):
             self.consecutive_days += 1
         else:
             self.consecutive_days = 0
-        self.last_login = datetime.today()
+        self.last_login = todayDate
 
 
 class Exercise(db.Model):

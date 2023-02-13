@@ -155,6 +155,7 @@ def login():
         if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
             user.updateLastLogin()
+            db.session.commit()
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('profile'))
         else:
