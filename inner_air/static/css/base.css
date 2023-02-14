@@ -141,7 +141,7 @@ table tr:nth-child(even) {
   background-color: #050f1b;
 }
 table tr:nth-child(odd) {
-  background-color: rgba(5, 15, 27, 0.6);
+  background-color: #111c2c;
 }
 
 .alert, .alert--success, .alert--danger {
@@ -200,4 +200,4 @@ body .container {
   min-height: 100vh;
   height: -moz-fit-content;
   height: fit-content;
-}/*# sourceMappingURL=base.css.map */
+}

@@ -26,7 +26,7 @@ table {
         }
 
         &:nth-child(odd) {
-            background-color: rgba($dark-black, 60%);
+            background-color: mix($dark-black, $dark-steel, $weight: 60%);
         }
     }
 }
