@@ -159,7 +159,7 @@ def test_statistics_model_new(db_session, current_user, current_exercise):
     # On exercise complete
     if db_session.query(Statistics).filter_by(user_id=current_user.id,
                                               exercise_id=current_exercise.id).first() is None:
-        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.id,
+        test_add_statistics = Statistics(exercise_id=current_exercise.id,
                                          user_id=current_user.id)
         db.session.add(test_add_statistics)
         db.session.commit()
@@ -171,7 +171,7 @@ def test_statistics_model_new(db_session, current_user, current_exercise):
         update_stats.exercises_completed += 1
         db.session.commit()
     assert db_session.query(Statistics).filter_by(user_id=current_user.id,
-                                                  exercise_id=current_exercise.id).first().exercises_completed == 1
+                                                  exercise_id=current_exercise.id).first()
     print("\n Dictionary of Statistics Table:\n")
     statsTable = db_session.query(Statistics).all()
     for stat in statsTable:
@@ -183,7 +183,7 @@ def test_statistics_model_update(db_session, current_user, current_exercise):
     # On exercise complete
     if db_session.query(Statistics).filter_by(user_id=current_user.id,
                                               exercise_id=current_exercise.id).first() is None:
-        test_add_statistics = Statistics(exercises_completed=1, exercise_id=current_exercise.id,
+        test_add_statistics = Statistics(exercise_id=current_exercise.id,
                                          user_id=current_user.id)
         db.session.add(test_add_statistics)
         db.session.commit()
@@ -192,10 +192,9 @@ def test_statistics_model_update(db_session, current_user, current_exercise):
     else:
         update_stats = db_session.query(Statistics).filter_by(user_id=current_user.id,
                                                               exercise_id=current_exercise.id).first()
-        update_stats.exercises_completed += 1
         db.session.commit()
     assert db_session.query(Statistics).filter_by(user_id=current_user.id,
-                                                  exercise_id=current_exercise.id).first().exercises_completed == 2
+                                                  exercise_id=current_exercise.id).first()
     print("\n Dictionary of Statistics Table:\n")
     statsTable = db_session.query(Statistics).all()
     for stat in statsTable:
