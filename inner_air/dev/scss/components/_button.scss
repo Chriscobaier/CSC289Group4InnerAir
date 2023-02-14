@@ -8,6 +8,7 @@
     box-shadow: 0 0.3rem 10px rgba($accent-warm, 0.5);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
 
     &:hover {
         background-color: $accent-warm-light;
