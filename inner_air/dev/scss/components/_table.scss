@@ -1,0 +1,32 @@
+table {
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 1rem auto;
+    min-width: 90%;
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: left;
+        width: auto;
+        height: auto;
+        word-wrap: break-word;
+    }
+
+    th {
+        background-color: $dark-black;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    tr {
+        &:nth-child(even) {
+            background-color: $dark-black;
+        }
+
+        &:nth-child(odd) {
+            background-color: rgba($dark-black, 60%);
+        }
+    }
+}

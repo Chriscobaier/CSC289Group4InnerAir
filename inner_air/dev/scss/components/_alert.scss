@@ -1,0 +1,23 @@
+.alert {
+    background-color: $pastel-blue;
+    color: $dark-black;
+    box-shadow: 0 0 10px rgba($pastel-blue, 0.5);
+    padding: 1rem;
+    border-radius: 10px;
+    top: 40%;
+    left: 40%;
+    right: 40%;
+    position: absolute;
+
+    &--danger {
+        @extend .alert;
+        background-color: $pastel-pink;
+        box-shadow: 0 0 10px rgba($accent-warm, 0.5);
+    }
+
+    &--success {
+        @extend .alert;
+        background-color: $pastel-green;
+        box-shadow: 0 0 10px rgba($accent-mint, 0.5);
+    }
+}
