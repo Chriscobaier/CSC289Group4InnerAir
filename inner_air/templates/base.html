@@ -45,7 +45,7 @@
     </div>
 
     <!-- Flash messages to display upon submission for Registration and Login forms-->
-    <div id="hide-me">
+    <div id="hide-me" class="pop-in">
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
         {% for category, message in messages %}

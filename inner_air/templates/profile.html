@@ -26,16 +26,16 @@ Dashboard
             <td>
                 {% if exercise.id not in showFavAdd %}
                 <form method="post">
-                    <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
-                    <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
-                    <button type="submit" name="favoriteButton">Add to Favorites</button>
+                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                    <button type="submit" name="favoriteButton" class="button--green">Favorite</button>
                 </form>
                 {% endif %}
                 {% if exercise.id in showFavAdd %}
                 <form method="post">
-                    <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
-                    <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
-                    <button type="submit" name="favoriteButtonRemove">Remove from Favorites</button>
+                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                    <button type="submit" name="favoriteButtonRemove" class="button">Unfavorite</button>
                 </form>
                 {% endif %}
             </td>

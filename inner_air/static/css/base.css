@@ -1,5 +1,5 @@
 /* Makes content go |O  O  O|*/
-#hide-me {
+.pop-in {
   animation: pop-in 0s ease-in 5s forwards;
   animation-fill-mode: forwards;
 }
@@ -16,6 +16,12 @@
     display: none;
   }
 }
+.invs {
+  visibility: hidden;
+  visibility: collapse;
+  display: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -48,67 +54,69 @@ header + * {
   margin-top: 4rem;
 }
 
-form {
+.form-register {
   padding: 1rem;
   margin: 5rem auto;
   max-width: 18rem;
 }
-form fieldset {
+.form-register fieldset {
   border: none;
 }
-form fieldset legend {
+.form-register fieldset legend {
   text-align: center;
-  margin: auto;
+  margin: 1rem auto 2rem auto;
   text-underline-position: under;
-  font-size: 20px;
+  font-size: 25px;
 }
-form fieldset .form-container {
+.form-register fieldset .form-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 1rem;
 }
-form fieldset .form-container .form-section {
-  margin: 1rem 0;
+.form-register fieldset .form-container .form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
 }
-form fieldset .form-container .form-section label {
+.form-register fieldset .form-container .form-section label {
   font-weight: 300;
   margin-right: auto;
   display: block;
   margin-bottom: 0.5rem;
 }
-form fieldset .form-container .form-section input {
+.form-register fieldset .form-container .form-section input {
   width: 100%;
   padding: 0.5rem;
+  border: none;
   border-radius: 10px;
 }
-form a {
+.form-register > * {
   display: block;
-  text-align: center;
-  margin: auto;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #e6e8ff;
-}
-form a:hover {
-  color: #ffa66d;
+  margin: 1.5rem auto;
 }
 
-.button, .button--dynamic {
+.button, .button--green, .button--dynamic {
   background-color: #ef5562;
+  color: white;
+  font-size: 12px;
   padding: 0.5rem 0.7rem;
   margin: 0 0.5rem;
   border-radius: 10px;
-  color: white;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  border: none;
 }
-.button:hover, .button--dynamic:hover {
+.button:hover, .button--green:hover, .button--dynamic:hover {
   background-color: #ffa66d;
   color: #222f45;
 }
@@ -116,20 +124,27 @@ form a:hover {
   margin: 0 0.8rem;
   transform: scale(1.1);
 }
+.button--green {
+  background-color: #00cfa5;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.3);
+}
+.button--green:hover {
+  background-color: #85f58c;
+  color: #222f45;
+}
 
 table {
   border-collapse: collapse;
   border-radius: 10px;
-  overflow: hidden;
   margin: 1rem auto;
   min-width: 90%;
 }
 table th,
 table td {
   padding: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
   text-align: left;
-  width: auto;
-  height: auto;
   word-wrap: break-word;
 }
 table th {
@@ -141,7 +156,7 @@ table tr:nth-child(even) {
   background-color: #050f1b;
 }
 table tr:nth-child(odd) {
-  background-color: rgba(5, 15, 27, 0.6);
+  background-color: #111c2c;
 }
 
 .alert, .alert--success, .alert--danger {
@@ -150,10 +165,11 @@ table tr:nth-child(odd) {
   box-shadow: 0 0 10px rgba(164, 195, 239, 0.5);
   padding: 1rem;
   border-radius: 10px;
-  top: 40%;
-  left: 40%;
-  right: 40%;
-  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
 }
 .alert--danger {
   background-color: #f8afb4;
@@ -172,7 +188,25 @@ table tr:nth-child(odd) {
   margin: auto;
 }
 
-* {
+.link, .link--light {
+  text-align: center;
+  color: #0094ec;
+  text-decoration: none;
+}
+.link:hover, .link--light:hover {
+  color: #4acdff;
+}
+.link--light {
+  text-decoration: none;
+  color: #e6e8ff;
+}
+.link--light:hover {
+  color: #ffa66d;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -200,4 +234,4 @@ body .container {
   min-height: 100vh;
   height: -moz-fit-content;
   height: fit-content;
-}/*# sourceMappingURL=base.css.map */
+}
