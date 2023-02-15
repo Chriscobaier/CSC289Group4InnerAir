@@ -58,9 +58,9 @@ form fieldset {
 }
 form fieldset legend {
   text-align: center;
-  margin: auto;
+  margin: 1rem auto 2rem auto;
   text-underline-position: under;
-  font-size: 20px;
+  font-size: 25px;
 }
 form fieldset .form-container {
   display: flex;
@@ -69,9 +69,15 @@ form fieldset .form-container {
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 1rem;
 }
 form fieldset .form-container .form-section {
-  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
 }
 form fieldset .form-container .form-section label {
@@ -83,30 +89,25 @@ form fieldset .form-container .form-section label {
 form fieldset .form-container .form-section input {
   width: 100%;
   padding: 0.5rem;
+  border: none;
   border-radius: 10px;
 }
-form a {
+form > * {
   display: block;
-  text-align: center;
-  margin: auto;
-  padding: 0.5rem;
-  text-decoration: none;
-  color: #e6e8ff;
-}
-form a:hover {
-  color: #ffa66d;
+  margin: 1.5rem auto;
 }
 
 .button, .button--dynamic {
   background-color: #ef5562;
+  color: white;
   padding: 0.5rem 0.7rem;
   margin: 0 0.5rem;
   border-radius: 10px;
-  color: white;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  border: none;
 }
 .button:hover, .button--dynamic:hover {
   background-color: #ffa66d;
@@ -172,7 +173,25 @@ table tr:nth-child(odd) {
   margin: auto;
 }
 
-* {
+.link, .link--light {
+  text-align: center;
+  color: #0094ec;
+  text-decoration: none;
+}
+.link:hover, .link--light:hover {
+  color: #4acdff;
+}
+.link--light {
+  text-decoration: none;
+  color: #e6e8ff;
+}
+.link--light:hover {
+  color: #ffa66d;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
