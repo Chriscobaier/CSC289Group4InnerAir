@@ -1,5 +1,5 @@
 /* Makes content go |O  O  O|*/
-#hide-me {
+.pop-in {
   animation: pop-in 0s ease-in 5s forwards;
   animation-fill-mode: forwards;
 }
@@ -16,6 +16,12 @@
     display: none;
   }
 }
+.invs {
+  visibility: hidden;
+  visibility: collapse;
+  display: none;
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -48,21 +54,21 @@ header + * {
   margin-top: 4rem;
 }
 
-form {
+.form-register {
   padding: 1rem;
   margin: 5rem auto;
   max-width: 18rem;
 }
-form fieldset {
+.form-register fieldset {
   border: none;
 }
-form fieldset legend {
+.form-register fieldset legend {
   text-align: center;
   margin: 1rem auto 2rem auto;
   text-underline-position: under;
   font-size: 25px;
 }
-form fieldset .form-container {
+.form-register fieldset .form-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -71,7 +77,7 @@ form fieldset .form-container {
   justify-content: space-evenly;
   gap: 1rem;
 }
-form fieldset .form-container .form-section {
+.form-register fieldset .form-container .form-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,26 +86,27 @@ form fieldset .form-container .form-section {
   gap: 0.5rem;
   width: 100%;
 }
-form fieldset .form-container .form-section label {
+.form-register fieldset .form-container .form-section label {
   font-weight: 300;
   margin-right: auto;
   display: block;
   margin-bottom: 0.5rem;
 }
-form fieldset .form-container .form-section input {
+.form-register fieldset .form-container .form-section input {
   width: 100%;
   padding: 0.5rem;
   border: none;
   border-radius: 10px;
 }
-form > * {
+.form-register > * {
   display: block;
   margin: 1.5rem auto;
 }
 
-.button, .button--dynamic {
+.button, .button--green, .button--dynamic {
   background-color: #ef5562;
   color: white;
+  font-size: 12px;
   padding: 0.5rem 0.7rem;
   margin: 0 0.5rem;
   border-radius: 10px;
@@ -109,7 +116,7 @@ form > * {
   text-transform: uppercase;
   border: none;
 }
-.button:hover, .button--dynamic:hover {
+.button:hover, .button--green:hover, .button--dynamic:hover {
   background-color: #ffa66d;
   color: #222f45;
 }
@@ -117,20 +124,27 @@ form > * {
   margin: 0 0.8rem;
   transform: scale(1.1);
 }
+.button--green {
+  background-color: #00cfa5;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.3);
+}
+.button--green:hover {
+  background-color: #85f58c;
+  color: #222f45;
+}
 
 table {
   border-collapse: collapse;
   border-radius: 10px;
-  overflow: hidden;
   margin: 1rem auto;
   min-width: 90%;
 }
 table th,
 table td {
   padding: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
   text-align: left;
-  width: auto;
-  height: auto;
   word-wrap: break-word;
 }
 table th {
@@ -205,9 +219,6 @@ body {
   flex-wrap: wrap;
   background-color: #f8afb4;
   background-image: linear-gradient(#2180b3, #a4c3ef 60%, #f8afb4, #fdf8c1);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   color: #e6e8ff;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
