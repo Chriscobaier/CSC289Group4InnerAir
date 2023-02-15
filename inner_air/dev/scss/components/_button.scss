@@ -2,6 +2,7 @@
 .button {
     background-color: $accent-warm;
     color: white;
+    font-size: 12px;
     padding: 0.5rem 0.7rem;
     margin: 0 0.5rem;
     border-radius: 10px;
@@ -21,6 +22,17 @@
         &:hover {
             margin: 0 0.8rem;
             transform: scale(1.1);
+        }
+    }
+
+    &--green {
+        @extend .button;
+        background-color: $accent-mint;
+        box-shadow: 0 0.3rem 10px rgba($accent-mint, 0.3);
+
+        &:hover {
+            background-color: $accent-mint-light;
+            color: $dark-steel;
         }
     }
 }
