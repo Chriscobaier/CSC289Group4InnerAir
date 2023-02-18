@@ -113,17 +113,18 @@ def forgot():
     form = ForgotForm()
     if form.validate_on_submit():
         user = db.session.query(User).filter_by(email=form.email.data).first()
-        if user is None:
-            flash('This email is not registered')
-        token = generate_confirmation_token(user.email)
-        user.password_reset_token = token
-        db.session.commit()
+        if user is not None:
+            token = generate_confirmation_token(user.email)
+            user.password_reset_token = token
+            db.session.commit()
 
-        reset_url = url_for('user.reset_password', token=token, _external=True)
-        html = render_template('user/reset_request.html', email=user.email, reset_url=reset_url)
-        subject = 'Reset your password'
-        send_email(user.email, subject, html)
-        flash('A password reset email has been sent via email.', category='success')
+            reset_url = url_for('user.reset_password', token=token, _external=True)
+            html = render_template('user/reset_request.html', email=user.email, reset_url=reset_url)
+            subject = 'Reset your password'
+            send_email(user.email, subject, html)
+            flash('A password reset email has been sent via email.', category='success')
+        else:
+            flash('This email is not registered', category='danger')
     return render_template('user/forgot.html', form=form)
 
 
