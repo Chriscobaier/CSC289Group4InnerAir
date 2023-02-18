@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 
-    <div class="container-fluid overlay position-fixed min-vh-100 py-5 mt-5">
+    <div class="container-fluid overlay min-vh-100 py-5 mt-5">
         <h1>Welcome, {{ current_user.firstname }} </h1>
 
         <h2 class="text-center">Users</h2>
@@ -17,6 +17,10 @@
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col">Created Time</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Confirmed on</th>
+                    <th scope="col">Consecutive Days</th>
+                    <th scope="col">Last login</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +30,11 @@
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.password }} </td>
-                    <td>{{ user.created_time }} </td>
+                    <td>{{ user.created_time }}</td>
+                    <td>{{ user.confirmed }}</td>
+                    <td>{{ user.confirmed_on }}</td>
+                    <td>{{ user.consecutive_days }}</td>
+                    <td>{{ user.last_login }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

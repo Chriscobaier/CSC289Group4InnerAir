@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} Sign-In Page {% endblock %}
+{% block content %}
+
+<div>
+    <form method="POST" action="" class="form-register">
+        {{ form.hidden_tag() }}
+
+        <fieldset>
+            <legend>Login!</legend>
+
+            <!-- Email input -->
+            <div class="form-container">
+                <div class="form-section">
+                    {{ form.email.label(class='form-label') }}
+                    {% if form.email.errors %}
+                    {{ form.email(class="form-controlis-invalid") }}
+                    {% for error in form.email.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.email }}
+                    {% endif %}
+                </div>
+
+                <!-- Password input -->
+                <div class="form-section">
+                    {{ form.password.label() }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-controlis-invalid") }}
+                    {% for error in form.password.errors %}
+                    <span>{{ error }}</span>
+                    {% endfor %}
+                    {% else %}
+                    {{ form.password }}
+                    {% endif %}
+                </div>
+            </div>
+        </fieldset>
+         <a href="{{ url_for('user.forgot') }}">Forgot password?</a>
+        {{ form.submit(class="button") }}
+        <a href="{{ url_for('user.register') }}">Don't have an account? Sign up</a>
+    </form>
+</div>
+{% endblock %}

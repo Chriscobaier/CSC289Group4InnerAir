@@ -1,0 +1,110 @@
+{
+	"exercises": [
+		{
+			"name":"Square Breathing",
+			"exercise_instructions":"Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4.  Exhale this breath with a count of 4, and hold your empty lungs for a count of 4. Repeat.",
+			"exercise_description":"This is a useful breathing technique that is used to help calm your body. Try to use during stressful situations.",
+			"exercise_length":6,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Square Breathing v2",
+			"exercise_instructions":"Begin by exhaling and emptying all of the air from your lungs.  Then, inhale to a count of 4.  Hold this breath for a count of 4. Exhale this breath with a count of 6, and hold your empty lungs for a count of 2. Repeat.",
+			"exercise_description":"A modified version of the Square Breathing method. The longer exhale activates the parasympathetic nervous system which slows your heart. Try this before bed to help you relax.",
+			"exercise_length":6,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Nadi Shodhana",
+			"exercise_instructions":"Use your fingers to help if unable to control your nostrils. Your goal is to have two fingers, one hovering over your right nostril, and the other over the left. Begin by closing the right nostril and inhale through the left nostrils lowly. When you reach a full breath close both nostrils and hold your breath. Then lift the finger holding the right nostril and breath out of the right nostril. Now alternate, breathing in through the right, and out the the left. Repeat 5 to 10 times. Each cycle should take around 30 seconds",
+			"exercise_description":"'An exercise used to lower hart rate, blood pressure, and sympathetic stress'",
+			"exercise_length":10,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Resonant (Coherent) Breathing",
+			"exercise_instructions":"Sit up straight, relax the shoulders and belly, and exhale. Then inhale softly for 5.5 seconds, expanding the belly as air fills the bottom of the lungs. Without pausing, exhale softly for 5.5 seconds, bringing the belly in as the lungs empty. Each breath should feel like a circle. Repeat at least ten times, more if possible.",
+			"exercise_description":"A calming practice that places the heart, lungs, and circulation into a state of coherence, where the systems of the body are working at peak efficiency.",
+			"exercise_length":10,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Buteyko Breathing",
+			"exercise_instructions":"Place a watch with a second hand or mobile phone with a stopwatch close by. Sit up with a straight back. Pinch both nostrils closed with the thumb and forefinger of either hand, then exhale softly out your mouth to the natural conclusion. Start the stopwatch and hold the breath. When you feel the first potent desire to breathe, note the time and take a soft inhale. It’s important that the first breath in after the Control Pause is controlled and relaxed; if it’s labored or gasping, the breathhold was too long. Wait several minutes and try it again.",
+			"exercise_description":"The point of Buteyko techniques is to train the body to breathe in line with its metabolic needs. For the vast majority of us, that means breathing less.",
+			"exercise_length":30,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Breathing Coordination",
+			"exercise_instructions":"Sit up so that the spine is straight and chin is perpendicular to the body. Take a gentle breath in through the nose. At the top of the breath begin counting softly aloud from one to 10 over and over (1, 2, 3, 4, 5, 6, 7, 8, 9, 10; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10). As you reach the natural conclusion of the exhale, keep counting but do so in a whisper, letting the voice softly trail out. Then keep going until only the lips are moving and the lungs feel completely empty. Take in another large and soft breath and repeat. Continue for anywhere from 10 to 30 or more cycles.",
+			"exercise_description":"This technique helps to engage more movement from the diaphragm and increase respiratory efficiency. It should never be forced; each breath should feel soft and enriching.",
+			"exercise_length":5,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Decongest The Nose",
+			"exercise_instructions":"Sit up straight and exhale a soft breath, then pinch both nostrils shut. Try to keep your mind off the breathholding; shake your head up and down or side to side; go for a quick walk, or jump and run. Once you feel a very potent sense of air hunger, take a very slow and controlled breath in through the nose. (If the nose is still congested, breathe softly through the mouth with pursed lips.) Continue this calm, controlled breathing for at least 30 seconds to 1 minute. Repeat all these steps six times.",
+			"exercise_description":"This exercise is used to help clear the nasal passages.",
+			"exercise_length":6,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"4-7-8 Breathing",
+			"exercise_instructions":"Take a breath in, then exhale through your mouth with a whoosh sound. Close the mouth and inhale quietly through your nose to a mental count of four. Hold for a count of seven. Exhale completely through your mouth, with a whoosh, to the count of eight. Repeat this cycle for at least four breaths.",
+			"exercise_description":"This technique places the body into a state of deep relaxation. I use it on long flights to help fall asleep.",
+			"exercise_length":4,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Yogic Breathing Phase 1",
+			"exercise_instructions":"Sit in a chair or cross-legged and upright on the floor and relax the shoulders. Place one hand over the navel and slowly breathe into the belly. You should feel the belly expand with each breath in, deflate with each breath out. Practice this a few times. Next, move the hand up a few inches so that it’s covering the bottom of the rib cage. Focus the breath into the location of the hand, expanding the ribs with each inhale, retracting them with each exhale. Practice this for about three to five breaths. Move the hand to just below the collarbone. Breathe deeply into this area and imagine the chest spreading out and withdrawing with each exhale. Do this for a few breaths.",
+			"exercise_description":"A standard technique for any aspiring yoga student.",
+			"exercise_length":5,
+			"cumulative_rating":"none",
+			"category_id":1
+		},
+		{
+			"name":"Yogic breathing Phase 2",
+			"exercise_instructions":"After Completion and mastery of 'Yogic breathing Phase 1' connect all these motions into one breath, inhaling into the stomach, lower rib cage, then chest. Exhale in the opposite direction, first emptying the chest, then the rib cage, then the stomach. Feel free to use a hand and feel each area as you breathe in and out of it. Continue this same sequence for about a dozen rounds.",
+			"exercise_description":"More advanced steps to extend the benefits Yogic Breathing Phase 1.",
+			"exercise_length":5,
+			"cumulative_rating":"none",
+			"category_id":1
+		}
+	],
+		"users": [
+		{
+			"firstname": "TestUserOne",
+			"email": "TestUserOne@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 420
+		},
+		{
+			"firstname": "TestUserTwo",
+			"email": "TestUserTwo@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 69
+		},
+		{
+			"firstname": "TestUserThree",
+			"email": "TestUserThree@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 6
+		},
+		{
+			"firstname": "TestUserFour",
+			"email": "TestUserFour@test.com",
+			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+			"consecutive_days": 9
+		}
+	]
+}

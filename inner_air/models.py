@@ -1,12 +1,11 @@
 from flask_login import UserMixin
-from inner_air import bcrypt, login_manager
-
-from inner_air import db
+from datetime import datetime, timedelta
+from inner_air import db, bcrypt, login_manager
 
 
 @login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+def load_user(id):
+    return User.query.get(int(id))
 
 
 class User(db.Model, UserMixin):
@@ -16,6 +15,11 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
+    confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True)
+    password_reset_token = db.Column(db.String, nullable=True)
+    consecutive_days = db.Column(db.Integer, default=0)
+    last_login = db.Column(db.DateTime)
 
     routines = db.relationship('Routine', backref='User', lazy=True)
     favorites = db.relationship('Favorites', backref='User', lazy=True)
@@ -35,13 +39,23 @@ class User(db.Model, UserMixin):
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
+    def updateLastLogin(self):
+        todayDate = datetime.today().astimezone()
+        if self.last_login is None:
+            self.consecutive_days = 0
+        elif self.last_login > (todayDate - timedelta(hours=24)):
+            self.consecutive_days += 1
+        else:
+            self.consecutive_days = 0
+        self.last_login = todayDate
+
 
 class Exercise(db.Model):
     __tablename__ = 'Exercise.Details'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
-    exercise_instructions = db.Column(db.String(256), nullable=False)
-    exercise_description = db.Column(db.String(256), nullable=False)
+    exercise_instructions = db.Column(db.String(2048), nullable=False)
+    exercise_description = db.Column(db.String(2048), nullable=False)
     exercise_length = db.Column(db.Float, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)

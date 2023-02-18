@@ -1,52 +1,53 @@
-
 :root {
-    --body-color: #F5F5F7;
+  --body-color: #f5f5f7;
 }
 
 body {
-    background-color: var(--body-color);
-    padding-top: 56px !important;
+  background-color: var(--body-color);
+  padding-top: 56px !important;
 }
 
 .overlay {
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    bottom: 0px;
-    z-index: 1000;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 1000;
 }
 
-html, body {
-    height:100%;
-    width:100%;
-    margin:0;
-    padding:0;
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* flash: Hides the message after 5 seconds.*/
 #hide-me {
-    -moz-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Firefox */
-    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Safari and Chrome */
-    -o-animation: cssAnimation 0s ease-in 5s forwards;
-    /* Opera */
-    animation: cssAnimation 0s ease-in 5s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
 @keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        overflow:hidden;
-    }
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
 }
+
 @-webkit-keyframes cssAnimation {
-    to {
-        width:0;
-        height:0;
-        visibility:hidden;
-    }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
 }

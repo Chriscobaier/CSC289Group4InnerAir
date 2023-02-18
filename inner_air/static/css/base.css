@@ -1,0 +1,150 @@
+#hide-me {
+  animation: cssAnimation 0s ease-in 5s forwards;
+  animation-fill-mode: forwards;
+  left: 40%;
+  right: 40%;
+  position: absolute;
+}
+
+@keyframes cssAnimation {
+  from {
+    visibility: hidden;
+    display: none;
+  }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Makes content go |O  O  O|*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  height: 4rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #050f1b;
+}
+header img {
+  max-width: 100px;
+}
+header nav > ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header nav > ul li {
+  display: flex;
+  list-style-type: none;
+  min-width: 5rem;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Makes content go |O  O  O|*/
+form {
+  padding: 1rem;
+  margin: 5rem auto;
+  max-width: 18rem;
+}
+form fieldset {
+  border: none;
+}
+form fieldset legend {
+  text-align: center;
+  margin: auto;
+  text-underline-position: under;
+  font-size: 20px;
+}
+form fieldset .form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+form fieldset .form-container .form-section {
+  margin: 1rem 0;
+  width: 100%;
+}
+form fieldset .form-container .form-section label {
+  font-weight: 300;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+form fieldset .form-container .form-section input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+form a {
+  display: block;
+  text-align: center;
+  margin: auto;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: #e6e8ff;
+}
+form a:hover {
+  color: #ffa66d;
+}
+
+.button, .button--dynamic {
+  background-color: #ef5562;
+  padding: 0.5rem 0.7rem;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+.button:hover, .button--dynamic:hover {
+  background-color: #ffa66d;
+  color: #222f45;
+}
+.button--dynamic:hover {
+  margin: 0 0.8rem;
+  transform: scale(1.1);
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #f8afb4;
+  background-image: linear-gradient(#2180b3, #a4c3ef 60%, #f8afb4, #fdf8c1);
+  color: #e6e8ff;
+  font-size: 14px;
+  padding-top: 4rem;
+}
+body .container {
+  margin: auto;
+  min-width: 85%;
+  height: 100vh;
+  background-color: #222f45;
+  background-image: linear-gradient(0deg, #222f45 85%, #3254a5 99%);
+  min-height: 100%;
+  overflow: auto;
+}/*# sourceMappingURL=base.css.map */
