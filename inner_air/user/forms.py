@@ -25,7 +25,7 @@ class RegistrationForm(FlaskForm):
         render_kw={'placeholder': 'Confirm Password'}
     )
     submit = SubmitField(
-        "Sign up"
+        label='Sign up'
     )
 
 
@@ -41,7 +41,7 @@ class LoginForm(FlaskForm):
         render_kw={"placeholder": "Password"}
     )
     submit = SubmitField(
-        "Login"
+        label='Login'
     )
 
 
@@ -52,7 +52,7 @@ class ForgotForm(FlaskForm):
         render_kw={'placeholder': 'Email'}
     )
     submit = SubmitField(
-        'Request Password Reset'
+        label='Request Password Reset'
     )
 
 
@@ -68,5 +68,5 @@ class ChangePasswordForm(FlaskForm):
         render_kw={'placeholder': 'Confirm Password'}
     )
     submit = SubmitField(
-        'Reset Password'
+        label='Reset Password'
     )
