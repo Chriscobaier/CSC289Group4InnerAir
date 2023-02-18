@@ -57,6 +57,7 @@ app.register_blueprint(userlist_bp)
     flask-login
 """
 login_manager.login_view = 'user.login'
+login_manager.login_message_category = 'info'
 
 
 """
