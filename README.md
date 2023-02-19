@@ -20,6 +20,12 @@
 ```commandline
     . ./create.sh
 ```
+( windows )
+```commandline
+    set APP_SETTINGS=inner_air.config.DevelopmentConfig
+    set APP_MAIL_USERNAME=c626521@gmail.com 
+    set APP_MAIL_PASSWORD=nlamndkhhwpitmjz 
+```
 
 ### Clean Environment
 ```commandline
