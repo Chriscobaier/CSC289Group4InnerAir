@@ -9,3 +9,5 @@ function clean_env() {
 # function call
 clean_env
 echo 'environment variables have been unset.'
+
+rm -rfv instance/*.db

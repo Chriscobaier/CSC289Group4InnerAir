@@ -5,7 +5,6 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from decouple import config
 
-
 app = Flask(__name__)
 app.config.from_object(config('APP_SETTINGS'))
 
@@ -30,12 +29,18 @@ app.register_blueprint(profile_bp)
 app.register_blueprint(exercises_bp)
 app.register_blueprint(userlist_bp)
 
-
 """
     flask-login
 """
+from inner_air.models import User
+
 login_manager.login_view = 'user.login'
 login_manager.login_message_category = 'info'
+
+
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 """
@@ -43,10 +48,11 @@ login_manager.login_message_category = 'info'
 """
 from inner_air import create_and_delete
 
-
 """
     error handlers
 """
+
+
 @app.errorhandler(401)
 def unauthorized_page(error):
     return render_template("errors/401.html"), 401

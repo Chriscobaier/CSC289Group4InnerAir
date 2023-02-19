@@ -2,12 +2,6 @@ from flask_login import UserMixin
 from datetime import datetime, timedelta
 from inner_air import db, bcrypt, login_manager
 
-
-@login_manager.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-
 class User(db.Model, UserMixin):
     __tablename__ = 'User.Users'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
