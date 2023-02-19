@@ -1,134 +1,35 @@
 # CSC289Group4InnerAir
 
-### Setup & Installation
+<p>
+  <img src="docs/_static/banner-img-inner-air.png#gh-dark-mode-only" alt="inner-air">
+</p>
 
-```
+---
+![Python](https://img.shields.io/badge/Python-v3.11-blue.svg?logo=python&longCache=true&logoColor=white&colorB=5e81ac&style=flat-square&colorA=4c566a)
+![Flask](https://img.shields.io/badge/Flask-v2.2.2-blue.svg?longCache=true&logo=flask&style=flat-square&logoColor=white&colorB=5e81ac&colorA=4c566a)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/google/skia.svg?style=flat-square&colorA=4c566a&colorB=a3be8c&logo=GitHub)
+[![GitHub Issues](https://img.shields.io/github/issues/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/issues)
+[![GitHub Issues](https://img.shields.io/github/contributors/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/graphs/contributors)
+[![GitHub Stars](https://img.shields.io/github/stars/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/network/members)
+
+## Table of contents
+- [Introduction](#introduction)
+- [Getting started](#getting-started)
+    - [Setup & Installation](#setup--installation)
+    - [Quick start](#quick-start)
+
+## Introduction
+
+## Getting started
+
+## Setup & Installation
+```commandline
     git clone <repo-url>
 ```
-```
+```commandline
     pip install -r requirements.txt
 ```
 
-### Set Environment Variables
-```commandline
-    export APP_SETTINGS=inner_air.config.DevelopmentConfig
-    export APP_MAIL_USERNAME=c626521@gmail.com 
-    export APP_MAIL_PASSWORD=nlamndkhhwpitmjz 
-```
-
-*or*
-```commandline
-    . ./create.sh
-```
-( windows )
-```commandline
-    set APP_SETTINGS=inner_air.config.DevelopmentConfig
-    set APP_MAIL_USERNAME=c626521@gmail.com 
-    set APP_MAIL_PASSWORD=nlamndkhhwpitmjz 
-```
-
-### Clean Environment
-```commandline
-    . ./clean.sh
-```
-
-### Running the app
-```
-    python main.py
-```
-
-*or*
-```commandline
-    make run
-```
-
-### Testing
-```
-    python -m pytest tests
-```
-*or*
-```commandline
-    make test
-```
-### Viewing the app
-```
-    http://127.0.0.1:5000
-```
----
-### Isolated app directory
-```
-CSC289Group4InnerAir
-├── importdata
-│   ├── data.json
-│   └── exercises.txt
-├── inner_air
-│   ├── create_and_delete.py
-│   ├── dev
-│   │   └── scss
-│   │       ├── base.scss
-│   │       ├── _buttons.scss
-│   │       ├── _config.scss
-│   │       ├── _form.scss
-│   │       ├── _header_nav.scss
-│   │       └── _hide_me.scss
-│   ├── exercises
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── __init__.py
-│   ├── main
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── models.py
-│   ├── profile
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   ├── static
-│   │   ├── css
-│   │   │   ├── base.css
-│   │   │   ├── base.css.map
-│   │   │   └── styles.css
-│   │   ├── ico
-│   │   │   └── inner-air.ico
-│   │   ├── img
-│   │   │   └── inner-air.svg
-│   │   └── js
-│   │       └── app.js
-│   ├── templates
-│   │   ├── base.html
-│   │   ├── errors
-│   │   │   ├── 401.html
-│   │   │   ├── 403.html
-│   │   │   ├── 404.html
-│   │   │   └── 500.html
-│   │   ├── exercises.html
-│   │   ├── main
-│   │   │   └── index.html
-│   │   ├── profile.html
-│   │   ├── user
-│   │   │   ├── confirm_email.html
-│   │   │   ├── forgot.html
-│   │   │   ├── login.html
-│   │   │   ├── register.html
-│   │   │   ├── reset_password.html
-│   │   │   ├── reset_request.html
-│   │   │   └── unconfirmed.html
-│   │   └── userlist.html
-│   ├── user
-│   │   ├── forms.py
-│   │   ├── __init__.py
-│   │   ├── routes.py
-│   │   └── token.py
-│   ├── user_list
-│   │   ├── __init__.py
-│   │   └── routes.py
-│   └── utils
-│       ├── decorators.py
-│       ├── email.py
-│       └── __init__.py
-├── instance
-│   └── inner-air-dev.db
-├── main.py
-├── README.md
-├── requirements.txt
-└── test_db_models.py
-```
+## Quick start
+[See the wiki for details](docs/1.md)
