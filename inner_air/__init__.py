@@ -3,33 +3,11 @@ from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
+from decouple import config
+
 
 app = Flask(__name__)
-DB_NAME = 'inner-air-dev.db'
-
-app.config['SECRET_KEY'] = '`5J<-lgHQaae_|LR*h)0%}`#k?sW@IK],P-9,A/}d`Ly&GwruSUh#omM]AdXwNP'
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-"""                                                                                                            
-    mail settings                                                                                              
-
-    IMPORTANT:                                                                                                 
-        the email below was only created for testing purposes. Normally, I wouldn't store the information                                                                                                               
-        here. So please if you decide to change it, and use your own, before uploading it to Github remove your email                                                                                                           
-        and password.                                                                                          
-
-    note:                                                                                                      
-        I plan to move these mail settings elsewhere in the future.                                                         
-"""
-app.config['MAIL_DEFAULT_SENDER'] = 'c626521@gmail.com'
-app.config['SECURITY_PASSWORD_SALT'] = 'a56ad0d9ed8e7ed487f2939f1d161e27'
-app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'c626521@gmail.com'
-app.config['MAIL_PASSWORD'] = 'nlamndkhhwpitmjz'
-app.config['MAIL_USE_TLS'] = False
-app.config['MAIL_USE_SSL'] = True
+app.config.from_object(config('APP_SETTINGS'))
 
 login_manager = LoginManager()
 login_manager.init_app(app)

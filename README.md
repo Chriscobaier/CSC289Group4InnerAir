@@ -9,16 +9,41 @@
     pip install -r requirements.txt
 ```
 
+### Set Environment Variables
+```commandline
+    export APP_SETTINGS=inner_air.config.DevelopmentConfig
+    export APP_MAIL_USERNAME=c626521@gmail.com 
+    export APP_MAIL_PASSWORD=nlamndkhhwpitmjz 
+```
+
+*or*
+```commandline
+    . ./create.sh
+```
+
+### Clean Environment
+```commandline
+    . ./clean.sh
+```
+
 ### Running the app
 ```
     python main.py
 ```
 
-### Pytest
+*or*
+```commandline
+    make run
+```
+
+### Testing
 ```
     python -m pytest test_db_models.py
 ```
-
+*or*
+```commandline
+    make test
+```
 ### Viewing the app
 ```
     http://127.0.0.1:5000
