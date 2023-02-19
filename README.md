@@ -44,7 +44,7 @@
 
 ### Testing
 ```
-    python -m pytest test_db_models.py
+    python -m pytest tests
 ```
 *or*
 ```commandline

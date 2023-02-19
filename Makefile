@@ -3,7 +3,7 @@ run:
 	python main.py
 
 test:
-	python -m pytest test_db_models.py
+	python -m pytest tests
 
 u_requirements:
 	pip3 freeze > requirements.txt
