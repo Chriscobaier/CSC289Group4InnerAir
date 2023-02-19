@@ -1,7 +1,7 @@
 # CSC289Group4InnerAir
 
 <p>
-  <img src="docs/_static/banner-img-inner-air.png#gh-dark-mode-only" alt="inner-air">
+  <img src="docs/_static/banner-img-inner-air.png#gh-dark-mode-only" alt="inner-air" width="1051px" height="531px">
 </p>
 
 ---
