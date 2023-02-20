@@ -33,6 +33,12 @@
 ```commandline
     pip install -r requirements.txt
 ```
+***or***
+
+*note that before running the following command you must [set the environment variables](docs/1.md#set-environment-variables).*
+````commandline
+  make
+````
 
 ## Quick start
 [See the wiki for details](docs/1.md)
