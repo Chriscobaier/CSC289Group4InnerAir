@@ -247,3 +247,12 @@ def logout():
     logout_user()
     flash('you\'ve been logged out', category='info')
     return redirect(url_for('home'))
+
+
+@app.route('/exercise/<exid>')
+def get_exercise_id(exid):
+    this_exercise = db.session.query(Exercise).filter_by(id=exid).first()
+    if this_exercise is None:
+        return '404'
+    else:
+        return render_template('exerciseAnimation.html', this_exercise=this_exercise)
