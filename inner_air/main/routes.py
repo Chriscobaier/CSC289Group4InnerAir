@@ -5,7 +5,9 @@ from inner_air.utils.decorators import check_confirmed
 
 main_bp = Blueprint(
     'main', __name__,
-    template_folder='templates'
+    template_folder='templates',
+    static_folder='static',
+    static_url_path='/%s' % __name__
 )
 
 

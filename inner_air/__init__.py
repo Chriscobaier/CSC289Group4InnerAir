@@ -24,11 +24,11 @@ from .exercises.routes import exercises_bp
 from .user_list.routes import userlist_bp
 from .errors.handlers import errors
 
-app.register_blueprint(main_bp)
-app.register_blueprint(user_bp)
-app.register_blueprint(profile_bp)
-app.register_blueprint(exercises_bp)
-app.register_blueprint(userlist_bp)
+app.register_blueprint(main_bp, url_prefix='/')
+app.register_blueprint(user_bp, url_prefix='/')
+app.register_blueprint(profile_bp, url_prefix='/')
+app.register_blueprint(exercises_bp, url_prefix='/')
+app.register_blueprint(userlist_bp, url_prefix='/')
 app.register_blueprint(errors)
 
 """

@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css')}}">
     <div class="container-fluid overlay min-vh-100 py-5 mt-5">
         <h1>Welcome, {{ current_user.firstname }} </h1>
         <h2 class="text-center">Exercises Temp table to show data - need to format page</h2>

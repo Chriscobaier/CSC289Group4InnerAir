@@ -1,6 +1,6 @@
 
 <header>
-	<img src="{{ url_for('static', filename='img/inner-air.svg') }}"></img>
+	<img src="{{ url_for('main.static', filename='img/inner-air.svg') }}"></img>
 	<nav>
 		{% if current_user.is_authenticated %}
 		<ul>

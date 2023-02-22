@@ -7,7 +7,9 @@ from inner_air.models import Favorites, Exercise
 
 exercises_bp = Blueprint(
     'exercises', __name__,
-    template_folder='templates'
+    template_folder='templates',
+    static_folder='static',
+    static_url_path='/%s' % __name__
 )
 
 
