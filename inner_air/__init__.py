@@ -22,12 +22,14 @@ from inner_air.user.routes import user_bp
 from inner_air.profile.routes import profile_bp
 from inner_air.exercises.routes import exercises_bp
 from inner_air.user_list.routes import userlist_bp
+from .errors.handlers import errors
 
 app.register_blueprint(main_bp)
 app.register_blueprint(user_bp)
 app.register_blueprint(profile_bp)
 app.register_blueprint(exercises_bp)
 app.register_blueprint(userlist_bp)
+app.register_blueprint(errors)
 
 """
     flask-login
@@ -48,26 +50,3 @@ def load_user(id):
 """
 from inner_air import create_and_delete
 
-"""
-    error handlers
-"""
-
-
-@app.errorhandler(401)
-def unauthorized_page(error):
-    return render_template("errors/401.html"), 401
-
-
-@app.errorhandler(403)
-def forbidden_page(error):
-    return render_template("errors/403.html"), 403
-
-
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template("errors/404.html"), 404
-
-
-@app.errorhandler(500)
-def server_error_page(error):
-    return render_template("errors/500.html"), 500
