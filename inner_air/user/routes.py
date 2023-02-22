@@ -12,7 +12,7 @@ from inner_air.utils.email import send_email
 
 user_bp = Blueprint(
     'user', __name__,
-    template_folder='templates'
+    template_folder='templates',
 )
 
 

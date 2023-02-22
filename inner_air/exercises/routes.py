@@ -62,7 +62,7 @@ def exercises():
 
     https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/api/#module-flask_sqlalchemy.pagination:~:text=Session%5D)%20%E2%80%93-,first_or_404,-(description%3D
 """
-@exercises_bp.route('/exercises/<exid>')
+@exercises_bp.route('/exercise/<exid>')
 @login_required
 def get_exercise_id(exid):
     this_exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
