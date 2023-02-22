@@ -5,7 +5,10 @@ from flask_login import login_required
 from inner_air import db
 from inner_air.models import Favorites, Exercise
 
-exercises_bp = Blueprint('exercises', __name__)
+exercises_bp = Blueprint(
+    'exercises', __name__,
+    template_folder='templates'
+)
 
 
 @exercises_bp.route('/exercises', methods=['GET', 'POST'])

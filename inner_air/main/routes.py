@@ -3,7 +3,10 @@ from flask_login import login_required
 
 from inner_air.utils.decorators import check_confirmed
 
-main_bp = Blueprint('main', __name__)
+main_bp = Blueprint(
+    'main', __name__,
+    template_folder='templates'
+)
 
 
 @main_bp.route('/')

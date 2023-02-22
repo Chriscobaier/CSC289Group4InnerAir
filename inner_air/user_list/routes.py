@@ -3,7 +3,10 @@ from flask_login import login_required
 
 from inner_air.models import User
 
-userlist_bp = Blueprint('userlist', __name__)
+userlist_bp = Blueprint(
+    'userlist', __name__,
+    template_folder='templates'
+)
 
 
 @userlist_bp.route('/userlist', methods=['GET', 'POST'])

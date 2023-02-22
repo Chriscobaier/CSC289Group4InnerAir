@@ -10,7 +10,10 @@ from inner_air.user.token import generate_confirmation_token, confirm_token
 from inner_air.utils.decorators import logout_required
 from inner_air.utils.email import send_email
 
-user_bp = Blueprint('user', __name__)
+user_bp = Blueprint(
+    'user', __name__,
+    template_folder='templates'
+)
 
 
 @user_bp.route('/login', methods=['GET', 'POST'])

@@ -4,7 +4,10 @@ from flask import Blueprint, request, render_template
 from inner_air import db
 from inner_air.models import Favorites, Exercise, Statistics
 
-profile_bp = Blueprint('profile', __name__)
+profile_bp = Blueprint(
+    'profile', __name__,
+    template_folder='templates'
+)
 
 
 @profile_bp.route('/profile', methods=['GET', 'POST'])
