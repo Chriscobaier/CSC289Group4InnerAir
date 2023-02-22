@@ -5,9 +5,8 @@ from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Cat
 
 # Create Flask app
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '`5J<-lgHQaae_|LR*h)0%}`#k?sW@IK],P-9,A/}d`Ly&GwruSUh#omM]AdXwNP'
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config.from_object('inner_air.config.TestingConfig')
+
 
 # Create database per app config
 db.init_app(app)

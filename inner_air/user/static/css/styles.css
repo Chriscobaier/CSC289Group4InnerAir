@@ -15,7 +15,7 @@
 .modal-content {
     position: relative;
     background-color: #18181B;
-    width: 60%;
+    width: 55%;
     max-height: 75%;
     margin: 2rem;
     padding: 0;
@@ -47,17 +47,14 @@
 .modal-footer hr {
     border: dotted 6px;
     border-bottom: none;
-    width: 4%;
+    width: 5%;
     margin: 16px auto;
 }
 
 .modal-footer a {
-    display: block;
-    width: 150px;
-    position: relative;
-    margin: auto;
     background-color: #772CE8;
     color: #fff;
+    width: 150px;
+    padding: 5px 25px;
     text-decoration: none;
-    padding: 5px 0;
 }

@@ -30,3 +30,14 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URI = f'sqlite:///{DB_NAME}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG_TB_ENABLED = True
+
+
+class TestingConfig(Config):
+    TESTING = True
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+
+
+class ProductionConfig(Config):
+    DEBUG = False
+    DEBUG_TB_ENABLED = False
