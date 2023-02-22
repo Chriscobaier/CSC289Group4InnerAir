@@ -15,6 +15,10 @@
     grid-row: $row-span;
 }
 
+@mixin rounded {
+    border-radius: 10px;
+}
+
 .pop-in {
     animation: pop-in 0s ease-in 5s forwards;
     animation-fill-mode: forwards;

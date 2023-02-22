@@ -104,12 +104,12 @@ header + * {
 }
 
 .button, .button--green, .button--dynamic {
+  border-radius: 10px;
   background-color: #ef5562;
   color: white;
   font-size: 12px;
   padding: 0.5rem 0.7rem;
   margin: 0 0.5rem;
-  border-radius: 10px;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
