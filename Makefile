@@ -1,4 +1,4 @@
-SRC=main.py
+SRC=wsgi.py
 VENV = $(CURDIR)/venv
 PYTHON = $(VENV)/bin/python3.11
 PIP = $(VENV)/bin/pip3.11
