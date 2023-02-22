@@ -4,7 +4,6 @@
 {% endblock %}
 {% block content %}
 
-
     <div class="container-fluid overlay min-vh-100 py-5 mt-5">
         <h1>Welcome, {{ current_user.firstname }} </h1>
 
@@ -23,34 +22,34 @@
             </thead>
             <tbody>
                 {% for exercise in exercises %}
-                <tr>
-                    <td>{{ exercise.id }}</td>
-                    <td>{{ exercise.exercise_name }}</td>
-                    <td>{{ exercise.exercise_instructions }}</td>
-                    <td>{{ exercise.exercise_description }} </td>
-                    <td>{{ exercise.cumulative_rating }} </td>
-                    <td>
-                        {% if exercise.id not in showFavAdd %}
-                        <form method="post">
-                            <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
-                            <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
-                            <button type="submit" name="favoriteButton">Add to Favorites</button>
-                        </form>
-                        {% endif %}
-                        {% if  exercise.id  in showFavAdd %}
-                        <form method="post">
-                            <input name="exercise_id" type="hidden" value="{{ exercise.id }}"> </input>
-                            <input name="user_id" type="hidden" value="{{ current_user.id }}"> </input>
-                            <button type="submit" name="favoriteButtonRemove">Remove from Favorites</button>
-                        </form>
-                        {% endif %}
-                    </td>
-                </tr>
+                    <tr>
+                        <td>{{ exercise.id }}</td>
+                        <td>{{ exercise.exercise_name }}</td>
+                        <td>{{ exercise.exercise_instructions }}</td>
+                        <td>{{ exercise.exercise_description }} </td>
+                        <td>{{ exercise.cumulative_rating }} </td>
+                        <td>
+                            {% if exercise.id not in showFavAdd %}
+                                <form method="post">
+                                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                                    <button type="submit" name="favoriteButton" class="button--green">Favorites</button>
+                                </form>
+                            {% endif %}
+                            {% if exercise.id in showFavAdd %}
+                                <form method="post">
+                                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                                    <button type="submit" name="favoriteButtonRemove" class="button">Unfavorite</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
 
-         <h2 class="text-center">Favorites</h2>
+        <h2 class="text-center">Favorites</h2>
         <table class="table table-hover table-dark">
             <!-- Favorites Model -->
             <thead>
@@ -58,7 +57,6 @@
                     <th scope="col">ID</th>
                     <th scope="col">User ID</th>
                     <th scope="col">Exercise ID</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -72,5 +70,4 @@
             </tbody>
         </table>
     </div>
-
 {% endblock %}

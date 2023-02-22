@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    Exercises
+{% endblock %}
+{% block content %}
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css')}}">
+    <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+        <h1>Welcome, {{ current_user.firstname }} </h1>
+        <h2 class="text-center">Exercises Temp table to show data - need to format page</h2>
+        <table class="table table-hover table-dark">
+            <!-- Exercise Model -->
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Exercise Name</th>
+                    <th scope="col">exercise_instructions</th>
+                    <th scope="col">exercise_description</th>
+                    <th scope="col">cumulative_rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ this_exercise.id }}</td>
+                    <td>{{ this_exercise.exercise_name }}</td>
+                    <td>{{ this_exercise.exercise_instructions }}</td>
+                    <td>{{ this_exercise.exercise_description }} </td>
+                    <td>{{ this_exercise.cumulative_rating }} </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="AnimationBorder">
+            <div class="featherObject">
+            </div>
+        </div>
+    </div>
+
+    <script defer src="{{ url_for('static', filename='js/app.js')}}"></script>
+{% endblock %}

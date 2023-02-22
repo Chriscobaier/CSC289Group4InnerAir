@@ -1,0 +1,19 @@
+.link {
+    text-align: center;
+    color: $accent-cold;
+    text-decoration: none;
+
+    &:hover {
+        color: $accent-cold-light;
+    }
+
+    &--light {
+        @extend .link;
+        text-decoration: none;
+        color: $light-white;
+
+        &:hover {
+            color: $accent-warm-light;
+        }
+    }
+}

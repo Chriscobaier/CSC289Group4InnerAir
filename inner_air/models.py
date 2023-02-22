@@ -1,6 +1,8 @@
-from flask_login import UserMixin
 from datetime import datetime, timedelta
-from inner_air import db, bcrypt, login_manager
+from flask_login import UserMixin
+
+from inner_air import db, bcrypt
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'User.Users'
@@ -34,7 +36,8 @@ class User(db.Model, UserMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def updateLastLogin(self):
-        todayDate = datetime.today().astimezone()
+        # TODO TIME LOCALIZATION
+        todayDate = datetime.today()
         if self.last_login is None:
             self.consecutive_days = 0
         elif self.last_login > (todayDate - timedelta(hours=24)):

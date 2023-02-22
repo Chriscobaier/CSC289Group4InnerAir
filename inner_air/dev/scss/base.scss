@@ -1,7 +1,14 @@
-@import "hide_me";
-@import "header_nav";
-@import "form";
-@import "buttons";
+@import "toolbox/toolbox";
+@import "layouts/layouts";
+@import "components/components";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 body {
     @include flex-spread;
@@ -12,21 +19,24 @@ body {
         $pastel-pink,
         $pastel-yellow
     );
+
     color: $light-white;
     font-size: 14px;
-    padding-top: $header-heigh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     .container {
-        margin: auto;
         min-width: 85%;
         height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
         background-color: $dark-steel;
         background-image: linear-gradient(
             0deg,
             $dark-steel 85%,
             $tinted-azure 99%
         );
-        min-height: 100%;
-        overflow: auto;
+        min-height: 100vh;
+        height: fit-content;
     }
 }

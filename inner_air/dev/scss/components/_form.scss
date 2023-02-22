@@ -1,0 +1,49 @@
+.form-register {
+    padding: 1rem;
+    margin: 5rem auto;
+    max-width: 18rem;
+
+    fieldset {
+        border: none;
+
+        legend {
+            text-align: center;
+            margin: 1rem auto 2rem auto;
+            text-underline-position: under;
+            font-size: 25px;
+        }
+
+        .form-container {
+            @include flex-spread;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 1rem;
+
+            .form-section {
+                @include flex-spread;
+                flex-direction: column;
+                gap: 0.5rem;
+                width: 100%;
+
+                label {
+                    font-weight: 300;
+                    margin-right: auto;
+                    display: block;
+                    margin-bottom: 0.5rem;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 0.5rem;
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+
+    & > * {
+        display: block;
+        margin: 1.5rem auto;
+    }
+}

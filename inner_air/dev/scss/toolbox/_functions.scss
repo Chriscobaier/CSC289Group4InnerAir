@@ -1,0 +1,43 @@
+/* Makes content go |O  O  O|*/
+@mixin flex-spread {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@mixin grid-element($row-span) {
+    height: 100%;
+    width: 100%;
+    border-radius: 4px;
+    transition: all 500ms;
+    overflow: hidden;
+    grid-row: $row-span;
+}
+
+@mixin rounded {
+    border-radius: 10px;
+}
+
+.pop-in {
+    animation: pop-in 0s ease-in 5s forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes pop-in {
+    from {
+        visibility: hidden;
+        display: none;
+    }
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+.invs {
+    visibility: hidden;
+    visibility: collapse;
+    display: none;
+}

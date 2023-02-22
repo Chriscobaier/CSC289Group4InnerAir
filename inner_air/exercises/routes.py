@@ -51,3 +51,12 @@ def exercises():
         return listOfExerciseCurrentUserHasInFavorites
 
     return render_template('exercises.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav())
+
+
+@exercises_bp.route('/exercise/<exid>')
+def get_exercise_id(exid):
+    this_exercise = db.session.query(Exercise).filter_by(id=exid).first()
+    if this_exercise is None:
+        return '404'
+    else:
+        return render_template('exerciseAnimation.html', this_exercise=this_exercise)

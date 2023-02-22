@@ -1,13 +1,17 @@
 // only two for now. Will make more in the future
 .button {
+    @include rounded;
+
     background-color: $accent-warm;
+    color: white;
+    font-size: 12px;
     padding: 0.5rem 0.7rem;
     margin: 0 0.5rem;
-    border-radius: 10px;
-    color: white;
     box-shadow: 0 0.3rem 10px rgba($accent-warm, 0.5);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    border: none;
 
     &:hover {
         background-color: $accent-warm-light;
@@ -19,6 +23,17 @@
         &:hover {
             margin: 0 0.8rem;
             transform: scale(1.1);
+        }
+    }
+
+    &--green {
+        @extend .button;
+        background-color: $accent-mint;
+        box-shadow: 0 0.3rem 10px rgba($accent-mint, 0.3);
+
+        &:hover {
+            background-color: $accent-mint-light;
+            color: $dark-steel;
         }
     }
 }
