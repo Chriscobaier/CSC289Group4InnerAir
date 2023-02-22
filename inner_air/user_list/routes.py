@@ -16,4 +16,4 @@ def userlist():
         I tried to create a table so that something can be displayed, nothing fancy.
     """
     users = User.query.all()
-    return render_template('userlist.html', users=users)
+    return render_template('user_list/userlist.html', users=users)

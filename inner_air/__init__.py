@@ -1,9 +1,9 @@
-from flask import Flask, render_template
-from flask_mail import Mail
-from flask_sqlalchemy import SQLAlchemy
+from decouple import config
+from flask import Flask
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-from decouple import config
+from flask_mail import Mail
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config.from_object(config('APP_SETTINGS'))
@@ -17,11 +17,11 @@ mail = Mail(app)
 """
     registering blueprints
 """
-from inner_air.main.routes import main_bp
-from inner_air.user.routes import user_bp
-from inner_air.profile.routes import profile_bp
-from inner_air.exercises.routes import exercises_bp
-from inner_air.user_list.routes import userlist_bp
+from .main.routes import main_bp
+from .user.routes import user_bp
+from .profile.routes import profile_bp
+from .exercises.routes import exercises_bp
+from .user_list.routes import userlist_bp
 from .errors.handlers import errors
 
 app.register_blueprint(main_bp)

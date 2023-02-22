@@ -61,5 +61,5 @@ def profile():
         # Need to count # of exercises per day
         yData.append(j)
 
-    return render_template('profile.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav(),
+    return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav(),
                            xData=xData, yData=yData)
