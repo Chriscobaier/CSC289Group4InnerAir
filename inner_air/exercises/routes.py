@@ -53,13 +53,18 @@ def exercises():
                 listOfExerciseCurrentUserHasInFavorites.append(favorite.as_dict()['exercise_id'])
         return listOfExerciseCurrentUserHasInFavorites
 
-    return render_template('exercises/exercises.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav())
+    return render_template('exercises/exercises.html', exercises=exercise_list, favorites=favorite_list,
+                           showFavAdd=showFav())
 
 
-@exercises_bp.route('/exercise/<exid>')
+"""
+    first_or_404() - returns the first result of the query or HTTP 404 Error.
+
+    https://flask-sqlalchemy.palletsprojects.com/en/3.0.x/api/#module-flask_sqlalchemy.pagination:~:text=Session%5D)%20%E2%80%93-,first_or_404,-(description%3D
+"""
+@exercises_bp.route('/exercises/<exid>')
+@login_required
 def get_exercise_id(exid):
-    this_exercise = db.session.query(Exercise).filter_by(id=exid).first()
-    if this_exercise is None:
-        return '404'
-    else:
-        return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise)
+    this_exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
+
+    return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise)
