@@ -13,6 +13,8 @@ from inner_air.utils.email import send_email
 user_bp = Blueprint(
     'user', __name__,
     template_folder='templates',
+    static_folder='static',
+    static_url_path='/%s' % __name__
 )
 
 
