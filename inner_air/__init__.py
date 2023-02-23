@@ -4,6 +4,8 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
 
 app = Flask(__name__)
 app.config.from_object(config('APP_SETTINGS'))
@@ -13,6 +15,7 @@ login_manager.init_app(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 mail = Mail(app)
+migrate = Migrate(app, db)
 
 """
     registering blueprints
