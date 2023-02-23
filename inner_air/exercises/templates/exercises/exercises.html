@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+    Exercises
+{% endblock %}
+{% block content %}
+
+    <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+        <h1>Welcome, {{ current_user.firstname }} </h1>
+
+        <h2 class="text-center">Exercises</h2>
+        <table class="table table-hover table-dark">
+            <!-- Exercise Model -->
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Exercise Name</th>
+                    <th scope="col">exercise_instructions</th>
+                    <th scope="col">exercise_description</th>
+                    <th scope="col">cumulative_rating</th>
+                    <th scope="col">Add to Favorites</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exercise in exercises %}
+                    <tr>
+                        <td>{{ exercise.id }}</td>
+                        <td>{{ exercise.exercise_name }}</td>
+                        <td>{{ exercise.exercise_instructions }}</td>
+                        <td>{{ exercise.exercise_description }} </td>
+                        <td>{{ exercise.cumulative_rating }} </td>
+                        <td>
+                            {% if exercise.id not in showFavAdd %}
+                                <form method="post">
+                                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                                    <button type="submit" name="favoriteButton" class="button--green">Favorites</button>
+                                </form>
+                            {% endif %}
+                            {% if exercise.id in showFavAdd %}
+                                <form method="post">
+                                    <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                                    <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                                    <button type="submit" name="favoriteButtonRemove" class="button">Unfavorite</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2 class="text-center">Favorites</h2>
+        <table class="table table-hover table-dark">
+            <!-- Favorites Model -->
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Exercise ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for favorite in favorites %}
+                <tr>
+                    <td>{{ favorite.id }}</td>
+                    <td>{{ favorite.user_id }}</td>
+                    <td>{{ favorite.exercise_id }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

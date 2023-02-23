@@ -1,0 +1,19 @@
+
+<header>
+	<img src="{{ url_for('main.static', filename='img/inner-air.svg') }}"></img>
+	<nav>
+		{% if current_user.is_authenticated %}
+		<ul>
+			<li><a class="button--dynamic" href="{{ url_for('exercises.exercises') }}">EXERCISES</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('userlist.userlist') }}">User List</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('profile.profile') }}">PROFILE</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a></li>
+		</ul>
+		{% else %}
+		<ul>
+			<li><a class="button--dynamic" href="{{ url_for('user.login') }}">SIGN IN</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('user.register') }}">SIGN UP</a></li>
+		</ul>
+		{% endif %}
+	</nav>
+</header>
