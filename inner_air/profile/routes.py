@@ -3,6 +3,7 @@ from flask import Blueprint, request, render_template
 
 from inner_air import db
 from inner_air.models import Favorites, Exercise, Statistics
+from inner_air.utils.decorators import check_confirmed
 
 profile_bp = Blueprint(
     'profile', __name__,
@@ -11,6 +12,7 @@ profile_bp = Blueprint(
 
 
 @profile_bp.route('/profile', methods=['GET', 'POST'])
+@check_confirmed
 def profile():
     # Check if the request method is POST
     if request.method == 'POST':

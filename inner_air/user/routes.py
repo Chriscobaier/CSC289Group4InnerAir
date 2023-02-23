@@ -28,7 +28,7 @@ def login():
             login_user(user)
             db.session.commit()
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
-            return redirect(url_for('main.home'))
+            return redirect(url_for('profile.profile'))
         else:
             flash('You have entered an invalid email address or password.', category='danger')
     return render_template('user/login.html', form=form)
@@ -49,12 +49,15 @@ def register():
         if db.session.query(User).filter_by(email=form.email.data).first() is None:
             db.session.add(user)
             db.session.commit()
+
             token = generate_confirmation_token(user.email)
             confirm_url = url_for('user.confirm_email', token=token, _external=True)
             html = render_template('user/confirm_email.html', confirm_url=confirm_url)
             subject = 'Please confirm your email'
             send_email(user.email, subject, html)
+
             login_user(user)
+
             flash(f'Account created successfully for {form.firstname.data}', category='success')
             flash('A confirmation email has been sent via email.', category='success')
             return redirect(url_for('user.unconfirmed'))

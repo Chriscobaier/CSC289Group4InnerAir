@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-
+    verify email
 {% endblock %}
 {% block content %}
 
@@ -24,7 +24,7 @@
             <!-- Modal footer -->
             <div class="modal-footer">
                 <p>
-                    Didn't get the email
+                    Didn't get the email?
                 <hr>
                 <a class="link--light" href="{{ url_for('user.resend_confirmation') }}">Resend</a>
                 </p>

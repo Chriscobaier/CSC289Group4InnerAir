@@ -4,6 +4,7 @@ from flask_login import login_required
 
 from inner_air import db
 from inner_air.models import Favorites, Exercise
+from inner_air.utils.decorators import check_confirmed
 
 exercises_bp = Blueprint(
     'exercises', __name__,
@@ -15,6 +16,7 @@ exercises_bp = Blueprint(
 
 @exercises_bp.route('/exercises', methods=['GET', 'POST'])
 @login_required
+@check_confirmed
 def exercises():
     # Check if the request method is POST
     if request.method == 'POST':
@@ -66,6 +68,7 @@ def exercises():
 """
 @exercises_bp.route('/exercise/<exid>')
 @login_required
+@check_confirmed
 def get_exercise_id(exid):
     this_exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
 

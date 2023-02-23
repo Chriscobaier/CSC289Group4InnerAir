@@ -52,9 +52,10 @@
 }
 
 .modal-footer a {
-    background-color: #772CE8;
+    background-color: rgba(119,44,232,1.000);
     color: #fff;
     width: 150px;
     padding: 5px 25px;
     text-decoration: none;
 }
+
