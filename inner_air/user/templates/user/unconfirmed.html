@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css') }}">
     <script defer src="{{ url_for('.static', filename='js/app.js')}}"></script>
 
-    <div class='modal'>
+    <div id='one' class='modal'>
         <div class='modal-content'>
             <!-- Modal header -->
             <div class="modal-header">
@@ -23,10 +23,9 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
+                <span>Didn't get the email?</span>
                 <p>
-                    Didn't get the email?
-                <hr>
-                <a class="link--light" href="{{ url_for('user.resend_confirmation') }}">Resend</a>
+                    <a class="button--dynamic" href="{{ url_for('user.resend_confirmation') }}">Resend</a>
                 </p>
             </div>
         </div>
