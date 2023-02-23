@@ -1,18 +1,7 @@
 from datetime import datetime, timedelta
 from flask_login import UserMixin
-<<<<<<< HEAD
-from inner_air import bcrypt, login_manager
-from datetime import datetime, timedelta
-from inner_air import db
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-=======
 
 from inner_air import db, bcrypt
->>>>>>> Jc
 
 
 class User(db.Model, UserMixin):
@@ -22,12 +11,9 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
-<<<<<<< HEAD
-=======
     confirmed = db.Column(db.Boolean, nullable=False, default=False)
     confirmed_on = db.Column(db.DateTime, nullable=True)
     password_reset_token = db.Column(db.String, nullable=True)
->>>>>>> Jc
     consecutive_days = db.Column(db.Integer, default=0)
     last_login = db.Column(db.DateTime)
 

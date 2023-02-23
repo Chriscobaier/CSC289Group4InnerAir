@@ -1,19 +1,12 @@
 // only two for now. Will make more in the future
 .button {
-<<<<<<< HEAD
-=======
     @include rounded;
 
->>>>>>> Jc
     background-color: $accent-warm;
     color: white;
     font-size: 12px;
     padding: 0.5rem 0.7rem;
     margin: 0 0.5rem;
-<<<<<<< HEAD
-    border-radius: 10px;
-=======
->>>>>>> Jc
     box-shadow: 0 0.3rem 10px rgba($accent-warm, 0.5);
     text-decoration: none;
     transition: all 0.2s ease-in-out;

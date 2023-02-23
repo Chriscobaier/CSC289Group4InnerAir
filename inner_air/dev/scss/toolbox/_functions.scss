@@ -15,13 +15,10 @@
     grid-row: $row-span;
 }
 
-<<<<<<< HEAD
-=======
 @mixin rounded {
     border-radius: 10px;
 }
 
->>>>>>> Jc
 .pop-in {
     animation: pop-in 0s ease-in 5s forwards;
     animation-fill-mode: forwards;
