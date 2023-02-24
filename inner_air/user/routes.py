@@ -150,8 +150,6 @@ def reset_password(token):
                 user.password_reset_token = None
                 db.session.commit()
 
-                login_user(user)
-
                 flash('Password successfully changed.', category='success')
                 return redirect(url_for('main.home'))
             else:
