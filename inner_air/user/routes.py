@@ -130,7 +130,6 @@ def forgot():
             html = render_template('user/reset_request.html', email=user.email, reset_url=reset_url)
             subject = 'Reset your password'
             send_email(user.email, subject, html)
-            flash('A password reset email has been sent via email.', category='success')
             return render_template('user/confirm_reset_request.html', email=user.email)
         else:
             flash('This email is not registered', category='danger')
