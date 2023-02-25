@@ -70,7 +70,7 @@ def register():
 @login_required
 def confirm_email(token):
     if current_user.confirmed:
-        flash('Account already confirmed. Please login.', category='success')
+        flash('Account already confirmed.', category='success')
         return redirect(url_for('main.home'))
     email = confirm_token(token)
     user = db.session.query(User).filter_by(email=current_user.email).first_or_404()
