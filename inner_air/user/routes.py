@@ -26,6 +26,7 @@ def login():
         user = db.session.query(User).filter_by(email=form.email.data).first()
         if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
+            user.updateLastLogin()
             db.session.commit()
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('profile.profile'))
@@ -48,6 +49,7 @@ def register():
 
         if db.session.query(User).filter_by(email=form.email.data).first() is None:
             db.session.add(user)
+            user.updateLastLogin()
             db.session.commit()
 
             token = generate_confirmation_token(user.email)

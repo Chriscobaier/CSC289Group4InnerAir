@@ -36,15 +36,17 @@ class User(db.Model, UserMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def updateLastLogin(self):
-        # TODO TIME LOCALIZATION
+        # TODO TIME LOCALIZATION ??
         todayDate = datetime.today()
         if self.last_login is None:
             self.consecutive_days = 0
-        elif self.last_login > (todayDate - timedelta(hours=24)):
-            self.consecutive_days += 1
         else:
-            self.consecutive_days = 0
-        self.last_login = todayDate
+            if self.last_login < todayDate.replace(hour=0, minute=0, second=0, microsecond=0):
+                if self.last_login > (todayDate - timedelta(hours=24)):
+                    self.consecutive_days += 1
+                else:
+                    self.consecutive_days = 0
+                self.last_login = todayDate
 
 
 class Exercise(db.Model):
@@ -57,6 +59,10 @@ class Exercise(db.Model):
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
     user_rating_count = db.Column(db.Integer)
+    exercise_inhale = db.Column(db.Integer, nullable=False)
+    exercise_inhale_pause = db.Column(db.Integer, nullable=False)
+    exercise_exhale = db.Column(db.Integer, nullable=False)
+    exercise_exhale_pause = db.Column(db.Integer, nullable=False)
 
     routines = db.relationship('Routine', backref='Exercise', lazy=True)
     favorites = db.relationship('Favorites', backref='Exercise', lazy=True)

@@ -17,6 +17,10 @@
                     <th scope="col">exercise_instructions</th>
                     <th scope="col">exercise_description</th>
                     <th scope="col">cumulative_rating</th>
+                    <th scope="col">inhale</th>
+                    <th scope="col">inhale pause</th>
+                    <th scope="col">exhale</th>
+                    <th scope="col">exhale pause</th>
                     <th scope="col">Add to Favorites</th>
                 </tr>
             </thead>
@@ -28,6 +32,11 @@
                         <td>{{ exercise.exercise_instructions }}</td>
                         <td>{{ exercise.exercise_description }} </td>
                         <td>{{ exercise.cumulative_rating }} </td>
+                        <td>{{ exercise.exercise_inhale}} </td>
+                        <td>{{ exercise.exercise_inhale_pause }} </td>
+                        <td>{{ exercise.exercise_exhale }} </td>
+                        <td>{{ exercise.exercise_exhale_pause }} </td>
+
                         <td>
                             {% if exercise.id not in showFavAdd %}
                                 <form method="post">
