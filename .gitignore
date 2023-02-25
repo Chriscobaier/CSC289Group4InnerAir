@@ -1,6 +1,9 @@
 /inner_air/inner-air-dev.db
 
 
+#
+.DS_Store
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
