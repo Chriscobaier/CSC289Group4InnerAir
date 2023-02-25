@@ -18,8 +18,8 @@ class Config(object):
     MAIL_DEFAULT_SENDER = 'c626521@gmail.com'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 465
-    MAIL_USERNAME = config('APP_MAIL_USERNAME')
-    MAIL_PASSWORD = config('APP_MAIL_PASSWORD')
+    MAIL_USERNAME = config('APP_MAIL_USERNAME', default='c626521@gmail.com')
+    MAIL_PASSWORD = config('APP_MAIL_PASSWORD', default='nlamndkhhwpitmjz')
     MAIL_USE_TLS = False
     MAIL_USE_SSL = True
 

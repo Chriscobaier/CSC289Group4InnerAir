@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: flex-start;
     z-index: 1000;
@@ -35,6 +35,7 @@
 
 /* modal 1 */
 #one {
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -65,7 +66,7 @@
 }
 
 #two .modal-content {
-        width: 50vh;
+        width: 25%;
         padding: 10px;
         display: flex;
         justify-content: center;
@@ -103,7 +104,7 @@
 #two .modal-content hr {
     border: dotted 6px;
     border-bottom: none;
-    width: 5%;
+    width: 7%;
     margin: 10px auto;
 }
 
@@ -112,3 +113,59 @@
     display: block;
     text-align: center;
 }
+
+/* spinner */
+.button {
+  display: inline-flex;
+  position: relative;
+}
+
+.button.spinner {
+  padding-right: 35px;
+}
+
+.button.spinner::after {
+    content: '';
+    right: 6px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-radius: 50%;
+    animation: spin 0.75s ease infinite,
+               exist 0.1s ease forwards;
+}
+
+.button.spinner::before {
+    content: '';
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    right: 6px;
+    top: 50%;
+    position: absolute;
+    border: 2px solid white;
+    border-color: white transparent white transparent;
+    border-radius: 50%;
+
+    animation: spin 0.75s ease infinite,
+               exist 0.1s ease forwards;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes exist {
+    100% {
+        width: 15px;
+        height: 15px;
+        margin: -8px 5px 0 0;
+    }
+}
+

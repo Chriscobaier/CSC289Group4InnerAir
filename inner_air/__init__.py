@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 
 
 app = Flask(__name__)
-app.config.from_object(config('APP_SETTINGS'))
+app.config.from_object(config('APP_SETTINGS', default='inner_air.config.DevelopmentConfig'))
 
 login_manager = LoginManager()
 login_manager.init_app(app)
