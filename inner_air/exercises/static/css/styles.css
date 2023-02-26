@@ -42,3 +42,56 @@
     transform: translateY(-200px);
   }
 }
+
+/* Exercise list accordion */
+.accordion {
+    margin: 100px auto;
+    width: 600px;
+}
+
+.accordion li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background: #e3d1c6;
+    color: #000000;
+}
+
+.accordion li label {
+    padding: 10px;
+    display: flex;
+    justify-content: right; /* justifies all content in the labels -Jade*/
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    color: ##0e2f44;
+}
+
+/* Haven't figured out how to justify only the buttons and 'carrot' -Jade*/
+.accordion li label span {
+    justify-content: right;
+}
+
+.accordion li label span + #carrot {
+    transform: rotate(180deg);
+    font-size: 22px;
+}
+
+.accordion label + input[type="checkbox"] {
+    display: none;
+}
+
+.accordion .content {
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition-duration: 1s;
+
+}
+
+.accordion label + input[type="checkbox"]:checked + .content {
+    max-height: 100px;
+}
