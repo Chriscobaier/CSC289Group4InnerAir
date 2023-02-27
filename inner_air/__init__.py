@@ -20,6 +20,7 @@ migrate = Migrate(app, db)
 """
     registering blueprints
 """
+from .admin.routes import admin_bp
 from .main.routes import main_bp
 from .user.routes import user_bp
 from .profile.routes import profile_bp
@@ -27,6 +28,7 @@ from .exercises.routes import exercises_bp
 from .user_list.routes import userlist_bp
 from .errors.handlers import errors
 
+app.register_blueprint(admin_bp, url_prefix='/')
 app.register_blueprint(main_bp, url_prefix='/')
 app.register_blueprint(user_bp, url_prefix='/')
 app.register_blueprint(profile_bp, url_prefix='/')
@@ -52,4 +54,3 @@ def load_user(id):
     DB creation
 """
 from inner_air import create_and_delete
-
