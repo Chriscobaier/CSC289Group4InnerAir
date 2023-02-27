@@ -1,4 +1,7 @@
 SRC=wsgi.py
+ARGS=run
+DEBUG=--debug
+CREATE_ADMIN= create_admin
 VENV = $(CURDIR)/venv
 PYTHON = $(VENV)/bin/python3.11
 PIP = $(VENV)/bin/pip3.11
@@ -8,8 +11,10 @@ PIP = $(VENV)/bin/pip3.11
 ifeq ($(OS), Windows_NT)
 
 run: $(VENV)/bin/activate
-	$(PYTHON) $(SRC)
+	$(PYTHON) $(SRC) $(ARGS) $(DEBUG)
 
+admin: $(VENV)/bin/activate
+	$(PYTHON) $(SRC) $(CREATE_ADMIN)
 
 $(VENV)/bin/activate: requirements.txt
 	python3.11 -m venv $(VENV)
@@ -25,7 +30,11 @@ clean:
 else
 
 run: $(VENV)/bin/activate
-	$(PYTHON) $(SRC)
+	$(PYTHON) $(SRC) $(ARGS) --debug
+
+admin: $(VENV)/bin/activate
+	$(PYTHON) $(SRC) $(CREATE_ADMIN)
+
 
 $(VENV)/bin/activate: requirements.txt
 	python3.11 -m venv $(VENV)
