@@ -34,7 +34,7 @@ def DeleteAndCreateDB():
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days=i['consecutive_days'], confirmed=1))
+                                        consecutive_days=i['consecutive_days'], is_confirmed=1))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
@@ -70,7 +70,7 @@ def DeleteAndCreateDB():
                     db.session.add(User(firstname=i["firstname"],
                                         email=i["email"],
                                         password_hash=i["password_hash"],
-                                        consecutive_days=i['consecutive_days'],confirmed=1))
+                                        consecutive_days=i['consecutive_days'],is_confirmed=1))
                 for i in range(365):
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=1, exercise_id=1))
