@@ -30,7 +30,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 2;
-  height: 4rem;
+  height: 3rem;
   width: 100%;
   padding: 0.5rem 1rem;
   background: #050f1b;
@@ -51,7 +51,7 @@ header nav > ul li {
   justify-content: center;
 }
 header + * {
-  margin-top: 4rem;
+  margin-top: 6.5rem;
 }
 
 .form-register {
