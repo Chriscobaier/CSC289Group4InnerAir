@@ -1,6 +1,5 @@
-@import "toolbox/toolbox";
-@import "layouts/layouts";
-@import "components/components";
+@use "../../../dev/scss/toolbox";
+@use "../../../dev/scss/components";
 
 *,
 *::before,
@@ -11,16 +10,16 @@
 }
 
 body {
-    @include flex-spread;
-    background-color: $pastel-pink;
+    @include toolbox.flex-spread;
+    background-color: toolbox.$pastel-pink;
     background-image: linear-gradient(
-        $tinted-teal,
-        $pastel-blue 60%,
-        $pastel-pink,
-        $pastel-yellow
+        toolbox.$tinted-teal,
+        toolbox.$pastel-blue 60%,
+        toolbox.$pastel-pink,
+        toolbox.$pastel-yellow
     );
 
-    color: $light-white;
+    color: toolbox.$light-white;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
@@ -30,11 +29,11 @@ body {
         margin-left: auto;
         margin-right: auto;
         padding: 1rem;
-        background-color: $dark-steel;
+        background-color: toolbox.$dark-steel;
         background-image: linear-gradient(
             0deg,
-            $dark-steel 85%,
-            $tinted-azure 99%
+            toolbox.$dark-steel 85%,
+            toolbox.$tinted-azure 99%
         );
         min-height: 100vh;
         height: fit-content;

@@ -1,27 +1,3 @@
-/* Makes content go |O  O  O|*/
-.pop-in {
-  animation: pop-in 0s ease-in 5s forwards;
-  animation-fill-mode: forwards;
-}
-
-@keyframes pop-in {
-  from {
-    visibility: hidden;
-    display: none;
-  }
-  to {
-    width: 0;
-    height: 0;
-    visibility: hidden;
-    display: none;
-  }
-}
-.invs {
-  visibility: hidden;
-  visibility: collapse;
-  display: none;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -202,6 +178,29 @@ table tr:nth-child(odd) {
 }
 .link--light:hover {
   color: #ffa66d;
+}
+
+.pop-in {
+  animation: pop-in 0s ease-in 5s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pop-in {
+  from {
+    visibility: hidden;
+    display: none;
+  }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+.invs {
+  visibility: hidden;
+  visibility: collapse;
+  display: none;
 }
 
 *,

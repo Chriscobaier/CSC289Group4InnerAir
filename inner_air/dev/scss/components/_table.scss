@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../toolbox/pallets";
+
 table {
     border-collapse: collapse;
     border-radius: 10px;
@@ -13,18 +16,18 @@ table {
     }
 
     th {
-        background-color: $dark-black;
+        background-color: pallets.$dark-black;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
     tr {
         &:nth-child(even) {
-            background-color: $dark-black;
+            background-color: pallets.$dark-black;
         }
 
         &:nth-child(odd) {
-            background-color: mix($dark-black, $dark-steel, $weight: 60%);
+            background-color: color.mix(pallets.$dark-black, pallets.$dark-steel, $weight: 60%);
         }
     }
 }

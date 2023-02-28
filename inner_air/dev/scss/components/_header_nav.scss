@@ -1,19 +1,22 @@
+@use "../toolbox/functions";
+@use "../toolbox/pallets";
+
 header {
-    @include flex-spread;
+    @include functions.flex-spread;
     position: fixed;
     top: 0;
     z-index: 2;
     height: 3rem;
     width: 100%;
     padding: 0.5rem 1rem;
-    background: $dark-black;
+    background: pallets.$dark-black;
 
     img {
         max-width: 100px;
     }
 
     nav > ul {
-        @include flex-spread;
+        @include functions.flex-spread;
 
         li {
             display: flex;

@@ -1,19 +1,21 @@
+@use "../toolbox/pallets";
+
 .link {
     text-align: center;
-    color: $accent-cold;
+    color: pallets.$accent-cold;
     text-decoration: none;
 
     &:hover {
-        color: $accent-cold-light;
+        color: pallets.$accent-cold-light;
     }
 
     &--light {
         @extend .link;
         text-decoration: none;
-        color: $light-white;
+        color: pallets.$light-white;
 
         &:hover {
-            color: $accent-warm-light;
+            color: pallets.$accent-warm-light;
         }
     }
 }
