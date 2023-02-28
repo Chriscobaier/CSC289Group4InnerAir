@@ -4,7 +4,7 @@ Exercises
 {% endblock %}
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/feather_breathing.css')}}">
 
 <h1>Welcome, {{ current_user.firstname }} </h1>
 <h2 class="text-center">Exercises Temp table to show data - need to format page</h2>
@@ -29,9 +29,12 @@ Exercises
         </tr>
     </tbody>
 </table>
-<div class="AnimationBorder">
-    <div class="featherObject">
+<div class="breathing-animation-container">
+    <div class="animation-scope"> <img id="feather" class="float-object"
+            src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
     </div>
+
+    <button id="start-button" class="button--green">Start</button>
 </div>
 
 <script defer src="{{ url_for('.static', filename='js/app.js')}}"></script>

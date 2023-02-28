@@ -1,1 +1,56 @@
 @use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.breathing-animation-container {
+    @include tl.flex-spread;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+    background-color: tl.$dark-black;
+    background-image: radial-gradient(
+        color.adjust(tl.$tinted-azure, $lightness: -30%),
+        tl.$dark-black
+    );
+    height: 90vh;
+    padding: 1rem;
+
+    .animation-scope {
+        @include tl.rounded;
+        background-color: tl.$dark-black;
+        height: 50vh;
+        width: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .float-object {
+            width: 120px;
+            height: auto;
+            animation: 8s infinite linear sway;
+        }
+    }
+}
+
+@keyframes sway {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    10% {
+        transform: rotateZ(5deg);
+    }
+    25% {
+        transform: rotateZ(20deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-30deg);
+    }
+    85% {
+        transform: rotateZ(-5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
