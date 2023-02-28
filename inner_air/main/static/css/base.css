@@ -51,7 +51,7 @@ header nav > ul li {
   justify-content: center;
 }
 header + * {
-  margin-top: 6.5rem;
+  margin-top: 3rem;
 }
 
 .form-register {
