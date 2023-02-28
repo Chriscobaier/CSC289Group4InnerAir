@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e8cc2f1-b6fe-4f36-8286-8a29c7656ab3" name="Changes" comment="" />
+    <list default="true" id="6e8cc2f1-b6fe-4f36-8286-8a29c7656ab3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/errors/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/401.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/401.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/403.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/500.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inner_air/user/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/user/static/css/styles.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,14 +42,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jrchavez07/Desktop/CSC289Group4InnerAir&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/jrchavez07/Desktop/Github/wtcc/CSC289Group4InnerAir"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/inner_air/errors/static/css" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python tests.pytest in test_db_models.py">
     <configuration name="admin" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
       <makefile filename="$PROJECT_DIR$/Makefile" target="admin" workingDirectory="" arguments="">
