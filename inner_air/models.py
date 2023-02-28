@@ -10,8 +10,9 @@ class User(db.Model, UserMixin):
     firstname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
+    is_admin = db.Column(db.Boolean, nullable=False, default=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
-    confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    is_confirmed = db.Column(db.Boolean, nullable=False, default=False)
     confirmed_on = db.Column(db.DateTime, nullable=True)
     password_reset_token = db.Column(db.String, nullable=True)
     consecutive_days = db.Column(db.Integer, default=0)
@@ -36,15 +37,17 @@ class User(db.Model, UserMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def updateLastLogin(self):
-        # TODO TIME LOCALIZATION
+        # TODO TIME LOCALIZATION ??
         todayDate = datetime.today()
         if self.last_login is None:
             self.consecutive_days = 0
-        elif self.last_login > (todayDate - timedelta(hours=24)):
-            self.consecutive_days += 1
         else:
-            self.consecutive_days = 0
-        self.last_login = todayDate
+            if self.last_login < todayDate.replace(hour=0, minute=0, second=0, microsecond=0):
+                if self.last_login > (todayDate - timedelta(hours=24)):
+                    self.consecutive_days += 1
+                else:
+                    self.consecutive_days = 0
+                self.last_login = todayDate
 
 
 class Exercise(db.Model):
@@ -57,6 +60,10 @@ class Exercise(db.Model):
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
     user_rating_count = db.Column(db.Integer)
+    exercise_inhale = db.Column(db.Integer, nullable=False)
+    exercise_inhale_pause = db.Column(db.Integer, nullable=False)
+    exercise_exhale = db.Column(db.Integer, nullable=False)
+    exercise_exhale_pause = db.Column(db.Integer, nullable=False)
 
     routines = db.relationship('Routine', backref='Exercise', lazy=True)
     favorites = db.relationship('Favorites', backref='Exercise', lazy=True)

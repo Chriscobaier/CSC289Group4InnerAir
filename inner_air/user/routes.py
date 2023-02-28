@@ -26,6 +26,7 @@ def login():
         user = db.session.query(User).filter_by(email=form.email.data).first()
         if user and user.verify_password(attempted_password=form.password.data):
             login_user(user)
+            user.updateLastLogin()
             db.session.commit()
             flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('profile.profile'))
@@ -43,11 +44,12 @@ def register():
             firstname=form.firstname.data,
             email=form.email.data,
             password=form.password.data,
-            confirmed=False
+            is_confirmed=False
         )
 
         if db.session.query(User).filter_by(email=form.email.data).first() is None:
             db.session.add(user)
+            user.updateLastLogin()
             db.session.commit()
 
             token = generate_confirmation_token(user.email)
@@ -69,13 +71,13 @@ def register():
 @user_bp.route('/confirm/<token>')
 @login_required
 def confirm_email(token):
-    if current_user.confirmed:
+    if current_user.is_confirmed:
         flash('Account already confirmed.', category='success')
         return redirect(url_for('main.home'))
     email = confirm_token(token)
     user = db.session.query(User).filter_by(email=current_user.email).first_or_404()
     if user.email == email:
-        user.confirmed = True
+        user.is_confirmed = True
         user.confirmed_on = datetime.datetime.now()
         db.session.add(user)
         db.session.commit()
@@ -88,7 +90,7 @@ def confirm_email(token):
 @user_bp.route('/unconfirmed')
 @login_required
 def unconfirmed():
-    if current_user.confirmed:
+    if current_user.is_confirmed:
         return redirect(url_for('main.home'))
     return render_template('user/unconfirmed.html')
 
@@ -96,7 +98,7 @@ def unconfirmed():
 @user_bp.route('/resend')
 @login_required
 def resend_confirmation():
-    if current_user.confirmed:
+    if current_user.is_confirmed:
         flash('Your account has already been confirmed.', category='success')
         return redirect(url_for('main.home'))
     token = generate_confirmation_token(current_user.email)
