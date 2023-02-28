@@ -7,7 +7,6 @@ from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Cat
 app = Flask(__name__)
 app.config.from_object('inner_air.config.TestingConfig')
 
-
 # Create database per app config
 db.init_app(app)
 
@@ -19,16 +18,34 @@ with app.app_context():
 # Fixture, db session for this test
 @pytest.fixture(scope="module")
 def db_session():
-    test_user = User(firstname="testUser", email="testUser@example.com", password="changeme")
+    test_user = User(firstname="testUser",
+                     email="testUser@example.com",
+                     password="changeme",
+                     is_admin=False,
+                     is_confirmed=False)
     test_exercise = Exercise(exercise_name='test_exercise_name',
                              exercise_instructions='test_exercise_instructions',
                              exercise_description='test_exercise_descriptions',
-                             exercise_length=12, category_id=1)
-    test_user2 = User(firstname="testUser2", email="testUser2@example.com", password="changemetoo")
+                             exercise_length=12, category_id=1,
+                             exercise_inhale=4,
+                             exercise_inhale_pause=4,
+                             exercise_exhale=4,
+                             exercise_exhale_pause=4)
+
+    test_user2 = User(firstname="testUser2",
+                      email="testUser2@example.com",
+                      password="changemetoo",
+                      is_admin=False,
+                      is_confirmed=False)
     test_exercise2 = Exercise(exercise_name='test_exercise_name2',
                               exercise_instructions='test_exercise_instructions2',
                               exercise_description='test_exercise_descriptions2',
-                              exercise_length=12, category_id=1)
+                              exercise_length=12, category_id=1,
+                              exercise_inhale=4,
+                              exercise_inhale_pause=4,
+                              exercise_exhale=4,
+                              exercise_exhale_pause=4)
+
     with app.app_context():
         db.session.add(test_user)
         db.session.add(test_exercise)
@@ -81,6 +98,8 @@ def test_user_model(db_session):
     assert test_user.firstname == "testUser"
     assert test_user.email == "testUser@example.com"
     assert test_user.verify_password(attempted_password='changeme')
+    assert test_user.is_admin == 0
+    assert test_user.is_confirmed == 0
     print(f"\n Dictionary of User Object: {test_user.as_dict()} \n")
 
 
@@ -89,6 +108,8 @@ def test_user_fixture(current_user):
     assert current_user.firstname == "testUser"
     assert current_user.email == "testUser@example.com"
     assert current_user.verify_password(attempted_password='changeme')
+    assert current_user.is_admin == 0
+    assert current_user.is_confirmed == 0
 
 
 # Test we can query db for exercise data
@@ -98,6 +119,10 @@ def test_exercise_model(db_session):
     assert test_exercise.exercise_instructions == 'test_exercise_instructions'
     assert test_exercise.exercise_description == 'test_exercise_descriptions'
     assert test_exercise.exercise_length == 12
+    assert test_exercise.exercise_inhale == 4
+    assert test_exercise.exercise_inhale_pause == 4
+    assert test_exercise.exercise_exhale == 4
+    assert test_exercise.exercise_exhale_pause == 4
     # assert test_exercise.cumulative_rating == 100 todo test later
     print(f"\n Dictionary of exercise Object: {test_exercise.as_dict()} \n")
 
@@ -108,6 +133,10 @@ def test_exercise_fixture(current_exercise):
     assert current_exercise.exercise_instructions == 'test_exercise_instructions'
     assert current_exercise.exercise_description == 'test_exercise_descriptions'
     assert current_exercise.exercise_length == 12
+    assert current_exercise.exercise_inhale == 4
+    assert current_exercise.exercise_inhale_pause == 4
+    assert current_exercise.exercise_exhale == 4
+    assert current_exercise.exercise_exhale_pause == 4
 
 
 # Test we can find the user's routine
