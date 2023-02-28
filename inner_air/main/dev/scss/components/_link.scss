@@ -1,21 +1,21 @@
-@use "../toolbox/pallets";
+@use "../../../../dev/scss/toolbox" as tl;
 
 .link {
     text-align: center;
-    color: pallets.$accent-cold;
+    color: tl.$accent-cold;
     text-decoration: none;
 
     &:hover {
-        color: pallets.$accent-cold-light;
+        color: tl.$accent-cold-light;
     }
 
     &--light {
         @extend .link;
         text-decoration: none;
-        color: pallets.$light-white;
+        color: tl.$light-white;
 
         &:hover {
-            color: pallets.$accent-warm-light;
+            color: tl.$accent-warm-light;
         }
     }
 }

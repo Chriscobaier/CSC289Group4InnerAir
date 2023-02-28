@@ -1,24 +1,23 @@
-@use "../toolbox/functions";
-@use "../toolbox/pallets";
+@use "../../../../dev/scss/toolbox" as tl;
 
 // only two for now. Will make more in the future
 .button {
-    @include functions.rounded;
+    @include tl.rounded;
 
-    background-color: pallets.$accent-warm;
+    background-color: tl.$accent-warm;
     color: white;
     font-size: 12px;
     padding: 0.5rem 0.7rem;
     margin: 0 0.5rem;
-    box-shadow: 0 0.3rem 10px rgba(pallets.$accent-warm, 0.5);
+    box-shadow: 0 0.3rem 10px rgba(tl.$accent-warm, 0.5);
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     text-transform: uppercase;
     border: none;
 
     &:hover {
-        background-color: pallets.$accent-warm-light;
-        color: pallets.$dark-steel;
+        background-color: tl.$accent-warm-light;
+        color: tl.$dark-steel;
     }
 
     &--dynamic {
@@ -31,12 +30,12 @@
 
     &--green {
         @extend .button;
-        background-color: pallets.$accent-mint;
-        box-shadow: 0 0.3rem 10px rgba(pallets.$accent-mint, 0.3);
+        background-color: tl.$accent-mint;
+        box-shadow: 0 0.3rem 10px rgba(tl.$accent-mint, 0.3);
 
         &:hover {
-            background-color: pallets.$accent-mint-light;
-            color: pallets.$dark-steel;
+            background-color: tl.$accent-mint-light;
+            color: tl.$dark-steel;
         }
     }
 }

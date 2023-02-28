@@ -1,5 +1,5 @@
 @use "sass:color";
-@use "../toolbox/pallets";
+@use "../../../../dev/scss/toolbox" as tl;
 
 table {
     border-collapse: collapse;
@@ -16,18 +16,22 @@ table {
     }
 
     th {
-        background-color: pallets.$dark-black;
+        background-color: tl.$dark-black;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
     tr {
         &:nth-child(even) {
-            background-color: pallets.$dark-black;
+            background-color: tl.$dark-black;
         }
 
         &:nth-child(odd) {
-            background-color: color.mix(pallets.$dark-black, pallets.$dark-steel, $weight: 60%);
+            background-color: color.mix(
+                tl.$dark-black,
+                tl.$dark-steel,
+                $weight: 60%
+            );
         }
     }
 }

@@ -1,4 +1,4 @@
-@use "../toolbox/functions";
+@use "../../../../dev/scss/toolbox" as tl;
 
 .form-register {
     padding: 1rem;
@@ -16,13 +16,13 @@
         }
 
         .form-container {
-            @include functions.flex-spread;
+            @include tl.flex-spread;
             flex-direction: column;
             justify-content: space-evenly;
             gap: 1rem;
 
             .form-section {
-                @include functions.flex-spread;
+                @include tl.flex-spread;
                 flex-direction: column;
                 gap: 0.5rem;
                 width: 100%;
