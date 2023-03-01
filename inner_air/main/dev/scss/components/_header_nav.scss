@@ -16,11 +16,11 @@ header {
 
     nav > ul {
         @include tl.flex-spread;
+        gap: 0.5rem;
 
         li {
             display: flex;
             list-style-type: none;
-            min-width: 5rem;
             justify-content: center;
         }
     }

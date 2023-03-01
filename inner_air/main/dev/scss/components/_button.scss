@@ -22,7 +22,7 @@
     &--dynamic {
         @extend .button;
         &:hover {
-            margin: 0 0.8rem;
+            margin: 0 0.5rem;
             transform: scale(1.1);
         }
     }
