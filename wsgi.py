@@ -20,6 +20,8 @@ cli = FlaskGroup(app)
         password: 'admin'
         confirm_password: 'admin'
 """
+
+
 @cli.command('create_admin')
 @def_params
 def create_admin(firstname='admin', email='admin@inner-air.com',
@@ -37,13 +39,13 @@ def create_admin(firstname='admin', email='admin@inner-air.com',
     else:
         try:
             db.session.add(User(
-                    firstname=firstname,
-                    email=email,
-                    password=password,
-                    is_admin=True,
-                    is_confirmed=True,
-                    confirmed_on=datetime.datetime.now()
-                )
+                firstname=firstname,
+                email=email,
+                password=password,
+                is_admin=True,
+                is_confirmed=True,
+                confirmed_on=datetime.datetime.now()
+            )
             )
             db.session.commit()
             print(f'admin with email {email} was created successfully!')
