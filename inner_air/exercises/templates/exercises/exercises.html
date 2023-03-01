@@ -4,15 +4,19 @@ Exercises
 {% endblock %}
 {% block content %}
 
-<link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/styles.css')}}">
+<link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_list.css')}}">
+
 
 <h1>Welcome, {{ current_user.firstname }} </h1>
 
-<div class="accordion">
-    <ul>
+<div class="list-container">
+    <ul class="list">
         {% for exercise in exercises %}
-        <li>
-            <label for={{ exercise.id }}>{{ exercise.exercise_name }}
+        <li class="plate">
+            <section class="upper">
+                <label for={{ exercise.id }} class="name">
+                    {{ exercise.exercise_name }}
+                </label>
                 <span id="favorite-button">
                     {% if exercise.id not in showFavAdd %}
                     <form method="post">
@@ -29,14 +33,15 @@ Exercises
                     </form>
                     {% endif %}
                 </span>
-                <span id="carrot">^</span>
-            </label>
-            <input type="checkbox" name="accordion" id={{ exercise.id }}>
-            <div class="content">
-                <p>{{ exercise.exercise_description }}</p>
-            </div>
+            </section>
+
+            <p class="description">
+                {{ exercise.exercise_description }}
+            </p>
         </li>
         {% endfor %}
     </ul>
+
+    <script src="{{ url_for('exercises.static', filename='js/expand_list_element.js') }}"></script>
 </div>
 {% endblock %}

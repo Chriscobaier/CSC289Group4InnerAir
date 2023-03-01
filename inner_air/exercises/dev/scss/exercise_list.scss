@@ -1,0 +1,51 @@
+@use "../../../dev/scss/toolbox" as tl;
+
+.list-container {
+    .list {
+        @include tl.flex-spread;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0 10%;
+        gap: 1rem;
+
+        .plate {
+            @include tl.rounded;
+            @include tl.flex-spread;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0.8rem;
+            gap: 1rem;
+            width: 100%;
+            transition: all 0.2s ease-in-out;
+            background-color: tl.$tinted-teal;
+
+            &:hover {
+                background: tl.$accent-cold;
+            }
+
+            .upper {
+                @include tl.flex-spread;
+                justify-content: top;
+                width: 100%;
+                flex-direction: row;
+                gap: 1rem;
+
+                .name {
+                    font-size: 20px;
+                    flex-grow: 1;
+                    height: 100%;
+                }
+
+                .favorite-button {
+                }
+            }
+
+            .description {
+                transition-duration: 1s;
+                display: none;
+                text-justify: left;
+                width: 100%;
+            }
+        }
+    }
+}
