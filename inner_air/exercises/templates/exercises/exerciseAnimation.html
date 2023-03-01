@@ -33,9 +33,8 @@ Exercises
     <div class="animation-scope"> <img id="feather" class="float-object"
             src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
     </div>
-
     <button id="start-button" class="button--green">Start</button>
-</div>
 
-<script defer src="{{ url_for('.static', filename='js/app.js')}}"></script>
+    <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
+</div>
 {% endblock %}
