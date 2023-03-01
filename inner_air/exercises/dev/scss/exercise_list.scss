@@ -1,7 +1,10 @@
 @use "../../../dev/scss/toolbox" as tl;
 
+// surrounding container
 .list-container {
     margin: 1rem;
+
+    // container for list
     .list {
         @include tl.flex-spread;
         flex-direction: column;
@@ -9,6 +12,7 @@
         margin: 0 10%;
         gap: 1rem;
 
+        // holds exercise "card"
         .plate {
             @include tl.rounded;
             @include tl.flex-spread;
@@ -24,6 +28,7 @@
                 background: tl.$accent-cold;
             }
 
+            // upper row of the car
             .upper {
                 @include tl.flex-spread;
                 justify-content: top;
@@ -31,16 +36,19 @@
                 flex-direction: row;
                 gap: 1rem;
 
+                // exercise label
                 .name {
                     font-size: 20px;
                     flex-grow: 1;
                     height: 100%;
                 }
 
+                // unstyled for now
                 .favorite-button {
                 }
             }
 
+            // text expanding on click
             .description {
                 transition-duration: 1s;
                 display: none;
