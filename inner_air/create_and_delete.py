@@ -1,23 +1,22 @@
 import json
-from pathlib import Path
 from datetime import datetime, timedelta
 
 from inner_air import app, db
 from inner_air.models import DBVersion, Exercise, User, Statistics
 
-PATH = Path('importdata', 'data.json')
 
 def DeleteAndCreateDB():
     with app.app_context():
         try:
             thisVersion = db.session.query(DBVersion).order_by(DBVersion.version.desc()).first()
-        except Exception:
+        except:
+            print("Database is not found - generating database with starter generic data. DB Version is now 0.05")
             thisVersion = None
 
         if thisVersion is None:
             db.drop_all()
             db.create_all()
-            with open(PATH) as f:
+            with open('importdata/data.json') as f:
                 data = json.load(f)
                 j = data["exercises"]
                 for i in j:
@@ -51,12 +50,15 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.02'))
+            db.session.add(DBVersion(version='0.05'))
             db.session.commit()
-        elif str(thisVersion.version) < '0.04':
+        elif str(thisVersion.version) < '0.05':
+            print("Database is outdated.")
+            print("Updating to DB Version 0.05")
+            print("INCOMPATIBILITY - MUST USE BLANK DATA")
             db.drop_all()
             db.create_all()
-            with open(PATH) as f:
+            with open('importdata/data.json') as f:
                 data = json.load(f)
                 j = data["exercises"]
                 for i in j:
@@ -89,7 +91,7 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.04'))
+            db.session.add(DBVersion(version='0.05'))
             db.session.commit()
 
 

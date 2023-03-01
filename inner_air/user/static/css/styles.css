@@ -9,7 +9,7 @@
     align-items: flex-start;
     z-index: 1000;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .modal-content {
@@ -45,7 +45,7 @@
 }
 
 #one .modal-header,
-.modal:nth-of-type(1) .modal-footer {
+#one .modal-footer {
     padding: 1rem;
     color: #fff;
     text-align: center;

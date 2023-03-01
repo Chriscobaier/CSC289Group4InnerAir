@@ -4,8 +4,27 @@
 {% endblock %}
 {% block content %}
 
-    <h2>401</h2>
-    <p>unauthorized page</p>
-    <p><em>Return<a href="{{ url_for('main.home') }}">Home</a></em></p>
+    <link rel="stylesheet" href="{{ url_for('errors.static', filename='css/styles.css') }}">
+    <div class='error-container'>
+        <div class='error-content'>
+            <!-- error header -->
+            <div class="error-header">
+                    <h2>401</h2>
+                    <h4>unauthorized page</h4>
+            </div>
+            <!-- error body -->
+            <div class="error-body">
+                <p>
+                    Your authorization failed.
+                </p>
+            </div>
+            <!-- error footer -->
+            <div class="error-footer">
+                <p>
+                    <a class="button" href="{{ url_for('main.home') }}">back to home</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
