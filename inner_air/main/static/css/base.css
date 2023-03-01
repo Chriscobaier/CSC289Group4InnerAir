@@ -1,27 +1,3 @@
-/* Makes content go |O  O  O|*/
-.pop-in {
-  animation: pop-in 0s ease-in 5s forwards;
-  animation-fill-mode: forwards;
-}
-
-@keyframes pop-in {
-  from {
-    visibility: hidden;
-    display: none;
-  }
-  to {
-    width: 0;
-    height: 0;
-    visibility: hidden;
-    display: none;
-  }
-}
-.invs {
-  visibility: hidden;
-  visibility: collapse;
-  display: none;
-}
-
 header {
   display: flex;
   justify-content: space-between;
@@ -30,7 +6,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 2;
-  height: 4rem;
+  height: 3rem;
   width: 100%;
   padding: 0.5rem 1rem;
   background: #050f1b;
@@ -43,15 +19,15 @@ header nav > ul {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  gap: 0.5rem;
 }
 header nav > ul li {
   display: flex;
   list-style-type: none;
-  min-width: 5rem;
   justify-content: center;
 }
 header + * {
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 .form-register {
@@ -103,34 +79,88 @@ header + * {
   margin: 1.5rem auto;
 }
 
-.button, .button--green, .button--dynamic {
+.button, .button--green--dynamic, .button--blue--dynamic, .button--red--dynamic, .button--dynamic {
+  border-radius: 10px;
+  background-color: #3254a5;
+  color: white;
+  font-size: 12px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button:hover, .button--green--dynamic:hover, .button--blue--dynamic:hover, .button--red--dynamic:hover, .button--dynamic:hover {
+  background-color: #2180b3;
+  color: #222f45;
+}
+.button--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
+.button--red {
   border-radius: 10px;
   background-color: #ef5562;
   color: white;
   font-size: 12px;
   padding: 0.5rem 0.7rem;
-  margin: 0 0.5rem;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
 }
-.button:hover, .button--green:hover, .button--dynamic:hover {
+.button--red:hover {
   background-color: #ffa66d;
   color: #222f45;
 }
-.button--dynamic:hover {
-  margin: 0 0.8rem;
+.button--red--dynamic:hover {
+  margin: 0 0.5rem;
   transform: scale(1.1);
 }
+
+.button--blue {
+  border-radius: 10px;
+  background-color: #0094ec;
+  color: white;
+  font-size: 12px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button--blue:hover {
+  background-color: #4acdff;
+  color: #222f45;
+}
+.button--blue--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
 .button--green {
+  border-radius: 10px;
   background-color: #00cfa5;
-  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.3);
+  color: white;
+  font-size: 12px;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
 }
 .button--green:hover {
   background-color: #85f58c;
   color: #222f45;
+}
+.button--green--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
 }
 
 table {
@@ -202,6 +232,29 @@ table tr:nth-child(odd) {
 }
 .link--light:hover {
   color: #ffa66d;
+}
+
+.pop-in {
+  animation: pop-in 0s ease-in 5s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pop-in {
+  from {
+    visibility: hidden;
+    display: none;
+  }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+.invs {
+  visibility: hidden;
+  visibility: collapse;
+  display: none;
 }
 
 *,

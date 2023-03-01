@@ -1,16 +1,15 @@
-
 <header>
-	<img src="{{ url_for('main.static', filename='img/inner-air.svg') }}"></img>
+	<img src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
 	<nav>
 		{% if current_user.is_authenticated %}
 		<ul>
 			{% if current_user.is_admin %}
-				<li><a class="button--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a></li>
 			{% endif %}
 			{% if current_user.is_confirmed %}
-				<li><a class="button--dynamic" href="{{ url_for('exercises.exercises') }}">EXERCISES</a></li>
-				<li><a class="button--dynamic" href="{{ url_for('userlist.userlist') }}">User List</a></li>
-				<li><a class="button--dynamic" href="{{ url_for('profile.profile') }}">PROFILE</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('exercises.exercises') }}">EXERCISES</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('userlist.userlist') }}">User List</a></li>
+			<li><a class="button--dynamic" href="{{ url_for('profile.profile') }}">PROFILE</a></li>
 			{% endif %}
 			<li><a class="button--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a></li>
 		</ul>

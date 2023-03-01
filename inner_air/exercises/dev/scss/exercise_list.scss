@@ -1,0 +1,69 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+// surrounding container
+.list-container {
+    margin: 1rem;
+
+    // container for list
+    .list {
+        @include tl.flex-spread;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0 10%;
+        gap: 0.8rem;
+
+        // holds exercise "card"
+        .plate {
+            @include tl.rounded;
+            @include tl.flex-spread;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0.8rem;
+            gap: 1rem;
+            width: 100%;
+            transition: all 0.2s ease-out;
+            background-color: tl.$tinted-teal;
+
+            &:nth-child(odd) {
+                background-color: tl.$tinted-teal;
+            }
+
+            &:nth-child(even) {
+                background-color: color.adjust(tl.$tinted-teal, $hue: 10);
+            }
+
+            &:hover {
+                background: tl.$accent-cold;
+            }
+
+            // upper row of the car
+            .upper {
+                @include tl.flex-spread;
+                justify-content: top;
+                width: 100%;
+                flex-direction: row;
+                gap: 1rem;
+
+                // exercise label
+                .name {
+                    font-size: 20px;
+                    flex-grow: 1;
+                    height: 100%;
+                }
+
+                // unstyled for now
+                .favorite-button {
+                }
+            }
+
+            // text expanding on click
+            .description {
+                transition-duration: 1s;
+                display: none;
+                text-justify: left;
+                width: 100%;
+            }
+        }
+    }
+}

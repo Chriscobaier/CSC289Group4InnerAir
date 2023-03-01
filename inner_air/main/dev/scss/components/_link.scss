@@ -1,19 +1,21 @@
+@use "../../../../dev/scss/toolbox" as tl;
+
 .link {
     text-align: center;
-    color: $accent-cold;
+    color: tl.$accent-cold;
     text-decoration: none;
 
     &:hover {
-        color: $accent-cold-light;
+        color: tl.$accent-cold-light;
     }
 
     &--light {
         @extend .link;
         text-decoration: none;
-        color: $light-white;
+        color: tl.$light-white;
 
         &:hover {
-            color: $accent-warm-light;
+            color: tl.$accent-warm-light;
         }
     }
 }

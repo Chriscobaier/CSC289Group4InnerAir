@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../../../../dev/scss/toolbox" as tl;
+
 table {
     border-collapse: collapse;
     border-radius: 10px;
@@ -13,18 +16,22 @@ table {
     }
 
     th {
-        background-color: $dark-black;
+        background-color: tl.$dark-black;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
     }
 
     tr {
         &:nth-child(even) {
-            background-color: $dark-black;
+            background-color: tl.$dark-black;
         }
 
         &:nth-child(odd) {
-            background-color: mix($dark-black, $dark-steel, $weight: 60%);
+            background-color: color.mix(
+                tl.$dark-black,
+                tl.$dark-steel,
+                $weight: 60%
+            );
         }
     }
 }

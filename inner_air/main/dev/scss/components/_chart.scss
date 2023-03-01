@@ -1,7 +1,9 @@
+@use "../../../../dev/scss/toolbox" as tl;
+
 .chart {
     width: 80%;
     height: 900px;
-    background-color: $pastel-blue;
+    background-color: tl.$pastel-blue;
     border-radius: 10px;
     margin: auto;
 }
