@@ -10,7 +10,7 @@ def DeleteAndCreateDB():
         try:
             thisVersion = db.session.query(DBVersion).order_by(DBVersion.version.desc()).first()
         except:
-            print("Database is not found - generating database with starter generic data. DB Version is now 0.04")
+            print("Database is not found - generating database with starter generic data. DB Version is now 0.05")
             thisVersion = None
 
         if thisVersion is None:
@@ -50,11 +50,11 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.04'))
+            db.session.add(DBVersion(version='0.05'))
             db.session.commit()
-        elif str(thisVersion.version) < '0.04':
+        elif str(thisVersion.version) < '0.05':
             print("Database is outdated.")
-            print("Updating to DB Version 0.04")
+            print("Updating to DB Version 0.05")
             print("INCOMPATIBILITY - MUST USE BLANK DATA")
             db.drop_all()
             db.create_all()
@@ -91,7 +91,7 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.04'))
+            db.session.add(DBVersion(version='0.05'))
             db.session.commit()
 
 
