@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e8cc2f1-b6fe-4f36-8286-8a29c7656ab3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/errors/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/401.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/401.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/403.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/403.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/errors/templates/errors/500.html" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/errors/templates/errors/500.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inner_air/user/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/inner_air/user/static/css/styles.css" afterDir="false" />
-    </list>
+    <list default="true" id="6e8cc2f1-b6fe-4f36-8286-8a29c7656ab3" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="PreProduction" />
+        <entry key="$PROJECT_DIR$" value="Jc" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -42,14 +34,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/jrchavez07/Desktop/Github/wtcc/CSC289Group4InnerAir"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/inner_air/errors/static/css" />
@@ -96,9 +80,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_db_models.py" />
         <item itemvalue="Python tests.pytest in tests" />
+        <item itemvalue="Python tests.pytest in test_db_models.py" />
         <item itemvalue="Makefile Target.admin" />
+        <item itemvalue="Python tests.pytest in tests" />
+        <item itemvalue="Python tests.pytest in test_db_models.py" />
       </list>
     </recent_temporary>
   </component>
@@ -123,5 +109,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
