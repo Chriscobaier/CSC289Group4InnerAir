@@ -1,4 +1,5 @@
 @use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
 
 // surrounding container
 .list-container {
@@ -10,7 +11,7 @@
         flex-direction: column;
         list-style-type: none;
         margin: 0 10%;
-        gap: 1rem;
+        gap: 0.8rem;
 
         // holds exercise "card"
         .plate {
@@ -21,8 +22,16 @@
             padding: 0.8rem;
             gap: 1rem;
             width: 100%;
-            transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-out;
             background-color: tl.$tinted-teal;
+
+            &:nth-child(odd) {
+                background-color: tl.$tinted-teal;
+            }
+
+            &:nth-child(even) {
+                background-color: color.adjust(tl.$tinted-teal, $hue: -10);
+            }
 
             &:hover {
                 background: tl.$accent-cold;

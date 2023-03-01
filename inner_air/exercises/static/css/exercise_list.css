@@ -9,7 +9,7 @@
   flex-direction: column;
   list-style-type: none;
   margin: 0 10%;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 .list-container .list .plate {
   border-radius: 10px;
@@ -22,8 +22,14 @@
   padding: 0.8rem;
   gap: 1rem;
   width: 100%;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-out;
   background-color: #2180b3;
+}
+.list-container .list .plate:nth-child(odd) {
+  background-color: #2180b3;
+}
+.list-container .list .plate:nth-child(even) {
+  background-color: #2198b3;
 }
 .list-container .list .plate:hover {
   background: #0094ec;
