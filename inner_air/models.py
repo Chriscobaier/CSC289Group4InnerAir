@@ -65,9 +65,6 @@ class Exercise(db.Model):
     exercise_exhale = db.Column(db.Integer, nullable=False)
     exercise_exhale_pause = db.Column(db.Integer, nullable=False)
 
-    routines = db.relationship('Routine', backref='Exercise', lazy=True)
-    favorites = db.relationship('Favorites', backref='Exercise', lazy=True)
-    statistics = db.relationship('Statistics', backref='Exercise', lazy=True)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
