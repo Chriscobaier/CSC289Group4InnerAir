@@ -56,7 +56,7 @@ class Exercise(db.Model):
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
     exercise_instructions = db.Column(db.String(2048), nullable=False)
     exercise_description = db.Column(db.String(2048), nullable=False)
-    exercise_length = db.Column(db.Float, nullable=False)
+    exercise_length = db.Column(db.Integer, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
     user_rating_count = db.Column(db.Integer)

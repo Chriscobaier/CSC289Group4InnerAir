@@ -54,6 +54,7 @@ def DeleteAndCreateDB():
             db.session.commit()
         elif str(thisVersion.version) < '0.05':
             print("Database is outdated.")
+            print("Beginning Migration")
             print("Updating to DB Version 0.05")
             print("INCOMPATIBILITY - MUST USE BLANK DATA")
             db.drop_all()
@@ -93,6 +94,15 @@ def DeleteAndCreateDB():
                     db.session.commit()
             db.session.add(DBVersion(version='0.05'))
             db.session.commit()
+
+        if str(thisVersion.version) == '0.05':
+            print("Upgrading DB from 0.04 to 0.05")
+            # Comment about change
+            # Updating Exercise length from float to int
+
+            db.session.add(DBVersion(version='0.06'))
+            db.session.commit()
+
 
 
 DeleteAndCreateDB()
