@@ -1,6 +1,7 @@
 @use "../../../dev/scss/toolbox" as tl;
 
 .list-container {
+    margin: 1rem;
     .list {
         @include tl.flex-spread;
         flex-direction: column;

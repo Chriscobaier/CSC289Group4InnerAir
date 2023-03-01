@@ -1,3 +1,6 @@
+.list-container {
+  margin: 1rem;
+}
 .list-container .list {
   display: flex;
   justify-content: space-between;
