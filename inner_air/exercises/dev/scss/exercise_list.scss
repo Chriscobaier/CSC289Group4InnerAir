@@ -25,13 +25,10 @@
             transition: all 0.2s ease-out;
             background-color: tl.$tinted-teal;
 
-            &:nth-child(odd) {
-                background-color: tl.$tinted-teal;
-            }
-
-            &:nth-child(even) {
-                background-color: color.adjust(tl.$tinted-teal, $hue: 10);
-            }
+            @include tl.zebra-rows(
+                tl.$tinted-teal,
+                color.adjust(tl.$tinted-teal, $hue: 10)
+            );
 
             &:hover {
                 background: tl.$accent-cold;

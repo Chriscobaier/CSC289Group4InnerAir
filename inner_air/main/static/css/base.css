@@ -182,10 +182,10 @@ table th {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-table tr:nth-child(even) {
+table tr:nth-child(odd) {
   background-color: #050f1b;
 }
-table tr:nth-child(odd) {
+table tr:nth-child(even) {
   background-color: #111c2c;
 }
 
