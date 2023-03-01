@@ -30,7 +30,7 @@
             }
 
             &:nth-child(even) {
-                background-color: color.adjust(tl.$tinted-teal, $hue: -10);
+                background-color: color.adjust(tl.$tinted-teal, $hue: 10);
             }
 
             &:hover {
