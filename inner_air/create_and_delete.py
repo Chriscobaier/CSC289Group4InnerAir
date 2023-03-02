@@ -51,14 +51,14 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.05'))
+            db.session.add(DBVersion(version='0.06'))
             db.session.commit()
             thisVersion = db.session.query(DBVersion).order_by(DBVersion.version.desc()).first()
 
         elif str(thisVersion.version) < '0.05':
             print("Database is outdated.")
             print("Beginning Migration")
-            print("Updating to DB Version 0.05")
+            print("Updating to DB Version 0.06")
             print("INCOMPATIBILITY - MUST USE BLANK DATA")
             db.drop_all()
             db.create_all()
@@ -95,7 +95,7 @@ def DeleteAndCreateDB():
                     x = datetime.today() - timedelta(days=i)
                     db.session.add(Statistics(date_completed=x, user_id=3, exercise_id=3))
                     db.session.commit()
-            db.session.add(DBVersion(version='0.05'))
+            db.session.add(DBVersion(version='0.06'))
             db.session.commit()
 
         if str(thisVersion.version) == '0.05':

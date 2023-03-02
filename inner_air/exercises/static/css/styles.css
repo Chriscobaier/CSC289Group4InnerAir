@@ -95,4 +95,10 @@
   .accordion label + input[type="checkbox"]:checked + .content {
       max-height: 100px;
   }
-  
+
+
+
+  .ExerciseName{
+    text-align: center;
+    padding: 10px;
+    }
