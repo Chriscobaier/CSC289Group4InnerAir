@@ -76,12 +76,13 @@ def get_exercise_id(exid):
     # Update cumulative ratings
     all_ex_data = db.session.query(UserRating).filter_by(exercise_id=exid).all()
     all_ex_data_count = len(all_ex_data)
-    all_ex_data_total = 0
-    for i in all_ex_data:
-        all_ex_data_total += i.user_rating
-    cumulateData = all_ex_data_total / all_ex_data_count
-    db.session.query(Exercise).filter_by(id=exid).first().update_cumulative_rating(cumulateData)
-    db.session.commit()
+    if all_ex_data_count > 0:
+        all_ex_data_total = 0
+        for i in all_ex_data:
+            all_ex_data_total += i.user_rating
+        cumulateData = all_ex_data_total / all_ex_data_count
+        db.session.query(Exercise).filter_by(id=exid).first().update_cumulative_rating(cumulateData)
+        db.session.commit()
 
     this_exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
     form = RateEx()
