@@ -33,15 +33,27 @@
     margin: 1rem 0;
 }
 
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.75rem;
+    font-weight: bold;
+    padding: 0rem 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}
+
 /* modal 1 */
 #one {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #one .modal-content {
+    margin-top: 10%;
     padding: 0;
+    background-color: transparent;
 }
 
 #one .modal-header,
@@ -52,53 +64,68 @@
 }
 
 #one .modal-header h2 {
-        margin: 0;
+    margin: 1rem;
 }
 
 #one .modal-body {
-        text-align: center;
+    text-align: center;
+}
+
+#one .modal-content .modal-footer a {
+    position: relative;
+    display: inline-block;
+    margin-top: 5px;
+}
+#one .modal-redirect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 0.75rem;
+}
+#one .left-arrow {
+    font-size: 1.5rem;
 }
 
 /* modal 2 */
 #two {
-        justify-content: center;
-        align-items: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #two .modal-content {
-        width: 25%;
-        padding: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        row-gap: 10px;
+    width: 25%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 #two .modal-content h2 {
-        margin: 0;
-        font-size: 1.625rem;
-        font-weight: 500;
+    margin: 0;
+    font-size: 1.625rem;
+    font-weight: 500;
 }
 
 #two .modal-header {
-        background-color: #d2ddf7;
-        height: 150px;
-        width: 150px;
-        color: #273c67;
-        font-size: 5.625rem;
-        border-radius: 50%;
-        border: solid #304f99;
-        border-width: 6px;
+    background-color: #d2ddf7;
+    height: 150px;
+    width: 150px;
+    color: #273c67;
+    font-size: 5.625rem;
+    border-radius: 50%;
+    border: solid #304f99;
+    border-width: 6px;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #two .modal-body {
-        text-align: center;
-        font-size: 14px;
+    text-align: center;
+    font-size: 14px;
 }
 
 #two .modal-content hr {
@@ -116,12 +143,12 @@
 
 /* spinner */
 .button {
-  display: inline-flex;
-  position: relative;
+    display: inline-flex;
+    position: relative;
 }
 
 .button.spinner {
-  padding-right: 35px;
+    padding-right: 35px;
 }
 
 .button.spinner::after {

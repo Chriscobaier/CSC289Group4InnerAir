@@ -28,7 +28,8 @@ def login():
             login_user(user)
             user.updateLastLogin()
             db.session.commit()
-            flash(f'Success! You are logged in as: {user.firstname}', category='success')
+            if user.is_confirmed:
+                flash(f'Success! You are logged in as: {user.firstname}', category='success')
             return redirect(url_for('profile.profile'))
         else:
             flash('You have entered an invalid email address or password.', category='danger')
@@ -59,8 +60,6 @@ def register():
             send_email(user.email, subject, html)
 
             login_user(user)
-
-            flash(f'Account created successfully for {form.firstname.data}', category='success')
             flash('A confirmation email has been sent via email.', category='success')
             return redirect(url_for('user.unconfirmed'))
         else:
