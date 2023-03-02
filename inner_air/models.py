@@ -65,9 +65,11 @@ class Exercise(db.Model):
     exercise_exhale = db.Column(db.Integer, nullable=False)
     exercise_exhale_pause = db.Column(db.Integer, nullable=False)
 
-
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+    def update_cumulative_rating(self, data):
+        self.cumulative_rating = data
 
 
 class Routine(db.Model):
@@ -116,12 +118,15 @@ class Category(db.Model):
 class UserRating(db.Model):
     __tablename__ = 'Exercise.UserRating'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_rating = db.Column(db.Float, nullable=False)
+    user_rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
     exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+    def update_rating(self, data):
+        self.user_rating = data
 
 
 class DBVersion(db.Model):
