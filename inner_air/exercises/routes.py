@@ -76,8 +76,8 @@ def get_exercise_id(exid):
     # Update cumulative ratings
     all_ex_data = db.session.query(UserRating).filter_by(exercise_id=exid).all()
     all_ex_data_count = len(all_ex_data)
+    all_ex_data_total = 0
     if all_ex_data_count > 0:
-        all_ex_data_total = 0
         for i in all_ex_data:
             all_ex_data_total += i.user_rating
         cumulateData = all_ex_data_total / all_ex_data_count
