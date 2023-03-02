@@ -39,15 +39,20 @@ class User(db.Model, UserMixin):
     def updateLastLogin(self):
         # TODO TIME LOCALIZATION ??
         todayDate = datetime.today()
+        todayMidnight = todayDate.replace(hour=0, minute=0, second=0, microsecond=0)
+
         if self.last_login is None:
             self.consecutive_days = 0
+            self.last_login = todayDate
+
         else:
-            if self.last_login < todayDate.replace(hour=0, minute=0, second=0, microsecond=0):
-                if self.last_login > (todayDate - timedelta(hours=24)):
+            if self.last_login < todayMidnight:
+                if self.last_login > (todayMidnight - timedelta(hours=24)):
                     self.consecutive_days += 1
                 else:
                     self.consecutive_days = 0
-                self.last_login = todayDate
+            self.last_login = todayDate
+
 
 
 class Exercise(db.Model):
