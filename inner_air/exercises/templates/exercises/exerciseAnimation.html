@@ -10,6 +10,14 @@ Exercises
     <div>
         <h1 class="ExerciseName" align="center">{{ this_exercise.exercise_name }}</h1>
         <h1 class="ExerciseInstructions" align="center">{{ this_exercise.exercise_instructions }}</h1>
+        <div class="breathing-animation-container">
+            <div class="animation-scope"> <img id="feather" class="float-object"
+                    src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
+            </div>
+            <button id="start-button" class="button--green">Start</button>
+
+    <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
+        </div>
         <h1 class="ExerciseDescription" align="center">{{ this_exercise.exercise_description }}</h1>
         <h1 class="ExerciseRating" align="center">{{ this_exercise.cumulative_rating }}</h1>
     </div>
@@ -19,12 +27,5 @@ Exercises
     </div>
 </div>
 
-<div class="breathing-animation-container">
-    <div class="animation-scope"> <img id="feather" class="float-object"
-            src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
-    </div>
-    <button id="start-button" class="button--green">Start</button>
 
-    <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
-</div>
 {% endblock %}
