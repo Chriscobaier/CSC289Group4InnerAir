@@ -8,7 +8,7 @@ function switch_button() {
     if (start_button.classList.contains("button--green")) {
         start_button.className = "button--red";
         start_button.textContent = "Stop";
-        animate_feather();
+        feather_cycle(cycle_count);
     } else {
         start_button.className = "button--green";
         start_button.textContent = "Start";
@@ -52,17 +52,7 @@ let feather = document.getElementById("feather");
 let animate_scope = document.getElementById("scope");
 let position = 0;
 
-function animate_feather() {
-    let cycle_length = (inhale_time + exhale_time) * 1000 + 2;
-
-    // should be repeating the cycle's, but it doesn't
-    let cycle_id = setInterval(feather_cycle(), cycle_length);
-
-    // clear interval after a certain all cycles have past
-    setTimeout(clearInterval(cycle_id), cycle_length * cycle_count);
-}
-
-function feather_cycle() {
+function feather_cycle(cycle) {
     // top and bottom of the feather box
     let bottom = animate_scope.offsetHeight / 2 - feather.offsetHeight / 2;
     let top = -bottom;
@@ -76,11 +66,19 @@ function feather_cycle() {
         feather.style.top = bottom + "px";
     }, 1);
 
-    // waits for down motion to finnish
     setTimeout(function () {
         feather.style.transition = "all " + exhale_time + "s ease-in-out";
         setTimeout(function () {
             feather.style.top = top + "px";
+
+            setTimeout(() => {
+                if (cycle == 0) {
+                    return;
+                } else {
+                    console.log(cycle);
+                    return feather_cycle(cycle - 1);
+                }
+            }, exhale_time * 1000);
         }, 1);
     }, exhale_time * 1000);
 }
