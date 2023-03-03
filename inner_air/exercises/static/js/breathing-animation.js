@@ -55,22 +55,28 @@ let position = 0;
 function animate_feather() {
     let cycle_length = (inhale_time + exhale_time) * 1000 + 2;
 
+    // should be repeating the cycle's, but it doesn't
     let cycle_id = setInterval(feather_cycle(), cycle_length);
 
+    // clear interval after a certain all cycles have past
     clearInterval(cycle_id, cycle_length * cycle_count);
 }
 
 function feather_cycle() {
+    // top and bottom of the feather box
     let top = animate_scope.getBoundingClientRect().top * 2 - 150;
     let bottom = top + 400;
     feather.style.top = top + "px";
 
+    // give transition a certain amount of time to finish
     feather.style.transition = "all " + inhale_time + "s ease-in-out";
 
+    // wait a millisecond, in order for functions to not override each other
     setTimeout(function () {
         feather.style.top = bottom + "px";
     }, 1);
 
+    // waits for down motion to finnish
     setTimeout(function () {
         feather.style.transition = "all " + exhale_time + "s ease-in-out";
         setTimeout(function () {
