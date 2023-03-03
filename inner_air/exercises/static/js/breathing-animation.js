@@ -59,13 +59,13 @@ function animate_feather() {
     let cycle_id = setInterval(feather_cycle(), cycle_length);
 
     // clear interval after a certain all cycles have past
-    clearInterval(cycle_id, cycle_length * cycle_count);
+    setTimeout(clearInterval(cycle_id), cycle_length * cycle_count);
 }
 
 function feather_cycle() {
     // top and bottom of the feather box
-    let bottom = animate_scope.offsetHeight / 2;
-    let top = bottom * -1;
+    let bottom = animate_scope.offsetHeight / 2 - feather.offsetHeight / 2;
+    let top = -bottom;
     feather.style.top = top + "px";
 
     // give transition a certain amount of time to finish
