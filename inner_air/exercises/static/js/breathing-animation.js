@@ -53,28 +53,28 @@ let animate_scope = document.getElementById("scope");
 let position = 0;
 
 function animate_feather() {
-    position = animate_scope.getBoundingClientRect().top * 2 - 150;
-    let bottom = position + 400;
-    let top = position;
-    feather.style.top = position + "px";
-    console.log(top);
+    let cycle_length = (inhale_time + exhale_time) * 1000 + 2;
 
-    let inhale_time_id = setInterval(function () {
-        console.log(feather);
-        position += 10;
-        feather.style.top = position + "px";
+    let cycle_id = setInterval(feather_cycle(), cycle_length);
 
-        if (position == bottom) {
-            clearInterval(inhale_time_id);
+    clearInterval(cycle_id, cycle_length * cycle_count);
+}
 
-            let exhale_time_id = setInterval(function () {
-                position -= 10;
-                feather.style.top = position + "px";
+function feather_cycle() {
+    let top = animate_scope.getBoundingClientRect().top * 2 - 150;
+    let bottom = top + 400;
+    feather.style.top = top + "px";
 
-                if (position == top) {
-                    clearInterval(exhale_time_id);
-                }
-            }, 100);
-        }
-    }, 100);
+    feather.style.transition = "all " + inhale_time + "s ease-in-out";
+
+    setTimeout(function () {
+        feather.style.top = bottom + "px";
+    }, 1);
+
+    setTimeout(function () {
+        feather.style.transition = "all " + exhale_time + "s ease-in-out";
+        setTimeout(function () {
+            feather.style.top = top + "px";
+        }, 1);
+    }, exhale_time * 1000);
 }
