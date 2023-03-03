@@ -24,7 +24,7 @@
         justify-content: center;
 
         .float-object {
-            position: absolute;
+            position: relative;
             width: 120px;
             height: auto;
             animation: 8s infinite linear sway;

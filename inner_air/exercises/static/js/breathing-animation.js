@@ -64,8 +64,8 @@ function animate_feather() {
 
 function feather_cycle() {
     // top and bottom of the feather box
-    let top = animate_scope.getBoundingClientRect().top * 2 - 150;
-    let bottom = top + 400;
+    let bottom = animate_scope.offsetHeight / 2;
+    let top = bottom * -1;
     feather.style.top = top + "px";
 
     // give transition a certain amount of time to finish
