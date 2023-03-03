@@ -20,7 +20,7 @@ function switch_button() {
 let inhale_time;
 let inhale_hold;
 let exhale_time;
-let exhale;
+let exhale_hold;
 let cycle_count;
 
 // request animation data
@@ -33,7 +33,7 @@ xhr.onload = function () {
         inhale_time = xhr.response.inhale_time;
         inhale_hold = xhr.response.inhale_hold;
         exhale_time = xhr.response.exhale_time;
-        exhale = xhr.response.exhale_hold;
+        exhale_hold = xhr.response.exhale_hold;
         cycle_count = xhr.response.cycle_count;
 
         console.log(xhr.response);
