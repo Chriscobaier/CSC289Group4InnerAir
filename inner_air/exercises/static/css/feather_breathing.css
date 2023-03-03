@@ -21,6 +21,8 @@
   justify-content: center;
 }
 .breathing-animation-container .animation-scope .float-object {
+  transition: all 0.5s linear;
+  position: absolute;
   width: 120px;
   height: auto;
   animation: 8s infinite linear sway;
