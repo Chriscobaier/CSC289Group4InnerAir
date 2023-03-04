@@ -18,24 +18,24 @@ Exercises
             </div>
             <button id="start-button" class="button--green">Start</button>
 
-    <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
+            <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
         </div>
         <h3 class="ExerciseRating">Global Rating: {{ this_exercise.cumulative_rating }}</h3>
         <div class="ExerciseRatingTool">
             <form method="POST" class="form-rate">
                 {{ form.hidden_tag() }}
-                {{  form.RateField.label  }}
+                {{ form.RateField.label }}
                 {% for subfield in form.RateField %}
-                    <tr>
-                        <td>{{ subfield }}</td>
-                        <td>{{ subfield.label }}</td>
-                    </tr>
+                <tr>
+                    <td>{{ subfield }}</td>
+                    <td>{{ subfield.label }}</td>
+                </tr>
                 {% endfor %}
                 {{ form.submit(class="button") }}
 
             </form>
         </div>
-        <h3 class="ExerciseDescription" >{{ this_exercise.exercise_description }}</h3>
+        <h3 class="ExerciseDescription">{{ this_exercise.exercise_description }}</h3>
 
     </div>
     <div class="AnimationBorder">
@@ -43,6 +43,4 @@ Exercises
         </div>
     </div>
 </div>
-
-
 {% endblock %}

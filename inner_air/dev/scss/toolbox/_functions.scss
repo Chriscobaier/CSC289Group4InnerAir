@@ -17,3 +17,13 @@
 @mixin rounded {
     border-radius: 10px;
 }
+
+@mixin zebra-rows($color1, $color2) {
+    &:nth-child(odd) {
+        background-color: $color1;
+    }
+
+    &:nth-child(even) {
+        background-color: $color2;
+    }
+}

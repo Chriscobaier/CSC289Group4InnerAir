@@ -22,16 +22,9 @@ table {
     }
 
     tr {
-        &:nth-child(even) {
-            background-color: tl.$dark-black;
-        }
-
-        &:nth-child(odd) {
-            background-color: color.mix(
-                tl.$dark-black,
-                tl.$dark-steel,
-                $weight: 60%
-            );
-        }
+        @include tl.zebra-rows(
+            tl.$dark-black,
+            color.mix(tl.$dark-black, tl.$dark-steel, $weight: 60%)
+        );
     }
 }
