@@ -15,7 +15,7 @@ Exercises
         <li class="plate">
             <section class="upper">
                 <label for={{ exercise.id }} class="name">
-                    {{ exercise.exercise_name }}
+                    <a href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}" target="_blank">{{ exercise.exercise_name }}</a>
                 </label>
                 <span id="favorite-button">
                     {% if exercise.id not in showFavAdd %}
