@@ -16,17 +16,31 @@
 }
 .breathing-animation-container .animation-scope {
   border-radius: 10px;
-  background-color: #050f1b;
-  height: 35vh;
+  background-color: rgba(5, 15, 27, 0.2);
+  height: 50vh;
   width: 12rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .breathing-animation-container .animation-scope .float-object {
+  position: relative;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
   width: 120px;
   height: auto;
   animation: 8s infinite linear sway;
+}
+.breathing-animation-container #star-button {
+  font-size: 50px;
+}
+
+.top {
+  top: -12rem;
+}
+
+.bottom {
+  top: 12rem;
 }
 
 @keyframes sway {

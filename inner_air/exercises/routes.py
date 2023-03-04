@@ -1,5 +1,5 @@
 import flask_login
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, jsonify
 from flask_login import login_required
 
 from inner_air import db
@@ -29,7 +29,8 @@ def exercises():
             # Check if the current combination of user and exercise IDs is already in the Favorites table
             if db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
                     Favorites.exercise_id == currentExercise).first() is None:
-                db.session.add(Favorites(user_id=currentUser, exercise_id=currentExercise))
+                db.session.add(Favorites(user_id=currentUser,
+                               exercise_id=currentExercise))
                 db.session.commit()
 
         # Check if the request form contains "favoriteButtonRemove" key
@@ -55,7 +56,8 @@ def exercises():
         listOfExerciseCurrentUserHasInFavorites = []
         for favorite in favorite_list:
             if favorite.as_dict()['user_id'] == flask_login.current_user.id:
-                listOfExerciseCurrentUserHasInFavorites.append(favorite.as_dict()['exercise_id'])
+                listOfExerciseCurrentUserHasInFavorites.append(
+                    favorite.as_dict()['exercise_id'])
         return listOfExerciseCurrentUserHasInFavorites
 
     return render_template('exercises/exercises.html', exercises=exercise_list, favorites=favorite_list,
@@ -74,26 +76,55 @@ def exercises():
 @check_confirmed
 def get_exercise_id(exid):
     # Update cumulative ratings
-    all_ex_data = db.session.query(UserRating).filter_by(exercise_id=exid).all()
+    all_ex_data = db.session.query(
+        UserRating).filter_by(exercise_id=exid).all()
     all_ex_data_count = len(all_ex_data)
     all_ex_data_total = 0
     if all_ex_data_count > 0:
         for i in all_ex_data:
             all_ex_data_total += i.user_rating
         cumulateData = all_ex_data_total / all_ex_data_count
-        db.session.query(Exercise).filter_by(id=exid).first().update_cumulative_rating(cumulateData)
+        db.session.query(Exercise).filter_by(
+            id=exid).first().update_cumulative_rating(cumulateData)
         db.session.commit()
 
-    this_exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
+    this_exercise = db.session.query(
+        Exercise).filter_by(id=exid).first_or_404()
     form = RateEx()
     if form.validate():
         # Check if user has rated this before
-        usersRating = db.session.query(UserRating).filter_by(user_id=flask_login.current_user.id, exercise_id=exid).first()
+        usersRating = db.session.query(UserRating).filter_by(
+            user_id=flask_login.current_user.id, exercise_id=exid).first()
         if usersRating is None:
-            usersRating = (UserRating(user_rating=int(form.RateField.data), user_id=flask_login.current_user.id, exercise_id=exid))
+            usersRating = (UserRating(user_rating=int(
+                form.RateField.data), user_id=flask_login.current_user.id, exercise_id=exid))
             db.session.add(usersRating)
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
 
     return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise, form=form)
+
+
+"""
+    Sends data using AJAX request to a javascript
+"""
+
+
+@exercises_bp.route('/exercises/<exid>/animation.data', methods=['GET'])
+@login_required
+@check_confirmed
+def send_animation_data(exid):
+    exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
+
+    # Data used for animations
+    animation_data = {
+        "inhale_time": exercise.exercise_inhale,
+        "inhale_hold":  exercise.exercise_inhale_pause,
+        "exhale_time": exercise.exercise_exhale,
+        "exhale": exercise.exercise_exhale_pause,
+        "cycle_count": exercise.exercise_length
+    }
+
+    # Send data in a json format
+    return jsonify(animation_data)
