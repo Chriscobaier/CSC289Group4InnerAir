@@ -1,0 +1,49 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    background-color: darkslateblue;
+}
+
+h1 {
+    text-align: center;
+    color: aquamarine;
+}
+
+.digit {
+    font-size: 120px;
+    color: azure;
+}
+
+.txt {
+    font-size: 25px;
+    color:black;
+}
+
+#buttons {
+    margin-top: 40px;
+}
+
+.btn {
+    width: 110px;
+    padding: 10px 15px;
+    margin: 0px 25px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    transition: 1s;
+    color:black;
+    font-weight: 600;
+}
