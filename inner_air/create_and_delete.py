@@ -145,25 +145,24 @@ def DeleteAndCreateDB():
             print("Migrating to DB 0.07")
             print("Adding Control Pause exercise")
             db.session.add(Exercise(exercise_name="Control Pause",
-                                            exercise_instructions="Sit up with a straight back.  Pinch both nostrils closed with your thumb and forefinger.  Exhale slowly out of your mouth to a natural conclusion.  Press the Start button to begin. When you feel the first potent desire to breath, press stop and take a soft inhale.",
-                                            exercise_description="It is important that the first breath in after the Control Pause is controlled and relaxed.  Do not wait so long that you begin to gasp for air, or have generally labored breathing.  Please wait a few minutes and try again.  You should only do this when you are calm and relaxed.  Do not do this after strenuous activities.  Like ANY breath restriction techniques, never attempt while driving, underwater, or in any condition that you could become injured.",
-                                            exercise_length="1", category_id="1",
-                                            exercise_inhale="1",
-                                            exercise_inhale_pause="1",
-                                            exercise_exhale="1",
-                                            exercise_exhale_pause="1"))
+                                    exercise_instructions="Sit up with a straight back.  Pinch both nostrils closed with your thumb and forefinger.  Exhale slowly out of your mouth to a natural conclusion.  Press the Start button to begin. When you feel the first potent desire to breath, press stop and take a soft inhale.",
+                                    exercise_description="It is important that the first breath in after the Control Pause is controlled and relaxed.  Do not wait so long that you begin to gasp for air, or have generally labored breathing.  Please wait a few minutes and try again.  You should only do this when you are calm and relaxed.  Do not do this after strenuous activities.  Like ANY breath restriction techniques, never attempt while driving, underwater, or in any condition that you could become injured.",
+                                    exercise_length="1", category_id="1",
+                                    exercise_inhale="1",
+                                    exercise_inhale_pause="1",
+                                    exercise_exhale="1",
+                                    exercise_exhale_pause="1"))
             db.session.add(Exercise(exercise_name="Mini Breath Holds",
-                                            exercise_instructions="Exhale gently and hold the breath for half of your Control Pause.  IE: if your Control Pause is 50 seconds, your goal is 25 seconds. You can repeat as often as you want throughout the day.  Try for 100 repetitions.",
-                                            exercise_description="A key component to Buteyko breathing is to practice breathing less throughout the day.  This technique trains the body to do just this. Many Buteyko practitioners, medical researchers, and other swear by this to stave off asthma and anxiety attacks.  You can try to do this every 15 minutes through the day if you want to practice.",
-                                            exercise_length="1", category_id="1",
-                                            exercise_inhale="1",
-                                            exercise_inhale_pause="1",
-                                            exercise_exhale="1",
-                                            exercise_exhale_pause="1"))
+                                    exercise_instructions="Exhale gently and hold the breath for half of your Control Pause.  IE: if your Control Pause is 50 seconds, your goal is 25 seconds. You can repeat as often as you want throughout the day.  Try for 100 repetitions.",
+                                    exercise_description="A key component to Buteyko breathing is to practice breathing less throughout the day.  This technique trains the body to do just this. Many Buteyko practitioners, medical researchers, and other swear by this to stave off asthma and anxiety attacks.  You can try to do this every 15 minutes through the day if you want to practice.",
+                                    exercise_length="1", category_id="1",
+                                    exercise_inhale="1",
+                                    exercise_inhale_pause="1",
+                                    exercise_exhale="1",
+                                    exercise_exhale_pause="1"))
             print("Migrated to DB 0.07")
             db.session.add(DBVersion(version='0.07'))
             db.session.commit()
-
 
 
 DeleteAndCreateDB()

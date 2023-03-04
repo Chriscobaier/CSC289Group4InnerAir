@@ -91,6 +91,9 @@ def get_exercise_id(exid):
     this_exercise = db.session.query(
         Exercise).filter_by(id=exid).first_or_404()
 
+    if this_exercise.exercise_name == "Control Pause" or "Mini Breath Holds":
+        return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise)
+
 
     form = RateEx()
     if form.validate():

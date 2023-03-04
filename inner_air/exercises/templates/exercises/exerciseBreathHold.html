@@ -12,14 +12,8 @@ Exercises
     <div>
         <h1 class="ExerciseName">{{ this_exercise.exercise_name }}</h1>
         <h3 class="ExerciseInstructions">{{ this_exercise.exercise_instructions }}</h3>
-        <div class="breathing-animation-container">
-            <h1 id="timer">Waiting for exercise to start</h1>
-            <div class="animation-scope"> <img id="feather" class="float-object top"
-                    src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
-            </div>
-            <button id="start-button" class="button--green">Start</button>
+        <div class="BreathHoldContainer">
 
-            <script src="{{ url_for('exercises.static', filename='js/breathing-animation.js') }}"></script>
         </div>
         <h3 class="ExerciseRating">Global Rating: {{ this_exercise.cumulative_rating }}</h3>
         <div class="ExerciseRatingTool">
@@ -37,7 +31,6 @@ Exercises
             </form>
         </div>
         <h3 class="ExerciseDescription">{{ this_exercise.exercise_description }}</h3>
-
     </div>
 </div>
 {% endblock %}
