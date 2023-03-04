@@ -44,7 +44,6 @@ function switch_button() {
     } else {
         start_button.className = "button--green";
         start_button.textContent = "Start";
-        start_button.style.visibility = "visible";
     }
 }
 
@@ -106,6 +105,7 @@ function feather_cycle(cycle) {
     setTimeout(() => {
         if (cycle == 0) {
             timer.textContent = "Exercise Done!";
+            start_button.style.visibility = "visible";
             return;
         } else {
             return feather_cycle(cycle - 1);
