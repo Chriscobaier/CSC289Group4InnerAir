@@ -37,8 +37,8 @@ start_button.addEventListener("click", switch_button);
 // changes to stop/start state of the button
 function switch_button() {
     if (start_button.classList.contains("button--green")) {
-        start_button.className = "button--red";
-        start_button.textContent = "Stop";
+        // start_button.className = "button--red";
+        // start_button.textContent = "Stop";
         start_button.style.visibility = "hidden";
         feather_cycle(cycle_count);
     } else {
