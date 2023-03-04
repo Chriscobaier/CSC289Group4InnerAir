@@ -30,7 +30,7 @@ def exercises():
             if db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
                     Favorites.exercise_id == currentExercise).first() is None:
                 db.session.add(Favorites(user_id=currentUser,
-                               exercise_id=currentExercise))
+                                         exercise_id=currentExercise))
                 db.session.commit()
 
         # Check if the request form contains "favoriteButtonRemove" key
@@ -91,10 +91,6 @@ def get_exercise_id(exid):
     this_exercise = db.session.query(
         Exercise).filter_by(id=exid).first_or_404()
 
-    if this_exercise.exercise_name == "Control Pause" or "Mini Breath Holds":
-        return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise)
-
-
     form = RateEx()
     if form.validate():
         # Check if user has rated this before
@@ -107,8 +103,10 @@ def get_exercise_id(exid):
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
-
-    return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise, form=form)
+    if this_exercise.exercise_name == "Control Pause" or "Mini Breath Holds":
+        return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
+    else:
+        return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise, form=form)
 
 
 """
@@ -125,7 +123,7 @@ def send_animation_data(exid):
     # Data used for animations
     animation_data = {
         "inhale_time": exercise.exercise_inhale,
-        "inhale_hold":  exercise.exercise_inhale_pause,
+        "inhale_hold": exercise.exercise_inhale_pause,
         "exhale_time": exercise.exercise_exhale,
         "exhale": exercise.exercise_exhale_pause,
         "cycle_count": exercise.exercise_length
