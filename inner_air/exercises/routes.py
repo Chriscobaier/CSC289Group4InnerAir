@@ -90,6 +90,8 @@ def get_exercise_id(exid):
 
     this_exercise = db.session.query(
         Exercise).filter_by(id=exid).first_or_404()
+
+
     form = RateEx()
     if form.validate():
         # Check if user has rated this before
