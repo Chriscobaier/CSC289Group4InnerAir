@@ -5,14 +5,11 @@
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 30px;
+  gap: 20px;
   background-color: #050f1b;
   background-image: radial-gradient(#0e1830, #050f1b);
-  height: 50vh;
-  width: 20rem;
+  height: 90vh;
   padding: 1rem;
-  margin-left: auto;
-  margin-right: auto;
 }
 .breathing-animation-container .animation-scope {
   border-radius: 10px;

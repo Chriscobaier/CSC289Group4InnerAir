@@ -1,7 +1,27 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
-.ExerciseName{
+.ExerciseName {
+    text-align: center;
+    padding: 10px;
+}
+
+.ExerciseInstructions {
+    text-align: center;
+    padding: 10px;
+}
+
+.ExerciseRating {
+    text-align: center;
+    padding: 10px;
+}
+
+.ExerciseDescription {
+    text-align: center;
+    padding: 10px;
+}
+
+.ExerciseRatingTool {
     text-align: center;
     padding: 10px;
 }
