@@ -39,10 +39,12 @@ function switch_button() {
     if (start_button.classList.contains("button--green")) {
         start_button.className = "button--red";
         start_button.textContent = "Stop";
+        start_button.style.visibility = "hidden";
         feather_cycle(cycle_count);
     } else {
         start_button.className = "button--green";
         start_button.textContent = "Start";
+        start_button.style.visibility = "visible";
     }
 }
 
@@ -99,6 +101,7 @@ function feather_cycle(cycle) {
     // repeat cycle once animation is done
     setTimeout(() => {
         if (cycle == 0) {
+            timer.textContent = "Exercise Done!";
             return;
         } else {
             return feather_cycle(cycle - 1);
