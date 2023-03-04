@@ -28,6 +28,9 @@
   height: auto;
   animation: 8s infinite linear sway;
 }
+.breathing-animation-container #star-button {
+  font-size: 50px;
+}
 
 .top {
   top: -12rem;
