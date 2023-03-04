@@ -52,22 +52,30 @@ let feather = document.getElementById("feather");
 let animate_scope = document.getElementById("scope");
 let position = 0;
 
-function feather_cycle(cycle) {
-    // top and bottom of the feather box
+function inhale() {
     feather.style.transitionDuration = inhale_time + "s";
     feather.className = "float-object bottom";
+    console.log("inhale");
+}
 
-    setTimeout(function () {
+function exhale() {
+    setTimeout(() => {
         feather.style.transitionDuration = inhale_time + "s";
         feather.className = "float-object top";
+    }, inhale_hold * 1000);
+}
 
-        setTimeout(() => {
-            if (cycle == 0) {
-                return;
-            } else {
-                console.log(cycle);
-                return feather_cycle(cycle - 1);
-            }
-        }, exhale_time * 1000);
-    }, exhale_time * 1000);
+function feather_cycle(cycle) {
+    inhale();
+    setTimeout(exhale, inhale_time * 1000);
+
+    // repeat cycle once animation is done
+    setTimeout(() => {
+        if (cycle == 0) {
+            return;
+        } else {
+            console.log(cycle);
+            return feather_cycle(cycle - 1);
+        }
+    }, (inhale_time + inhale_hold + exhale_time + inhale_hold) * 1000);
 }
