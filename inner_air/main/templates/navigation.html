@@ -1,5 +1,8 @@
 <header>
 	<img src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital@0;1&display=swap" rel="stylesheet">
 	<nav>
 		{% if current_user.is_authenticated %}
 		<ul>
