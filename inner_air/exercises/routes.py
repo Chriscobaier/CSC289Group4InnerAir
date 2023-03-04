@@ -103,7 +103,7 @@ def get_exercise_id(exid):
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
-    if this_exercise.exercise_name == "Control Pause" or "Mini Breath Holds":
+    if this_exercise.exercise_name == "Control Pause" or this_exercise.exercise_name == "Mini Breath Holds":
         return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
     else:
         return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise, form=form)
