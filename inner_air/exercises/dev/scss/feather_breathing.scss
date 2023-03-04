@@ -25,11 +25,20 @@
 
         .float-object {
             position: relative;
+            transition-property: all;
+            transition-timing-function: ease-in-out;
             width: 120px;
             height: auto;
             animation: 8s infinite linear sway;
         }
     }
+}
+
+.top {
+    top: -12rem;
+}
+.bottom {
+    top: 12rem;
 }
 
 @keyframes sway {

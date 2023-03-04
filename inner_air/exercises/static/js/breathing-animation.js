@@ -54,31 +54,20 @@ let position = 0;
 
 function feather_cycle(cycle) {
     // top and bottom of the feather box
-    let bottom = animate_scope.offsetHeight / 2 - feather.offsetHeight / 2;
-    let top = -bottom;
-    feather.style.top = top + "px";
-
-    // give transition a certain amount of time to finish
-    feather.style.transition = "all " + inhale_time + "s ease-in-out";
-
-    // wait a millisecond, in order for functions to not override each other
-    setTimeout(function () {
-        feather.style.top = bottom + "px";
-    }, 1);
+    feather.style.transitionDuration = inhale_time + "s";
+    feather.className = "float-object bottom";
 
     setTimeout(function () {
-        feather.style.transition = "all " + exhale_time + "s ease-in-out";
-        setTimeout(function () {
-            feather.style.top = top + "px";
+        feather.style.transitionDuration = inhale_time + "s";
+        feather.className = "float-object top";
 
-            setTimeout(() => {
-                if (cycle == 0) {
-                    return;
-                } else {
-                    console.log(cycle);
-                    return feather_cycle(cycle - 1);
-                }
-            }, exhale_time * 1000);
-        }, 1);
+        setTimeout(() => {
+            if (cycle == 0) {
+                return;
+            } else {
+                console.log(cycle);
+                return feather_cycle(cycle - 1);
+            }
+        }, exhale_time * 1000);
     }, exhale_time * 1000);
 }
