@@ -55,6 +55,8 @@ let animate_scope = document.getElementById("scope");
 let timer = document.getElementById("timer");
 let position = 0;
 
+//--------Timer--------
+
 /* Changes contents of the timer */
 function timer_count(state, time, timeout) {
     setTimeout(() => {
@@ -77,6 +79,8 @@ function set_timer(ih_time, ih_hold, ex_time, ex_hold) {
     timer_count("Exhale", ih_time, (ih_time + ih_hold) * 1000);
     timer_count("Exhale Hold", ih_time, (ih_time + ih_hold + ex_time) * 1000);
 }
+
+//--------Feather--------
 
 /* Plays Inhale animation */
 function inhale() {
