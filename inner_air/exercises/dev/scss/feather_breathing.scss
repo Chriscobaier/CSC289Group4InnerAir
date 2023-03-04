@@ -16,7 +16,7 @@
 
     .animation-scope {
         @include tl.rounded;
-        background-color: tl.$dark-black;
+        background-color: rgba(tl.$dark-black, 0.2);
         height: 50vh;
         width: 12rem;
         display: flex;
