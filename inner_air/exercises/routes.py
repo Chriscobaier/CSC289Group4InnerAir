@@ -15,7 +15,7 @@ exercises_bp = Blueprint(
 )
 
 
-@exercises_bp.route('/exercises', methods=['GET', 'POST'])
+@exercises_bp.route('/exercises/', methods=['GET', 'POST'])
 @login_required
 @check_confirmed
 def exercises():
@@ -71,7 +71,7 @@ def exercises():
 """
 
 
-@exercises_bp.route('/exercises/<exid>', methods=['GET', 'POST'])
+@exercises_bp.route('/exercises/<exid>/', methods=['GET', 'POST'])
 @login_required
 @check_confirmed
 def get_exercise_id(exid):
