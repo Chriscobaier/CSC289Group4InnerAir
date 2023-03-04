@@ -11,13 +11,13 @@
         color.adjust(tl.$tinted-azure, $lightness: -30%),
         tl.$dark-black
     );
-    height: 90vh;
+    height: 40rem;
     padding: 1rem;
 
     .animation-scope {
         @include tl.rounded;
         background-color: rgba(tl.$dark-black, 0.2);
-        height: 50vh;
+        height: 80%;
         width: 12rem;
         display: flex;
         align-items: center;

@@ -13,7 +13,8 @@ Exercises
         <h1 class="ExerciseName">{{ this_exercise.exercise_name }}</h1>
         <h3 class="ExerciseInstructions">{{ this_exercise.exercise_instructions }}</h3>
         <div class="breathing-animation-container">
-            <div class="animation-scope"> <img id="feather" class="float-object"
+            <h1 id="timer">Waiting for exercise to start</h1>
+            <div class="animation-scope"> <img id="feather" class="float-object top"
                     src="{{ url_for('exercises.static', filename='img/feather.svg') }}"></img>
             </div>
             <button id="start-button" class="button--green">Start</button>

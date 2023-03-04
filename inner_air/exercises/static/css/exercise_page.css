@@ -1,24 +1,24 @@
-.ExerciseName{
-    text-align: center;
-    padding: 10px;
+.ExerciseName {
+  text-align: center;
+  padding: 1rem;
 }
 
-.ExerciseInstructions{
-    text-align: center;
-    padding: 10px;
+.ExerciseInstructions {
+  text-align: center;
+  padding: 1rem;
 }
 
-.ExerciseRating{
-    text-align: center;
-    padding: 10px;
+.ExerciseRating {
+  text-align: center;
+  padding: 1rem;
 }
 
-.ExerciseDescription{
-    text-align: center;
-    padding: 10px;
+.ExerciseDescription {
+  text-align: center;
+  padding: 1rem;
 }
 
-.ExerciseRatingTool{
-    text-align: center;
-    padding: 10px;
+.ExerciseRatingTool {
+  text-align: center;
+  padding: 1rem;
 }
