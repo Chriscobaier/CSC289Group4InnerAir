@@ -1,0 +1,39 @@
+<div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Statistics Table</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="">
+                                <thead class="text-primary">
+
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">Date Completed</th>
+                                        <th scope="col">Exercise ID</th>
+                                        <th scope="col">User ID</th>
+                                        <th scope="col">Hold Length</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    {% for statistics in statistics_table %}
+                                        <tr>
+                                            <td>{{ statistics.id }}</td>
+                                            <td>{{ statistics.date_completed }}</td>
+                                            <td>{{ statistics.exercise_id }}</td>
+                                            <td>{{ statistics.user_id }} </td>
+                                            <td>{{ statistics.hold_length }} </td>
+                                        </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

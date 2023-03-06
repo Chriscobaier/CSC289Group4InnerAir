@@ -1,0 +1,35 @@
+<div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Favorites Table</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table" id="">
+                                <thead class="text-primary">
+
+                                    <tr>
+                                        <th scope="col">ID</th>
+                                        <th scope="col">User ID</th>
+                                        <th scope="col">Exercise ID</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    {% for favorites in favorites_table %}
+                                        <tr>
+                                            <td>{{ favorites.id }}</td>
+                                            <td>{{ favorites.user_id }}</td>
+                                            <td>{{ favorites.exercise_id }}</td>
+                                        </tr>
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

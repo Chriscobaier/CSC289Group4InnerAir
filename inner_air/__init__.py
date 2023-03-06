@@ -18,6 +18,11 @@ mail = Mail(app)
 migrate = Migrate(app, db)
 
 """
+    User model
+"""
+from inner_air.models import User
+
+"""
     registering blueprints
 """
 from .admin.routes import admin_bp
@@ -39,8 +44,6 @@ app.register_blueprint(errors)
 """
     flask-login
 """
-from inner_air.models import User
-
 login_manager.login_view = 'user.login'
 login_manager.login_message_category = 'info'
 

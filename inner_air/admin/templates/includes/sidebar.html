@@ -1,0 +1,45 @@
+<!-- SIDEBAR -->
+<div class="sidebar show-sidebar">
+    <div class="sidebar-wrapper">
+        <div class="logo">
+            <a href="javascript:void(0)" class="simple-text logo-mini">
+                IA
+            </a>
+            <a href="javascript:void(0)" class="simple-text logo-normal">
+                Inner Air
+            </a>
+        </div>
+
+        <ul class="nav">
+            <li class="active">
+                <a href="{{ url_for('admin.admin') }}">
+                    <i class="jc-icons fa-solid fa-chart-pie"></i>
+                    <p>Dashboard</p>
+                </a>
+            </li>
+
+
+            <li class="">
+                <a href="{{ url_for('admin.tables') }}">
+                    <i class="jc-icons fa-solid fa-puzzle-piece"></i>
+                    <p>table list</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('profile.profile') }}">
+                    <i class="jc-icons fa-solid fa-chevron-left"></i>
+                    <p>go back</p>
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('user.logout') }}">
+                    <i class="jc-icons fa-solid fa-power-off"></i>
+                    <p>logout</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!-- END SIDEBAR -->
