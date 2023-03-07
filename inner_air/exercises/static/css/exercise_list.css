@@ -9,7 +9,7 @@
   flex-direction: column;
   list-style-type: none;
   margin: 0 10%;
-  gap: 0.8rem;
+  gap: 0.2rem;
 }
 .list-container .list .plate {
   border-radius: 10px;
@@ -23,13 +23,13 @@
   gap: 1rem;
   width: 100%;
   transition: all 0.2s ease-out;
-  background-color: #2180b3;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
 .list-container .list .plate:nth-child(odd) {
-  background-color: #2180b3;
+  background-color: #050f1b;
 }
 .list-container .list .plate:nth-child(even) {
-  background-color: #2168b3;
+  background-color: #0e1928;
 }
 .list-container .list .plate:hover {
   background: #0094ec;
@@ -45,9 +45,17 @@
   gap: 1rem;
 }
 .list-container .list .plate .upper .name {
+  color: #e6e8ff;
   font-size: 20px;
+  text-decoration: none;
   flex-grow: 1;
   height: 100%;
+}
+.list-container .list .plate .upper .name:hover {
+  color: #ffa66d;
+}
+.list-container .list .plate .upper .name:visited {
+  color: #4acdff;
 }
 .list-container .list .plate .description {
   transition-duration: 1s;

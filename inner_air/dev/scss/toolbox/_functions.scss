@@ -27,3 +27,7 @@
         background-color: $color2;
     }
 }
+
+@mixin drop-shade {
+    box-shadow: 3px 3px 5px rgba(black, 0.3);
+}
