@@ -266,20 +266,22 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #f8afb4;
-  background-image: linear-gradient(#2180b3, #a4c3ef 60%, #f8afb4, #fdf8c1);
+  background-image: url("/inner_air.main.routes/img/background_image.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #e6e8ff;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body .container {
+  background-color: rgba(34, 47, 69, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
   min-width: 85%;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
   padding: 1rem;
-  background-color: #222f45;
-  background-image: linear-gradient(0deg, #222f45 85%, #3254a5 99%);
   min-height: 100vh;
   height: -moz-fit-content;
   height: fit-content;

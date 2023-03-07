@@ -11,30 +11,23 @@
 
 body {
     @include toolbox.flex-spread;
-    background-color: toolbox.$pastel-pink;
-    background-image: linear-gradient(
-        toolbox.$tinted-teal,
-        toolbox.$pastel-blue 60%,
-        toolbox.$pastel-pink,
-        toolbox.$pastel-yellow
-    );
+    background-image: url("/inner_air.main.routes/img/background_image.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
     color: toolbox.$light-white;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     .container {
+        background-color: rgba(toolbox.$dark-steel, 0.8);
+        backdrop-filter: blur(20px);
+
         min-width: 85%;
         height: 100vh;
         margin-left: auto;
         margin-right: auto;
         padding: 1rem;
-        background-color: toolbox.$dark-steel;
-        background-image: linear-gradient(
-            0deg,
-            toolbox.$dark-steel 85%,
-            toolbox.$tinted-azure 99%
-        );
         min-height: 100vh;
         height: fit-content;
     }
