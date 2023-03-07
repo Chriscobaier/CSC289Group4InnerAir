@@ -12,7 +12,6 @@
 body {
     @include toolbox.flex-spread;
     background-image: url("/inner_air.main.routes/img/background_image.svg");
-    background-repeat: no-repeat;
     background-size: cover;
 
     color: toolbox.$light-white;
