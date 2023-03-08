@@ -75,7 +75,6 @@ def exercises():
 @login_required
 @check_confirmed
 def get_exercise_id(exid):
-    print((request.endpoint))
     # Update cumulative ratings
     all_ex_data = db.session.query(
         UserRating).filter_by(exercise_id=exid).all()
@@ -114,9 +113,9 @@ def get_exercise_id(exid):
         db.session.commit()
     print(this_exercise.id)
     if this_exercise.exercise_name == "Control Pause" or this_exercise.exercise_name == "Mini Breath Holds":
-        return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise.id, form=form)
+        return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
     else:
-        return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise.id, form=form)
+        return render_template('exercises/exerciseAnimation.html', this_exercise=this_exercise, form=form)
 
 
 """

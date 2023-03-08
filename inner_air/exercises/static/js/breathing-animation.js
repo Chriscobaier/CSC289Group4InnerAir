@@ -5,6 +5,8 @@ let inhale_hold;
 let exhale_time;
 let exhale_hold;
 let cycle_count;
+let current_user;
+let current_exercise;
 
 // request animation data
 var xhr = new XMLHttpRequest();
