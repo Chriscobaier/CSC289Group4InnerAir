@@ -5,6 +5,7 @@ Exercises
 {% block content %}
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/feather_breathing.css')}}">
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_page.css')}}">
+<link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/Stopwatch_style.css')}}">
 
 
 <div>
@@ -13,6 +14,23 @@ Exercises
         <h1 class="ExerciseName">{{ this_exercise.exercise_name }}</h1>
         <h3 class="ExerciseInstructions">{{ this_exercise.exercise_instructions }}</h3>
         <div class="BreathHoldContainer">
+    <div class="container">
+        <h1>Inner Air Timer</h1>
+        <div id = "time">
+                <span class = "digits" id = "min">00</span>
+                <span class = "text">Minutes</span>
+                <span class = "digits" id = "sec">00</span>
+                <span class = "text">Seconds</span>
+                <span class = "digits" id = "count"></span>
+        </div>
+
+        <div id = "buttons">
+            <button class = "btn" id = "start"> Start </button>
+            <button class = "btn" id = "stop"> Stop </button>
+            <button class = "btn" id = "reset"> Reset </button>
+        </div>
+    </div>
+    <script src="{{ url_for('exercises.static', filename='js/Stopwatch_script.js') }}"></script>
 
         </div>
         <h3 class="ExerciseRating">Global Rating: {{ this_exercise.cumulative_rating }}</h3>
