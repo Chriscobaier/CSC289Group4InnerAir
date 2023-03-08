@@ -10,19 +10,20 @@
 			<div class="navigation">
 				{% if current_user.is_confirmed %}
 
-				{% if url_for(request.endpoint)=='/exercises/' %}
+
+				{% if 'exercises' in url_for(request.endpoint, **request.view_args) %}
 				<a class="nav-link active" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
 				{% else %}
 				<a class="nav-link" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
 				{% endif %}
 
-				{% if url_for(request.endpoint)=='/userlist' %}
+				{% if 'userlist' in url_for(request.endpoint, **request.view_args) %}
 				<a class="nav-link active" href="{{ url_for('userlist.userlist') }}">User List</a>
 				{% else %}
 				<a class="nav-link" href="{{ url_for('userlist.userlist') }}">User List</a>
 				{% endif %}
 
-				{% if url_for(request.endpoint)=='/profile' %}
+				{% if 'profile' in url_for(request.endpoint, **request.view_args) %}
 				<a class="nav-link active" href="{{ url_for('profile.profile') }}">Profile</a>
 				{% else %}
 				<a class="nav-link" href="{{ url_for('profile.profile') }}">Profile</a>
