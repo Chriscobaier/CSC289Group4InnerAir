@@ -1,5 +1,5 @@
 <header>
-	<img src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
+	<a href="{{ url_for('main.home') }}"><img src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></a></img>
 	<nav>
 		{% if current_user.is_authenticated %}
 		<ul>
