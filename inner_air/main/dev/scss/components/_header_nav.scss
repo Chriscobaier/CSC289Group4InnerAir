@@ -1,9 +1,8 @@
 @use "../../../../dev/scss/toolbox" as tl;
+@use "sass:color";
 
 header {
-    @include tl.flex-spread;
     @include tl.drop-shade;
-
     position: fixed;
     top: 0;
     z-index: 2;
@@ -12,18 +11,58 @@ header {
     padding: 0.5rem 1rem;
     background: tl.$dark-black;
 
-    img {
-        max-width: 100px;
-    }
-
-    nav > ul {
+    .header-container {
         @include tl.flex-spread;
-        gap: 0.5rem;
+        flex-direction: row;
 
-        li {
-            display: flex;
-            list-style-type: none;
+        .logo {
+            width: 120px;
+        }
+
+        .navigation-container {
+            @include tl.flex-spread;
             justify-content: center;
+            flex-direction: row;
+            flex-grow: 1;
+            gap: 0rem;
+
+            .navigation {
+                @include tl.flex-spread;
+                flex-direction: row;
+
+                .nav-link {
+                    color: tl.$light-white;
+                    border-left: solid 1px tl.$light-white;
+                    border-right: solid 1px tl.$light-white;
+
+                    height: 1.2rem;
+                    padding: 0rem 0.8rem;
+                    font-size: 15px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+
+                    &:visited {
+                        color: tl.$accent-cold-light;
+                    }
+                    &:hover {
+                        color: white;
+                        background-image: linear-gradient(
+                            tl.$dark-black 60%,
+                            tl.$pastel-pink
+                        );
+                        box-shadow: 0px 5px 10px rgba(tl.$pastel-pink, 0.5);
+                    }
+
+                    &:active {
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            @include tl.flex-spread;
+            flex-direction: row;
+            gap: 0.2rem;
         }
     }
 

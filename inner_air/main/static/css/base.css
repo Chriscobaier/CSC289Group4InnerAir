@@ -1,8 +1,4 @@
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
@@ -12,20 +8,58 @@ header {
   padding: 0.5rem 1rem;
   background: #050f1b;
 }
-header img {
-  max-width: 100px;
-}
-header nav > ul {
+header .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  flex-direction: row;
 }
-header nav > ul li {
+header .header-container .logo {
+  width: 120px;
+}
+header .header-container .navigation-container {
   display: flex;
-  list-style-type: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: 0rem;
+}
+header .header-container .navigation-container .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+header .header-container .navigation-container .navigation .nav-link {
+  color: #e6e8ff;
+  border-left: solid 1px #e6e8ff;
+  border-right: solid 1px #e6e8ff;
+  height: 1.2rem;
+  padding: 0rem 0.8rem;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+header .header-container .navigation-container .navigation .nav-link:visited {
+  color: #4acdff;
+}
+header .header-container .navigation-container .navigation .nav-link:hover {
+  color: white;
+  background-image: linear-gradient(#050f1b 60%, #f8afb4);
+  box-shadow: 0px 5px 10px rgba(248, 175, 180, 0.5);
+}
+header .header-container .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.2rem;
 }
 header + * {
   margin-top: 3rem;
