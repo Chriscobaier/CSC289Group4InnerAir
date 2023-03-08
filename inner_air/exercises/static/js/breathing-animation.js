@@ -106,6 +106,11 @@ function feather_cycle(cycle) {
         if (cycle == 0) {
             timer.textContent = "Exercise Done!";
             start_button.style.visibility = "visible";
+            //$.post("TestPost"),
+            //{
+            //name: "TestName",
+            //data: "TestData"
+            //}
             return;
         } else {
             return feather_cycle(cycle - 1);
