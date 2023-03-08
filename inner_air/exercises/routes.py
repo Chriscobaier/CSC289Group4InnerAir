@@ -93,11 +93,13 @@ def get_exercise_id(exid):
 
     form = RateEx()
     if request.method == 'POST':
-        print(request.form)
     if request.method == 'POST':
         if 'breathHoldTotalSeconds' in request.form:
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
                                       hold_length=(float(request.form['breathHoldTotalSeconds']))/100))
+            db.session.commit()
+        if 'exerciseComplete' in request.form:
+            db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id))
             db.session.commit()
 
     if form.validate():
@@ -111,7 +113,6 @@ def get_exercise_id(exid):
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
-    print(this_exercise.id)
     if this_exercise.exercise_name == "Control Pause" or this_exercise.exercise_name == "Mini Breath Holds":
         return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
     else:

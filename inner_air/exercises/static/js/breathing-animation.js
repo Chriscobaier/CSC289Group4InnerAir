@@ -112,6 +112,7 @@ function feather_cycle(cycle) {
             start_button.style.visibility = "visible";
             var XHRpost = new XMLHttpRequest();
             var formData = new FormData();
+            formData.append("exerciseComplete", "exerciseComplete");
             formData.append("current_user", current_user);
             formData.append("current_exercise", current_exercise);
             XHRpost.open("POST", window.location.href);
