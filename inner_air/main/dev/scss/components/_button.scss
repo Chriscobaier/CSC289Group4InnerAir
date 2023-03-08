@@ -17,28 +17,47 @@
         background-color: $color-light;
         color: tl.$dark-steel;
     }
+}
 
-    &--dynamic {
-        @extend .button;
-        &:hover {
-            margin: 0 0.5rem;
-            transform: scale(1.1);
-        }
+@mixin dynamic {
+    &:hover {
+        margin: 0 0.5rem;
+        transform: scale(1.1);
     }
 }
 
 .button {
     @include create-button();
+
+    &--dynamic {
+        @include create-button();
+        @include dynamic;
+    }
 }
 
 .button--red {
     @include create-button(tl.$accent-warm, tl.$accent-warm-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-warm, tl.$accent-warm-light);
+        @include dynamic;
+    }
 }
 
 .button--blue {
     @include create-button(tl.$accent-cold, tl.$accent-cold-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-cold, tl.$accent-cold-light);
+        @include dynamic;
+    }
 }
 
 .button--green {
     @include create-button(tl.$accent-mint, tl.$accent-mint-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-mint, tl.$accent-mint-light);
+        @include dynamic;
+    }
 }

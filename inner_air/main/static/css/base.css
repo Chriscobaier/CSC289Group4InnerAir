@@ -5,7 +5,7 @@ header {
   z-index: 2;
   height: 3rem;
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem;
   background: #050f1b;
 }
 header .header-container {
@@ -16,7 +16,7 @@ header .header-container {
   flex-direction: row;
 }
 header .header-container .logo {
-  width: 120px;
+  width: 110px;
 }
 header .header-container .navigation-container {
   display: flex;
@@ -37,8 +37,8 @@ header .header-container .navigation-container .navigation {
 }
 header .header-container .navigation-container .navigation .nav-link {
   color: #e6e8ff;
-  border-left: solid 1px #e6e8ff;
-  border-right: solid 1px #e6e8ff;
+  border-left: solid 1px #ffa66d;
+  border-right: solid 1px #ffa66d;
   height: 1.2rem;
   padding: 0rem 0.8rem;
   font-size: 15px;
@@ -50,8 +50,8 @@ header .header-container .navigation-container .navigation .nav-link:visited {
 }
 header .header-container .navigation-container .navigation .nav-link:hover {
   color: white;
-  background-image: linear-gradient(#050f1b 60%, #f8afb4);
-  box-shadow: 0px 5px 10px rgba(248, 175, 180, 0.5);
+  background-image: linear-gradient(rgba(5, 15, 27, 0) 50%, #f8afb4);
+  box-shadow: 0px 5px 8px rgba(248, 175, 180, 0.5);
 }
 header .header-container .buttons {
   display: flex;
@@ -59,10 +59,17 @@ header .header-container .buttons {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 0.2rem;
+  font-size: 12px;
+  gap: 0.4rem;
 }
 header + * {
   margin-top: 3rem;
+}
+
+.active {
+  color: white;
+  background-color: rgba(0, 148, 236, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 148, 236, 0.5);
 }
 
 .form-register {
@@ -114,7 +121,7 @@ header + * {
   margin: 1.5rem auto;
 }
 
-.button, .button--green--dynamic, .button--blue--dynamic, .button--red--dynamic, .button--dynamic {
+.button {
   border-radius: 10px;
   background-color: #3254a5;
   color: white;
@@ -125,7 +132,22 @@ header + * {
   text-transform: uppercase;
   border: none;
 }
-.button:hover, .button--green--dynamic:hover, .button--blue--dynamic:hover, .button--red--dynamic:hover, .button--dynamic:hover {
+.button:hover {
+  background-color: #2180b3;
+  color: #222f45;
+}
+.button--dynamic {
+  border-radius: 10px;
+  background-color: #3254a5;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button--dynamic:hover {
   background-color: #2180b3;
   color: #222f45;
 }
@@ -149,6 +171,21 @@ header + * {
   background-color: #ffa66d;
   color: #222f45;
 }
+.button--red--dynamic {
+  border-radius: 10px;
+  background-color: #ef5562;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button--red--dynamic:hover {
+  background-color: #ffa66d;
+  color: #222f45;
+}
 .button--red--dynamic:hover {
   margin: 0 0.5rem;
   transform: scale(1.1);
@@ -169,6 +206,21 @@ header + * {
   background-color: #4acdff;
   color: #222f45;
 }
+.button--blue--dynamic {
+  border-radius: 10px;
+  background-color: #0094ec;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button--blue--dynamic:hover {
+  background-color: #4acdff;
+  color: #222f45;
+}
 .button--blue--dynamic:hover {
   margin: 0 0.5rem;
   transform: scale(1.1);
@@ -186,6 +238,21 @@ header + * {
   border: none;
 }
 .button--green:hover {
+  background-color: #85f58c;
+  color: #222f45;
+}
+.button--green--dynamic {
+  border-radius: 10px;
+  background-color: #00cfa5;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+}
+.button--green--dynamic:hover {
   background-color: #85f58c;
   color: #222f45;
 }
