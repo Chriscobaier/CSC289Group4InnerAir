@@ -14,28 +14,28 @@ Exercises
         <h3 class="ExerciseInstructions">{{ this_exercise.exercise_instructions }}</h3>
         <div class="BreathHoldContainer">
 
-        <h1>Inner Air Timer</h1>
-        <div id = "time">
-                <span class = "digits" id = "min">00</span>
-                <span class = "text">Minutes</span>
-                <span class = "digits" id = "sec">00</span>
-                <span class = "text">Seconds</span>
-                <span class = "digits" id = "count"></span>
-        </div>
+            <h1>Inner Air Timer</h1>
+            <div id="time">
+                <span class="digits" id="min">00</span>
+                <span class="text">Minutes</span>
+                <span class="digits" id="sec">00</span>
+                <span class="text">Seconds</span>
+                <span class="digits" id="count"></span>
+            </div>
 
-        <div id = "buttons">
-            <button class = "btn" id = "start"> Start </button>
-            <button class = "btn" id = "stop"> Stop </button>
-            <button class = "btn" id = "reset"> Reset </button>
+            <div id="buttons">
+                <button class="btn" id="start"> Start </button>
+                <button class="btn" id="stop"> Stop </button>
+                <button class="btn" id="reset"> Reset </button>
 
-               <form action="" method="post">
-                   <input type="hidden" id="breathHoldTotalSeconds" name="breathHoldTotalSeconds" value="00">
-                   <button class ="btn" id = "submitHold"> Submit </button>
+                <form action="" method="post">
+                    <input type="hidden" id="breathHoldTotalSeconds" name="breathHoldTotalSeconds" value="00">
+                    <button class="btn" id="submitHold"> Submit </button>
                 </form>
 
-        </div>
+            </div>
 
-    <script src="{{ url_for('exercises.static', filename='js/Stopwatch_script.js') }}"></script>
+            <script src="{{ url_for('exercises.static', filename='js/Stopwatch_script.js') }}"></script>
 
         </div>
         <h3 class="ExerciseRating">Global Rating: {{ this_exercise.cumulative_rating }}</h3>
