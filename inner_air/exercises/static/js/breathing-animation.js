@@ -20,8 +20,8 @@ xhr.onload = function () {
         exhale_time = xhr.response.exhale_time;
         exhale_hold = xhr.response.exhale_hold;
         cycle_count = xhr.response.cycle_count;
-        current_user = xhr.response.current_user
-        current_exercise = xhr.response.current_exercise
+        current_user = xhr.response.current_user;
+        current_exercise = xhr.response.current_exercise;
 
         console.log(xhr.response);
     } else {
@@ -110,11 +110,11 @@ function feather_cycle(cycle) {
         if (cycle == 0) {
             timer.textContent = "Exercise Done!";
             start_button.style.visibility = "visible";
-            var XHRpost = new XMLHttpRequest()
-            var formData = new FormData()
-            formData.append("current_user",current_user)
-            formData.append("current_exercise",current_exercise)
-            XHRpost.open('POST',window.location.href);
+            var XHRpost = new XMLHttpRequest();
+            var formData = new FormData();
+            formData.append("current_user", current_user);
+            formData.append("current_exercise", current_exercise);
+            XHRpost.open("POST", window.location.href);
             XHRpost.send(formData);
             return;
         } else {
