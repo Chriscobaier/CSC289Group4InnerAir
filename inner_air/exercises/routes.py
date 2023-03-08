@@ -93,7 +93,6 @@ def get_exercise_id(exid):
 
     form = RateEx()
     if request.method == 'POST':
-    if request.method == 'POST':
         if 'breathHoldTotalSeconds' in request.form:
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
                                       hold_length=(float(request.form['breathHoldTotalSeconds']))/100))
