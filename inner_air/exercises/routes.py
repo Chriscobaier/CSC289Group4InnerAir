@@ -76,17 +76,19 @@ def exercises():
 @check_confirmed
 def get_exercise_id(exid):
     # Update cumulative ratings
-    all_ex_data = db.session.query(
-        UserRating).filter_by(exercise_id=exid).all()
-    all_ex_data_count = len(all_ex_data)
-    all_ex_data_total = 0
-    if all_ex_data_count > 0:
-        for i in all_ex_data:
-            all_ex_data_total += i.user_rating
-        cumulateData = all_ex_data_total / all_ex_data_count
-        db.session.query(Exercise).filter_by(
-            id=exid).first().update_cumulative_rating(cumulateData)
-        db.session.commit()
+    def updateRatings():
+        all_ex_data = db.session.query(
+            UserRating).filter_by(exercise_id=exid).all()
+        all_ex_data_count = len(all_ex_data)
+        all_ex_data_total = 0
+        if all_ex_data_count > 0:
+            for i in all_ex_data:
+                all_ex_data_total += i.user_rating
+            cumulateData = all_ex_data_total / all_ex_data_count
+            db.session.query(Exercise).filter_by(
+                id=exid).first().update_cumulative_rating(cumulateData)
+            db.session.commit()
+    updateRatings()
 
     this_exercise = db.session.query(
         Exercise).filter_by(id=exid).first_or_404()
@@ -101,6 +103,7 @@ def get_exercise_id(exid):
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id))
             db.session.commit()
 
+
     if form.validate():
         # Check if user has rated this before
         usersRating = db.session.query(UserRating).filter_by(
@@ -112,6 +115,7 @@ def get_exercise_id(exid):
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
+        updateRatings()
     if this_exercise.exercise_name == "Control Pause" or this_exercise.exercise_name == "Mini Breath Holds":
         return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
     else:
