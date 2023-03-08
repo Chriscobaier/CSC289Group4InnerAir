@@ -94,6 +94,8 @@ def get_exercise_id(exid):
 
     form = RateEx()
     if request.method == 'POST':
+        print(request.form)
+    if request.method == 'POST':
         if 'breathHoldTotalSeconds' in request.form:
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
                                       hold_length=(float(request.form['breathHoldTotalSeconds']))/100))
@@ -134,7 +136,9 @@ def send_animation_data(exid):
         "inhale_hold": exercise.exercise_inhale_pause,
         "exhale_time": exercise.exercise_exhale,
         "exhale": exercise.exercise_exhale_pause,
-        "cycle_count": exercise.exercise_length
+        "cycle_count": exercise.exercise_length,
+        "current_user": flask_login.current_user.id,
+        "current_exercise": exercise.id
     }
 
     # Send data in a json format
