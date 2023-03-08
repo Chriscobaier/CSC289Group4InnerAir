@@ -1,23 +1,29 @@
 <header>
-	<img src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
-	<nav>
-		{% if current_user.is_authenticated %}
-		<ul>
+	<nav class="header-container">
+		<a href="{{ url_for('main.home') }}">
+			<img src=" {{ url_for('main.static', filename='img/logo_text.svg' ) }}" class="logo"></img>
+		</a>
+
+		<div class="navigation-container">
+			<div class="navigation">
+				{% if current_user.is_confirmed %}
+				<a class="nav-link" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
+				<a class="nav-link" href="{{ url_for('userlist.userlist') }}">User List</a>
+				<a class="nav-link" href="{{ url_for('profile.profile') }}">PROFILE</a>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="buttons">
 			{% if current_user.is_admin %}
-			<li><a class="button--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a></li>
+			<a class="button--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a>
 			{% endif %}
-			{% if current_user.is_confirmed %}
-			<li><a class="button--dynamic" href="{{ url_for('exercises.exercises') }}">EXERCISES</a></li>
-			<li><a class="button--dynamic" href="{{ url_for('userlist.userlist') }}">User List</a></li>
-			<li><a class="button--dynamic" href="{{ url_for('profile.profile') }}">PROFILE</a></li>
+			{% if current_user.is_authenticated %}
+			<a class="button--red" href="{{ url_for('user.logout') }}">SIGN OUT</a>
+			{% else %}
+			<a class="button--red" href="{{ url_for('user.login') }}">SIGN IN</a>
+			<a class="button--red" href="{{ url_for('user.register') }}">SIGN UP</a>
 			{% endif %}
-			<li><a class="button--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a></li>
-		</ul>
-		{% else %}
-		<ul>
-			<li><a class="button--dynamic" href="{{ url_for('user.login') }}">SIGN IN</a></li>
-			<li><a class="button--dynamic" href="{{ url_for('user.register') }}">SIGN UP</a></li>
-		</ul>
-		{% endif %}
+		</div>
 	</nav>
 </header>
