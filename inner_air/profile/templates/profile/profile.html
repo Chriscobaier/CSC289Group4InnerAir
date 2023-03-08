@@ -15,15 +15,17 @@ Dashboard
 <table class="table table-hover table-dark">
     <thead>
         <tr>
-            <th scope="col">Exercise Names</th>
-            <th scope="col">Add to Favorites</th>
+            <th scope="col">Favorite Exercise Names</th>
+            <th scope="col">Remove From Favorites</th>
         </tr>
     </thead>
     <tbody>
         {% for exercise in exercises %}
         {% if exercise.id in showFavAdd %}
         <tr>
-            <td>{{ exercise.exercise_name }}</td>
+            <td><label for={{ exercise.id }} class="name">
+                    <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
+                        target="_blank">{{ exercise.exercise_name }}</td>
             <td>
                 {% endif %}
                 {% if exercise.id in showFavAdd %}
