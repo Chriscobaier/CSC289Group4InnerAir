@@ -3,7 +3,7 @@ from flask import Blueprint, request, render_template, jsonify
 from flask_login import login_required
 
 from inner_air import db
-from inner_air.models import Favorites, Exercise, UserRating
+from inner_air.models import Favorites, Exercise, UserRating, Statistics
 from inner_air.utils.decorators import check_confirmed
 from inner_air.exercises.forms import RateEx
 
@@ -92,6 +92,12 @@ def get_exercise_id(exid):
         Exercise).filter_by(id=exid).first_or_404()
 
     form = RateEx()
+    if request.method == 'POST':
+        if 'breathHoldTotalSeconds' in request.form:
+            db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
+                                      hold_length=(float(request.form['breathHoldTotalSeconds']))/100))
+            db.session.commit()
+
     if form.validate():
         # Check if user has rated this before
         usersRating = db.session.query(UserRating).filter_by(
