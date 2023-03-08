@@ -1,0 +1,80 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+header {
+    @include tl.drop-shade;
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    height: 3rem;
+    width: 100%;
+    padding: 0.5rem;
+    background: tl.$dark-black;
+
+    .header-container {
+        @include tl.flex-spread;
+        flex-direction: row;
+
+        .logo {
+            width: 110px;
+        }
+
+        .navigation-container {
+            @include tl.flex-spread;
+            justify-content: center;
+            flex-direction: row;
+            flex-grow: 1;
+            gap: 0rem;
+
+            .navigation {
+                @include tl.flex-spread;
+                flex-direction: row;
+
+                .nav-link {
+                    color: tl.$light-white;
+                    border-left: solid 1px tl.$accent-warm-light;
+                    border-right: solid 1px tl.$accent-warm-light;
+
+                    height: 1.2rem;
+                    padding: 0rem 0.8rem;
+                    font-size: 15px;
+                    text-decoration: none;
+                    text-transform: uppercase;
+
+                    &:visited {
+                        color: tl.$accent-cold-light;
+                    }
+                    &:hover {
+                        color: white;
+                        background-image: linear-gradient(
+                            rgba(tl.$dark-black, 0) 50%,
+                            tl.$pastel-pink
+                        );
+                        box-shadow: 0px 5px 8px rgba(tl.$pastel-pink, 0.5);
+                    }
+
+                    &:active {
+                    }
+                }
+            }
+        }
+
+        .buttons {
+            @include tl.flex-spread;
+            flex-direction: row;
+            font-size: 12px;
+            gap: 0.4rem;
+        }
+    }
+
+    & + * {
+        margin-top: 3rem;
+    }
+}
+
+// when navigation link is selected
+.active {
+    color: white;
+    background-color: rgba(tl.$accent-cold, 0.4);
+    box-shadow: 0px 0px 10px rgba(tl.$accent-cold, 0.5);
+}

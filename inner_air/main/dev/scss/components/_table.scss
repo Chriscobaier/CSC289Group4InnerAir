@@ -2,6 +2,7 @@
 @use "../../../../dev/scss/toolbox" as tl;
 
 table {
+    @include tl.drop-shade;
     border-collapse: collapse;
     border-radius: 10px;
     margin: 1rem auto;
