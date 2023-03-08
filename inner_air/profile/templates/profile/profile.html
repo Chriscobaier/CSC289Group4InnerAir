@@ -15,7 +15,7 @@ Dashboard
 <table class="table table-hover table-dark">
     <thead>
         <tr>
-            <th scope="col">Favorite Exercise Names</th>
+            <th scope="col">Exercise Names</th>
             <th scope="col">Add to Favorites</th>
         </tr>
     </thead>
@@ -30,7 +30,7 @@ Dashboard
                 <form method="post">
                     <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
                     <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
-                    <button type="submit" name="favoriteButtonRemove" class="button--red">Unfavorite</button>
+                    <button type="submit" name="favoriteButtonRemove" class="button--red">🖤</button>
                 </form>
                 {% endif %}
 
