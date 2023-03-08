@@ -9,12 +9,11 @@ Exercises
 
 
 <div>
-    <h3>Welcome, {{ current_user.firstname }} </h3>
     <div>
         <h1 class="ExerciseName">{{ this_exercise.exercise_name }}</h1>
         <h3 class="ExerciseInstructions">{{ this_exercise.exercise_instructions }}</h3>
         <div class="BreathHoldContainer">
-    <div class="container">
+
         <h1>Inner Air Timer</h1>
         <div id = "time">
                 <span class = "digits" id = "min">00</span>
@@ -28,8 +27,13 @@ Exercises
             <button class = "btn" id = "start"> Start </button>
             <button class = "btn" id = "stop"> Stop </button>
             <button class = "btn" id = "reset"> Reset </button>
+
+               <form action="" method="post">
+                   <button class ="btn" id = "submit"> Submit </button>
+            </form>
+
         </div>
-    </div>
+
     <script src="{{ url_for('exercises.static', filename='js/Stopwatch_script.js') }}"></script>
 
         </div>
