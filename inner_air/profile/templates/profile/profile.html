@@ -70,9 +70,11 @@ Dashboard
         responsive: true,
             scales:
         {
-            y: {
-                min: 0
-                },
+            yAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }],
             x:
                 {
                     type: 'time',
