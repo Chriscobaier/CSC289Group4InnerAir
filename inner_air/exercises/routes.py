@@ -88,6 +88,7 @@ def get_exercise_id(exid):
             db.session.query(Exercise).filter_by(
                 id=exid).first().update_cumulative_rating(cumulateData)
             db.session.commit()
+
     updateRatings()
 
     this_exercise = db.session.query(
@@ -97,12 +98,11 @@ def get_exercise_id(exid):
     if request.method == 'POST':
         if 'breathHoldTotalSeconds' in request.form:
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
-                                      hold_length=(float(request.form['breathHoldTotalSeconds']))/100))
+                                      hold_length=(float(request.form['breathHoldTotalSeconds'])) / 100))
             db.session.commit()
         if 'exerciseComplete' in request.form:
             db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id))
             db.session.commit()
-
 
     if form.validate():
         # Check if user has rated this before
