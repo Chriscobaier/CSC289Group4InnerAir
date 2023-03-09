@@ -70,14 +70,18 @@ Dashboard
         responsive: true,
             scales:
         {
+            y: {
+                min: 0
+                },
             x:
                 {
-                type: 'time',
+                    type: 'time',
 
-               time: {
-              unit: 'day',
-              round: 'day'
-                        }}
+                    time:   {
+                          unit: 'day',
+                          round: 'day'
+                            }
+                }
         }
     }
 });

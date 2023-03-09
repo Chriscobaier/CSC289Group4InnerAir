@@ -90,9 +90,14 @@ def get_exercise_id(exid):
             db.session.commit()
 
     updateRatings()
+    if exid.upper() == "DEMO":
+        this_exercise = db.session.query(
+            Exercise).filter_by(exercise_name="Demo Exercise").first_or_404()
+        exid = this_exercise.id
+    else:
+        this_exercise = db.session.query(
+            Exercise).filter_by(id=exid).first_or_404()
 
-    this_exercise = db.session.query(
-        Exercise).filter_by(id=exid).first_or_404()
 
     form = RateEx()
     if request.method == 'POST':
@@ -131,7 +136,11 @@ def get_exercise_id(exid):
 @login_required
 @check_confirmed
 def send_animation_data(exid):
-    exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
+    if exid.upper() == "DEMO":
+        exercise = db.session.query(
+            Exercise).filter_by(exercise_name="Demo Exercise").first_or_404()
+    else:
+        exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
 
     # Data used for animations
     animation_data = {

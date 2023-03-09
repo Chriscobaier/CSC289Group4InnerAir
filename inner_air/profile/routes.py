@@ -60,11 +60,15 @@ def profile():
     for i in xDataAll:
         xDataDates.append(i.date_completed.replace(hour=0, minute=0, second=0, microsecond=0))
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
+    # To force scale at 0
+    # xData = [datetime.datetime(2023, 3, 9, 0, 0, 0)]
+    # yData = [0]
     xData = []
     yData = []
-    for key,value in exercisePerDay.items():
+    for key, value in exercisePerDay.items():
         xData.append(key)
         yData.append(value)
+    print(xData, yData)
 
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
