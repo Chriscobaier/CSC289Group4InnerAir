@@ -58,11 +58,9 @@ def profile():
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
     xDataDates = []
     for i in xDataAll:
-        xDataDates.append(i.date_completed.replace(hour=0, minute=0, second=0, microsecond=0))
+        xDataDates.append(i.date_completed.date())
+    xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
-    # To force scale at 0
-    # xData = [datetime.datetime(2023, 3, 9, 0, 0, 0)]
-    # yData = [0]
     xData = []
     yData = []
     for key, value in exercisePerDay.items():
