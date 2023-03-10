@@ -1,0 +1,92 @@
+.indicator {
+    height: 10px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.indicator span {
+    width: 80px;
+    height: 4px;
+    background-color: #D3D3D3;
+    border-radius: 6px;
+    position: relative;
+}
+
+.indicator span.password-validity-medium {
+    margin: 0 3;
+}
+
+.indicator span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    border-radius: 6px;
+}
+
+.indicator span.active.password-validity-weak::before {
+    background-color: #ED4E50;
+}
+
+.indicator span.active.password-validity-medium::before {
+    background-color: #FFD33D;
+}
+
+.indicator span.active.password-validity-strong::before {
+    background-color: #2DA44E;
+}
+
+.password-validity-summary {
+    font-size: 12px;
+    font-weight: 100;
+    margin-top: -15px;
+    display: none;
+}
+
+.password-validity-summary.password-validity-weak {
+    color: #ED4E50;
+}
+
+.password-validity-summary.password-validity-medium {
+    color: #FFD33D;
+}
+
+.password-validity-summary.password-validity-strong {
+    color: #2DA44E;
+}
+
+.fname-validity-summary,
+.email-validity-summary,
+.cpassword-validity-summary {
+    position: relative;
+    margin: 0 0 -5px 5px;
+    width: 100%;
+    color: #ED4E50;
+    font-size: 12px;
+    padding: 8px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.fname-validity-summary::before,
+.email-validity-summary::before,
+.cpassword-validity-summary::before {
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    color: #ED4E50;
+    right: 20px;
+    top: -7px;
+    transform: rotate(45deg);
+}
+
+/* disable hover effect */
+.disabled {
+    pointer-events: none;
+}

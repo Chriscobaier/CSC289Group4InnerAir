@@ -2,8 +2,17 @@
 {% block title %} Sign Up Page {% endblock %}
 {% block content %}
 
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/form-validity.css') }}">
+
+<!--  JS  -->
+<script defer src="{{ url_for('.static', filename='js/fname-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/email-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/password-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/confirm-password-validity.js') }}"></script>
+
 <div>
-	<form method="POST" action="" class="form-register">
+	<form id="form" method="POST" action="" class="form-register">
 		{{ form.hidden_tag() }}
 
 		<fieldset>
@@ -23,9 +32,11 @@
 					{{ form.firstname }}
 					{% endif %}
 				</div>
+				<span class="fname-validity-summary"></span>
+				
 
 				<!-- Email input -->
-				<div class="form-section">
+				<div class="form-section input-control">
 					{{ form.email.label(class='form-label') }}
 					{% if form.email.errors %}
 					{{ form.email(class="form-control is-invalid") }}
@@ -38,6 +49,7 @@
 					{{ form.email }}
 					{% endif %}
 				</div>
+				<span class="email-validity-summary"></span>
 
 				<!-- Password input -->
 				<div class="form-section">
@@ -53,6 +65,13 @@
 					{{ form.password }}
 					{% endif %}
 				</div>
+				<!-- indicator -->
+				<div class="indicator">
+					<span class="password-validity-weak"></span>
+					<span class="password-validity-medium"></span>
+					<span class="password-validity-strong"></span>
+				</div>
+				<span class="password-validity-summary"></span>
 
 				<!-- Confirm password input -->
 				<div class="form-section">
@@ -68,7 +87,10 @@
 					{{ form.confirm_password }}
 					{% endif %}
 				</div>
+				<span class="cpassword-validity-summary"></span>
+				
 			</div>
+
 		</fieldset>
 		{{ form.submit(class="button--blue") }}
 		<a class="link--light" href="{{ url_for('user.login') }}">Already have an account? Sign in</a>
