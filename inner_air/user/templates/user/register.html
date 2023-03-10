@@ -16,7 +16,7 @@
 					{{ form.firstname(class="form-control is-invalid") }}
 					<div class="invalid-feedback">
 						{% for error in form.firstname.errors %}
-							<span>{{ error }}</span>
+						<span>{{ error }}</span>
 						{% endfor %}
 					</div>
 					{% else %}
@@ -31,7 +31,7 @@
 					{{ form.email(class="form-control is-invalid") }}
 					<div class="invalid-feedback">
 						{% for error in form.email.errors %}
-							<span>{{ error }}</span>
+						<span>{{ error }}</span>
 						{% endfor %}
 					</div>
 					{% else %}
@@ -46,7 +46,7 @@
 					{{ form.password(class="form-control is-invalid") }}
 					<div class="invalid-feedback">
 						{% for error in form.password.errors %}
-							<span>{{ error }}</span>
+						<span>{{ error }}</span>
 						{% endfor %}
 					</div>
 					{% else %}
@@ -61,7 +61,7 @@
 					{{ form.confirm_password(class="form-control is-invalid") }}
 					<div class="invalid-feedback">
 						{% for error in form.confirm_password.errors %}
-							<span>{{ error }}</span>
+						<span>{{ error }}</span>
 						{% endfor %}
 					</div>
 					{% else %}
@@ -70,7 +70,7 @@
 				</div>
 			</div>
 		</fieldset>
-		{{ form.submit(class="button") }}
+		{{ form.submit(class="button--blue") }}
 		<a class="link--light" href="{{ url_for('user.login') }}">Already have an account? Sign in</a>
 	</form>
 </div>

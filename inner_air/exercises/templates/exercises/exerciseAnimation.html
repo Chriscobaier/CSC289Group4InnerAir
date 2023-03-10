@@ -23,9 +23,10 @@ Exercises
         </div>
         <h3 class="ExerciseRating">Global Rating: {{ this_exercise.cumulative_rating }}</h3>
         <div class="ExerciseRatingTool">
-            <form method="POST" class="form-rate">
+            <form action="" method="POST" class="form-rate">
                 {{ form.hidden_tag() }}
                 {{ form.RateField.label }}
+
                 {% for subfield in form.RateField %}
                 <tr>
                     <td>{{ subfield }}</td>

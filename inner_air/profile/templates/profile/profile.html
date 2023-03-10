@@ -52,31 +52,30 @@ Dashboard
 
 <script>
     var ctx = document.getElementById("histogram").getContext("2d");
-    var histogram = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: {{ xData | tojson }},
-    datasets: [
-        {
-            label: "Number of Exercises completed",
-            data: {{ yData | tojson }},
-        fill: false,
-        lineTension: 0.1
-      }
-    ]
-  },
-    options:
+    var histogram = new Chart(ctx,
     {
-        responsive: true,
-            scales:
-        {
-            x:
+        type: 'bar',
+        data:
             {
-                type: 'time',
-        }
-        }
-    }
-});
+            labels: {{ xData | tojson }},
+            datasets:
+                [{
+                    label: "Number of Exercises completed",
+                    data: {{ yData | tojson }},
+                    fill: false,
+                    lineTension: 0.1
+                }]
+            },
+        options:
+            {
+                responsive: true,
+                scales:
+                    {
+                        yAxes: [{ticks: {beginAtZero: true}}],
+                        x: [{type: 'time',time: {unit: 'day',tooltipFormat: 'MMM DD'}}],
+                    }
+            }
+    });
 </script>
 
 

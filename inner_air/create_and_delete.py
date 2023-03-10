@@ -164,5 +164,21 @@ def DeleteAndCreateDB():
             db.session.add(DBVersion(version='0.07'))
             db.session.commit()
 
+        if str(thisVersion.version) == '0.07':
+            print("Migrating to DB 0.08")
+            print("Fake Exercise for Demo")
+            db.session.add(Exercise(exercise_name="Demo Exercise",
+                                    exercise_instructions="Test Demo Instructions",
+                                    exercise_description="Test Demo Descriptions",
+                                    exercise_length="1", category_id="1",
+                                    exercise_inhale="2",
+                                    exercise_inhale_pause="2",
+                                    exercise_exhale="2",
+                                    exercise_exhale_pause="2"))
+
+            print("Migrated to DB 0.08")
+            db.session.add(DBVersion(version='0.08'))
+            db.session.commit()
+
 
 DeleteAndCreateDB()

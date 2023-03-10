@@ -1,4 +1,6 @@
 <header>
+	<link rel="stylesheet" href="{{ url_for('main.static', filename='css/header_nav.css')}}">
+
 	<nav class="header-container">
 		<a href="{{ url_for('main.home') }}">
 			<img src=" {{ url_for('main.static', filename='img/logo_text.svg' ) }}" class="logo"></img>
@@ -6,23 +8,39 @@
 
 		<div class="navigation-container">
 			<div class="navigation">
+
 				{% if current_user.is_confirmed %}
+
+				{% if 'exercises' in request.path %}
+				<a class="nav-link active" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
+				{% else %}
 				<a class="nav-link" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
+				{% endif %}
+
+				{% if 'userlist' in request.path %}
+				<a class="nav-link active" href="{{ url_for('userlist.userlist') }}">User List</a>
+				{% else %}
 				<a class="nav-link" href="{{ url_for('userlist.userlist') }}">User List</a>
-				<a class="nav-link" href="{{ url_for('profile.profile') }}">PROFILE</a>
+				{% endif %}
+
+				{% if 'profile' in request.path %}
+				<a class="nav-link active" href="{{ url_for('profile.profile') }}">Profile</a>
+				{% else %}
+				<a class="nav-link" href="{{ url_for('profile.profile') }}">Profile</a>
+				{% endif %}
 				{% endif %}
 			</div>
 		</div>
 
 		<div class="buttons">
 			{% if current_user.is_admin %}
-			<a class="button--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a>
+			<a class="button--red--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a>
 			{% endif %}
 			{% if current_user.is_authenticated %}
-			<a class="button--red" href="{{ url_for('user.logout') }}">SIGN OUT</a>
+			<a class="button--red--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a>
 			{% else %}
-			<a class="button--red" href="{{ url_for('user.login') }}">SIGN IN</a>
-			<a class="button--red" href="{{ url_for('user.register') }}">SIGN UP</a>
+			<a class="button--red--dynamic" href="{{ url_for('user.login') }}">SIGN IN</a>
+			<a class="button--blue--dynamic" href="{{ url_for('user.register') }}">SIGN UP</a>
 			{% endif %}
 		</div>
 	</nav>

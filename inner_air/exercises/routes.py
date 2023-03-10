@@ -3,7 +3,7 @@ from flask import Blueprint, request, render_template, jsonify
 from flask_login import login_required
 
 from inner_air import db
-from inner_air.models import Favorites, Exercise, UserRating
+from inner_air.models import Favorites, Exercise, UserRating, Statistics
 from inner_air.utils.decorators import check_confirmed
 from inner_air.exercises.forms import RateEx
 
@@ -76,22 +76,39 @@ def exercises():
 @check_confirmed
 def get_exercise_id(exid):
     # Update cumulative ratings
-    all_ex_data = db.session.query(
-        UserRating).filter_by(exercise_id=exid).all()
-    all_ex_data_count = len(all_ex_data)
-    all_ex_data_total = 0
-    if all_ex_data_count > 0:
-        for i in all_ex_data:
-            all_ex_data_total += i.user_rating
-        cumulateData = all_ex_data_total / all_ex_data_count
-        db.session.query(Exercise).filter_by(
-            id=exid).first().update_cumulative_rating(cumulateData)
-        db.session.commit()
+    def updateRatings():
+        all_ex_data = db.session.query(
+            UserRating).filter_by(exercise_id=exid).all()
+        all_ex_data_count = len(all_ex_data)
+        all_ex_data_total = 0
+        if all_ex_data_count > 0:
+            for i in all_ex_data:
+                all_ex_data_total += i.user_rating
+            cumulateData = all_ex_data_total / all_ex_data_count
+            db.session.query(Exercise).filter_by(
+                id=exid).first().update_cumulative_rating(cumulateData)
+            db.session.commit()
 
-    this_exercise = db.session.query(
-        Exercise).filter_by(id=exid).first_or_404()
+    updateRatings()
+    if exid.upper() == "DEMO":
+        this_exercise = db.session.query(
+            Exercise).filter_by(exercise_name="Demo Exercise").first_or_404()
+        exid = this_exercise.id
+    else:
+        this_exercise = db.session.query(
+            Exercise).filter_by(id=exid).first_or_404()
+
 
     form = RateEx()
+    if request.method == 'POST':
+        if 'breathHoldTotalSeconds' in request.form:
+            db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id,
+                                      hold_length=(float(request.form['breathHoldTotalSeconds'])) / 100))
+            db.session.commit()
+        if 'exerciseComplete' in request.form:
+            db.session.add(Statistics(exercise_id=exid, user_id=flask_login.current_user.id))
+            db.session.commit()
+
     if form.validate():
         # Check if user has rated this before
         usersRating = db.session.query(UserRating).filter_by(
@@ -103,6 +120,7 @@ def get_exercise_id(exid):
         else:
             usersRating.update_rating(int(form.RateField.data))
         db.session.commit()
+        updateRatings()
     if this_exercise.exercise_name == "Control Pause" or this_exercise.exercise_name == "Mini Breath Holds":
         return render_template('exercises/exerciseBreathHold.html', this_exercise=this_exercise, form=form)
     else:
@@ -118,7 +136,11 @@ def get_exercise_id(exid):
 @login_required
 @check_confirmed
 def send_animation_data(exid):
-    exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
+    if exid.upper() == "DEMO":
+        exercise = db.session.query(
+            Exercise).filter_by(exercise_name="Demo Exercise").first_or_404()
+    else:
+        exercise = db.session.query(Exercise).filter_by(id=exid).first_or_404()
 
     # Data used for animations
     animation_data = {
@@ -126,7 +148,9 @@ def send_animation_data(exid):
         "inhale_hold": exercise.exercise_inhale_pause,
         "exhale_time": exercise.exercise_exhale,
         "exhale": exercise.exercise_exhale_pause,
-        "cycle_count": exercise.exercise_length
+        "cycle_count": exercise.exercise_length,
+        "current_user": flask_login.current_user.id,
+        "current_exercise": exercise.id
     }
 
     # Send data in a json format

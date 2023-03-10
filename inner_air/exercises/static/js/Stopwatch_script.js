@@ -1,10 +1,12 @@
 let startBtn = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let resetBtn = document.getElementById('reset');
+let submitBtn = document.getElementById('submit');
   
 let minute = 00;
 let second = 00;
 let count = 00;
+totalMillie = 00;
   
 startBtn.addEventListener('click', function () {
     timer = true;
@@ -13,6 +15,7 @@ startBtn.addEventListener('click', function () {
   
 stopBtn.addEventListener('click', function () {
     timer = false;
+    document.getElementById('breathHoldTotalSeconds').value = totalMillie;
 });
   
 resetBtn.addEventListener('click', function () {
@@ -23,11 +26,14 @@ resetBtn.addEventListener('click', function () {
     document.getElementById('min').innerHTML = "00";
     document.getElementById('sec').innerHTML = "00";
     document.getElementById('count').innerHTML = "00";
+    document.getElementById('breathHoldTotalSeconds').value = "00";
 });
   
 function stopWatch() {
     if (timer) {
         count++;
+        totalMillie++;
+
   
         if (count == 100) {
             second++;
