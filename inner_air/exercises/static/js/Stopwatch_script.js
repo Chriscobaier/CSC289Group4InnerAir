@@ -28,7 +28,16 @@ resetBtn.addEventListener('click', function () {
     document.getElementById('count').innerHTML = "00";
     document.getElementById('breathHoldTotalSeconds').value = "00";
 });
-  
+
+
+function show() {
+    document.getElementById('submitHold').style.display="inline-block"
+}
+
+function hide() {
+    document.getElementById('submitHold').style.display="none"
+}
+
 function stopWatch() {
     if (timer) {
         count++;
