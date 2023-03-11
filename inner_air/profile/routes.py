@@ -66,7 +66,6 @@ def profile():
     for key, value in exercisePerDay.items():
         xData.append(key)
         yData.append(value)
-    print(xData, yData)
 
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
