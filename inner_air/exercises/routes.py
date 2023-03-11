@@ -98,7 +98,6 @@ def get_exercise_id(exid):
         this_exercise = db.session.query(
             Exercise).filter_by(id=exid).first_or_404()
 
-
     form = RateEx()
     if request.method == 'POST':
         if 'breathHoldTotalSeconds' in request.form:

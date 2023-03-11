@@ -54,7 +54,7 @@ Dashboard
     var ctx = document.getElementById("histogram").getContext("2d");
     var histogram = new Chart(ctx,
     {
-        type: 'bar',
+        type: 'line',
         data:
             {
             labels: {{ xData | tojson }},
