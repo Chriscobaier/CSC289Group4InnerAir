@@ -1,6 +1,7 @@
 @use "../../../../dev/scss/toolbox" as tl;
 
 .chart {
+    @include tl.drop-shade;
     width: 80%;
     height: 900px;
     background-color: tl.$pastel-blue;

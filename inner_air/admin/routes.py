@@ -15,3 +15,4 @@ admin_bp = Blueprint(
 @check_confirmed
 def admin():
     return render_template('admin/admin.html')
+

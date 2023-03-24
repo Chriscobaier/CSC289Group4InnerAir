@@ -1,3 +1,5 @@
+import datetime
+
 import flask_login
 from flask import Blueprint, request, render_template
 
@@ -54,14 +56,17 @@ def profile():
         return listOfExerciseCurrentUserHasInFavorites
 
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
+    xDataDates = []
+    for i in xDataAll:
+        xDataDates.append(i.date_completed.date())
+    xDataDates.sort()
+    exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
     xData = []
     yData = []
-    j = 0
-    for i in xDataAll:
-        j += 1
-        xData.append(i.date_completed)
-        # Need to count # of exercises per day
-        yData.append(j)
+    for key, value in exercisePerDay.items():
+        xData.append(key)
+        yData.append(value)
 
-    return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list, showFavAdd=showFav(),
+    return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
+                           showFavAdd=showFav(),
                            xData=xData, yData=yData)

@@ -1,11 +1,12 @@
 import pytest
+from decouple import config
 from flask import Flask
 
 from inner_air.models import User, Exercise, Routine, Favorites, Statistics, Category, UserRating, db
 
 # Create Flask app
 app = Flask(__name__)
-app.config.from_object('inner_air.config.TestingConfig')
+app.config.from_object(config('APP_TESTING_SETTINGS'))
 
 # Create database per app config
 db.init_app(app)

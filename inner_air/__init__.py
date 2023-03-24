@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 
 
 app = Flask(__name__)
-app.config.from_object(config('APP_SETTINGS', default='inner_air.config.DevelopmentConfig'))
+app.config.from_object(config('APP_SETTINGS'))
 
 login_manager = LoginManager()
 login_manager.init_app(app)
@@ -16,6 +16,11 @@ db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 mail = Mail(app)
 migrate = Migrate(app, db)
+
+"""
+    User model
+"""
+from inner_air.models import User
 
 """
     registering blueprints
@@ -39,8 +44,6 @@ app.register_blueprint(errors)
 """
     flask-login
 """
-from inner_air.models import User
-
 login_manager.login_view = 'user.login'
 login_manager.login_message_category = 'info'
 

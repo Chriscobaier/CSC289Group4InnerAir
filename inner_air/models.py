@@ -42,7 +42,7 @@ class User(db.Model, UserMixin):
         todayMidnight = todayDate.replace(hour=0, minute=0, second=0, microsecond=0)
 
         if self.last_login is None:
-            self.consecutive_days = 0
+            self.consecutive_days = 1
             self.last_login = todayDate
 
         else:
@@ -50,9 +50,8 @@ class User(db.Model, UserMixin):
                 if self.last_login > (todayMidnight - timedelta(hours=24)):
                     self.consecutive_days += 1
                 else:
-                    self.consecutive_days = 0
+                    self.consecutive_days = 1
             self.last_login = todayDate
-
 
 
 class Exercise(db.Model):
