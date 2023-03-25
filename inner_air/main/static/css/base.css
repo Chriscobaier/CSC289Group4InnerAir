@@ -290,6 +290,7 @@ body {
   background-image: url("/inner_air.main.routes/img/background_image.svg");
   background-size: cover;
   color: #e6e8ff;
+  text-shadow: -1px 1px 5px #050f1b, 1px 1px 5px #050f1b;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
