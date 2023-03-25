@@ -20,6 +20,7 @@
 }
 .wrapper .top .description .desc-header {
   text-align: center;
+  letter-spacing: 0.1rem;
 }
 .wrapper .sec-boxes {
   display: flex;
@@ -47,11 +48,6 @@
   padding: 0 1rem;
   grid-area: 2/1;
 }
-.wrapper .sec-boxes .box .button {
-  grid-area: 3/1/span 1/span 2;
-  margin: auto;
-  width: 10rem;
-}
 .wrapper .sec-boxes .box img {
   border-radius: 10px;
   grid-area: 2/2;
@@ -59,6 +55,11 @@
   width: 200px;
   box-shadow: inset 0px 0px 5px #e6e8ff;
   background-image: radial-gradient(#a4c3ef 5%, rgba(0, 0, 0, 0) 90%);
+}
+.wrapper .sec-boxes .box .button {
+  grid-area: 3/1/span 1/span 2;
+  margin: auto;
+  width: 10rem;
 }
 
 #exercise {
