@@ -59,19 +59,35 @@ def profile():
                     favorite.as_dict()['exercise_id'])
         return listOfExerciseCurrentUserHasInFavorites
 
-    xDataAll = db.session.query(Statistics).filter_by(
-        user_id=flask_login.current_user.id).all()
+    xDataWeek = []
+    for i in range(7):
+        print(i)
+        xDataWeek.append((datetime.date.today() - datetime.timedelta(days=i)))
+    xDataMonth = [datetime.date.today() - datetime.timedelta(days=x) for x in range(30)]
+    xDataQ = [datetime.date.today() - datetime.timedelta(days=x) for x in range(91)]
+
+    xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
+
     xDataDates = []
     for i in xDataAll:
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
-    xData = []
-    yData = []
+    xDataWeekDict = dict()
+    print(xDataWeek)
     for key, value in exercisePerDay.items():
-        xData.append(key)
+        if key in xDataWeek:
+            print('here')
+            xDataWeekDict[key] = value
+    print(xDataWeekDict)
+    xDataWeekList = []
+    xDataMonthList = []
+    xDataQuarterList = []
+    yData = []
+    for key, value in xDataWeekDict.items():
+        xDataWeekList.append(key)
         yData.append(value)
 
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
-                           xData=xData, yData=yData)
+                           xDataWeekList=xDataWeekList, yData=yData)
