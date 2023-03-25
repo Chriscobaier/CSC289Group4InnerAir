@@ -2,6 +2,7 @@
 @use "sass:color";
 
 .wrapper {
+    letter-spacing: 0.05rem;
     margin: 0 5%;
 
     // Welcome text with the logo
@@ -21,7 +22,6 @@
             }
 
             .desc-text {
-                letter-spacing: 0.05rem;
             }
         }
     }
@@ -49,7 +49,6 @@
             .box-description {
                 padding: 0 1rem;
                 grid-area: 2 / 1;
-                letter-spacing: 0.05rem;
             }
 
             .button {
@@ -70,5 +69,43 @@
                 );
             }
         }
+    }
+}
+
+// Extra coloring
+// Templates
+@mixin text-decor($color) {
+    color: $color;
+    text-shadow: 0px 5px 5px rgba($color, 0.5);
+}
+
+@mixin box-decor($border, $background) {
+    box-shadow: inset 0px 0px 5px $border;
+
+    background-image: radial-gradient($background 5%, rgba(black, 0) 90%);
+}
+
+// Three categories
+#exercise {
+    @include text-decor(tl.$pastel-pink);
+
+    & + img {
+        @include box-decor(tl.$accent-warm, tl.$pastel-pink);
+    }
+}
+
+#meditate {
+    @include text-decor(tl.$pastel-green);
+
+    & + img {
+        @include box-decor(tl.$accent-mint, tl.$pastel-green);
+    }
+}
+
+#relaxation {
+    @include text-decor(tl.$pastel-blue);
+
+    & + img {
+        @include box-decor(tl.$accent-cold, tl.$pastel-blue);
     }
 }

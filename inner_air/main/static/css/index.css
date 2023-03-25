@@ -1,4 +1,5 @@
 .wrapper {
+  letter-spacing: 0.05rem;
   margin: 0 5%;
 }
 .wrapper .top {
@@ -19,9 +20,6 @@
 }
 .wrapper .top .description .desc-header {
   text-align: center;
-}
-.wrapper .top .description .desc-text {
-  letter-spacing: 0.05rem;
 }
 .wrapper .sec-boxes {
   display: flex;
@@ -48,7 +46,6 @@
 .wrapper .sec-boxes .box .box-description {
   padding: 0 1rem;
   grid-area: 2/1;
-  letter-spacing: 0.05rem;
 }
 .wrapper .sec-boxes .box .button {
   grid-area: 3/1/span 1/span 2;
@@ -61,5 +58,32 @@
   padding: 0.5rem;
   width: 200px;
   box-shadow: inset 0px 0px 5px #e6e8ff;
+  background-image: radial-gradient(#a4c3ef 5%, rgba(0, 0, 0, 0) 90%);
+}
+
+#exercise {
+  color: #f8afb4;
+  text-shadow: 0px 5px 5px rgba(248, 175, 180, 0.5);
+}
+#exercise + img {
+  box-shadow: inset 0px 0px 5px #ef5562;
+  background-image: radial-gradient(#f8afb4 5%, rgba(0, 0, 0, 0) 90%);
+}
+
+#meditate {
+  color: #a6f7b4;
+  text-shadow: 0px 5px 5px rgba(166, 247, 180, 0.5);
+}
+#meditate + img {
+  box-shadow: inset 0px 0px 5px #00cfa5;
+  background-image: radial-gradient(#a6f7b4 5%, rgba(0, 0, 0, 0) 90%);
+}
+
+#relaxation {
+  color: #a4c3ef;
+  text-shadow: 0px 5px 5px rgba(164, 195, 239, 0.5);
+}
+#relaxation + img {
+  box-shadow: inset 0px 0px 5px #0094ec;
   background-image: radial-gradient(#a4c3ef 5%, rgba(0, 0, 0, 0) 90%);
 }
