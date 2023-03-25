@@ -15,11 +15,11 @@ body {
     background-size: cover;
 
     color: tl.$light-white;
-    text-shadow: -1px 1px 5px tl.$dark-black, 1px 1px 5px tl.$dark-black;
     font-size: 14px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
     .container {
+        text-shadow: -1px 1px 5px tl.$dark-black, 1px 1px 5px tl.$dark-black;
         background-color: rgba(tl.$dark-steel, 0.8);
         backdrop-filter: blur(20px);
 
