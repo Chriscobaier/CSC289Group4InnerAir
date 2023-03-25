@@ -9,7 +9,9 @@ from inner_air.utils.decorators import check_confirmed
 
 profile_bp = Blueprint(
     'profile', __name__,
-    template_folder='templates'
+    template_folder='templates',
+    static_folder='static',
+    static_url_path='/%s' % __name__
 )
 
 
@@ -26,7 +28,8 @@ def profile():
             # Check if the current combination of user and exercise IDs is already in the Favorites table
             if db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
                     Favorites.exercise_id == currentExercise).first() is None:
-                db.session.add(Favorites(user_id=currentUser, exercise_id=currentExercise))
+                db.session.add(Favorites(user_id=currentUser,
+                               exercise_id=currentExercise))
                 db.session.commit()
 
         # Check if the request form contains "favoriteButtonRemove" key
@@ -52,10 +55,12 @@ def profile():
         listOfExerciseCurrentUserHasInFavorites = []
         for favorite in favorite_list:
             if favorite.as_dict()['user_id'] == flask_login.current_user.id:
-                listOfExerciseCurrentUserHasInFavorites.append(favorite.as_dict()['exercise_id'])
+                listOfExerciseCurrentUserHasInFavorites.append(
+                    favorite.as_dict()['exercise_id'])
         return listOfExerciseCurrentUserHasInFavorites
 
-    xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
+    xDataAll = db.session.query(Statistics).filter_by(
+        user_id=flask_login.current_user.id).all()
     xDataDates = []
     for i in xDataAll:
         xDataDates.append(i.date_completed.date())

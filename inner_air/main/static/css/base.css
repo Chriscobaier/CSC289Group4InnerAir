@@ -235,15 +235,6 @@ table tr:nth-child(even) {
   box-shadow: 0 0 10px rgba(0, 207, 165, 0.5);
 }
 
-.chart {
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  width: 80%;
-  height: 900px;
-  background-color: #a4c3ef;
-  border-radius: 10px;
-  margin: auto;
-}
-
 .link, .link--light {
   text-align: center;
   color: #0094ec;
@@ -303,6 +294,7 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body .container {
+  text-shadow: -1px 1px 5px #050f1b, 1px 1px 5px #050f1b;
   background-color: rgba(34, 47, 69, 0.8);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
