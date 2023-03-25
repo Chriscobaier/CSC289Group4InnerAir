@@ -1,0 +1,54 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.wrapper {
+    margin: 0 5%;
+
+    .top {
+        @include tl.flex-spread;
+    }
+
+    .sec-boxes {
+        @include tl.flex-spread;
+        gap: 1rem;
+        .box {
+            @include tl.rounded;
+            width: 100%;
+            padding: 0.5rem;
+            display: grid;
+            grid-auto-flow: dense;
+            grid-template-columns: 1fr auto;
+            gap: 1rem 0.5rem;
+            background: tl.$dark-black;
+
+            .box-header {
+                text-align: center;
+                font-size: 25px;
+                grid-area: 1 / 1 / span 1 / span 2;
+            }
+
+            .box-description {
+                grid-area: 2 / 1;
+                letter-spacing: 0.05rem;
+            }
+
+            .button {
+                grid-area: 3 / 1 / span 1 / span 2;
+                margin: auto;
+                width: 10rem;
+            }
+
+            img {
+                @include tl.rounded;
+                grid-area: 2 / 2;
+                padding: 0.5rem;
+                width: 200px;
+                box-shadow: inset 0px 0px 5px tl.$light-white;
+                background-image: radial-gradient(
+                    tl.$pastel-blue 5%,
+                    rgba(black, 0) 90%
+                );
+            }
+        }
+    }
+}

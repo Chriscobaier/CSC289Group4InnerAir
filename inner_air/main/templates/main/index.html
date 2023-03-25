@@ -1,59 +1,57 @@
 {% extends 'base.html' %}
 {% block title %}
-    Inner Air
+Inner Air
 {% endblock %}
 {% block content %}
 
 <link rel="stylesheet" href="{{ url_for('main.static', filename='css/index.css')}}">
 
-<div class ="wrapper">
-        <div class = "top">
-            <h1>Welcome to</h1>
-            <img class = "logo" src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
-            <h3>Your Personal Breathing Exercise Companion</h3>
-        </div>
+<div class="wrapper">
+    <div class="top">
+        <h1>Welcome to</h1>
+        <img class="logo" src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
+        <h3>Your Personal Breathing Exercise Companion</h3>
+    </div>
 
-    <div class = "bar">
+    <div class="bar">
         <h2>Wondering why there's an entire site for breathing?</h2>
-        <p class = "intro">That is a great question. Here you will find a multitude of exercises,
+        <p class="box-description" class="intro">That is a great question. Here you will find a multitude of exercises,
             techniques and information regarding breathing. Let us tell you why
             you should take a special interest in how something you do everyday
             can do more than just keep you alive.</p>
     </div>
 
-    <div>
-    <section class = "sec-boxes">
-        <article class = "box">
-            <h1>Exercise</h1>
-            <img class = "imgs" src="{{ url_for('main.static', filename='img/Exercise.png') }}"></img>
-            <p>Breathing exercises help slow down your breathing patterns and
+    <section class="sec-boxes">
+        <article class="box">
+            <h1 class="box-header">Exercise</h1>
+            <img class="imgs" src="{{ url_for('main.static', filename='img/Exercise.png') }}"></img>
+            <p class="box-description">Breathing exercises help slow down your breathing patterns and
                 improve lung efficiency particularly if you have asthma, COPD, or other conditions
                 that can cause shortness of breath.</p>
-            <button class = "button"> PlaceHold </button>
+            <button class="button"> PlaceHold </button>
         </article>
 
-        <article class = "box">
-            <h1>Meditate</h1>
-            <img class = "imgs" src="{{ url_for('main.static', filename='img/Meditation.png') }}"></img>
-            <p>Correctly learning to breathe can be an important part
+        <article class="box">
+            <h1 class="box-header">Meditate</h1>
+            <img class="imgs" src="{{ url_for('main.static', filename='img/Meditation.png') }}"></img>
+            <p class="box-description">Correctly learning to breathe can be an important part
                 of your whole body, not just your lungs. Here you will find
                 breathing techniques designed to help reduce stress and
                 provide other positive benefits such as lowering blood
                 pressure and improving sleep quality.</p>
-            <button class = "button"> PlaceHold </button>
+            <button class="button"> PlaceHold </button>
         </article>
 
-        <article class = "box">
-            <h1>Relaxation</h1>
-            <img class = "imgs" src="{{ url_for('main.static', filename='img/Relaxation.png') }}"></img>
-            <p>Mindful breathing techniques can have a positive effect on your mind
+        <article class="box">
+            <h1 class="box-header">Relaxation</h1>
+            <img class="imgs" src="{{ url_for('main.static', filename='img/Relaxation.png') }}"></img>
+            <p class="box-description">Mindful breathing techniques can have a positive effect on your mind
                 as well as the physical benefits mentioned previously.
                 Proper breathing can lower stress and anxiety.</p>
-            <button class = "button"> PlaceHold </button>
+            <button class="button"> PlaceHold </button>
         </article>
 
     </section>
-    </div>
 
     <script src="{{ url_for('main.static', filename='js/index_quote.js') }}"></script>
     <div onload="quoteSelector()">
