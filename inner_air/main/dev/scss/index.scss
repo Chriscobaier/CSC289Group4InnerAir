@@ -2,8 +2,10 @@
 @use "sass:color";
 
 .wrapper {
+    max-width: 150em;
+    margin: 0 auto;
+    padding: 0 2em;
     letter-spacing: 0.05rem;
-    margin: 0 5%;
 
     // Welcome text with the logo
     .top {
