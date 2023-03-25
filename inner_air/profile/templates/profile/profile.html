@@ -47,14 +47,44 @@ Dashboard
 </div>
 
 
+<div class="chart">
+    <canvas id="line"></canvas>
+    <canvas id="bar"></canvas>
+</div>
 
-<canvas id="histogram" class="chart"></canvas>
 
 <script>
-    var ctx = document.getElementById("histogram").getContext("2d");
+    var ctx = document.getElementById("line").getContext("2d");
     var histogram = new Chart(ctx,
     {
         type: 'line',
+        data:
+            {
+            labels: {{ xData | tojson }},
+            datasets:
+                [{
+                    label: "Number of Exercises completed",
+                    data: {{ yData | tojson }},
+                    fill: false,
+                    lineTension: 0.1
+                }]
+            },
+        options:
+            {
+                responsive: true,
+                scales:
+                    {
+                        yAxes: [{ticks: {beginAtZero: true}}],
+                        x: [{type: 'time',time: {unit: 'day',tooltipFormat: 'MMM DD'}}],
+                    }
+            }
+    });
+
+
+        var ctx = document.getElementById("bar").getContext("2d");
+    var histogram = new Chart(ctx,
+    {
+        type: 'bar',
         data:
             {
             labels: {{ xData | tojson }},
