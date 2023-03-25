@@ -4,10 +4,29 @@
 .wrapper {
     margin: 0 5%;
 
+    // Welcome text with the logo
     .top {
         @include tl.flex-spread;
+        flex-direction: column;
+
+        // Small explanation of the website
+        .description {
+            @include tl.flex-spread;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem;
+
+            .desc-header {
+                text-align: center;
+            }
+
+            .desc-text {
+                letter-spacing: 0.05rem;
+            }
+        }
     }
 
+    // Container for boxes with different themes
     .sec-boxes {
         @include tl.flex-spread;
         gap: 1rem;
@@ -28,6 +47,7 @@
             }
 
             .box-description {
+                padding: 0 1rem;
                 grid-area: 2 / 1;
                 letter-spacing: 0.05rem;
             }
