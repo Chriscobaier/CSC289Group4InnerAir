@@ -61,12 +61,23 @@ def profile():
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
-    xData = []
-    yData = []
+    xDataExercises = []
+    yDataExercises = []
     for key, value in exercisePerDay.items():
-        xData.append(key)
-        yData.append(value)
+        xDataExercises.append(key)
+        yDataExercises.append(value)
+
+    xUserIds = []
+    for i in xDataAll:
+        xUserIds.append(i.user_id)
+    maxBreathHolds = {x: xDataAll.hold_length for x in xUserIds}
+    xDataMaxBreathHolds = []
+    yDataMaxBreathHolds = []
+    for key, value in maxBreathHolds.items():
+        xDataMaxBreathHolds.append(key)
+        yDataMaxBreathHolds.append(value)
 
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
-                           xData=xData, yData=yData)
+                           xDataExercises=xDataExercises, yDataExercises=yDataExercises, xDataMaxBreathHolds=
+                           xDataMaxBreathHolds, yDataMaxBreathHolds=yDataMaxBreathHolds)

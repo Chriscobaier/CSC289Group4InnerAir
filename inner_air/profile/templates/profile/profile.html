@@ -50,21 +50,23 @@ Dashboard
 <div class="chart">
     <canvas id="line"></canvas>
     <canvas id="bar"></canvas>
+    <canvas id="bubble"></canvas>
 </div>
 
 
 <script>
+    // Get context of canvas element
     var ctx = document.getElementById("line").getContext("2d");
     var histogram = new Chart(ctx,
     {
         type: 'line',
         data:
             {
-            labels: {{ xData | tojson }},
+            labels: {{ xDataExercises | tojson }},
             datasets:
                 [{
-                    label: "Number of Exercises completed",
-                    data: {{ yData | tojson }},
+                    label: "Number of Exercises Completed",
+                    data: {{ yDataExercises | tojson }},
                     fill: false,
                     lineTension: 0.1
                 }]
@@ -81,17 +83,17 @@ Dashboard
     });
 
 
-        var ctx = document.getElementById("bar").getContext("2d");
+    var ctx = document.getElementById("bar").getContext("2d");
     var histogram = new Chart(ctx,
     {
         type: 'bar',
         data:
             {
-            labels: {{ xData | tojson }},
+            labels: {{ xDataMaxBreathHold | tojson }},
             datasets:
                 [{
-                    label: "Number of Exercises completed",
-                    data: {{ yData | tojson }},
+                    label: "Users' Maximum Breath Hold (seconds)",
+                    data: {{ yDataMaxBreathHold | tojson }},
                     fill: false,
                     lineTension: 0.1
                 }]
@@ -102,10 +104,12 @@ Dashboard
                 scales:
                     {
                         yAxes: [{ticks: {beginAtZero: true}}],
-                        x: [{type: 'time',time: {unit: 'day',tooltipFormat: 'MMM DD'}}],
+                        x: [],
                     }
             }
     });
+
+
 </script>
 
 
