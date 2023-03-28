@@ -108,7 +108,6 @@ def profile():
     for key, value in xDataQDict.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
-    print(xDataMonthList)
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,

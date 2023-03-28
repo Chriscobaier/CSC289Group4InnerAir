@@ -59,85 +59,108 @@ Dashboard
         <canvas id="histogram2" class="chart"></canvas>
         <canvas id="histogram3" class="chart"></canvas>
 
-        <script>var ctx = document.getElementById("histogram1").getContext("2d");
-var histogram = new Chart(ctx,
-        {
-        type: 'bar',
-        data:
-        {
-            labels: {{ xDataWeekList | tojson }},
-    datasets:
-    [{
-        label: "Number of Exercises completed",
-        data: {{ yDataWeek | tojson }},
-        fill: false,
-        lineTension: 0.1
-            }]
-        },
-    options:
-    {
-        responsive: true,
-            scales:
-        {
-            yAxes: [{ ticks: { beginAtZero: true } }],
-                x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
-                }
-    }
-    });
+        <script>
+        var xWeeklabels =
+        [
+          {% for x in xDataWeekList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var xMonthLabels =
+        [
+          {% for x in xDataWeekList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var xQLabels =
+        [
+          {% for x in xDataWeekList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var ctx = document.getElementById("histogram1").getContext("2d");
+        var histogram = new Chart(ctx,
+                {
+                type: 'bar',
+                data:
+                {
+                    labels: xWeeklabels,
+                    datasets:
+                    [{
+                        label: "Number of Exercises completed",
+                        data: {{ yDataWeek | tojson }},
+                        fill: false,
+                        lineTension: 0.1
+                    }]},
+            options:
+            {
+                responsive: true,
+                    scales:
+                {
+                    yAxes: [{ ticks: { beginAtZero: true } }],
+                        x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                        }
+            }
+            });
 
-var ctx = document.getElementById("histogram2").getContext("2d");
-var histogram2 = new Chart(ctx,
-    {
-        type: 'bar',
-        data:
+        var ctx = document.getElementById("histogram2").getContext("2d");
+        var histogram2 = new Chart(ctx,
+            {
+                type: 'bar',
+                data:
+                {
+                    labels: xMonthLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: {{ yDataMonth | tojson }},
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
         {
-            labels: {{ xDataMonthList | tojson }},
-datasets:
-[{
-    label: "Number of Exercises completed",
-    data: {{ yDataMonth | tojson }},
-    fill: false,
-    lineTension: 0.1
-        }]
-    },
-options:
-{
-    responsive: true,
-        scales:
-    {
-        yAxes: [{ ticks: { beginAtZero: true } }],
-            x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
-            }
-}
-});
-var ctx = document.getElementById("histogram3").getContext("2d");
-var histogram3 = new Chart(ctx,
-    {
-        type: 'bar',
-        data:
+            responsive: true,
+                scales:
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                    }
+        }
+        });
+        var ctx = document.getElementById("histogram3").getContext("2d");
+        var histogram3 = new Chart(ctx,
+            {
+                type: 'bar',
+                data:
+                {
+                    labels: xQLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: {{ yDataQ | tojson }},
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
         {
-            labels: {{ xDataQuarterList | tojson }},
-datasets:
-[{
-    label: "Number of Exercises completed",
-    data: {{ yDataQ | tojson }},
-    fill: false,
-    lineTension: 0.1
-        }]
-    },
-options:
-{
-    responsive: true,
-        scales:
-    {
-        yAxes: [{ ticks: { beginAtZero: true } }],
-            x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
-            }
-}
-});</script>
+            responsive: true,
+                scales:
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                    }
+        }
+        });
+</script>
 
     </div>
     <script src="{{ url_for('profile.static', filename='js/profileGraphJS.js') }}"></script>
 
+
 </div>
+{% for x in xDataWeekList %}
+{{x}}
+{% endfor%}
 {% endblock %}
