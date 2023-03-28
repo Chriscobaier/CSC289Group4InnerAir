@@ -6,6 +6,7 @@ from flask import Blueprint, request, render_template
 from inner_air import db
 from inner_air.models import Favorites, Exercise, Statistics
 from inner_air.utils.decorators import check_confirmed
+from collections import OrderedDict
 
 profile_bp = Blueprint(
     'profile', __name__,
@@ -99,13 +100,17 @@ def profile():
     yDataWeek = []
     yDataMonth = []
     yDataQ = []
-    for key, value in xDataWeekDict.items():
+    xDataWeekDictSorted = OrderedDict(sorted(xDataWeekDict.items()))
+    xDataMonthDictSorted = OrderedDict(sorted(xDataMonthDict.items()))
+    xDataQDictSorted = OrderedDict(sorted(xDataQDict.items()))
+    print(xDataMonthDictSorted)
+    for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
-    for key, value in xDataMonthDict.items():
+    for key, value in xDataMonthDictSorted.items():
         xDataMonthList.append(key)
         yDataMonth.append(value)
-    for key, value in xDataQDict.items():
+    for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
