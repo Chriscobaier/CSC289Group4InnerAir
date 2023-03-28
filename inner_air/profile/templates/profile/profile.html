@@ -68,13 +68,13 @@ Dashboard
         ];
         var xMonthLabels =
         [
-          {% for x in xDataWeekList %}
+          {% for x in xDataMonthList %}
             "{{ x.strftime('%a. %d %b %Y') }}",
           {% endfor %}
         ];
         var xQLabels =
         [
-          {% for x in xDataWeekList %}
+          {% for x in xDataQuarterList %}
             "{{ x.strftime('%a. %d %b %Y') }}",
           {% endfor %}
         ];

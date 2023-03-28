@@ -103,7 +103,7 @@ def profile():
     xDataWeekDictSorted = OrderedDict(sorted(xDataWeekDict.items()))
     xDataMonthDictSorted = OrderedDict(sorted(xDataMonthDict.items()))
     xDataQDictSorted = OrderedDict(sorted(xDataQDict.items()))
-    print(xDataMonthDictSorted)
+
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
