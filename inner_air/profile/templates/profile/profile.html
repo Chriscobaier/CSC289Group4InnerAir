@@ -50,9 +50,11 @@ Dashboard
     </div>
 
     <div class="column">
-        <button onclick="showGraph(1)">Show past 7 days</button>
-        <button onclick="showGraph(2)">Show past 31 days</button>
-        <button onclick="showGraph(3)">Show past quarter</button>
+        <div class = buttons style="text-align:center" >
+            <button class = button onclick="showGraph(1)">Show past 7 days</button>
+            <button class = button onclick="showGraph(2)">Show past 31 days</button>
+            <button class = button onclick="showGraph(3)">Show past quarter</button>
+        </div>
         <canvas id="histogram1" class="chart"></canvas>
         <canvas id="histogram2" class="chart"></canvas>
         <canvas id="histogram3" class="chart"></canvas>
