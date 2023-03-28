@@ -50,35 +50,92 @@ Dashboard
     </div>
 
     <div class="column">
-        <canvas id="histogram" class="chart"></canvas>
+        <button onclick="showGraph(1)">Show past 7 days</button>
+        <button onclick="showGraph(2)">Show past 31 days</button>
+        <button onclick="showGraph(3)">Show past quarter</button>
+        <canvas id="histogram1" class="chart"></canvas>
+        <canvas id="histogram2" class="chart"></canvas>
+        <canvas id="histogram3" class="chart"></canvas>
 
-        <script>
-            var ctx = document.getElementById("histogram").getContext("2d");
-            var histogram = new Chart(ctx,
-                {
-                    type: 'bar',
-                    data:
-                    {
-                        labels: {{ xDataWeekList | tojson }},
-            datasets:
-            [{
-                label: "Number of Exercises completed",
-                data: {{ yData | tojson }},
-                fill: false,
-                lineTension: 0.1
-                    }]
-                },
-            options:
-            {
-                responsive: true,
-                    scales:
-                {
-                    yAxes: [{ ticks: { beginAtZero: true } }],
-                        x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
-                        }
+        <script>var ctx = document.getElementById("histogram1").getContext("2d");
+var histogram = new Chart(ctx,
+        {
+        type: 'bar',
+        data:
+        {
+            labels: {{ xDataWeekList | tojson }},
+    datasets:
+    [{
+        label: "Number of Exercises completed",
+        data: {{ yDataWeek | tojson }},
+        fill: false,
+        lineTension: 0.1
+            }]
+        },
+    options:
+    {
+        responsive: true,
+            scales:
+        {
+            yAxes: [{ ticks: { beginAtZero: true } }],
+                x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
+                }
+    }
+    });
+
+var ctx = document.getElementById("histogram2").getContext("2d");
+var histogram2 = new Chart(ctx,
+    {
+        type: 'bar',
+        data:
+        {
+            labels: {{ xDataMonthList | tojson }},
+datasets:
+[{
+    label: "Number of Exercises completed",
+    data: {{ yDataMonth | tojson }},
+    fill: false,
+    lineTension: 0.1
+        }]
+    },
+options:
+{
+    responsive: true,
+        scales:
+    {
+        yAxes: [{ ticks: { beginAtZero: true } }],
+            x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
             }
-        });
-        </script>
+}
+});
+var ctx = document.getElementById("histogram3").getContext("2d");
+var histogram3 = new Chart(ctx,
+    {
+        type: 'bar',
+        data:
+        {
+            labels: {{ xDataQuarterList | tojson }},
+datasets:
+[{
+    label: "Number of Exercises completed",
+    data: {{ yDataQ | tojson }},
+    fill: false,
+    lineTension: 0.1
+        }]
+    },
+options:
+{
+    responsive: true,
+        scales:
+    {
+        yAxes: [{ ticks: { beginAtZero: true } }],
+            x: [{ type: 'time', time: { unit: 'day', tooltipFormat: 'MMM DD' } }],
+            }
+}
+});</script>
+
     </div>
+    <script src="{{ url_for('profile.static', filename='js/profileGraphJS.js') }}"></script>
+
 </div>
 {% endblock %}

@@ -29,7 +29,7 @@ def profile():
             if db.session.query(Favorites).filter(Favorites.user_id == currentUser).filter(
                     Favorites.exercise_id == currentExercise).first() is None:
                 db.session.add(Favorites(user_id=currentUser,
-                               exercise_id=currentExercise))
+                                         exercise_id=currentExercise))
                 db.session.commit()
 
         # Check if the request form contains "favoriteButtonRemove" key
@@ -61,10 +61,13 @@ def profile():
 
     xDataWeek = []
     for i in range(7):
-        print(i)
         xDataWeek.append((datetime.date.today() - datetime.timedelta(days=i)))
-    xDataMonth = [datetime.date.today() - datetime.timedelta(days=x) for x in range(30)]
-    xDataQ = [datetime.date.today() - datetime.timedelta(days=x) for x in range(91)]
+    xDataMonth = []
+    for i in range(31):
+        xDataMonth.append((datetime.date.today() - datetime.timedelta(days=i)))
+    xDataQ = []
+    for i in range(91):
+        xDataQ.append((datetime.date.today() - datetime.timedelta(days=i)))
 
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
 
@@ -74,20 +77,33 @@ def profile():
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
     xDataWeekDict = dict()
-    print(xDataWeek)
+    xDataMonthDict = dict()
+    xDataQDict = dict()
+
     for key, value in exercisePerDay.items():
         if key in xDataWeek:
-            print('here')
             xDataWeekDict[key] = value
-    print(xDataWeekDict)
+        if key in xDataMonth:
+            xDataMonthDict[key] = value
+        if key in xDataQ:
+            xDataQDict[key] = value
     xDataWeekList = []
     xDataMonthList = []
     xDataQuarterList = []
-    yData = []
+    yDataWeek = []
+    yDataMonth = []
+    yDataQ = []
     for key, value in xDataWeekDict.items():
         xDataWeekList.append(key)
-        yData.append(value)
+        yDataWeek.append(value)
+    for key, value in xDataMonthDict.items():
+        xDataMonthList.append(key)
+        yDataMonth.append(value)
+    for key, value in xDataQDict.items():
+        xDataQuarterList.append(key)
+        yDataQ.append(value)
 
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
-                           xDataWeekList=xDataWeekList, yData=yData)
+                           xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
+                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ)
