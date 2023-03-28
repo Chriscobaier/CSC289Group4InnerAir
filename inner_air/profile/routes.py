@@ -60,14 +60,23 @@ def profile():
         return listOfExerciseCurrentUserHasInFavorites
 
     xDataWeek = []
+    xDataWeekDict = dict()
+    xDataMonthDict = dict()
+    xDataQDict = dict()
     for i in range(7):
-        xDataWeek.append((datetime.date.today() - datetime.timedelta(days=i)))
+        j = datetime.date.today() - datetime.timedelta(days=i)
+        xDataWeek.append(j)
+        xDataWeekDict[j] = 0
     xDataMonth = []
     for i in range(31):
-        xDataMonth.append((datetime.date.today() - datetime.timedelta(days=i)))
+        j = datetime.date.today() - datetime.timedelta(days=i)
+        xDataMonth.append(j)
+        xDataMonthDict[j] = 0
     xDataQ = []
     for i in range(91):
-        xDataQ.append((datetime.date.today() - datetime.timedelta(days=i)))
+        j = datetime.date.today() - datetime.timedelta(days=i)
+        xDataQ.append(j)
+        xDataQDict[j] = 0
 
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
 
@@ -76,9 +85,6 @@ def profile():
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
-    xDataWeekDict = dict()
-    xDataMonthDict = dict()
-    xDataQDict = dict()
 
     for key, value in exercisePerDay.items():
         if key in xDataWeek:
@@ -102,7 +108,7 @@ def profile():
     for key, value in xDataQDict.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
-
+    print(xDataMonthList)
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
