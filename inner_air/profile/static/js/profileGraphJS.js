@@ -1,3 +1,79 @@
+var ctx = document.getElementById("histogram1").getContext("2d");
+        var histogram = new Chart(ctx,
+                {
+                type: 'line',
+                data:
+                {
+                    labels: xWeeklabels,
+                    datasets:
+                    [{
+                        label: "Number of Exercises completed",
+                        data: yWeeklabel,
+                        fill: false,
+                        lineTension: 0.1
+                    }]},
+            options:
+            {
+                responsive: false,
+                    scales:
+                {
+                    yAxes: [{ ticks: { beginAtZero: true } }],
+                        x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                        }
+            }
+            });
+
+        var ctx = document.getElementById("histogram2").getContext("2d");
+        var histogram2 = new Chart(ctx,
+            {
+                type: 'line',
+                data:
+                {
+                    labels: xMonthLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: yMonthlabel,
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
+        {
+            responsive: false,
+                scales:
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                    }
+        }
+        });
+        var ctx = document.getElementById("histogram3").getContext("2d");
+        var histogram3 = new Chart(ctx,
+            {
+                type: 'line',
+                data:
+                {
+                    labels: xQLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: yQlabel,
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
+        {
+            responsive: false,
+                scales:
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                    }
+        }
+        });
+
 
 // Hide all canvas elements except the first one
 var charts = document.getElementsByClassName("chart");
