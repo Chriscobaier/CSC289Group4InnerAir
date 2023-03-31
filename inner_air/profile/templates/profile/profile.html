@@ -7,44 +7,57 @@ Dashboard
 <!-- Chart JS -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_list.css')}}">
+<link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css')}}">
+
 
 <h1>Welcome, {{ current_user.firstname }} </h1>
 <h2>You have logged in {{ current_user.consecutive_days }} day(s) in a row!</h2>
 
 
-
-<div class="list-container">
-    <ul class="list">
-        {% for exercise in exercises %}
-        {% if exercise.id in showFavAdd %}
-        <li class="plate">
-            <section class="upper">
-                <label for={{ exercise.id }} class="name">
-                    <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
-                        target="_blank">{{ exercise.exercise_name }}</a>
-                </label>
-                {% endif %}
-                <span id="favorite-button">
+<div class="profile-wrapper">
+    <div class="column">
+        <div class="list-container">
+            <ul class="list">
+                {% for exercise in exercises %}
+                {% if exercise.id in showFavAdd %}
+                <li class="plate">
+                    <section class="upper">
+                        <label for={{ exercise.id }} class="name">
+                            <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
+                                target="_blank">{{ exercise.exercise_name }}</a>
+                        </label>
+                        {% endif %}
+                        <span id="favorite-button">
+                            {% if exercise.id in showFavAdd %}
+                            <form method="post">
+                                <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                                <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                                <button type="submit" name="favoriteButtonRemove" class="button--red">🖤</button>
+                            </form>
+                            {% endif %}
+                        </span>
+                    </section>
                     {% if exercise.id in showFavAdd %}
-                    <form method="post">
-                        <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
-                        <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
-                        <button type="submit" name="favoriteButtonRemove" class="button--red">🖤</button>
-                    </form>
+                    <p class="description">
+                        {{ exercise.exercise_description }}
+                    </p>
                     {% endif %}
-                </span>
-            </section>
-            {% if exercise.id in showFavAdd %}
-            <p class="description">
-                {{ exercise.exercise_description }}
-            </p>
-            {% endif %}
-        </li>
-        {% endfor %}
-    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+            <script src="{{ url_for('exercises.static', filename='js/expand_list_element.js') }}"></script>
+        </div>
+    </div>
 
-    <script src="{{ url_for('exercises.static', filename='js/expand_list_element.js') }}"></script>
-</div>
+    <div class="column">
+        <div class = buttons style="text-align:center" >
+            <button class = button onclick="showGraph(1)">Show past 7 days</button>
+            <button class = button onclick="showGraph(2)">Show past 31 days</button>
+            <button class = button onclick="showGraph(3)">Show past quarter</button>
+        <canvas id="histogram1" class="chart"></canvas>
+        <canvas id="histogram2" class="chart"></canvas>
+        <canvas id="histogram3" class="chart"></canvas>
+        </div>
 
 
 <div class="chart">
@@ -72,12 +85,97 @@ Dashboard
                 }]
             },
         options:
+        <script>
+        var xWeeklabels =
+        [
+          {% for x in xDataWeekList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var xMonthLabels =
+        [
+          {% for x in xDataMonthList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var xQLabels =
+        [
+          {% for x in xDataQuarterList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+        var ctx = document.getElementById("histogram1").getContext("2d");
+        var histogram = new Chart(ctx,
+                {
+                type: 'line',
+                data:
+                {
+                    labels: xWeeklabels,
+                    datasets:
+                    [{
+                        label: "Number of Exercises completed",
+                        data: {{ yDataWeek | tojson }},
+                        fill: false,
+                        lineTension: 0.1
+                    }]},
+            options:
             {
-                responsive: true,
+                responsive: false,
+                    scales:
+                {
+                    yAxes: [{ ticks: { beginAtZero: true } }],
+                        x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                        }
+            }
+            });
+
+        var ctx = document.getElementById("histogram2").getContext("2d");
+        var histogram2 = new Chart(ctx,
+            {
+                type: 'line',
+                data:
+                {
+                    labels: xMonthLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: {{ yDataMonth | tojson }},
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
+        {
+            responsive: false,
                 scales:
-                    {
-                        yAxes: [{ticks: {beginAtZero: true}}],
-                        x: [{type: 'time',time: {unit: 'day',tooltipFormat: 'MMM DD'}}],
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
+                    }
+        }
+        });
+        var ctx = document.getElementById("histogram3").getContext("2d");
+        var histogram3 = new Chart(ctx,
+            {
+                type: 'line',
+                data:
+                {
+                    labels: xQLabels,
+        datasets:
+        [{
+            label: "Number of Exercises completed",
+            data: {{ yDataQ | tojson }},
+            fill: false,
+            lineTension: 0.1
+                }]
+            },
+        options:
+        {
+            responsive: false,
+                scales:
+            {
+                yAxes: [{ ticks: { beginAtZero: true } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
                     }
             }
     });
@@ -110,7 +208,13 @@ Dashboard
     });
 
 
+        }
+        });
 </script>
 
+    </div>
+    <script src="{{ url_for('profile.static', filename='js/profileGraphJS.js') }}"></script>
 
+
+</div>
 {% endblock %}

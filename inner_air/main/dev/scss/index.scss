@@ -1,0 +1,114 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.wrapper {
+    max-width: 150em;
+    margin: 0 auto;
+    padding: 0 2em;
+    letter-spacing: 0.05rem;
+
+    // Welcome text with the logo
+    .top {
+        @include tl.flex-spread;
+        flex-direction: column;
+
+        // Small explanation of the website
+        .description {
+            @include tl.flex-spread;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem;
+
+            .desc-header {
+                text-align: center;
+                letter-spacing: 0.1rem;
+            }
+
+            .desc-text {
+            }
+        }
+    }
+
+    // Container for boxes with different themes
+    .sec-boxes {
+        @include tl.flex-spread;
+        gap: 1rem;
+        .box {
+            @include tl.rounded;
+            width: 100%;
+            padding: 0.5rem;
+            display: grid;
+            grid-auto-flow: dense;
+            grid-template-columns: 1fr auto;
+            gap: 1rem 0.5rem;
+            background: tl.$dark-black;
+
+            .box-header {
+                text-align: center;
+                font-size: 25px;
+                grid-area: 1 / 1 / span 1 / span 2;
+            }
+
+            .box-description {
+                padding: 0 1rem;
+                grid-area: 2 / 1;
+            }
+
+            img {
+                @include tl.rounded;
+                grid-area: 2 / 2;
+                padding: 0.5rem;
+                width: 200px;
+                box-shadow: inset 0px 0px 5px tl.$light-white;
+                background-image: radial-gradient(
+                    tl.$pastel-blue 5%,
+                    rgba(black, 0) 90%
+                );
+            }
+
+            .button {
+                grid-area: 3 / 1 / span 1 / span 2;
+                margin: auto;
+                width: 10rem;
+            }
+        }
+    }
+}
+
+// Extra coloring
+// Templates
+@mixin text-decor($color) {
+    color: $color;
+    text-shadow: 0px 5px 5px rgba($color, 0.5);
+}
+
+@mixin box-decor($border, $background) {
+    box-shadow: inset 0px 0px 5px $border;
+
+    background-image: radial-gradient($background 5%, rgba(black, 0) 90%);
+}
+
+// Three categories
+#exercise {
+    @include text-decor(tl.$pastel-pink);
+
+    & + img {
+        @include box-decor(tl.$accent-warm, tl.$pastel-pink);
+    }
+}
+
+#meditate {
+    @include text-decor(tl.$pastel-green);
+
+    & + img {
+        @include box-decor(tl.$accent-mint, tl.$pastel-green);
+    }
+}
+
+#relaxation {
+    @include text-decor(tl.$pastel-blue);
+
+    & + img {
+        @include box-decor(tl.$accent-cold, tl.$pastel-blue);
+    }
+}
