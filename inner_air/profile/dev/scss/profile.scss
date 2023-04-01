@@ -8,6 +8,10 @@
 
     .column {
         width: 100%;
+
+        .tile-name{
+            text-align: center;
+        }
     }
 
     // Page looks empty if split into two columns

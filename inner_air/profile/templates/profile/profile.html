@@ -16,6 +16,7 @@ Dashboard
 
 <div class="profile-wrapper">
     <div class="column">
+        <h2 class="tile-name">Your Favorites</h2>
         <div class="list-container">
             <ul class="list">
                 {% for exercise in exercises %}
@@ -50,6 +51,7 @@ Dashboard
     </div>
 
     <div class="column">
+        <h2 class="tile-name">Your Progress</h2>
         <div class = buttons style="text-align:center" >
             <button class = button onclick="showGraph(1)">Show past 7 days</button>
             <button class = button onclick="showGraph(2)">Show past 31 days</button>
