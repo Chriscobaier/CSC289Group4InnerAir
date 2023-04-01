@@ -54,9 +54,11 @@ Dashboard
             <button class = button onclick="showGraph(1)">Show past 7 days</button>
             <button class = button onclick="showGraph(2)">Show past 31 days</button>
             <button class = button onclick="showGraph(3)">Show past quarter</button>
-        <canvas id="histogram1" class="chart"></canvas>
-        <canvas id="histogram2" class="chart"></canvas>
-        <canvas id="histogram3" class="chart"></canvas>
+            <button class = button onclick="showGraph(4)">Show max breath holds</button>
+            <canvas id="histogram1" class="chart"></canvas>
+            <canvas id="histogram2" class="chart"></canvas>
+            <canvas id="histogram3" class="chart"></canvas>
+            <canvas id="histogram4" class="chart"></canvas>
         </div>
 
 <!--  Create variables for javascript using Jinja    -->
@@ -86,6 +88,171 @@ Dashboard
             "{{ x.strftime('%a. %d %b %Y') }}",
           {% endfor %}
         ];
+        var ctx = document.getElementById("histogram1").getContext("2d");
+        var histogram = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xWeeklabels,
+                datasets: [{
+                    label: "Number of Exercises completed",
+                    data: {{ yDataWeek | tojson }},
+                    fill: false,
+                    borderColor: 'rgb(49, 67, 170)',
+                    pointBackgroundColor: 'rgb(49, 67, 170)',
+                    lineTension: 0.1
+                }]},
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    x: [{
+                        type: 'time',
+                        tooltipFormat: 'ddd. DD MMM YYYY',
+                        time: {
+                            unit: 'day',
+                            tooltipFormat: 'ddd. DD MMM YYYY'
+                            },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx = document.getElementById("histogram2").getContext("2d");
+        var histogram2 = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xMonthLabels,
+                datasets: [{
+                    label: "Number of Exercises completed",
+                    data: {{ yDataMonth | tojson }},
+                    fill: false,
+                    borderColor: 'rgb(49, 67, 170)',
+                    pointBackgroundColor: 'rgb(49, 67, 170)',
+                    lineTension: 0.1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                            },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    x: [{
+                        type: 'time',
+                        tooltipFormat: 'ddd. DD MMM YYYY',
+                        time: {
+                            unit: 'day',
+                            tooltipFormat: 'ddd. DD MMM YYYY'
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+
+        var ctx = document.getElementById("histogram3").getContext("2d");
+        var histogram3 = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: xQLabels,
+                datasets: [{
+                    label: "Number of Exercises completed",
+                    data: {{ yDataQ | tojson }},
+                    fill: false,
+                    borderColor: 'rgb(49, 67, 170)',
+                    pointBackgroundColor: 'rgb(49, 67, 170)',
+                    lineTension: 0.1
+                }]
+            },
+            options: {
+                responsive: false,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    x: [{
+                        type: 'time',
+                        tooltipFormat: 'ddd. DD MMM YYYY',
+                        time: {
+                            unit: 'day',
+                            tooltipFormat: 'ddd. DD MMM YYYY'
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+
+
+
+        var ctx = document.getElementById("histogram4").getContext("2d");
+        var histogram4 = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: xMonthLabels,
+                datasets: [{
+                    label: "Max Breath Hold Time (seconds)",
+                    data: {{ yDataMaxBreathHolds | tojson }},
+                    backgroundColor: 'rgb(191, 84, 141)',
+                }]
+            },
+            options: {
+                responsive: false,
+                scales:
+                {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 1
+                        },
+                        gridLines: {
+                            display: false
+                        }
+                    }],
+                    x: [{
+                        type: 'time',
+                        tooltipFormat: 'ddd. DD MMM YYYY',
+                        time: {
+                            unit: 'day',
+                                tooltipFormat: 'ddd. DD MMM YYYY'
+                            },
+                            gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            }
+        });
+
+</script>
+
     </script>
     </div>
     <script src="{{ url_for('profile.static', filename='js/profileGraphJS.js') }}"></script>
