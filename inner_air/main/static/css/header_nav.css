@@ -37,7 +37,7 @@ header .header-container .navigation-container .navigation {
   flex-direction: row;
 }
 header .header-container .navigation-container .navigation .nav-link {
-  font-family: "Roboto Serif", serif;
+  font-weight: bold;
   color: #e6e8ff;
   border-left: solid 1px #ffa66d;
   border-right: solid 1px #ffa66d;
