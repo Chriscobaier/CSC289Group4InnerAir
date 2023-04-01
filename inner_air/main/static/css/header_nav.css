@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
 header {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   position: fixed;
@@ -36,6 +37,7 @@ header .header-container .navigation-container .navigation {
   flex-direction: row;
 }
 header .header-container .navigation-container .navigation .nav-link {
+  font-family: "Roboto Serif", serif;
   color: #e6e8ff;
   border-left: solid 1px #ffa66d;
   border-right: solid 1px #ffa66d;

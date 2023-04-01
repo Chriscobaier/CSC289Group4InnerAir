@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
 .form-register {
   padding: 1rem;
   margin: 5rem auto;
@@ -291,7 +292,7 @@ body {
   background-size: cover;
   color: #e6e8ff;
   font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Comfortaa", Verdana, Tahoma, sans-serif;
 }
 body .container {
   text-shadow: -1px 1px 5px #050f1b, 1px 1px 5px #050f1b;
