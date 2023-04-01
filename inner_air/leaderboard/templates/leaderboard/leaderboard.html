@@ -36,7 +36,7 @@ leaderboard
             <thead>
                 <tr>
                     <th scope="col">First Name</th>
-                    <th scope="col">Held Breath (Control Pause) for  </th>
+                    <th scope="col">Held Breath (Control Pause)</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,4 +50,27 @@ leaderboard
         </table>
     </div>
 
+ <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+
+        <h2 class="text-center">Leaderboard - The Longest Breath Holds </h2>
+        <table class="table table-hover table-dark">
+            <!-- Leaderboard -->
+            <thead>
+                <tr>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Held Breath (Control Pause)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersHeldMax %}
+                {% for key, value in user.items() %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ '{:.2f}'.format(value) }} seconds</td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

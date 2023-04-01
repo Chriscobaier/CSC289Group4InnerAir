@@ -60,33 +60,44 @@ def profile():
                     favorite.as_dict()['exercise_id'])
         return listOfExerciseCurrentUserHasInFavorites
 
+    # This can probably be improved.
+    # Create list, and dictionary for three graphs
     xDataWeek = []
+    xDataMonth = []
+    xDataQ = []
     xDataWeekDict = dict()
     xDataMonthDict = dict()
     xDataQDict = dict()
+
+    # Create dictionary for each range with 0 exercises
+    # TODO Should use one for loop with 3 if statements to make it more efficient
     for i in range(7):
         j = datetime.date.today() - datetime.timedelta(days=i)
         xDataWeek.append(j)
         xDataWeekDict[j] = 0
-    xDataMonth = []
+
     for i in range(31):
         j = datetime.date.today() - datetime.timedelta(days=i)
         xDataMonth.append(j)
         xDataMonthDict[j] = 0
-    xDataQ = []
+
     for i in range(91):
         j = datetime.date.today() - datetime.timedelta(days=i)
         xDataQ.append(j)
         xDataQDict[j] = 0
 
-    xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).all()
+    # Receive all statistic data for ~92 days (prevent long term app querying too much data which can lead to slow load times)
+    xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
+        Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=92))).all()
 
+    # Make a list of the previous query which combines exercises that have occurred on same day
     xDataDates = []
     for i in xDataAll:
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
 
+    # Loop previous dictionary and update the blank values with actual values for the dictionary
     for key, value in exercisePerDay.items():
         if key in xDataWeek:
             xDataWeekDict[key] = value
@@ -94,6 +105,10 @@ def profile():
             xDataMonthDict[key] = value
         if key in xDataQ:
             xDataQDict[key] = value
+
+    # More lists!
+    # Probably a more efficient way for this, but if we sort the dictionary and iterate the key/value into two lists
+    # we can populate this into charJS axis
     xDataWeekList = []
     xDataMonthList = []
     xDataQuarterList = []

@@ -16,17 +16,25 @@ leaderboard_bp = Blueprint(
 @login_required
 @check_confirmed
 def leaderboard():
+    # Get all user's consecutive day values, simple list
     usersConsecutive = User.query.order_by(User.consecutive_days.desc()).all()
-    a = db.session.query(Statistics).join(User).filter(Statistics.exercise_id == 11).order_by(
-        Statistics.hold_length.desc())
+
+    # Assumes control pause is exercise 11 (could be problematic if it isn't)
+    # Query statistics table, join User table, only get data where exercise is control pause, top 10 values
     usersHeld = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11).order_by(
         Statistics.hold_length.desc()).limit(10).all()
-    usersHeldDict = dict()
+    usersHeldMax = []
     for i, j in usersHeld:
+        usersHeldMax.append({j.firstname: i.hold_length})
+    # Get all breath hold data
+    usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11).order_by(
+        Statistics.hold_length.desc()).all()
+    usersHeldDict = dict()
+    for i, j in usersHeldTotal:
         try:
             usersHeldDict[j.firstname] = usersHeldDict.get(j.firstname) + i.hold_length
         except:
             usersHeldDict[j.firstname] = i.hold_length
 
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
-                           usersHeldDict=usersHeldDict)
+                           usersHeldDict=usersHeldDict, usersHeldMax=usersHeldMax)
