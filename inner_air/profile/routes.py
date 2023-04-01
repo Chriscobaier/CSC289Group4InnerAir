@@ -119,6 +119,9 @@ def profile():
     xDataMonthDictSorted = OrderedDict(sorted(xDataMonthDict.items()))
     xDataQDictSorted = OrderedDict(sorted(xDataQDict.items()))
 
+    yDataMaxBreathHolds = []
+
+
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
@@ -128,7 +131,10 @@ def profile():
     for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
+    for key, value in xDataMonthDictSorted.items():
+        xDataMonthList.append(key)
+        yDataMaxBreathHolds.append(value)
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
-                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ)
+                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ, yDataMaxBreathHolds=yDataMaxBreathHolds)

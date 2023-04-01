@@ -63,7 +63,13 @@
                 }
 
                 // unstyled for now
-                .favorite-button {
+                $color_1: grey;
+
+                .heartBtn {
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: $color_1;
                 }
             }
 
