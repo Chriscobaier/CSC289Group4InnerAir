@@ -3,7 +3,6 @@
   max-width: 150em;
   margin: 0 auto;
   padding: 0 2em;
-  letter-spacing: 0.05rem;
 }
 .wrapper .top {
   display: flex;
@@ -24,6 +23,10 @@
 .wrapper .top .description .desc-header {
   text-align: center;
   letter-spacing: 0.1rem;
+}
+.wrapper .top .description .desc-text {
+  letter-spacing: 1px;
+  font-size: 14px;
 }
 .wrapper .sec-boxes {
   display: flex;
@@ -48,6 +51,9 @@
   grid-area: 1/1/span 1/span 2;
 }
 .wrapper .sec-boxes .box .box-description {
+  letter-spacing: 1px;
+  line-height: 1.2rem;
+  font-size: 14px;
   padding: 0 1rem;
   grid-area: 2/1;
 }

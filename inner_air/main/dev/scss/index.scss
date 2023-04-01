@@ -5,7 +5,6 @@
     max-width: 150em;
     margin: 0 auto;
     padding: 0 2em;
-    letter-spacing: 0.05rem;
 
     // Welcome text with the logo
     .top {
@@ -25,6 +24,8 @@
             }
 
             .desc-text {
+                letter-spacing: 1px;
+                font-size: 14px;
             }
         }
     }
@@ -50,6 +51,9 @@
             }
 
             .box-description {
+                letter-spacing: 1px;
+                line-height: 1.2rem;
+                font-size: 14px;
                 padding: 0 1rem;
                 grid-area: 2 / 1;
             }
