@@ -28,6 +28,13 @@
 				{% else %}
 				<a class="nav-link" href="{{ url_for('profile.profile') }}">Profile</a>
 				{% endif %}
+
+				{% if 'leaderboard' in request.path %}
+				<a class="nav-link active" href="{{ url_for('leaderboard.leaderboard') }}">Leaderboard</a>
+				{% else %}
+				<a class="nav-link" href="{{ url_for('leaderboard.leaderboard') }}">Leaderboard</a>
+				{% endif %}
+
 				{% endif %}
 			</div>
 		</div>
