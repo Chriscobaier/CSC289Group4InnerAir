@@ -51,6 +51,7 @@
 .button {
   border-radius: 10px;
   background-color: #3254a5;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
@@ -66,6 +67,7 @@
 .button--dynamic {
   border-radius: 10px;
   background-color: #3254a5;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
@@ -86,6 +88,7 @@
 .button--red {
   border-radius: 10px;
   background-color: #ef5562;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
@@ -101,6 +104,7 @@
 .button--red--dynamic {
   border-radius: 10px;
   background-color: #ef5562;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
@@ -121,6 +125,7 @@
 .button--blue {
   border-radius: 10px;
   background-color: #0094ec;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
@@ -136,6 +141,7 @@
 .button--blue--dynamic {
   border-radius: 10px;
   background-color: #0094ec;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
@@ -156,6 +162,7 @@
 .button--green {
   border-radius: 10px;
   background-color: #00cfa5;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
@@ -171,6 +178,7 @@
 .button--green--dynamic {
   border-radius: 10px;
   background-color: #00cfa5;
+  font-weight: 700;
   color: white;
   padding: 0.5rem 0.7rem;
   box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
