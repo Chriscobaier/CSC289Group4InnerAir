@@ -90,6 +90,11 @@ def profile():
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
         Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=92))).all()
 
+    xTest = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
+        Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=32))).filter(Statistics.hold_length.isnot(None)).all()
+
+    # Dictonary to store one value per date
+
     # Make a list of the previous query which combines exercises that have occurred on same day
     xDataDates = []
     for i in xDataAll:
