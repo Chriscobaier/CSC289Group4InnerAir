@@ -17,7 +17,7 @@ leaderboard_bp = Blueprint(
 @check_confirmed
 def leaderboard():
     # Get all user's consecutive day values, simple list
-    usersConsecutive = User.query.order_by(User.consecutive_days.desc()).all()
+    usersConsecutive = User.query.order_by(User.consecutive_days.desc()).limit(10).all()
 
     # Assumes control pause is exercise 11 (could be problematic if it isn't)
     # Query statistics table, join User table, only get data where exercise is control pause, top 10 values
