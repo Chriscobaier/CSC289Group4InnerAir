@@ -54,37 +54,14 @@ Dashboard
             <button class = button onclick="showGraph(1)">Show past 7 days</button>
             <button class = button onclick="showGraph(2)">Show past 31 days</button>
             <button class = button onclick="showGraph(3)">Show past quarter</button>
-        <canvas id="histogram1" class="chart"></canvas>
-        <canvas id="histogram2" class="chart"></canvas>
-        <canvas id="histogram3" class="chart"></canvas>
+            <button class = button onclick="showGraph(4)">Show max breath holds</button>
+            <canvas id="histogram1" class="chart"></canvas>
+            <canvas id="histogram2" class="chart"></canvas>
+            <canvas id="histogram3" class="chart"></canvas>
+            <canvas id="histogram4" class="chart"></canvas>
         </div>
 
 
-<div class="chart">
-    <canvas id="line"></canvas>
-    <canvas id="bar"></canvas>
-    <canvas id="bubble"></canvas>
-</div>
-
-
-<script>
-    // Get context of canvas element
-    var ctx = document.getElementById("line").getContext("2d");
-    var histogram = new Chart(ctx,
-    {
-        type: 'line',
-        data:
-            {
-            labels: {{ xDataExercises | tojson }},
-            datasets:
-                [{
-                    label: "Number of Exercises Completed",
-                    data: {{ yDataExercises | tojson }},
-                    fill: false,
-                    lineTension: 0.1
-                }]
-            },
-        options:
         <script>
         var xWeeklabels =
         [
@@ -123,7 +100,7 @@ Dashboard
                 responsive: false,
                     scales:
                 {
-                    yAxes: [{ ticks: { beginAtZero: true } }],
+                    yAxes: [{ ticks: { beginAtZero: true, stepSize: 1 } }],
                         x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
                         }
             }
@@ -149,7 +126,7 @@ Dashboard
             responsive: false,
                 scales:
             {
-                yAxes: [{ ticks: { beginAtZero: true } }],
+                yAxes: [{ ticks: { beginAtZero: true, stepSize: 1 } }],
                     x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
                     }
         }
@@ -174,42 +151,41 @@ Dashboard
             responsive: false,
                 scales:
             {
-                yAxes: [{ ticks: { beginAtZero: true } }],
+                yAxes: [{ ticks: { beginAtZero: true, stepSize: 1 } }],
                     x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
                     }
-            }
-    });
+        }
+        });
 
 
-    var ctx = document.getElementById("bar").getContext("2d");
-    var histogram = new Chart(ctx,
-    {
-        type: 'bar',
-        data:
+
+
+
+
+        var ctx = document.getElementById("histogram4").getContext("2d");
+        var histogram4 = new Chart(ctx,
             {
-            labels: {{ xDataMaxBreathHold | tojson }},
-            datasets:
-                [{
-                    label: "Users' Maximum Breath Hold (seconds)",
-                    data: {{ yDataMaxBreathHold | tojson }},
-                    fill: false,
-                    lineTension: 0.1
+                type: 'bar',
+                data:
+                {
+                    labels: xMonthLabels,
+        datasets:
+        [{
+            label: "Max Breath Hold Time (seconds)",
+            data: {{ yDataMaxBreathHolds | tojson }}
                 }]
             },
         options:
-            {
-                responsive: true,
+        {
+            responsive: false,
                 scales:
-                    {
-                        yAxes: [{ticks: {beginAtZero: true}}],
-                        x: [],
+            {
+                yAxes: [{ ticks: { beginAtZero: true, stepSize: 1 } }],
+                    x: [{ type: 'time',tooltipFormat: 'ddd. DD MMM YYYY', time: { unit: 'day', tooltipFormat: 'ddd. DD MMM YYYY' } }],
                     }
-            }
-    });
-
-
         }
         });
+
 </script>
 
     </div>

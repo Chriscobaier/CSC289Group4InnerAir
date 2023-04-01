@@ -86,22 +86,8 @@ def profile():
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
-    xDataExercises = []
-    yDataExercises = []
 
     for key, value in exercisePerDay.items():
-        xDataExercises.append(key)
-        yDataExercises.append(value)
-
-    xUserIds = []
-    for i in xDataAll:
-        xUserIds.append(i.user_id)
-    maxBreathHolds = {x: xDataAll.hold_length for x in xUserIds}
-    xDataMaxBreathHolds = []
-    yDataMaxBreathHolds = []
-    for key, value in maxBreathHolds.items():
-        xDataMaxBreathHolds.append(key)
-        yDataMaxBreathHolds.append(value)
         if key in xDataWeek:
             xDataWeekDict[key] = value
         if key in xDataMonth:
@@ -118,6 +104,9 @@ def profile():
     xDataMonthDictSorted = OrderedDict(sorted(xDataMonthDict.items()))
     xDataQDictSorted = OrderedDict(sorted(xDataQDict.items()))
 
+    yDataMaxBreathHolds = []
+
+
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
@@ -127,9 +116,10 @@ def profile():
     for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
+    for key, value in xDataMonthDictSorted.items():
+        xDataMonthList.append(key)
+        yDataMaxBreathHolds.append(value)
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
-                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ)
-                           xDataExercises=xDataExercises, yDataExercises=yDataExercises, xDataMaxBreathHolds=
-                           xDataMaxBreathHolds, yDataMaxBreathHolds=yDataMaxBreathHolds)
+                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ, yDataMaxBreathHolds=yDataMaxBreathHolds)
