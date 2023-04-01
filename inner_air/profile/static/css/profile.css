@@ -27,11 +27,14 @@
 .profile-wrapper .column .tile-name {
   text-align: center;
 }
-.profile-wrapper .chart {
+.profile-wrapper .chart-wrapper {
+  margin: 1rem auto;
+}
+.profile-wrapper .chart-wrapper .chart {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
   margin: 1rem;
   height: 30em;
   background-color: #a4c3ef;
   border-radius: 10px;
-  margin: auto;
+  margin: 0.5rem auto;
 }
