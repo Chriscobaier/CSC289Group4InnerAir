@@ -131,7 +131,6 @@ def profile():
         xDataWeekList.append(key)
         yDataWeek.append(value)
     for key, value in xDataMonthDictSorted.items():
-        print(key)
         xDataMonthList.append(key)
         yDataMonth.append(value)
         yDataMaxBreathHolds.append(value)
