@@ -91,7 +91,8 @@ def profile():
         Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=92))).all()
 
     xTest = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
-        Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=32))).filter(Statistics.hold_length.isnot(None)).all()
+        Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=32))).filter(
+        Statistics.hold_length.isnot(None)).all()
 
     # Dictonary to store one value per date
 
@@ -126,20 +127,20 @@ def profile():
 
     yDataMaxBreathHolds = []
 
-
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
     for key, value in xDataMonthDictSorted.items():
+        print(key)
         xDataMonthList.append(key)
         yDataMonth.append(value)
+        yDataMaxBreathHolds.append(value)
     for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
-    for key, value in xDataMonthDictSorted.items():
-        xDataMonthList.append(key)
-        yDataMaxBreathHolds.append(value)
+
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
-                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ, yDataMaxBreathHolds=yDataMaxBreathHolds)
+                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ,
+                           yDataMaxBreathHolds=yDataMaxBreathHolds)
