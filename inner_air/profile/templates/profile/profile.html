@@ -71,6 +71,7 @@ Dashboard
         let yWeeklabel = {{ yDataWeek | tojson }};
         let yMonthlabel = {{ yDataMonth | tojson }};
         let yQlabel = {{ yDataQ | tojson }};
+        let yDataMaxBreathHoldslabel = {{ yDataMaxBreathHolds | tojson }}
 
 
         let xWeeklabels =
@@ -90,6 +91,13 @@ Dashboard
         let xQLabels =
         [
           {% for x in xDataQuarterList %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+
+         let xBreathLabel =
+        [
+          {% for x in xDataMaxBreathHolds %}
             "{{ x.strftime('%a. %d %b %Y') }}",
           {% endfor %}
         ];
