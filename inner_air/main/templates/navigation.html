@@ -7,8 +7,10 @@
 		</a>
 
 		<div class="navigation-container">
+			{% if not current_user.is_confirmed %}
+			<p id = "quote"> GET MOTIVATED </p>
+			{% endif %}
 			<div class="navigation">
-
 				{% if current_user.is_confirmed %}
 
 				{% if 'exercises' in request.path %}
@@ -51,4 +53,5 @@
 			{% endif %}
 		</div>
 	</nav>
+	<script src="{{ url_for('main.static', filename='js/index_quote.js') }}"></script>
 </header>
