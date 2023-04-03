@@ -8,6 +8,10 @@
 
     .column {
         width: 100%;
+
+        .tile-name{
+            text-align: center;
+        }
     }
 
     // Page looks empty if split into two columns
@@ -26,13 +30,17 @@
     }
 
 */
+    .chart-wrapper{
+        margin: 1rem auto;
 
-    .chart {
-        @include tl.drop-shade;
-        margin: 1rem;
-        height: 30em;
-        background-color: tl.$pastel-blue;
-        border-radius: 10px;
-        margin: auto;
+        .chart {
+            @include tl.drop-shade;
+            margin: 1rem;
+            height: 30em;
+            background-color: tl.$pastel-blue;
+            border-radius: 10px;
+            margin: 0.5rem auto;
+        }
     }
+
 }

@@ -4,6 +4,8 @@
 table {
     @include tl.drop-shade;
     border-collapse: collapse;
+    letter-spacing: 0.05rem;
+    font-size: 15px;
     border-radius: 10px;
     margin: 1rem auto;
     min-width: 90%;

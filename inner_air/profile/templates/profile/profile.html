@@ -5,7 +5,10 @@ Dashboard
 {% block content %}
 
 <!-- Chart JS -->
+<!-- OLD
 <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js'></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_list.css')}}">
 <link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css')}}">
 
@@ -16,6 +19,7 @@ Dashboard
 
 <div class="profile-wrapper">
     <div class="column">
+        <h2 class="tile-name">Your Favorites</h2>
         <div class="list-container">
             <ul class="list">
                 {% for exercise in exercises %}
@@ -50,7 +54,8 @@ Dashboard
     </div>
 
     <div class="column">
-        <div class = buttons style="text-align:center" >
+        <h2 class="tile-name">Your Progress</h2>
+        <div class="chart-wrapper" style="text-align:center" >
             <button class = button onclick="showGraph(1)">Show past 7 days</button>
             <button class = button onclick="showGraph(2)">Show past 31 days</button>
             <button class = button onclick="showGraph(3)">Show past quarter</button>
@@ -66,6 +71,7 @@ Dashboard
         let yWeeklabel = {{ yDataWeek | tojson }};
         let yMonthlabel = {{ yDataMonth | tojson }};
         let yQlabel = {{ yDataQ | tojson }};
+        let yDataMaxBreathHoldslabel = {{ yDataMaxBreathHolds | tojson }}
 
 
         let xWeeklabels =
@@ -88,168 +94,14 @@ Dashboard
             "{{ x.strftime('%a. %d %b %Y') }}",
           {% endfor %}
         ];
-        var ctx = document.getElementById("histogram1").getContext("2d");
-        var histogram = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: xWeeklabels,
-                datasets: [{
-                    label: "Number of Exercises completed",
-                    data: {{ yDataWeek | tojson }},
-                    fill: false,
-                    borderColor: 'rgb(49, 67, 170)',
-                    pointBackgroundColor: 'rgb(49, 67, 170)',
-                    lineTension: 0.1
-                }]},
-            options: {
-                responsive: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 1
-                        },
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                    x: [{
-                        type: 'time',
-                        tooltipFormat: 'ddd. DD MMM YYYY',
-                        time: {
-                            unit: 'day',
-                            tooltipFormat: 'ddd. DD MMM YYYY'
-                            },
-                        gridLines: {
-                            display: false
-                        }
-                    }]
-                }
-            }
-        });
 
-        var ctx = document.getElementById("histogram2").getContext("2d");
-        var histogram2 = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: xMonthLabels,
-                datasets: [{
-                    label: "Number of Exercises completed",
-                    data: {{ yDataMonth | tojson }},
-                    fill: false,
-                    borderColor: 'rgb(49, 67, 170)',
-                    pointBackgroundColor: 'rgb(49, 67, 170)',
-                    lineTension: 0.1
-                }]
-            },
-            options: {
-                responsive: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 1
-                            },
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                    x: [{
-                        type: 'time',
-                        tooltipFormat: 'ddd. DD MMM YYYY',
-                        time: {
-                            unit: 'day',
-                            tooltipFormat: 'ddd. DD MMM YYYY'
-                        },
-                        gridLines: {
-                            display: false
-                        }
-                    }]
-                }
-            }
-        });
+         let xBreathLabel =
+        [
+          {% for x in xDataMaxBreathHolds %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
 
-        var ctx = document.getElementById("histogram3").getContext("2d");
-        var histogram3 = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: xQLabels,
-                datasets: [{
-                    label: "Number of Exercises completed",
-                    data: {{ yDataQ | tojson }},
-                    fill: false,
-                    borderColor: 'rgb(49, 67, 170)',
-                    pointBackgroundColor: 'rgb(49, 67, 170)',
-                    lineTension: 0.1
-                }]
-            },
-            options: {
-                responsive: false,
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 1
-                        },
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                    x: [{
-                        type: 'time',
-                        tooltipFormat: 'ddd. DD MMM YYYY',
-                        time: {
-                            unit: 'day',
-                            tooltipFormat: 'ddd. DD MMM YYYY'
-                        },
-                        gridLines: {
-                            display: false
-                        }
-                    }]
-                }
-            }
-        });
-
-
-
-        var ctx = document.getElementById("histogram4").getContext("2d");
-        var histogram4 = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: xMonthLabels,
-                datasets: [{
-                    label: "Max Breath Hold Time (seconds)",
-                    data: {{ yDataMaxBreathHolds | tojson }},
-                    backgroundColor: 'rgb(191, 84, 141)',
-                }]
-            },
-            options: {
-                responsive: false,
-                scales:
-                {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true,
-                            stepSize: 1
-                        },
-                        gridLines: {
-                            display: false
-                        }
-                    }],
-                    x: [{
-                        type: 'time',
-                        tooltipFormat: 'ddd. DD MMM YYYY',
-                        time: {
-                            unit: 'day',
-                                tooltipFormat: 'ddd. DD MMM YYYY'
-                            },
-                            gridLines: {
-                            display: false
-                        }
-                    }]
-                }
-            }
-        });
 
 </script>
 

@@ -90,12 +90,38 @@ def profile():
     xDataAll = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
         Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=92))).all()
 
+    xTest = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
+        Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=32))).filter(
+        Statistics.hold_length.isnot(None)).all()
+
+    # Dictonary to store one value per date
+
     # Make a list of the previous query which combines exercises that have occurred on same day
     xDataDates = []
     for i in xDataAll:
         xDataDates.append(i.date_completed.date())
     xDataDates.sort()
     exercisePerDay = {x: xDataDates.count(x) for x in xDataDates}
+
+    yDataMaxBreathHoldsDict = dict()
+    xDataMaxBreathHoldsList = []
+    for i in range(31):
+        j = datetime.date.today() - datetime.timedelta(days=i)
+        xDataMaxBreathHoldsList.append(j)
+        yDataMaxBreathHoldsDict[j] = 0
+
+    for i in xTest:
+        if i.date_completed.date() in yDataMaxBreathHoldsDict:
+            if yDataMaxBreathHoldsDict[i.date_completed.date()] < i.hold_length:
+                yDataMaxBreathHoldsDict[i.date_completed.date()] = i.hold_length
+
+    yDataMaxBreathHolds = []
+    xDataMaxBreathHolds = []
+    yDataMaxBreathHoldsDictSorted = OrderedDict(sorted(yDataMaxBreathHoldsDict.items()))
+
+    for key, value in yDataMaxBreathHoldsDictSorted.items():
+        xDataMaxBreathHolds.append(key)
+        yDataMaxBreathHolds.append(value)
 
     # Loop previous dictionary and update the blank values with actual values for the dictionary
     for key, value in exercisePerDay.items():
@@ -108,7 +134,7 @@ def profile():
 
     # More lists!
     # Probably a more efficient way for this, but if we sort the dictionary and iterate the key/value into two lists
-    # we can populate this into charJS axis
+    # we can populate this into chartJS axis
     xDataWeekList = []
     xDataMonthList = []
     xDataQuarterList = []
@@ -119,22 +145,20 @@ def profile():
     xDataMonthDictSorted = OrderedDict(sorted(xDataMonthDict.items()))
     xDataQDictSorted = OrderedDict(sorted(xDataQDict.items()))
 
-    yDataMaxBreathHolds = []
-
-
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
+
     for key, value in xDataMonthDictSorted.items():
         xDataMonthList.append(key)
         yDataMonth.append(value)
+
     for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)
-    for key, value in xDataMonthDictSorted.items():
-        xDataMonthList.append(key)
-        yDataMaxBreathHolds.append(value)
+
     return render_template('profile/profile.html', exercises=exercise_list, favorites=favorite_list,
                            showFavAdd=showFav(),
                            xDataWeekList=xDataWeekList, yDataWeek=yDataWeek, xDataMonthList=xDataMonthList,
-                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ, yDataMaxBreathHolds=yDataMaxBreathHolds)
+                           yDataMonth=yDataMonth, xDataQuarterList=xDataQuarterList, yDataQ=yDataQ,
+                           yDataMaxBreathHolds=yDataMaxBreathHolds, xDataMaxBreathHolds=xDataMaxBreathHolds)
