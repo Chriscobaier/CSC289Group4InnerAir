@@ -114,7 +114,7 @@ def profile():
 
     # More lists!
     # Probably a more efficient way for this, but if we sort the dictionary and iterate the key/value into two lists
-    # we can populate this into charJS axis
+    # we can populate this into chartJS axis
     xDataWeekList = []
     xDataMonthList = []
     xDataQuarterList = []
@@ -130,11 +130,12 @@ def profile():
     for key, value in xDataWeekDictSorted.items():
         xDataWeekList.append(key)
         yDataWeek.append(value)
+
     for key, value in xDataMonthDictSorted.items():
-        print(key)
         xDataMonthList.append(key)
         yDataMonth.append(value)
         yDataMaxBreathHolds.append(value)
+
     for key, value in xDataQDictSorted.items():
         xDataQuarterList.append(key)
         yDataQ.append(value)

@@ -1,5 +1,5 @@
 var ctx = document.getElementById("histogram1").getContext("2d");
-var histogram = new Chart(ctx,
+var histogram1 = new Chart(ctx,
 {
     type: 'line',
     data:
@@ -21,9 +21,11 @@ var histogram = new Chart(ctx,
         responsive: false,
         scales:
             {
-            y:{beginAtZero: true, grid:{display: false}},
-            x:{grid:{display: false}},}}
-     });
+                y:{beginAtZero: true, grid:{display: false}},
+                x:{grid:{display: false}}
+            }
+
+    }});
 
 var ctx = document.getElementById("histogram2").getContext("2d");
 var histogram2 = new Chart(ctx,
@@ -47,9 +49,10 @@ datasets:
         responsive: false,
         scales:
             {
-            y:{beginAtZero: true, grid:{display: false}},
-            x:{grid:{display: false}},}}
-     });
+                y:{beginAtZero: true, grid:{display: false}},
+                x:{grid:{display: false}}
+            }
+    }});
 
 var ctx = document.getElementById("histogram3").getContext("2d");
 var histogram3 = new Chart(ctx,
@@ -73,8 +76,9 @@ datasets:
         responsive: false,
         scales:
             {
-            y:{beginAtZero: true, grid:{display: false}},
-            x:{grid:{display: false}},}}
+                y:{beginAtZero: true, grid:{display: false}},
+                x:{grid:{display: false}},}
+            }
      });
 
 var ctx = document.getElementById("histogram4").getContext("2d");
@@ -87,7 +91,7 @@ var histogram4 = new Chart(ctx,
 datasets:
 [{
     label: "Number of Exercises completed",
-    data: yMonthlabel,
+    data: yDataMaxBreathHoldslabel,
     fill: false,
     lineTension: 0.1
         }]
@@ -97,8 +101,9 @@ datasets:
         responsive: false,
         scales:
             {
-            y:{beginAtZero: true, grid:{display: false}},
-            x:{grid:{display: false}},}}
+                y:{beginAtZero: true, grid:{display: false}},
+                x:{grid:{display: false}},}
+            }
      });
 
 
