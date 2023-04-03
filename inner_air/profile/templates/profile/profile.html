@@ -95,6 +95,13 @@ Dashboard
           {% endfor %}
         ];
 
+         let xBreathLabel =
+        [
+          {% for x in xDataMaxBreathHolds %}
+            "{{ x.strftime('%a. %d %b %Y') }}",
+          {% endfor %}
+        ];
+
 
 </script>
 

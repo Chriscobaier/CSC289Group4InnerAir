@@ -87,7 +87,7 @@ var histogram4 = new Chart(ctx,
         type: 'line',
         data:
         {
-            labels: xMonthLabels,
+            labels: xBreathLabel,
 datasets:
 [{
     label: "Number of Exercises completed",
