@@ -77,28 +77,28 @@ Dashboard
         let xWeeklabels =
         [
           {% for x in xDataWeekList %}
-            "{{ x.strftime('%a. %d %b %Y') }}",
+            "{{ x.strftime('%d %b') }}",
           {% endfor %}
         ];
 
         let xMonthLabels =
         [
           {% for x in xDataMonthList %}
-            "{{ x.strftime('%a. %d %b %Y') }}",
+            "{{ x.strftime('%d %b') }}",
           {% endfor %}
         ];
 
         let xQLabels =
         [
           {% for x in xDataQuarterList %}
-            "{{ x.strftime('%a. %d %b %Y') }}",
+            "{{ x.strftime('%d %b') }}",
           {% endfor %}
         ];
 
          let xBreathLabel =
         [
           {% for x in xDataMaxBreathHolds %}
-            "{{ x.strftime('%a. %d %b %Y') }}",
+            "{{ x.strftime('%d %b') }}",
           {% endfor %}
         ];
 

@@ -7,7 +7,7 @@ var histogram1 = new Chart(ctx,
         labels: xWeeklabels,
         datasets:
         [{
-            label: "Number of Exercises Completed 1 Week",
+            label: "Number of Exercises Completed past 1 week",
             data: yWeeklabel,
             fill: false,
             borderColor: 'rgb(49, 67, 170)',
@@ -36,7 +36,7 @@ var histogram2 = new Chart(ctx,
             labels: xMonthLabels,
 datasets:
 [{
-    label: "Number of Exercises Completed 1 Month",
+    label: "Number of Exercises Completed past 1 month",
     data: yMonthlabel,
     fill: false,
     borderColor: 'rgb(49, 67, 170)',
@@ -63,7 +63,7 @@ var histogram3 = new Chart(ctx,
             labels: xQLabels,
 datasets:
 [{
-    label: "Number of Exercises Completed 3 Months",
+    label: "Number of Exercises Completed past 3 months",
     data: yQlabel,
     fill: false,
     borderColor: 'rgb(49, 67, 170)',
@@ -90,7 +90,7 @@ var histogram4 = new Chart(ctx,
             labels: xBreathLabel,
 datasets:
 [{
-    label: "Maximum Breath Hold Time (seconds) 1 Month",
+    label: "Maximum Breath Hold Time (seconds) past 1 month",
     data: yDataMaxBreathHoldslabel,
     fill: false,
     backgroundColor: 'rgb(170, 0, 91)',
