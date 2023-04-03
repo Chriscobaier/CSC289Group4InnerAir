@@ -7,7 +7,7 @@ var histogram1 = new Chart(ctx,
         labels: xWeeklabels,
         datasets:
         [{
-            label: "Number of Exercises completed",
+            label: "Number of Exercises Completed 1 Week",
             data: yWeeklabel,
             fill: false,
             borderColor: 'rgb(49, 67, 170)',
@@ -21,7 +21,7 @@ var histogram1 = new Chart(ctx,
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: false}},
+                y:{beginAtZero: true, grid:{display: true}},
                 x:{grid:{display: false}}
             }
 
@@ -36,7 +36,7 @@ var histogram2 = new Chart(ctx,
             labels: xMonthLabels,
 datasets:
 [{
-    label: "Number of Exercises completed",
+    label: "Number of Exercises Completed 1 Month",
     data: yMonthlabel,
     fill: false,
     borderColor: 'rgb(49, 67, 170)',
@@ -49,7 +49,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: false}},
+                y:{beginAtZero: true, grid:{display: true}},
                 x:{grid:{display: false}}
             }
     }});
@@ -63,7 +63,7 @@ var histogram3 = new Chart(ctx,
             labels: xQLabels,
 datasets:
 [{
-    label: "Number of Exercises completed",
+    label: "Number of Exercises Completed 3 Months",
     data: yQlabel,
     fill: false,
     borderColor: 'rgb(49, 67, 170)',
@@ -76,7 +76,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: false}},
+                y:{beginAtZero: true, grid:{display: true}},
                 x:{grid:{display: false}},}
             }
      });
@@ -84,15 +84,16 @@ datasets:
 var ctx = document.getElementById("histogram4").getContext("2d");
 var histogram4 = new Chart(ctx,
     {
-        type: 'line',
+        type: 'bar',
         data:
         {
             labels: xBreathLabel,
 datasets:
 [{
-    label: "Number of Exercises completed",
+    label: "Maximum Breath Hold Time (seconds) 1 Month",
     data: yDataMaxBreathHoldslabel,
     fill: false,
+    backgroundColor: 'rgb(170, 0, 91)',
     lineTension: 0.1
         }]
     },
@@ -101,7 +102,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: false}},
+                y:{beginAtZero: true, grid:{display: true}},
                 x:{grid:{display: false}},}
             }
      });
