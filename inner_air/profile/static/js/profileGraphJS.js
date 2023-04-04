@@ -21,7 +21,7 @@ var histogram1 = new Chart(ctx,
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}},
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
                 x:{grid:{display: false}}
             }
 
@@ -49,7 +49,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}},
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
                 x:{grid:{display: false}}
             }
     }});
@@ -76,7 +76,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}},
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
                 x:{grid:{display: false}},}
             }
      });
@@ -93,7 +93,9 @@ datasets:
     label: "Maximum Breath Hold Time (seconds) past 1 month",
     data: yDataMaxBreathHoldslabel,
     fill: false,
-    backgroundColor: 'rgb(170, 0, 91)',
+    backgroundColor: 'rgb(170, 0, 91, 0.5)',
+    borderColor: 'rgb(170, 0, 91)',
+    borderWidth: 1,
     lineTension: 0.1
         }]
     },
@@ -102,7 +104,7 @@ datasets:
         responsive: false,
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}},
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 10}},
                 x:{grid:{display: false}},}
             }
      });
