@@ -310,6 +310,18 @@ h5 {
   letter-spacing: 0.05rem;
 }
 
+h1 {
+  color: #a4c3ef;
+}
+
+h3 {
+  color: #f8afb4;
+}
+
+h4 {
+  color: #a6f7b4;
+}
+
 *,
 *::before,
 *::after {

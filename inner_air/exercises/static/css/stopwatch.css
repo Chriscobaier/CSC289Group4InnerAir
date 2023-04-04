@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+.stopwatch-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: auto 2rem;
+  gap: 1rem;
+}
+.stopwatch-container .digits {
+  text-align: center;
+  font-size: 120px;
+  color: azure;
+}
+.stopwatch-container .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  height: 4rem;
+  margin: auto;
+}
+.stopwatch-container .buttons button {
+  font-size: 15px;
+}
