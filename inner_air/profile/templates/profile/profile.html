@@ -19,8 +19,11 @@ Dashboard
 
 <div class="profile-wrapper">
     <div class="column">
-        <h2 class="tile-name">Your Favorites</h2>
+        <h3 class="tile-name">Your Favorites</h3>
         <div class="list-container">
+          {% if not showFavAdd %}
+          <h2 class="tile-name">You do not have any favorite exercises =(</h2>
+          {% endif %}
             <ul class="list">
                 {% for exercise in exercises %}
                 {% if exercise.id in showFavAdd %}
@@ -54,7 +57,7 @@ Dashboard
     </div>
 
     <div class="column">
-        <h2 class="tile-name">Your Progress</h2>
+        <h3 class="tile-name">Your Progress</h3>
         <div class="chart-wrapper" style="text-align:center" >
             <button class = button onclick="showGraph(1)">Show past 7 days</button>
             <button class = button onclick="showGraph(2)">Show past 31 days</button>
