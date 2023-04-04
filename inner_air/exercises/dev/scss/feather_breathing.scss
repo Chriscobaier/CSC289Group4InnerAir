@@ -3,6 +3,7 @@
 
 .breathing-animation-container {
     @include tl.flex-spread;
+    @include tl.rounded;
     flex-direction: column;
     justify-content: flex-end;
     gap: 20px;
@@ -11,17 +12,26 @@
         color.adjust(tl.$tinted-azure, $lightness: -30%),
         tl.$dark-black
     );
-    height: 40rem;
+    height: 50rem;
+    width: 60rem;
     padding: 1rem;
 
     .animation-scope {
         @include tl.rounded;
-        background-color: rgba(tl.$dark-black, 0.2);
         height: 80%;
         width: 12rem;
         display: flex;
         align-items: center;
         justify-content: center;
+        background-image: linear-gradient(
+            rgba(black, 0) 22%,
+            rgba(tl.$tinted-azure, 0.5) 24%,
+            rgba(black, 0) 26%,
+            rgba(black, 0) 86%,
+            rgba(tl.$tinted-azure, 0.5) 88%,
+            rgba(black, 0) 90%
+        );
+        box-shadow: 0px 0px 10px inset color.adjust(tl.$tinted-azure, $lightness: -30%);
 
         .float-object {
             position: relative;
