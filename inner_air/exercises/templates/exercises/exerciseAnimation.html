@@ -7,13 +7,7 @@ Exercises
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_page.css')}}">
 
 <div class="exercise-container">
-    <h1 class="exe-name">{{ this_exercise.exercise_name }} 
-        {%for i in range(this_exercise.cumulative_rating|int)%}
-        ★
-        {% endfor %}
-        {% if (this_exercise.cumulative_rating - this_exercise.cumulative_rating|int) * 10 >= 5 %}
-        ☆
-        {% endif %}
+    <h1 class="exe-name">{{ this_exercise.exercise_name }} - {{this_exercise.cumulative_rating}} ★
     </h1>
     <h3 class="exe-description">{{ this_exercise.exercise_description }}</h3>
     <p class="exe-instructions">{{ this_exercise.exercise_instructions }}</p>
@@ -38,7 +32,7 @@ Exercises
                 <td>{{ subfield.label }}</td>
             </tr>
             {% endfor %}
-            {{ form.submit(class="button") }}
+            {{ form.submit(class="button--red") }}
 
         </form>
     </div>

@@ -11,7 +11,7 @@
   background-color: #050f1b;
   background-image: radial-gradient(#0e1830, #050f1b);
   height: 50rem;
-  width: 60rem;
+  width: 100%;
   padding: 1rem;
 }
 .breathing-animation-container .animation-scope {
