@@ -5,6 +5,7 @@ leaderboard
 {% block content %}
 
 
+<link rel="stylesheet" href="{{ url_for('leaderboard.static', filename='css/leaderboard.css')}}">
 
  <div class="container-fluid overlay min-vh-100 py-5 mt-5">
 
@@ -13,6 +14,7 @@ leaderboard
             <!-- Leaderboard -->
             <thead>
                 <tr>
+                    <th scope="col">Rank</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Consecutive Days</th>
                 </tr>
@@ -20,6 +22,7 @@ leaderboard
             <tbody>
                 {% for user in usersConsecutive %}
                 <tr>
+                    <td> {{usersConsecutive.index(user)+1}}</td>
                     <td>{{ user.firstname }}</td>
                     <td>{{ user.consecutive_days }}</td>
                 </tr>
@@ -35,6 +38,7 @@ leaderboard
             <!-- Leaderboard -->
             <thead>
                 <tr>
+                    <th scope="col">Rank</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Held Breath (Control Pause)</th>
                 </tr>
@@ -42,6 +46,7 @@ leaderboard
             <tbody>
                 {% for user in usersHeldDict %}
                 <tr>
+                    <td> {{usersHeldOrderedList.index(user) +1 }}</td>
                     <td>{{ user }}</td>
                     <td>{{ usersHeldDict[user]|round|int }} seconds</td>
                 </tr>
@@ -57,6 +62,7 @@ leaderboard
             <!-- Leaderboard -->
             <thead>
                 <tr>
+                    <th scope="col">Rank</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Held Breath (Control Pause)</th>
                 </tr>
@@ -65,6 +71,7 @@ leaderboard
                 {% for user in usersHeldMax %}
                 {% for key, value in user.items() %}
                 <tr>
+                    <td>{{ usersHeldMax.index(user) + 1 }}</td>
                     <td>{{ key }}</td>
                     <td>{{ '{:.2f}'.format(value) }} seconds</td>
                 </tr>

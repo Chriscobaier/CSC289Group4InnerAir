@@ -3,6 +3,7 @@ from inner_air.utils.decorators import check_confirmed
 from flask_login import login_required
 from inner_air.models import User, Statistics, Exercise
 from inner_air import db
+from collections import OrderedDict
 
 leaderboard_bp = Blueprint(
     'leaderboard', __name__,
@@ -35,6 +36,7 @@ def leaderboard():
             usersHeldDict[j.firstname] = usersHeldDict.get(j.firstname) + i.hold_length
         except:
             usersHeldDict[j.firstname] = i.hold_length
-
+    usersHeldOrderedDict = OrderedDict(usersHeldDict)
+    usersHeldOrderedList = list(usersHeldOrderedDict)
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
-                           usersHeldDict=usersHeldDict, usersHeldMax=usersHeldMax)
+                           usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,usersHeldOrderedList=usersHeldOrderedList)
