@@ -1,7 +1,7 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
-.stopwatch-container{
+.stopwatch-container {
     @include tl.flex-spread;
     flex-direction: column;
     margin: auto 2rem;
@@ -13,16 +13,37 @@
         color: azure;
     }
 
-    .buttons{
-        @include tl.flex-spread;
-        justify-content: center;
-        gap: 1rem;
-        height: 4rem;
-        margin: auto;
+    .timer {
+        @include tl.rounded;
+        padding: 1rem;
+        background-image: radial-gradient(
+            color.adjust(tl.$tinted-azure, $lightness: -30%),
+            tl.$dark-black
+        );
 
-        button {
-            font-size: 15px;
+        #time {
+            @include tl.flex-spread;
+            justify-content: center;
+            gap: 1rem;
+            width: 38rem;
+            margin: 0 auto;
+
+            .digits {
+                display:inline-block;
+                width: 9rem;
+            }
+        }
+
+        .buttons {
+            @include tl.flex-spread;
+            justify-content: center;
+            gap: 1rem;
+            height: 4rem;
+            margin: auto;
+
+            button {
+                font-size: 15px;
+            }
         }
     }
-
 }

@@ -14,11 +14,18 @@ Exercises
     <p class="exe-instructions">{{ this_exercise.exercise_instructions }}</p>
     <div class="timer">
         <div id="time">
-            <span class="digits" id="min">00</span>
-            <span class="text">Minutes</span>
-            <span class="digits" id="sec">00</span>
-            <span class="text">Seconds</span>
-            <span class="digits" id="count"></span>
+            <div class="mark">
+                <span class="digits" id="min">00</span>
+                <span class="text">Minutes</span>
+            </div>
+            <div class="mark">
+                <span class="digits" id="sec">00</span>
+                <span class="text">Seconds</span>
+            </div>
+            <div class="mark">
+                <span class="digits" id="count">00</span>
+            </div>
+            
         </div>
 
         <div class="buttons" id="buttons">
@@ -28,7 +35,7 @@ Exercises
 
             <form action="" method="post">
                 <input type="hidden" id="breathHoldTotalSeconds" name="breathHoldTotalSeconds" value="00">
-                <button hidden class="btn" id="submitHold"> Submit </button>
+                <button hidden class="button--dynamic" id="submitHold"> Submit </button>
             </form>
 
         </div>
