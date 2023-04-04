@@ -1,0 +1,22 @@
+@use "../../../../dev/scss/toolbox" as tl;
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Arima", cursive;
+    letter-spacing: 0.05rem;
+}
+
+h1 {
+    color: tl.$pastel-blue;
+}
+
+h3 {
+    color: tl.$pastel-pink;
+}
+
+h4 {
+    color: tl.$pastel-green;
+}

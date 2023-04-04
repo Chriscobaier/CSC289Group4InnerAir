@@ -1,0 +1,34 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "components";
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include tl.flex-spread;
+    background-image: url("/inner_air.main.routes/img/background_image.svg");
+    background-size: cover;
+
+    color: tl.$light-white;
+    font-size: 14px;
+    font-family: "Comfortaa", Verdana, Tahoma, sans-serif;
+
+    .container {
+        text-shadow: -1px 1px 5px tl.$dark-black, 1px 1px 5px tl.$dark-black;
+        background-color: rgba(tl.$dark-steel, 0.8);
+        backdrop-filter: blur(20px);
+
+        min-width: 85%;
+        height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1rem;
+        min-height: 100vh;
+        height: fit-content;
+    }
+}

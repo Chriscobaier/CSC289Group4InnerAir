@@ -1,12 +1,7 @@
-from flask_login import UserMixin
-from inner_air import bcrypt, login_manager
 from datetime import datetime, timedelta
-from inner_air import db
+from flask_login import UserMixin
 
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+from inner_air import db, bcrypt
 
 
 class User(db.Model, UserMixin):
@@ -15,7 +10,11 @@ class User(db.Model, UserMixin):
     firstname = db.Column(db.String(64), nullable=False)
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
+    is_admin = db.Column(db.Boolean, nullable=False, default=False)
     created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
+    is_confirmed = db.Column(db.Boolean, nullable=False, default=False)
+    confirmed_on = db.Column(db.DateTime, nullable=True)
+    password_reset_token = db.Column(db.String, nullable=True)
     consecutive_days = db.Column(db.Integer, default=0)
     last_login = db.Column(db.DateTime)
 
@@ -38,14 +37,21 @@ class User(db.Model, UserMixin):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
     def updateLastLogin(self):
+        # TODO TIME LOCALIZATION ??
         todayDate = datetime.today()
+        todayMidnight = todayDate.replace(hour=0, minute=0, second=0, microsecond=0)
+
         if self.last_login is None:
-            self.consecutive_days = 0
-        elif self.last_login > (todayDate - timedelta(hours=24)):
-            self.consecutive_days += 1
+            self.consecutive_days = 1
+            self.last_login = todayDate
+
         else:
-            self.consecutive_days = 0
-        self.last_login = datetime.today()
+            if self.last_login < todayMidnight:
+                if self.last_login > (todayMidnight - timedelta(hours=24)):
+                    self.consecutive_days += 1
+                else:
+                    self.consecutive_days = 1
+            self.last_login = todayDate
 
 
 class Exercise(db.Model):
@@ -54,17 +60,20 @@ class Exercise(db.Model):
     exercise_name = db.Column(db.String(64), nullable=False, unique=True)
     exercise_instructions = db.Column(db.String(2048), nullable=False)
     exercise_description = db.Column(db.String(2048), nullable=False)
-    exercise_length = db.Column(db.Float, nullable=False)
+    exercise_length = db.Column(db.Integer, nullable=False)
     cumulative_rating = db.Column(db.Float)
     category_id = db.Column(db.Integer, nullable=False)
     user_rating_count = db.Column(db.Integer)
-
-    routines = db.relationship('Routine', backref='Exercise', lazy=True)
-    favorites = db.relationship('Favorites', backref='Exercise', lazy=True)
-    statistics = db.relationship('Statistics', backref='Exercise', lazy=True)
+    exercise_inhale = db.Column(db.Integer, nullable=False)
+    exercise_inhale_pause = db.Column(db.Integer, nullable=False)
+    exercise_exhale = db.Column(db.Integer, nullable=False)
+    exercise_exhale_pause = db.Column(db.Integer, nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+    def update_cumulative_rating(self, data):
+        self.cumulative_rating = data
 
 
 class Routine(db.Model):
@@ -113,12 +122,15 @@ class Category(db.Model):
 class UserRating(db.Model):
     __tablename__ = 'Exercise.UserRating'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    user_rating = db.Column(db.Float, nullable=False)
+    user_rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
     exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
 
     def as_dict(self):
         return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+
+    def update_rating(self, data):
+        self.user_rating = data
 
 
 class DBVersion(db.Model):

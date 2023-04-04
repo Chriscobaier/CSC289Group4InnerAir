@@ -1,0 +1,85 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+// surrounding container
+.list-container {
+    margin: 1rem;
+
+    // container for list
+    .list {
+        @include tl.flex-spread;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0 10%;
+        gap: 0.2rem;
+
+        // holds exercise "card"
+        .plate {
+            @include tl.rounded;
+            @include tl.flex-spread;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0.8rem;
+            gap: 1rem;
+            width: 100%;
+            transition: all 0.2s ease-out;
+            @include tl.drop-shade;
+
+            @include tl.zebra-rows(
+                tl.$dark-black,
+                color.mix(tl.$dark-black, tl.$dark-steel, $weight: 70%)
+            );
+
+            &:hover {
+                background: tl.$accent-cold;
+            }
+
+            // upper row of the car
+            .upper {
+                @include tl.flex-spread;
+                justify-content: top;
+                width: 100%;
+                flex-direction: row;
+                gap: 1rem;
+
+                // exercise label
+                .name {
+                    color: tl.$light-white;
+                    font-size: 20px;
+                    text-decoration: none;
+                    flex-grow: 1;
+                    height: 100%;
+
+                    &:hover {
+                        color: tl.$accent-warm-light;
+                    }
+
+                    &:visited {
+                        color: tl.$accent-cold-light;
+                    }
+
+                    &:active {
+                    }
+                }
+
+                // unstyled for now
+                $color_1: grey;
+
+                .heartBtn {
+                    background: transparent;
+                    border: none;
+                    outline: none;
+                    color: $color_1;
+                }
+            }
+
+            // text expanding on click
+            .description {
+                transition-duration: 1s;
+                display: none;
+                text-justify: left;
+                width: 100%;
+            }
+        }
+    }
+}

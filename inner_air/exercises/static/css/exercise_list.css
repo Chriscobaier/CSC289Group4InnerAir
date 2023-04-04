@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+.list-container {
+  margin: 1rem;
+}
+.list-container .list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0 10%;
+  gap: 0.2rem;
+}
+.list-container .list .plate {
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0.8rem;
+  gap: 1rem;
+  width: 100%;
+  transition: all 0.2s ease-out;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.list-container .list .plate:nth-child(odd) {
+  background-color: #050f1b;
+}
+.list-container .list .plate:nth-child(even) {
+  background-color: #0e1928;
+}
+.list-container .list .plate:hover {
+  background: #0094ec;
+}
+.list-container .list .plate .upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: top;
+  width: 100%;
+  flex-direction: row;
+  gap: 1rem;
+}
+.list-container .list .plate .upper .name {
+  color: #e6e8ff;
+  font-size: 20px;
+  text-decoration: none;
+  flex-grow: 1;
+  height: 100%;
+}
+.list-container .list .plate .upper .name:hover {
+  color: #ffa66d;
+}
+.list-container .list .plate .upper .name:visited {
+  color: #4acdff;
+}
+.list-container .list .plate .upper .heartBtn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: grey;
+}
+.list-container .list .plate .description {
+  transition-duration: 1s;
+  display: none;
+  text-justify: left;
+  width: 100%;
+}

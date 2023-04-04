@@ -1,0 +1,22 @@
+.pop-in {
+    animation: pop-in 0s ease-in 5s forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes pop-in {
+    from {
+        visibility: hidden;
+        display: none;
+    }
+    to {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        display: none;
+    }
+}
+
+.invs {
+    visibility: hidden;
+    visibility: collapse;
+    display: none;
+}

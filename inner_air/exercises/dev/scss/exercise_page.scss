@@ -1,0 +1,9 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.exercise-container {
+    @include tl.flex-spread;
+    flex-direction: column;
+    margin: auto 2rem;
+    gap: 1rem;
+}

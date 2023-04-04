@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %} Sign Up Page {% endblock %}
+{% block content %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/form-validity.css') }}">
+
+<!--  JS  -->
+<script defer src="{{ url_for('.static', filename='js/fname-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/email-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/password-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/confirm-password-validity.js') }}"></script>
+
+<div>
+	<form id="form" method="POST" action="" class="form-register">
+		{{ form.hidden_tag() }}
+
+		<fieldset>
+			<legend>Create an Account</legend>
+			<div class="form-container">
+				<!-- First name input -->
+				<div class="form-section">
+					{{ form.firstname.label(class='form-label') }}
+					{% if form.firstname.errors %}
+					{{ form.firstname(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.firstname.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.firstname }}
+					{% endif %}
+				</div>
+				<span class="fname-validity-summary"></span>
+				
+
+				<!-- Email input -->
+				<div class="form-section input-control">
+					{{ form.email.label(class='form-label') }}
+					{% if form.email.errors %}
+					{{ form.email(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.email }}
+					{% endif %}
+				</div>
+				<span class="email-validity-summary"></span>
+
+				<!-- Password input -->
+				<div class="form-section">
+					{{ form.password.label(class='form-label') }}
+					{% if form.password.errors %}
+					{{ form.password(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.password.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.password }}
+					{% endif %}
+				</div>
+				<!-- indicator -->
+				<div class="indicator">
+					<span class="password-validity-weak"></span>
+					<span class="password-validity-medium"></span>
+					<span class="password-validity-strong"></span>
+				</div>
+				<span class="password-validity-summary"></span>
+
+				<!-- Confirm password input -->
+				<div class="form-section">
+					{{ form.confirm_password.label(class='form-label') }}
+					{% if form.confirm_password.errors %}
+					{{ form.confirm_password(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.confirm_password.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.confirm_password }}
+					{% endif %}
+				</div>
+				<span class="cpassword-validity-summary"></span>
+				
+			</div>
+
+		</fieldset>
+		{{ form.submit(class="button--blue") }}
+		<a class="link--light" href="{{ url_for('user.login') }}">Already have an account? Sign in</a>
+	</form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+leaderboard
+{% endblock %}
+{% block content %}
+
+
+<link rel="stylesheet" href="{{ url_for('leaderboard.static', filename='css/leaderboard.css')}}">
+
+ <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+
+        <h2 class="text-center">Leaderboard - The Longest Login Streak</h2>
+        <table class="table table-hover table-dark">
+            <!-- Leaderboard -->
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Consecutive Days</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersConsecutive %}
+                <tr>
+                    <td> {{usersConsecutive.index(user)+1}}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.consecutive_days }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+ <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+
+        <h2 class="text-center">Leaderboard - Breath Holds in seconds</h2>
+        <table class="table table-hover table-dark">
+            <!-- Leaderboard -->
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Held Breath (Control Pause)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersHeldDict %}
+                <tr>
+                    <td> {{usersHeldOrderedList.index(user) +1 }}</td>
+                    <td>{{ user }}</td>
+                    <td>{{ usersHeldDict[user]|round|int }} seconds</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+ <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+
+        <h2 class="text-center">Leaderboard - The Longest Breath Holds </h2>
+        <table class="table table-hover table-dark">
+            <!-- Leaderboard -->
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Held Breath (Control Pause)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usersHeldMax %}
+                {% for key, value in user.items() %}
+                <tr>
+                    <td>{{ usersHeldMax.index(user) + 1 }}</td>
+                    <td>{{ key }}</td>
+                    <td>{{ '{:.2f}'.format(value) }} seconds</td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

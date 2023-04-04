@@ -1,0 +1,30 @@
+// accents
+$accent-warm: #ef5562;
+$accent-warm-light: #ffa66d;
+$accent-cold: #0094ec;
+$accent-cold-light: #4acdff;
+$accent-mint: #00cfa5;
+$accent-mint-light: #85f58c;
+
+// text colors
+$dark-black: #050f1b;
+$light-white: #e6e8ff;
+// light misc
+$pastel-pink: #f8afb4;
+$pastel-blue: #a4c3ef;
+$pastel-yellow: #fdf8c1;
+$pastel-green: #a6f7b4;
+// dark misc
+$dark-steel: #222f45;
+$tinted-azure: #3254a5;
+$tinted-teal: #2180b3;
+
+//fonts
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+
+$font-weights: (
+    "thin": 200,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700,
+);

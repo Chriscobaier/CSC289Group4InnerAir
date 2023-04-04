@@ -1,0 +1,66 @@
+@use "../../../../dev/scss/toolbox" as tl;
+
+// create button based on colors
+@mixin create-button($color: tl.$tinted-azure, $color-light: tl.$tinted-teal) {
+    @include tl.rounded;
+
+    background-color: $color;
+    font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    color: white;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 0 0.3rem 10px rgba($color, 0.5);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    border: none;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: $color-light;
+        color: tl.$dark-steel;
+    }
+}
+
+@mixin dynamic {
+    &:hover {
+        margin: 0 0.5rem;
+        transform: scale(1.1);
+    }
+}
+
+.button {
+    @include create-button();
+
+    &--dynamic {
+        @include create-button();
+        @include dynamic;
+    }
+}
+
+.button--red {
+    @include create-button(tl.$accent-warm, tl.$accent-warm-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-warm, tl.$accent-warm-light);
+        @include dynamic;
+    }
+}
+
+.button--blue {
+    @include create-button(tl.$accent-cold, tl.$accent-cold-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-cold, tl.$accent-cold-light);
+        @include dynamic;
+    }
+}
+
+.button--green {
+    @include create-button(tl.$accent-mint, tl.$accent-mint-light);
+
+    &--dynamic {
+        @include create-button(tl.$accent-mint, tl.$accent-mint-light);
+        @include dynamic;
+    }
+}

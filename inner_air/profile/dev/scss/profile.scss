@@ -1,0 +1,46 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.profile-wrapper {
+    @include tl.flex-spread;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .column {
+        width: 100%;
+
+        .tile-name{
+            text-align: center;
+        }
+    }
+
+    // Page looks empty if split into two columns
+    // When we have more things to put here, uncomment
+    /*
+    .column {
+        min-height: 50em;
+        width: 50%;
+    }
+
+    @media screen and (max-width: 1080px) {
+        .column {
+            width: 100%;
+            min-height: auto;
+        }
+    }
+
+*/
+    .chart-wrapper{
+        margin: 1rem auto;
+
+        .chart {
+            @include tl.drop-shade;
+            margin: 1rem;
+            height: 30em;
+            background-color: tl.$pastel-blue;
+            border-radius: 10px;
+            margin: 0.5rem auto;
+        }
+    }
+
+}

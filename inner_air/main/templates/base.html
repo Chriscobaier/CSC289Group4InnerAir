@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+
+    <link rel="icon" href="{{ url_for('main.static', filename='ico/inner-air.ico')}}">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('main.static', filename='css/base.css')}}">
+</head>
+
+<!-- BODY -->
+
+<body>
+
+    {% include 'navigation.html' %}
+
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+
+    <!-- Flash messages to display upon submission for Registration and Login forms-->
+    <div id="hide-me" class="pop-in">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <div class="alert alert--{{ category }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+
+</html>

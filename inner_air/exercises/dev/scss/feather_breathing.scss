@@ -1,0 +1,80 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "sass:color";
+
+.breathing-animation-container {
+    @include tl.flex-spread;
+    @include tl.rounded;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+    background-color: tl.$dark-black;
+    background-image: radial-gradient(
+        color.adjust(tl.$tinted-azure, $lightness: -30%),
+        tl.$dark-black
+    );
+    height: 50rem;
+    width: 100%;
+    padding: 1rem;
+
+    .animation-scope {
+        @include tl.rounded;
+        height: 80%;
+        width: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: linear-gradient(
+            rgba(black, 0) 22%,
+            rgba(tl.$tinted-azure, 0.5) 24%,
+            rgba(black, 0) 26%,
+            rgba(black, 0) 86%,
+            rgba(tl.$tinted-azure, 0.5) 88%,
+            rgba(black, 0) 90%
+        );
+        box-shadow: 0px 0px 10px inset color.adjust(tl.$tinted-azure, $lightness: -30%);
+
+        .float-object {
+            position: relative;
+            transition-property: all;
+            transition-timing-function: ease-in-out;
+            width: 120px;
+            height: auto;
+            animation: 8s infinite linear sway;
+        }
+    }
+
+    #star-button {
+        font-size: 50px;
+    }
+}
+
+.top {
+    top: -12rem;
+}
+.bottom {
+    top: 12rem;
+}
+
+@keyframes sway {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    10% {
+        transform: rotateZ(5deg);
+    }
+    25% {
+        transform: rotateZ(20deg);
+    }
+    50% {
+        transform: rotateZ(0deg);
+    }
+    75% {
+        transform: rotateZ(-30deg);
+    }
+    85% {
+        transform: rotateZ(-5deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}

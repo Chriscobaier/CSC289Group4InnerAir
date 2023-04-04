@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+Exercises
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_list.css')}}">
+
+
+<h1>Welcome, {{ current_user.firstname }} </h1>
+
+<div class="list-container">
+    <ul class="list">
+        {% for exercise in exercises %}
+        <li class="plate">
+            <section class="upper">
+                <label for={{ exercise.id }} class="name">
+                    <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
+                        target="_blank">{{ exercise.exercise_name }}</a>
+                </label>
+                <span id="favorite-button">
+                    {% if exercise.id not in showFavAdd %}
+                    <form method="post">
+                        <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                        <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                        <button type="submit" name="favoriteButton" class="button--green">🤍</button>
+                    </form>
+                    {% endif %}
+                    {% if exercise.id in showFavAdd %}
+                    <form method="post">
+                        <input name="exercise_id" class="invs" type="hidden" value="{{ exercise.id }}"> </input>
+                        <input name="user_id" class="invs" type="hidden" value="{{ current_user.id }}"> </input>
+                        <button type="submit" name="favoriteButtonRemove" class="button--red">🖤</button>
+                    </form>
+                    {% endif %}
+                </span>
+            </section>
+
+            <p class="description">
+                {{ exercise.exercise_description }}
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <script src="{{ url_for('exercises.static', filename='js/expand_list_element.js') }}"></script>
+</div>
+{% endblock %}

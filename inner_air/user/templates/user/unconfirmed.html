@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+verify email
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/styles.css') }}">
+<script defer src="{{ url_for('.static', filename='js/app.js')}}"></script>
+
+<div id='one' class='modal'>
+    <div class='modal-content'>
+        <a class="link--light modal-redirect" href="{{ url_for('main.home') }}"><span
+                class="left-arrow">&#8592;</span>HOME</a>
+        <!-- Modal header -->
+        <div class="modal-header">
+            <h2>Welcome</h2>
+        </div>
+        <hr>
+        <!-- Modal body -->
+        <div class="modal-body">
+            <p>
+                You have not confirmed your account. Please check you (and your spam folder) - you should have received
+                an
+                email with a confirmation link.
+            </p>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <span>Didn't get the email?</span>
+            <p>
+                <a class="button--blue" href="{{ url_for('user.resend_confirmation') }}">resend</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

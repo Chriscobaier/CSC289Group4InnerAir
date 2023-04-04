@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}
+    403
+{% endblock %}
+{% block content %}
+
+    <link rel="stylesheet" href="{{ url_for('errors.static', filename='css/styles.css') }}">
+    <div class='error-container'>
+        <div class='error-content'>
+            <!-- error header -->
+            <div class="error-header">
+                    <h2>403</h2>
+                    <h4>Access Denied/Forbidden</h4>
+            </div>
+            <!-- error body -->
+            <div class="error-body">
+                <p>
+                    You don't have permission to access / on this server.
+                </p>
+            </div>
+            <!-- error footer -->
+            <div class="error-footer">
+                <p>
+                    <a class="button" href="{{ url_for('main.home') }}">back to home</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

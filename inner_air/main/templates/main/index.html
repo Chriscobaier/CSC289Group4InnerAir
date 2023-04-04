@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block title %}
+Inner Air
+{% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('main.static', filename='css/index.css')}}">
+
+<div class="wrapper">
+    <div class="top">
+        <h1>Welcome to</h1>
+        <img class="logo" src="{{ url_for('main.static', filename='img/logo_text.svg') }}"></img>
+        <h3>Your Personal Breathing Exercise Companion</h3>
+        <section class="description">
+            <h2 class="desc-header">Wondering why there's an entire site for breathing?</h2>
+            <p class="desc-text" class="intro">That is a great question. Here you will find a multitude of exercises,
+                techniques and information regarding breathing. Let us tell you why
+                you should take a special interest in how something you do everyday
+                can do more than just keep you alive.</p>
+        </section>
+
+    </div>
+
+    <section class="sec-boxes">
+        <article class="box">
+            <h1 class="box-header" id="exercise">Exercise</h1>
+            <img class="imgs" id="exercise" src="{{ url_for('main.static', filename='img/Exercise.png') }}"></img>
+            <p class="box-description">
+                Proper breathing techniques during exercise can help you breathe more efficiently,
+                allowing you to take in more oxygen and remove more carbon dioxide.
+                This can help you maintain physical activity for longer periods of time,
+                improve your cardiovascular health and increase your endurance. Along with that,
+                they help to maximize the efficiency of your movements,
+                allowing you to perform exercises with greater ease and accuracy.
+                This can improve your overall physical performance, leading to better results in your workouts.
+            </p>
+            <button class="button button--red--dynamic">Learn More</button>
+        </article>
+
+        <article class="box">
+            <h1 class="box-header" id="meditate">Meditate</h1>
+            <img class="imgs" id="meditate" src="{{ url_for('main.static', filename='img/Meditation.png') }}"></img>
+            <p class="box-description">Correctly learning to breathe can be an important part
+                of your whole body, not just your lungs. Here you will find
+                breathing techniques designed to help reduce stress and
+                provide other positive benefits such as lowering blood
+                pressure and improving sleep quality.
+                Focusing on the breath can help you become more aware of your thoughts, feelings, and physical
+                sensations.
+                This can help you better understand yourself and develop greater self-awareness.</p>
+            <button class="button button--green--dynamic">Learn More</button>
+        </article>
+
+        <article class="box">
+            <h1 class="box-header" id="relaxation">Relaxation</h1>
+            <img class="imgs" id="relaxation" src="{{ url_for('main.static', filename='img/Relaxation.png') }}"></img>
+            <p class="box-description">Mindful breathing techniques can have a positive effect on your mind
+                as well as the physical benefits mentioned previously.
+                Breathing exercises can help reduce the amount of cortisol (a stress hormone) in your body,
+                leading to a decrease in feelings of stress and anxiety.
+                This can help you feel more relaxed and centered during your workouts,
+                making it easier to stay motivated and focused.</p>
+            <button class="button button--blue--dynamic">Learn More</button>
+        </article>
+
+    </section>
+
+</div>
+
+{% endblock %}

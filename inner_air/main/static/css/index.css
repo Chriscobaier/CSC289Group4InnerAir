@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+.wrapper {
+  max-width: 150em;
+  margin: 0 auto;
+  padding: 0 2em;
+}
+.wrapper .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.wrapper .top .description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+.wrapper .top .description .desc-header {
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+.wrapper .top .description .desc-text {
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+.wrapper .sec-boxes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.wrapper .sec-boxes .box {
+  border-radius: 10px;
+  width: 100%;
+  padding: 0.5rem;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: 1fr auto;
+  gap: 1rem 0.5rem;
+  background: #050f1b;
+}
+.wrapper .sec-boxes .box .box-header {
+  text-align: center;
+  font-size: 25px;
+  grid-area: 1/1/span 1/span 2;
+}
+.wrapper .sec-boxes .box .box-description {
+  letter-spacing: 1px;
+  line-height: 1.2rem;
+  font-size: 14px;
+  padding: 0 1rem;
+  grid-area: 2/1;
+}
+.wrapper .sec-boxes .box img {
+  border-radius: 10px;
+  grid-area: 2/2;
+  padding: 0.5rem;
+  width: 200px;
+  box-shadow: inset 0px 0px 5px #e6e8ff;
+  background-image: radial-gradient(#a4c3ef 5%, rgba(0, 0, 0, 0) 90%);
+}
+.wrapper .sec-boxes .box .button {
+  grid-area: 3/1/span 1/span 2;
+  margin: auto;
+  width: 10rem;
+}
+
+#exercise {
+  color: #f8afb4;
+  text-shadow: 0px 5px 5px rgba(248, 175, 180, 0.5);
+}
+#exercise + img {
+  box-shadow: inset 0px 0px 5px #ef5562;
+  background-image: radial-gradient(#f8afb4 5%, rgba(0, 0, 0, 0) 90%);
+}
+
+#meditate {
+  color: #a6f7b4;
+  text-shadow: 0px 5px 5px rgba(166, 247, 180, 0.5);
+}
+#meditate + img {
+  box-shadow: inset 0px 0px 5px #00cfa5;
+  background-image: radial-gradient(#a6f7b4 5%, rgba(0, 0, 0, 0) 90%);
+}
+
+#relaxation {
+  color: #a4c3ef;
+  text-shadow: 0px 5px 5px rgba(164, 195, 239, 0.5);
+}
+#relaxation + img {
+  box-shadow: inset 0px 0px 5px #0094ec;
+  background-image: radial-gradient(#a4c3ef 5%, rgba(0, 0, 0, 0) 90%);
+}

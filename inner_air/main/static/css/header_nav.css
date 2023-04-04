@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+header {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  height: 3rem;
+  width: 100%;
+  padding: 0.5rem;
+  background: #050f1b;
+}
+header .header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+header .header-container .logo {
+  width: 110px;
+}
+header .header-container .navigation-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+header .header-container .navigation-container #quote {
+  flex: 1;
+  font-size: 12px;
+  word-wrap: break-word;
+}
+header .header-container .navigation-container .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+header .header-container .navigation-container .navigation .nav-link {
+  font-weight: bold;
+  color: #e6e8ff;
+  border-left: solid 1px #ffa66d;
+  border-right: solid 1px #ffa66d;
+  height: 1.2rem;
+  padding: 0rem 0.8rem;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+header .header-container .navigation-container .navigation .nav-link:visited {
+  color: #4acdff;
+}
+header .header-container .navigation-container .navigation .nav-link:hover {
+  color: white;
+  background-image: linear-gradient(rgba(5, 15, 27, 0) 50%, #f8afb4);
+  box-shadow: 0px 5px 8px rgba(248, 175, 180, 0.5);
+}
+header .header-container .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  font-size: 12px;
+  gap: 0.4rem;
+}
+header + * {
+  margin-top: 3rem;
+}
+
+.active {
+  color: white;
+  background-color: rgba(0, 148, 236, 0.4);
+  box-shadow: 0px 0px 10px rgba(0, 148, 236, 0.5);
+}

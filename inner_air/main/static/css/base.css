@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Arima:wght@200;400;700&family=Comfortaa:wght@300;400;700&family=Roboto+Serif:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,800&display=swap");
+.form-register {
+  padding: 1rem;
+  margin: 5rem auto;
+  max-width: 18rem;
+}
+.form-register fieldset {
+  border: none;
+}
+.form-register fieldset legend {
+  text-align: center;
+  margin: 1rem auto 2rem auto;
+  text-underline-position: under;
+  font-size: 25px;
+}
+.form-register fieldset .form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+.form-register fieldset .form-container .form-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+.form-register fieldset .form-container .form-section label {
+  font-weight: 300;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.form-register fieldset .form-container .form-section input {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 10px;
+}
+.form-register > * {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+.button {
+  border-radius: 10px;
+  background-color: #3254a5;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button:hover {
+  background-color: #2180b3;
+  color: #222f45;
+}
+.button--dynamic {
+  border-radius: 10px;
+  background-color: #3254a5;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(50, 84, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--dynamic:hover {
+  background-color: #2180b3;
+  color: #222f45;
+}
+.button--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
+.button--red {
+  border-radius: 10px;
+  background-color: #ef5562;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--red:hover {
+  background-color: #ffa66d;
+  color: #222f45;
+}
+.button--red--dynamic {
+  border-radius: 10px;
+  background-color: #ef5562;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(239, 85, 98, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--red--dynamic:hover {
+  background-color: #ffa66d;
+  color: #222f45;
+}
+.button--red--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
+.button--blue {
+  border-radius: 10px;
+  background-color: #0094ec;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--blue:hover {
+  background-color: #4acdff;
+  color: #222f45;
+}
+.button--blue--dynamic {
+  border-radius: 10px;
+  background-color: #0094ec;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 148, 236, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--blue--dynamic:hover {
+  background-color: #4acdff;
+  color: #222f45;
+}
+.button--blue--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
+.button--green {
+  border-radius: 10px;
+  background-color: #00cfa5;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--green:hover {
+  background-color: #85f58c;
+  color: #222f45;
+}
+.button--green--dynamic {
+  border-radius: 10px;
+  background-color: #00cfa5;
+  font-family: "Comfortaa", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  box-shadow: 0 0.3rem 10px rgba(0, 207, 165, 0.5);
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase;
+  border: none;
+  white-space: nowrap;
+}
+.button--green--dynamic:hover {
+  background-color: #85f58c;
+  color: #222f45;
+}
+.button--green--dynamic:hover {
+  margin: 0 0.5rem;
+  transform: scale(1.1);
+}
+
+table {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border-collapse: collapse;
+  letter-spacing: 0.05rem;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 1rem auto;
+  min-width: 90%;
+}
+table th,
+table td {
+  padding: 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: left;
+  word-wrap: break-word;
+}
+table th {
+  background-color: #050f1b;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+table tr:nth-child(odd) {
+  background-color: #050f1b;
+}
+table tr:nth-child(even) {
+  background-color: #111c2c;
+}
+
+.alert, .alert--success, .alert--danger {
+  background-color: #a4c3ef;
+  color: #050f1b;
+  box-shadow: 0 0 10px rgba(164, 195, 239, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+}
+.alert--danger {
+  background-color: #f8afb4;
+  box-shadow: 0 0 10px rgba(239, 85, 98, 0.5);
+}
+.alert--success {
+  background-color: #a6f7b4;
+  box-shadow: 0 0 10px rgba(0, 207, 165, 0.5);
+}
+
+.link, .link--light {
+  text-align: center;
+  color: #0094ec;
+  text-decoration: none;
+}
+.link:hover, .link--light:hover {
+  color: #4acdff;
+}
+.link--light {
+  text-decoration: none;
+  color: #e6e8ff;
+}
+.link--light:hover {
+  color: #ffa66d;
+}
+
+.pop-in {
+  animation: pop-in 0s ease-in 5s forwards;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pop-in {
+  from {
+    visibility: hidden;
+    display: none;
+  }
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+.invs {
+  visibility: hidden;
+  visibility: collapse;
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Arima", cursive;
+  letter-spacing: 0.05rem;
+}
+
+h1 {
+  color: #a4c3ef;
+}
+
+h3 {
+  color: #f8afb4;
+}
+
+h4 {
+  color: #a6f7b4;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background-image: url("/inner_air.main.routes/img/background_image.svg");
+  background-size: cover;
+  color: #e6e8ff;
+  font-size: 14px;
+  font-family: "Comfortaa", Verdana, Tahoma, sans-serif;
+}
+body .container {
+  text-shadow: -1px 1px 5px #050f1b, 1px 1px 5px #050f1b;
+  background-color: rgba(34, 47, 69, 0.8);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  min-width: 85%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  min-height: 100vh;
+  height: -moz-fit-content;
+  height: fit-content;
+}
