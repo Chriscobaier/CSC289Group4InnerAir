@@ -92,7 +92,7 @@ def profile():
 
     xTest = db.session.query(Statistics).filter_by(user_id=flask_login.current_user.id).filter(
         Statistics.date_completed >= (datetime.date.today() - datetime.timedelta(days=32))).filter(
-        Statistics.hold_length.isnot(None)).all()
+        Statistics.exercise_id == 11).all()
 
     # Dictonary to store one value per date
 
