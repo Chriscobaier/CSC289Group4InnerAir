@@ -14,6 +14,8 @@ header {
     .header-container {
         @include tl.flex-spread;
         flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.5rem;
 
         .logo {
             width: 110px;
@@ -23,8 +25,12 @@ header {
             @include tl.flex-spread;
             justify-content: center;
             flex-direction: row;
-            flex-grow: 1;
-            gap: 0rem;
+
+            #quote {
+                flex:1;
+                font-size: 12px;
+                word-wrap: break-word;
+            }
 
             .navigation {
                 @include tl.flex-spread;
@@ -62,6 +68,7 @@ header {
 
         .buttons {
             @include tl.flex-spread;
+            flex-wrap: nowrap;
             flex-direction: row;
             font-size: 12px;
             gap: 0.4rem;

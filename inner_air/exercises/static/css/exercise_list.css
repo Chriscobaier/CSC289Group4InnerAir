@@ -58,6 +58,12 @@
 .list-container .list .plate .upper .name:visited {
   color: #4acdff;
 }
+.list-container .list .plate .upper .heartBtn {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: grey;
+}
 .list-container .list .plate .description {
   transition-duration: 1s;
   display: none;

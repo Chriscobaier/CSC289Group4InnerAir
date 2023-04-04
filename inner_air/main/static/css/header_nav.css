@@ -15,6 +15,8 @@ header .header-container {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
 }
 header .header-container .logo {
   width: 110px;
@@ -26,8 +28,11 @@ header .header-container .navigation-container {
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
-  flex-grow: 1;
-  gap: 0rem;
+}
+header .header-container .navigation-container #quote {
+  flex: 1;
+  font-size: 12px;
+  word-wrap: break-word;
 }
 header .header-container .navigation-container .navigation {
   display: flex;
@@ -60,6 +65,7 @@ header .header-container .buttons {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: row;
   font-size: 12px;
   gap: 0.4rem;

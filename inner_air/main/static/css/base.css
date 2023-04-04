@@ -60,6 +60,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button:hover {
   background-color: #2180b3;
@@ -77,6 +78,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--dynamic:hover {
   background-color: #2180b3;
@@ -99,6 +101,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--red:hover {
   background-color: #ffa66d;
@@ -116,6 +119,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--red--dynamic:hover {
   background-color: #ffa66d;
@@ -138,6 +142,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--blue:hover {
   background-color: #4acdff;
@@ -155,6 +160,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--blue--dynamic:hover {
   background-color: #4acdff;
@@ -177,6 +183,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--green:hover {
   background-color: #85f58c;
@@ -194,6 +201,7 @@
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
   border: none;
+  white-space: nowrap;
 }
 .button--green--dynamic:hover {
   background-color: #85f58c;
