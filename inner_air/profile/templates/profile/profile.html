@@ -31,7 +31,7 @@ Dashboard
                   <section class="upper">
                     <label for={{ exercise.id }} class="name">
                       <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
-                          target="_blank">{{ exercise.exercise_name }}</a>
+                          target="_blank">{{ exercise.exercise_name }} - {{exercise.cumulative_rating|default("5.0",true)}} ★</a>
                     </label>
                 {% endif %}
                 {% if exercise.id in showFavAdd %}
