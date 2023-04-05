@@ -53,7 +53,7 @@
   color: #e6e8ff;
   font-size: 20px;
   text-decoration: none;
-  flex-grow: 1;
+  margin: 0 auto 0 0;
   height: 100%;
 }
 .list-container .list .plate .upper .name:hover {
