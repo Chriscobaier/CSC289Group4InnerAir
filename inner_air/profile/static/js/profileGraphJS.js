@@ -77,7 +77,7 @@ datasets:
         scales:
             {
                 y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
-                x:{grid:{display: false}},}
+                x:{grid:{display: false}}}
             }
      });
 
