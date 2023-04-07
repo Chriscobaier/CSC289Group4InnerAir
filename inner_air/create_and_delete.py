@@ -1,5 +1,6 @@
 import json
 from datetime import datetime, timedelta
+from random import uniform
 
 from inner_air import app, db
 from inner_air.models import DBVersion, Exercise, User, Statistics
@@ -178,6 +179,28 @@ def DeleteAndCreateDB():
 
             print("Migrated to DB 0.08")
             db.session.add(DBVersion(version='0.08'))
+            db.session.commit()
+
+        if str(thisVersion.version) == '0.08':
+            print("Migrating to DB 0.09, adding demo user with additional exercises")
+            db.session.add(User(firstname='DemoFirstName',
+                                email='demo@demo.com',
+                                password_hash="$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
+                                consecutive_days=45,
+                                is_confirmed=1))
+            db.session.commit()
+            demoUser = db.session.query(User).filter(User.email == 'demo@demo.com').first()
+            j = 160.20
+            k = 190.34
+            for i in range(45):
+                x = datetime.today() - timedelta(days=i)
+                db.session.add(
+                    Statistics(date_completed=x, user_id=demoUser.id, exercise_id=11, hold_length=uniform(j, k)))
+                db.session.commit()
+                j -= uniform(1, 3)
+                k -= uniform(1, 5)
+
+            db.session.add(DBVersion(version='0.09'))
             db.session.commit()
 
 
