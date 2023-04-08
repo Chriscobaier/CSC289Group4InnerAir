@@ -46,6 +46,11 @@
 			<a class="button--red--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a>
 			{% endif %}
 			{% if current_user.is_authenticated %}
+			{% if not current_user.is_confirmed %}
+			<a class="button--red--dynamic" href="{{ url_for('profile.profile') }}">VERIFY</a>
+			{% else %}
+			<a class="button--red--dynamic" href="{{ url_for('user.profile', id=current_user.id) }}">SETTINGS</a>
+			{% endif %}
 			<a class="button--red--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a>
 			{% else %}
 			<a class="button--red--dynamic" href="{{ url_for('user.login') }}">SIGN IN</a>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} Account Security {% endblock %}
+{% block content %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/form-validity.css') }}">
+
+<!--  JS  -->
+<script defer src="{{ url_for('.static', filename='js/password-validity.js') }}"></script>
+<script defer src="{{ url_for('.static', filename='js/confirm-password-validity.js') }}"></script>
+
+<div>
+
+</div>
+
+{% endblock %}
