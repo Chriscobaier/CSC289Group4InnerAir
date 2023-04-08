@@ -1,6 +1,6 @@
 import json
 from datetime import datetime, timedelta
-from random import uniform
+from random import uniform, randint
 
 from inner_air import app, db
 from inner_air.models import DBVersion, Exercise, User, Statistics
@@ -203,5 +203,17 @@ def DeleteAndCreateDB():
             db.session.add(DBVersion(version='0.09'))
             db.session.commit()
 
+        if str(thisVersion.version) == '0.09':
+            demoUser = db.session.query(User).filter(User.email == 'demo@demo.com').first()
+            for i in range(45):
+                x = datetime.today() - timedelta(days=i)
+                for zz in range(5):
+                    if randint(0, 1) % 2 == 0:
+                        db.session.add(
+                            Statistics(date_completed=x, user_id=demoUser.id, exercise_id=1))
+                db.session.commit()
+
+            db.session.add(DBVersion(version='0.10'))
+            db.session.commit()
 
 DeleteAndCreateDB()
