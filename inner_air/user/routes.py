@@ -1,6 +1,6 @@
 import datetime
 
-from flask import Blueprint, render_template, flash, redirect, url_for, request
+from flask import Blueprint, render_template, flash, redirect, url_for, request, abort
 from flask_login import login_user, logout_user, login_required, current_user
 
 from inner_air import db, app
@@ -21,9 +21,6 @@ user_bp = Blueprint(
     static_folder='static',
     static_url_path='/%s' % __name__
 )
-
-UPLOAD_FOLDER = 'inner_air/user/static/img/profile_pics/'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
 @user_bp.route('/login', methods=['GET', 'POST'])
@@ -126,8 +123,10 @@ def logout():
 
 
 @user_bp.route('/forgot', methods=['GET', 'POST'])
+@logout_required
 def forgot():
     form = ForgotForm()
+
     if form.validate_on_submit():
         user = db.session.query(User).filter_by(email=form.email.data).first()
         if user is not None:
@@ -146,6 +145,7 @@ def forgot():
 
 
 @user_bp.route('/forgot/<token>', methods=['GET', 'POST'])
+@logout_required
 def reset_password(token):
     email = confirm_token(token)
     user = db.session.query(User).filter_by(email=email).first_or_404()
@@ -183,6 +183,9 @@ def profile(id):
     form = ProfileForm()
     user_profile = db.session.query(User).get_or_404(id)
 
+    if user_profile != current_user:
+        abort(403)
+
     if form.validate_on_submit():
         user_profile.firstname = request.form['firstname']
 
@@ -190,7 +193,7 @@ def profile(id):
             user_profile.profile_picture = request.files['profile_picture']
 
             picture_fname = secure_filename(user_profile.profile_picture.filename)
-            picture_name = ''.join([str(uuid.uuid4()), str(picture_fname)])
+            picture_name = '-'.join([str(uuid.uuid4()), str(picture_fname)])
             user_profile.profile_picture.save(os.path.join(app.config['UPLOAD_FOLDER'], picture_name))
             user_profile.profile_picture = picture_name
             try:
@@ -214,6 +217,9 @@ def profile(id):
 def emails(id):
     form = EmailForm()
     user_email = db.session.query(User).get_or_404(id)
+
+    if user_email != current_user:
+        abort(403)
 
     if form.validate_on_submit():
         user_email.email = request.form['email']
@@ -245,6 +251,9 @@ def emails(id):
 def security(id):
     form = SecurityAndAuthForm()
     user_password = db.session.query(User).get_or_404(id)
+
+    if user_password != current_user:
+        abort(403)
 
     if form.validate_on_submit():
         user_password.password = request.form['password']

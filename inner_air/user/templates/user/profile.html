@@ -22,7 +22,7 @@
 						{% if current_user.profile_picture %}
 						<img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="profile__img">
 						{% else %}
-						<img src="{{ url_for('user.static', filename='img/def_pic.png' ) }}" class="profile__img">
+						<img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="profile__img">
 						{% endif %}
 
 						<div class="dl__wrapper">
