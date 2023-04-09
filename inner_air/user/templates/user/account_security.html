@@ -4,13 +4,63 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="{{ url_for('.static', filename='css/form-validity.css') }}">
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css') }}">
+
 
 <!--  JS  -->
 <script defer src="{{ url_for('.static', filename='js/password-validity.js') }}"></script>
 <script defer src="{{ url_for('.static', filename='js/confirm-password-validity.js') }}"></script>
 
+{% include 'includes/sidebar.html' %}
 <div>
+    <form method="POST" action="" class="form-register">
+        {{ form.hidden_tag() }}
 
+        <fieldset>
+            <legend>Change Password</legend>
+            <div class="form-container">
+                <!-- New Password input -->
+                <div class="form-section">
+                    {{ form.password.label(class='form-label') }}
+                    {% if form.password.errors %}
+                    {{ form.password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.password }}
+                    {% endif %}
+                </div>
+                <!-- indicator -->
+				<div class="indicator">
+					<span class="password-validity-weak"></span>
+					<span class="password-validity-medium"></span>
+					<span class="password-validity-strong"></span>
+				</div>
+				<span class="password-validity-summary"></span>
+
+                <!-- Confirm New password input -->
+                <div class="form-section">
+                    {{ form.confirm_password.label(class='form-label') }}
+                    {% if form.confirm_password.errors %}
+                    {{ form.confirm_password(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.confirm_password.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.confirm_password }}
+                    {% endif %}
+                </div>
+                <span class="cpassword-validity-summary"></span>
+
+            </div>
+        </fieldset>
+        {{ form.submit(class="button--blue") }}
+    </form>
 </div>
 
 {% endblock %}

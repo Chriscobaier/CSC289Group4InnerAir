@@ -14,7 +14,11 @@ Dashboard
 <link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css')}}">
 
 <div class="wrapper">
-    <img src="{{ url_for('user.static', filename='img/def_pic.png' ) }}" class="img"></img>
+    {% if current_user.profile_picture %}
+    <img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="img">
+    {% else %}
+    <img src="{{ url_for('user.static', filename='img/def_pic.png' ) }}" class="img">
+    {% endif %}
     <h1>Welcome, {{ current_user.firstname }} </h1>
 </div>
 <h2>You have logged in {{ current_user.consecutive_days }} day(s) in a row!</h2>

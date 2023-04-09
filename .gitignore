@@ -2,6 +2,10 @@
 # ennvar
 .env
 
+# profile pictures
+profile_pics/*.jpeg
+profile_pics/*.png
+
 #
 .DS_Store
 
