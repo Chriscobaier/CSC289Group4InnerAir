@@ -297,11 +297,9 @@
   margin: 0 15px;
 }
 
-.nav li:hover:not(.active) > a p, .nav li:focus:not(.active) > a p, .nav li:hover:not(.active) > a i, .nav li:focus:not(.active) > a i {
-  color: #fff;
-}
-.nav li:hover:not(.active) > a i, .nav li:focus:not(.active) > a i {
-  color: #fff;
+.sidebar li.active {
+    background: red;
+    border-radius: 50px;
 }
 
 .nav p {

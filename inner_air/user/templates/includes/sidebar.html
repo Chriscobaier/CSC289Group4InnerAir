@@ -11,19 +11,19 @@
 		<br>
 		<hr>
 		<ul class="nav">
-			<li class="{% if 'index' in segment %} active {% endif %} ">
+			<li class="">
 				<a href="{{ url_for('user.profile', id=current_user.id) }}">
 					<i class="fa-solid fa-user"></i>
 					<p>Profile</p>
 				</a>
 			</li>
-			<li class="{% if 'index' in segment %} active {% endif %} ">
+			<li class="">
 				<a href="{{ url_for('user.emails', id=current_user.id) }}">
 					<i class="fa-solid fa-envelope"></i>
 					<p>Emails</p>
 				</a>
 			</li>
-			<li class="{% if 'index' in segment %} active {% endif %} ">
+			<li class="">
 				<a href="{{ url_for('user.security', id=current_user.id) }}">
 					<i class="fa-solid fa-lock"></i>
 					<p>Passwords & Authentication</p>
