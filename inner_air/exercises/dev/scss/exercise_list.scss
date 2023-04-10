@@ -1,6 +1,10 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
+.list-heading{
+    text-align: center;
+}
+
 // surrounding container
 .list-container {
     margin: 1rem;
@@ -11,7 +15,7 @@
         flex-direction: column;
         list-style-type: none;
         margin: 0 10%;
-        gap: 0.2rem;
+        gap: 0.5rem;
 
         // holds exercise "card"
         .plate {
@@ -19,7 +23,7 @@
             @include tl.flex-spread;
             flex-direction: column;
             overflow: hidden;
-            padding: 0.8rem;
+            padding: 1.5rem;
             gap: 1rem;
             width: 100%;
             transition: all 0.2s ease-out;
@@ -47,7 +51,7 @@
                     color: tl.$light-white;
                     font-size: 20px;
                     text-decoration: none;
-                    flex-grow: 1;
+                    margin: 0 auto 0 0;
                     height: 100%;
 
                     &:hover {

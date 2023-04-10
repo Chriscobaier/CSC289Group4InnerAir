@@ -11,11 +11,17 @@ Dashboard
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="{{ url_for('exercises.static', filename='css/exercise_list.css')}}">
 <link rel="stylesheet" href="{{ url_for('profile.static', filename='css/profile.css')}}">
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css')}}">
 
-
-<h1>Welcome, {{ current_user.firstname }} </h1>
+<div class="wrapper">
+    {% if current_user.profile_picture %}
+    <img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="img">
+    {% else %}
+    <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="img">
+    {% endif %}
+    <h1>Welcome, {{ current_user.firstname }} </h1>
+</div>
 <h2>You have logged in {{ current_user.consecutive_days }} day(s) in a row!</h2>
-
 
 <div class="profile-wrapper">
     <div class="column">
@@ -31,7 +37,7 @@ Dashboard
                   <section class="upper">
                     <label for={{ exercise.id }} class="name">
                       <a class="name" href="{{ url_for('exercises.get_exercise_id', exid=exercise.id) }}"
-                          target="_blank">{{ exercise.exercise_name }}</a>
+                          target="_blank">{{ exercise.exercise_name }} - {{exercise.cumulative_rating|default("5.0",true)}} ★</a>
                     </label>
                 {% endif %}
                 {% if exercise.id in showFavAdd %}

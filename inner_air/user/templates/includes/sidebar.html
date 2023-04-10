@@ -1,0 +1,34 @@
+<div class="sidebar">
+	<div class="sidebar-wrapper">
+		<div class="logo">
+			{% if current_user.profile_picture %}
+			<img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="img">
+			{% else %}
+			<img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="img">
+			{% endif %}
+			<span class="logo__text">{{current_user.firstname }}</span>
+		</div>
+		<br>
+		<hr>
+		<ul class="nav">
+			<li class="">
+				<a href="{{ url_for('user.profile', id=current_user.id) }}">
+					<i class="fa-solid fa-user"></i>
+					<p>Profile</p>
+				</a>
+			</li>
+			<li class="">
+				<a href="{{ url_for('user.emails', id=current_user.id) }}">
+					<i class="fa-solid fa-envelope"></i>
+					<p>Emails</p>
+				</a>
+			</li>
+			<li class="">
+				<a href="{{ url_for('user.security', id=current_user.id) }}">
+					<i class="fa-solid fa-lock"></i>
+					<p>Passwords & Authentication</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

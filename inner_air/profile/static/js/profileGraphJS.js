@@ -19,10 +19,24 @@ var histogram1 = new Chart(ctx,
     options:
     {
         responsive: false,
+        plugins: {legend:{display:false}, title:{display: true,
+            text:'Number of Exercises Completed past 1 week',
+            font: {size:20,
+                lineHeight:2}}},
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
-                x:{grid:{display: false}}
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1},
+                    title:{display: true,
+                    text:'Number of Exercises',
+                    font: {size:16,
+                            weight:'bold',
+                            lineHeight:2}}},
+                x:{grid:{display: false},
+                    title:{display: true,
+                        text:'Date',
+                        font: {size:20,
+                            weight:'bold',
+                            lineHeight:2}}}
             }
 
     }});
@@ -36,8 +50,8 @@ var histogram2 = new Chart(ctx,
             labels: xMonthLabels,
 datasets:
 [{
-    label: "Number of Exercises Completed past 1 month",
     data: yMonthlabel,
+    label: "Number of Exercises Completed past 1 month",
     fill: false,
     borderColor: 'rgb(49, 67, 170)',
     pointBackgroundColor: 'rgb(49, 67, 170)',
@@ -47,10 +61,24 @@ datasets:
     options:
     {
         responsive: false,
+        plugins: {legend:{display:false}, title:{display: true,
+            text:'Number of Exercises Completed past 1 month',
+            font: {size:20,
+                lineHeight:2}}},
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
-                x:{grid:{display: false}}
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1},
+                    title:{display: true,
+                    text:'Number of Exercises',
+                    font: {size:16,
+                            weight:'bold',
+                            lineHeight:2}}},
+                x:{grid:{display: false}, ticks:{display: false},
+                    title:{display: true,
+                        text:'Date',
+                        font: {size:20,
+                            weight:'bold',
+                            lineHeight:2}}}
             }
     }});
 
@@ -74,10 +102,25 @@ datasets:
     options:
     {
         responsive: false,
+        plugins: {legend:{display:false}, title:{display: true,
+            text:'Number of Exercises Completed past 3 months',
+            font: {size:20,
+                lineHeight:2}}},
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1}},
-                x:{grid:{display: false}},}
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 1},
+                    title:{display: true,
+                    text:'Number of Exercises',
+                    font: {size:16,
+                            weight:'bold',
+                            lineHeight:2}}},
+                x:{grid:{display: false}, ticks:{display:false},
+                    title:{display: true,
+                        text:'Date',
+                        font: {size:20,
+                            weight:'bold',
+                            lineHeight:2}}}
+                }
             }
      });
 
@@ -102,10 +145,25 @@ datasets:
     options:
     {
         responsive: false,
+        plugins: {legend:{display:false}, title:{display: true,
+            text:'Maximum Breath Hold Time (seconds) past 1 month',
+            font: {size:20,
+                lineHeight:2}}},
         scales:
             {
-                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 10}},
-                x:{grid:{display: false}},}
+                y:{beginAtZero: true, grid:{display: true}, ticks: {stepSize: 10},
+                    title:{display: true,
+                    text:'Seconds',
+                    font: {size:16,
+                            weight:'bold',
+                            lineHeight:2}}},
+                x:{grid:{display: false}, ticks:{display:false},
+                    title:{display: true,
+                        text:'Date',
+                        font: {size:20,
+                            weight:'bold',
+                            lineHeight:2}}}
+                }
             }
      });
 

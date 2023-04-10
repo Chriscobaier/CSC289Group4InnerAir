@@ -196,3 +196,165 @@
     }
 }
 
+
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.profile__img {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    left: 50%;
+    transform: translate(-50%, 5%);
+}
+
+/* sidebar */
+.sidebar {
+    height: calc(100vh - 90px);
+    width: 380px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;
+    display: block;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
+    margin-top: 80px;
+    margin-left: 20px;
+    border-radius: 5px;
+    transition: 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+
+.sidebar-wrapper {
+    width: 100%;
+    min-height: 100%;
+    max-height: calc(100vh - 705px);
+    z-index: 4;
+    position: relative;
+    overflow: auto;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0.5rem 0.7rem;
+    z-index: 4;
+}
+
+.logo__img {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.logo__text {
+    font-size: 1.3rem;
+}
+
+.nav {
+    margin-top: 20px;
+    display: block;
+}
+
+.nav li > a + div .nav {
+  margin-top: 5px;
+}
+.nav li > a + div .nav li > a {
+  margin-top: 0px;
+  padding: 8px 8px;
+}
+
+.nav li > a {
+  margin: 10px 15px 0;
+  border-radius: 50%;
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 8px;
+  line-height: 30px;
+}
+.nav li:first-child > a {
+  margin: 0 15px;
+}
+
+.sidebar li.active {
+    background: red;
+    border-radius: 50px;
+}
+
+.nav p {
+    margin: 0;
+    line-height: 30px;
+    position: relative;
+    display: block;
+    height: auto;
+    white-space: nowrap;
+}
+
+.nav i {
+    font-size: 20px;
+    float: left;
+    margin-right: 12px;
+    line-height: 30px;
+    width: 34px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.dl {
+    display: flex;
+    flex-direction: column;
+}
+
+.dl__wrapper {
+   position: relative;
+   width: 100%;
+   left: 0;
+   top: 50%;
+   text-align: center;
+   margin: auto;
+   transform: translate(-2%, 25%);
+}
+
+.dl__wrapper:hover {
+    color: #fff;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.form-section__text {
+    display: flex;
+    align-items: center;
+}
+
+.profile_picture {
+    height: 60px;
+    width: 250px;
+}
+
+.dl__pen--color {
+    color: #E6EDF3;
+}

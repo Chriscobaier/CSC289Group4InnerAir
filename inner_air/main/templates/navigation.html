@@ -18,10 +18,12 @@
 					<a class="nav-link" href="{{ url_for('exercises.exercises') }}">EXERCISES</a>
 					{% endif %}
 
+					{% if current_user.is_admin %}
 					{% if 'userlist' in request.path %}
 					<a class="nav-link active" href="{{ url_for('userlist.userlist') }}">User List</a>
 					{% else %}
 					<a class="nav-link" href="{{ url_for('userlist.userlist') }}">User List</a>
+					{% endif %}
 					{% endif %}
 
 					{% if 'profile' in request.path %}
@@ -44,6 +46,11 @@
 			<a class="button--red--dynamic" href="{{ url_for('admin.admin') }}">ADMIN</a>
 			{% endif %}
 			{% if current_user.is_authenticated %}
+			{% if not current_user.is_confirmed %}
+			<a class="button--green--dynamic" href="{{ url_for('profile.profile') }}">VERIFY</a>
+			{% else %}
+			<a class="button--blue--dynamic" href="{{ url_for('user.profile', id=current_user.id) }}">SETTINGS</a>
+			{% endif %}
 			<a class="button--red--dynamic" href="{{ url_for('user.logout') }}">SIGN OUT</a>
 			{% else %}
 			<a class="button--red--dynamic" href="{{ url_for('user.login') }}">SIGN IN</a>

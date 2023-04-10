@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     is_confirmed = db.Column(db.Boolean, nullable=False, default=False)
     confirmed_on = db.Column(db.DateTime, nullable=True)
     password_reset_token = db.Column(db.String, nullable=True)
+    profile_picture = db.Column(db.String, nullable=True)
     consecutive_days = db.Column(db.Integer, default=0)
     last_login = db.Column(db.DateTime)
 
