@@ -1,0 +1,29 @@
+.td-wrapper a {
+    text-decoration: none;
+    color: #f5f7f6;
+    transition: 3s ease;
+}
+
+.td-wrapper a:hover {
+    color: #fff;
+}
+
+.div {
+     width: 100px;
+     display: flex;
+     overflow-y: scroll;
+}
+
+.confirmed {
+    display: flex;
+    justify-content:
+    center; font-size: 25px;
+}
+
+.confirmed .fa-circle-check--color {
+    color: green;
+}
+
+.confirmed .fa-circle-exclamation--color {
+    color: red;
+}

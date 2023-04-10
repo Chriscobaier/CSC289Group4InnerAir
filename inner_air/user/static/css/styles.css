@@ -297,11 +297,6 @@
   margin: 0 15px;
 }
 
-.sidebar li.active {
-    background: red;
-    border-radius: 50px;
-}
-
 .nav p {
     margin: 0;
     line-height: 30px;

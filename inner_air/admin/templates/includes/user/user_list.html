@@ -1,0 +1,76 @@
+	 <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+         <div class="wrapper">
+             {% if current_user.profile_picture %}
+             <img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="img">
+             {% else %}
+             <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="img">
+             {% endif %}
+             <h1>Welcome, {{ current_user.firstname }} </h1>
+         </div>
+
+        <h2 class="text-center">Users</h2>
+        <table class="table table-hover table-dark">
+            <!-- User Model -->
+            <thead>
+                <tr>
+                    <th scope="col">EDIT</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
+                    <th scope="col">Created Time</th>
+                    <th scope="col">Confirmed</th>
+                    <th scope="col">Confirmed on</th>
+                    <th scope="col">Consecutive Days</th>
+                    <th scope="col">Last login</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>
+                        <div class="td-wrapper">
+                            <a href="{{ url_for('admin.update', id=user.id) }}">
+                                <i class="fa-solid fa-pen fa-pen--hover"></i>
+                            </a>
+                            <a href="{{ url_for('admin.delete', id=user.id) }}">
+                                <i class="fa-sharp fa-solid fa-trash fa-trash--hover"></i>
+                            </a>
+                        </div>
+                    </td>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <div class="div">
+                            {{ user.password }}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="div">
+                            {{ user.created_time }}
+                        </div>
+                    </td>
+                    <td class="confirmed">
+                        {% if user.is_confirmed %}
+                            <i class="fa-solid fa-circle-check fa-circle-check--color"></i>
+                        {% else %}
+                            <i class="fa-solid fa-circle-exclamation fa-circle-exclamation--color"></i>
+                        {% endif %}
+                    </td>
+                    <td class="">
+                        <div class="div">
+                            {{ user.confirmed_on }}
+                        </div>
+                    </td>
+                    <td>{{ user.consecutive_days }}</td>
+                    <td>
+                        <div class="div">
+                            {{ user.last_login }}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
