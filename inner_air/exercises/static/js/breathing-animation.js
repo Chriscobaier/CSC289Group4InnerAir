@@ -67,7 +67,7 @@ function timer_count(state, time, timeout) {
         time--;
         let id = setInterval(() => {
             timer.textContent = state + " for " + time + " seconds";
-            if (time == 1) {
+            if (time <= 1) {
                 clearInterval(id);
             }
             time--;
@@ -94,7 +94,7 @@ function inhale() {
 /* Plays exhale animation with timing for inhale hold */
 function exhale() {
     setTimeout(() => {
-        feather.style.transitionDuration = inhale_time + "s";
+        feather.style.transitionDuration = exhale_time + "s";
         feather.className = "float-object top";
     }, inhale_hold * 1000);
 }
