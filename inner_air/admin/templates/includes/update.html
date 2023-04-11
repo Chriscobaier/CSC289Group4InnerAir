@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}  Update Record {% endblock %}
+{% block content %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/form-validity.css') }}">
+
+<!--  JS  -->
+<script defer src="{{ url_for('user.static', filename='js/fname-validity.js') }}"></script>
+<script defer src="{{ url_for('user.static', filename='js/email-validity.js') }}"></script>
+<script defer src="{{ url_for('user.static', filename='js/password-validity.js') }}"></script>
+<script defer src="{{ url_for('user.static', filename='js/confirm-password-validity.js') }}"></script>
+
+<div>
+	<form id="form" method="POST" action="/admin/update/{{ user.id }}" class="form-register">
+		{{ form.hidden_tag() }}
+
+		<fieldset>
+			<legend>Update {{ user.firstname }}'s Record </legend>
+			<div class="form-container">
+				<div class="form-section">
+					<div class="dl">
+						{% if user.profile_picture %}
+						<img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="profile__img">
+						{% else %}
+						<img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="profile__img">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-container">
+				<!-- First name input -->
+				<div class="form-section">
+					{{ form.firstname.label(class='form-label') }}
+					{% if form.firstname.errors %}
+					{{ form.firstname(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.firstname.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.firstname(value=user.firstname) }}
+					{% endif %}
+				</div>
+				<span class="fname-validity-summary"></span>
+
+
+				<!-- Email input -->
+				<div class="form-section input-control">
+					{{ form.email.label(class='form-label') }}
+					{% if form.email.errors %}
+					{{ form.email(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.email(value=user.email) }}
+					{% endif %}
+				</div>
+				<span class="email-validity-summary"></span>
+			</div>
+
+		</fieldset>
+		{{ form.submit(class="button--blue") }}
+	</form>
+</div>
+
+{% endblock %}

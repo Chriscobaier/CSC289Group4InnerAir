@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}
-leaderboard
+Leaderboard
 {% endblock %}
 {% block content %}
 
 
 <link rel="stylesheet" href="{{ url_for('leaderboard.static', filename='css/leaderboard.css')}}">
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css')}}">
 
  <div class="container-fluid overlay min-vh-100 py-5 mt-5">
 
@@ -23,7 +24,14 @@ leaderboard
                 {% for user in usersConsecutive %}
                 <tr>
                     <td> {{usersConsecutive.index(user)+1}}</td>
-                    <td>{{ user.firstname }}</td>
+                    <td style="display: flex; align-items: center;">
+                        {% if user.profile_picture %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
+                        {% else %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        {% endif %}
+                        {{ user.firstname }}
+                    </td>
                     <td>{{ user.consecutive_days }}</td>
                 </tr>
                 {% endfor %}
@@ -47,7 +55,14 @@ leaderboard
                 {% for user in usersHeldDict %}
                 <tr>
                     <td> {{usersHeldOrderedList.index(user) +1 }}</td>
-                    <td>{{ user }}</td>
+                    <td style="display: flex; align-items: center;">
+                        {% if user.profile_picture %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
+                        {% else %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        {% endif %}
+                        {{ user }}
+                    </td>
                     <td>{{ usersHeldDict[user]|round|int }} seconds</td>
                 </tr>
                 {% endfor %}
@@ -72,7 +87,14 @@ leaderboard
                 {% for key, value in user.items() %}
                 <tr>
                     <td>{{ usersHeldMax.index(user) + 1 }}</td>
-                    <td>{{ key }}</td>
+                    <td style="display: flex; align-items: center;">
+                        {% if user.profile_picture %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
+                        {% else %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        {% endif %}
+                        {{ key }}
+                    </td>
                     <td>{{ '{:.2f}'.format(value) }} seconds</td>
                 </tr>
                 {% endfor %}

@@ -1,14 +1,19 @@
 import datetime
 
-from flask import Blueprint, render_template, flash, redirect, url_for
+from flask import Blueprint, render_template, flash, redirect, url_for, request, abort
 from flask_login import login_user, logout_user, login_required, current_user
 
-from inner_air import db
+from inner_air import db, app
 from inner_air.models import User
-from inner_air.user.forms import LoginForm, RegistrationForm, ForgotForm, ChangePasswordForm
+from inner_air.user.forms import LoginForm, RegistrationForm, ForgotForm, ChangePasswordForm, ProfileForm, EmailForm, \
+    SecurityAndAuthForm
 from inner_air.user.token import generate_confirmation_token, confirm_token
-from inner_air.utils.decorators import logout_required
+from inner_air.utils.decorators import logout_required, check_confirmed
 from inner_air.utils.email import send_email
+
+from werkzeug.utils import secure_filename
+import uuid
+import os
 
 user_bp = Blueprint(
     'user', __name__,
@@ -118,8 +123,10 @@ def logout():
 
 
 @user_bp.route('/forgot', methods=['GET', 'POST'])
+@logout_required
 def forgot():
     form = ForgotForm()
+
     if form.validate_on_submit():
         user = db.session.query(User).filter_by(email=form.email.data).first()
         if user is not None:
@@ -138,6 +145,7 @@ def forgot():
 
 
 @user_bp.route('/forgot/<token>', methods=['GET', 'POST'])
+@logout_required
 def reset_password(token):
     email = confirm_token(token)
     user = db.session.query(User).filter_by(email=email).first_or_404()
@@ -151,7 +159,7 @@ def reset_password(token):
                 user.password_reset_token = None
                 db.session.commit()
 
-                flash('Password successfully changed.', category='success')
+                flash('Password changed successfully.', category='success')
                 return redirect(url_for('main.home'))
             else:
                 flash('Password change was unsuccessful.', category='danger')
@@ -162,3 +170,99 @@ def reset_password(token):
     else:
         flash('Can not reset the password, try again.', category='danger')
     return redirect(url_for('main.home'))
+
+
+"""""
+    update user profile
+"""""
+
+
+@user_bp.route('/settings/profile/<int:id>', methods=['GET', 'POST'])
+@login_required
+def profile(id):
+    form = ProfileForm()
+    user_profile = db.session.query(User).get_or_404(id)
+
+    if user_profile != current_user:
+        abort(403)
+
+    if form.validate_on_submit():
+        user_profile.firstname = request.form['firstname']
+
+        if request.files['profile_picture']:
+            user_profile.profile_picture = request.files['profile_picture']
+
+            picture_fname = secure_filename(user_profile.profile_picture.filename)
+            picture_name = '-'.join([str(uuid.uuid4()), str(picture_fname)])
+            user_profile.profile_picture.save(os.path.join(app.config['UPLOAD_FOLDER'], picture_name))
+            user_profile.profile_picture = picture_name
+            try:
+                db.session.commit()
+                flash('Your profile has been updated successfully.', category='success')
+                return render_template('user/profile.html', form=form, user_profile=user_profile)
+            except Exception:
+                flash('An error occurred...try again.', category='danger')
+                return render_template('user/profile.html', form=form, user_profile=user_profile)
+        else:
+            db.session.commit()
+            flash('Your profile has been updated successfully.', category='success')
+            return render_template('user/profile.html', form=form, user_profile=user_profile)
+    else:
+        return render_template('user/profile.html', form=form, user_profile=user_profile)
+
+
+@user_bp.route('/settings/emails/<int:id>', methods=['GET', 'POST'])
+@login_required
+@check_confirmed
+def emails(id):
+    form = EmailForm()
+    user_email = db.session.query(User).get_or_404(id)
+
+    if user_email != current_user:
+        abort(403)
+
+    if form.validate_on_submit():
+        user_email.email = request.form['email']
+
+        if current_user.is_admin:
+            user_email.is_confirmed = True
+        else:
+            user_email.is_confirmed = False
+
+        try:
+            db.session.commit()
+            token = generate_confirmation_token(user_email.email)
+            confirm_url = url_for('user.confirm_email', token=token, _external=True)
+            html = render_template('user/confirm_email.html', confirm_url=confirm_url)
+            subject = 'Please confirm your email'
+            send_email(user_email.email, subject, html)
+
+            flash('Your email has been updated successfully.', category='success')
+            return render_template('user/email_settings.html', form=form, user_email=user_email)
+        except Exception:
+            flash('An error occurred...try again.', category='danger')
+            return render_template('user/email_settings.html', form=form, user_email=user_email)
+    else:
+        return render_template('user/email_settings.html', form=form, user_email=user_email)
+
+
+@user_bp.route('/settings/security/<int:id>', methods=['GET', 'POST'])
+@login_required
+def security(id):
+    form = SecurityAndAuthForm()
+    user_password = db.session.query(User).get_or_404(id)
+
+    if user_password != current_user:
+        abort(403)
+
+    if form.validate_on_submit():
+        user_password.password = request.form['password']
+        if user_password:
+            user_password.password = form.password.data
+            db.session.commit()
+            flash('Password changed successfully.', category='success')
+            return redirect(url_for('user.security', id=user_password.id))
+        else:
+            flash('Can not change the password, try again.', category='danger')
+            return redirect(url_for('user.security', id=user_password.id))
+    return render_template('user/account_security.html', form=form)

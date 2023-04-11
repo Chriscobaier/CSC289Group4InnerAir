@@ -1,4 +1,5 @@
 from flask_wtf import FlaskForm
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
 
@@ -69,4 +70,50 @@ class ChangePasswordForm(FlaskForm):
     )
     submit = SubmitField(
         label='Reset Password'
+    )
+
+
+"""""
+    update user profile - form
+"""""
+
+
+class ProfileForm(FlaskForm):
+    firstname = StringField(
+        label='First Name',
+        validators=[DataRequired(), Length(min=3, max=20)],
+    )
+    profile_picture = FileField(
+        label='Edit',
+        validators=[FileAllowed(['jpg', 'png'])],
+    )
+    submit = SubmitField(
+        label='Update Profile',
+    )
+
+
+class EmailForm(FlaskForm):
+    email = StringField(
+        label='Email',
+        validators=[DataRequired(), Email()],
+        render_kw={'placeholder': 'Email'}
+    )
+    submit = SubmitField(
+        label='Update Email'
+    )
+
+
+class SecurityAndAuthForm(FlaskForm):
+    password = PasswordField(
+        label='New Password',
+        validators=[DataRequired(), Length(min=8)],
+        render_kw={"placeholder": "New Password"}
+    )
+    confirm_password = PasswordField(
+        label='Confirm New Password',
+        validators=[DataRequired(), EqualTo('password')],
+        render_kw={'placeholder': 'Confirm New Password'}
+    )
+    submit = SubmitField(
+        label='Update Password'
     )

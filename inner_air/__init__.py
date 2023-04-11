@@ -30,7 +30,6 @@ from .main.routes import main_bp
 from .user.routes import user_bp
 from .profile.routes import profile_bp
 from .exercises.routes import exercises_bp
-from .user_list.routes import userlist_bp
 from .leaderboard.routes import leaderboard_bp
 from .errors.handlers import errors
 
@@ -40,7 +39,6 @@ app.register_blueprint(main_bp, url_prefix='/')
 app.register_blueprint(user_bp, url_prefix='/')
 app.register_blueprint(profile_bp, url_prefix='/')
 app.register_blueprint(exercises_bp, url_prefix='/')
-app.register_blueprint(userlist_bp, url_prefix='/')
 app.register_blueprint(leaderboard_bp, url_prefix='/')
 app.register_blueprint(errors)
 

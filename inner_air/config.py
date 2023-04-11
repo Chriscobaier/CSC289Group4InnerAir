@@ -5,6 +5,11 @@ DB_NAME = config('DB_NAME')
 
 class Config(object):
     """
+        profile pics
+    """
+    UPLOAD_FOLDER = config('UPLOAD_FOLDER')
+
+    """
         base config.
     """
     SECRET_KEY = config('SECRET_KEY')

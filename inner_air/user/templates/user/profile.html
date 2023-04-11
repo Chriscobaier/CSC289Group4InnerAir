@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %} Your Profile {% endblock %}
+{% block content %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('.static', filename='css/form-validity.css') }}">
+
+<!--  JS  -->
+<script defer src="{{ url_for('.static', filename='js/fname-validity.js') }}"></script>
+{% include 'includes/sidebar.html' %}
+<div>
+	<form id="form" method="POST" action="/settings/profile/{{ user_profile.id }}" class="form-register" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<fieldset>
+			<legend>Your Profile</legend>
+			<div class="form-container">
+				<div class="form-section">
+					<div class="dl">
+						<span>Profile Picture</span>
+						{% if current_user.profile_picture %}
+						<img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="profile__img">
+						{% else %}
+						<img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="profile__img">
+						{% endif %}
+
+						<div class="dl__wrapper">
+							{{ form.profile_picture(class='form-control', value=user_profile.profile_picture) }}
+							<label class="form-label profile_picture dl__text--color" for="profile_picture">
+								<i class="fa-solid fa-pen dl__pen--color"></i>
+								Edit
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-container">
+				<!-- First name input -->
+				<div class="form-section">
+					{{ form.firstname.label(class='form-label') }}
+					{% if form.firstname.errors %}
+					{{ form.firstname(class="form-control is-invalid") }}
+					<div class="invalid-feedback">
+						{% for error in form.firstname.errors %}
+						<span>{{ error }}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.firstname(value=user_profile.firstname) }}
+					{% endif %}
+				</div>
+				<span class="fname-validity-summary"></span>
+			</div>
+
+		</fieldset>
+		{{ form.submit(class="button--blue") }}
+	</form>
+</div>
+
+{% endblock %}

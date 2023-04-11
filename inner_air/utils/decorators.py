@@ -26,6 +26,7 @@ def check_confirmed(func):
 
     return decorated_function
 
+
 def def_params(func):
     sig = inspect.signature(func)
 
