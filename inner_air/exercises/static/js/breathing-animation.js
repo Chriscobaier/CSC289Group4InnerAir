@@ -78,9 +78,9 @@ function timer_count(state, time, timeout) {
 /* Sets timer cycle */
 function set_timer(ih_time, ih_hold, ex_time, ex_hold) {
     timer_count("Inhale", ih_time);
-    timer_count("Inhale Hold", ih_time, ih_time * 1000);
-    timer_count("Exhale", ih_time, (ih_time + ih_hold) * 1000);
-    timer_count("Exhale Hold", ih_time, (ih_time + ih_hold + ex_time) * 1000);
+    timer_count("Inhale Hold", ih_hold, ih_time * 1000);
+    timer_count("Exhale", ex_time, (ih_time + ih_hold) * 1000);
+    timer_count("Exhale Hold", ex_hold, (ih_time + ih_hold + ex_time) * 1000);
 }
 
 //--------Feather--------
@@ -121,5 +121,5 @@ function feather_cycle(cycle) {
         } else {
             return feather_cycle(cycle - 1);
         }
-    }, (inhale_time + inhale_hold + exhale_time + inhale_hold) * 1000);
+    }, (inhale_time + inhale_hold + exhale_time + exhale_hold) * 1000);
 }

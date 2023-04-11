@@ -146,7 +146,7 @@ def send_animation_data(exid):
         "inhale_time": exercise.exercise_inhale,
         "inhale_hold": exercise.exercise_inhale_pause,
         "exhale_time": exercise.exercise_exhale,
-        "exhale": exercise.exercise_exhale_pause,
+        "exhale_hold": exercise.exercise_exhale_pause,
         "cycle_count": exercise.exercise_length,
         "current_user": flask_login.current_user.id,
         "current_exercise": exercise.id

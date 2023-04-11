@@ -76,6 +76,13 @@ class Exercise(db.Model):
     def update_cumulative_rating(self, data):
         self.cumulative_rating = data
 
+    def update_breath_data(self, inhale, inhale_pause, exhale, exhale_pause, length):
+        self.exercise_inhale = inhale
+        self.exercise_inhale_pause = inhale_pause
+        self.exercise_exhale = exhale
+        self.exercise_exhale_pause = exhale_pause
+        self.exercise_length = length
+
 
 class Routine(db.Model):
     __tablename__ = 'Users.Routines'

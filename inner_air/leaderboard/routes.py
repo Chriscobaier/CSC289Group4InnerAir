@@ -26,11 +26,14 @@ def leaderboard():
         Statistics.hold_length.desc()).limit(10).all()
     usersHeldMax = []
     for i, j in usersHeld:
-        usersHeldMax.append({j.firstname: i.hold_length})
+        usersHeldMax.append({j: i.hold_length})
+
     # Get all breath hold data
     usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11).order_by(
         Statistics.hold_length.desc()).all()
     usersHeldDict = dict()
+
+
     for i, j in usersHeldTotal:
         try:
             usersHeldDict[j.firstname] = usersHeldDict.get(j.firstname) + i.hold_length
