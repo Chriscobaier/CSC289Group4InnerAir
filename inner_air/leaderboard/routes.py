@@ -36,10 +36,13 @@ def leaderboard():
 
     for i, j in usersHeldTotal:
         try:
-            usersHeldDict[j.firstname] = usersHeldDict.get(j.firstname) + i.hold_length
+            usersHeldDict[j] = usersHeldDict.get(j) + i.hold_length
         except:
-            usersHeldDict[j.firstname] = i.hold_length
-    usersHeldOrderedDict = OrderedDict(usersHeldDict)
+            usersHeldDict[j] = i.hold_length
+    usersHeldOrderedDict = OrderedDict(reversed(usersHeldDict.items()))
     usersHeldOrderedList = list(usersHeldOrderedDict)
+    print(usersHeldOrderedList)
+    print(usersHeldOrderedDict)
+
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
                            usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,usersHeldOrderedList=usersHeldOrderedList)

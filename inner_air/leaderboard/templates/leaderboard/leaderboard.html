@@ -61,7 +61,7 @@ Leaderboard
                         {% else %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
                         {% endif %}
-                        {{ user }}
+                        {{ user.firstname }}
                     </td>
                     <td>{{ usersHeldDict[user]|round|int }} seconds</td>
                 </tr>
