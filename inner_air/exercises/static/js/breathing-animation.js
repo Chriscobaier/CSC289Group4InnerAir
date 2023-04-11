@@ -121,5 +121,5 @@ function feather_cycle(cycle) {
         } else {
             return feather_cycle(cycle - 1);
         }
-    }, (inhale_time + inhale_hold + exhale_time + inhale_hold) * 1000);
+    }, (inhale_time + inhale_hold + exhale_time + exhale_hold) * 1000);
 }
