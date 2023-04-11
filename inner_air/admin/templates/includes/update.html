@@ -4,6 +4,7 @@
 
 <!-- CSS -->
 <link rel="stylesheet" href="{{ url_for('user.static', filename='css/form-validity.css') }}">
+<link rel="stylesheet" href="{{ url_for('user.static', filename='css/styles.css') }}">
 
 <!--  JS  -->
 <script defer src="{{ url_for('user.static', filename='js/fname-validity.js') }}"></script>
@@ -21,7 +22,7 @@
 				<div class="form-section">
 					<div class="dl">
 						{% if user.profile_picture %}
-						<img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="profile__img">
+						<img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="profile__img">
 						{% else %}
 						<img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="profile__img">
 						{% endif %}
