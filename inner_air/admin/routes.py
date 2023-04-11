@@ -30,7 +30,7 @@ def admin():
 @check_confirmed
 def update(id):
     form = UserRecordForm()
-    user = db.session.query().get_or_404(id)
+    user = db.session.query(User).get_or_404(id)
 
     if form.validate_on_submit():
         user.firstname = request.form['firstname']
