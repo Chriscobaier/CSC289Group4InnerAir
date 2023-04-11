@@ -33,7 +33,6 @@ def leaderboard():
         Statistics.hold_length.desc()).all()
     usersHeldDict = dict()
 
-
     for i, j in usersHeldTotal:
         try:
             usersHeldDict[j] = usersHeldDict.get(j) + i.hold_length
@@ -41,8 +40,7 @@ def leaderboard():
             usersHeldDict[j] = i.hold_length
     usersHeldOrderedDict = OrderedDict(reversed(usersHeldDict.items()))
     usersHeldOrderedList = list(usersHeldOrderedDict)
-    print(usersHeldOrderedList)
-    print(usersHeldOrderedDict)
 
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
-                           usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,usersHeldOrderedList=usersHeldOrderedList)
+                           usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,
+                           usersHeldOrderedList=usersHeldOrderedList)
