@@ -216,4 +216,33 @@ def DeleteAndCreateDB():
             db.session.add(DBVersion(version='0.10'))
             db.session.commit()
 
+        if str(thisVersion.version) == '0.10':
+            print("Migrating to DB 0.11")
+            print("Fixing exercise data points")
+            db.session.query(Exercise).filter(Exercise.exercise_name == 'Square Breathing').first().update_breath_data(
+                4, 4, 4, 4, 6)
+            db.session.query(Exercise).filter(
+                Exercise.exercise_name == 'Square Breathing v2').first().update_breath_data(
+                4, 4, 6, 2, 6)
+            db.session.query(Exercise).filter(Exercise.exercise_name == 'Nadi Shodhana').first().update_breath_data(
+                4, 4, 4, 4, 10)
+            db.session.query(Exercise).filter(Exercise.exercise_name == 'Resonant (Coherent) Breathing').first().update_breath_data(6, 0, 6, 0, 10)
+            db.session.query(Exercise).filter(Exercise.exercise_name == 'Buteyko Breathing').first().update_breath_data(
+                4, 4, 4, 4, 2)
+            db.session.query(Exercise).filter(Exercise.exercise_name == 'Breathing Coordination').first().update_breath_data(10, 0, 10, 0, 20)
+            # db.session.query(Exercise).filter(
+            #     Exercise.exercise_name == 'Decongest The Nose').first().update_breath_data(
+            #     1, 1, 1, 1)
+            db.session.query(Exercise).filter(Exercise.exercise_name == '4-7-8 Breathing').first().update_breath_data(
+                4, 7, 8, 0, 4)
+            db.session.query(Exercise).filter(
+                Exercise.exercise_name == 'Yogic Breathing Phase 1').first().update_breath_data(
+                4, 4, 4, 4, 12)
+            db.session.query(Exercise).filter(
+                Exercise.exercise_name == 'Yogic breathing Phase 2').first().update_breath_data(
+                4, 4, 4, 4, 12)
+            db.session.add(DBVersion(version='0.11'))
+            db.session.commit()
+
+
 DeleteAndCreateDB()
