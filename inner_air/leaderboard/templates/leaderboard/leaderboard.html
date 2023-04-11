@@ -61,7 +61,7 @@ Leaderboard
                         {% else %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
                         {% endif %}
-                        {{ user }}
+                        {{ user.firstname }}
                     </td>
                     <td>{{ usersHeldDict[user]|round|int }} seconds</td>
                 </tr>
@@ -88,12 +88,12 @@ Leaderboard
                 <tr>
                     <td>{{ usersHeldMax.index(user) + 1 }}</td>
                     <td style="display: flex; align-items: center;">
-                        {% if user.profile_picture %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
+                        {% if key.profile_picture %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + key.profile_picture) }}" class="img">
                         {% else %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
                         {% endif %}
-                        {{ key }}
+                        {{ key.firstname }}
                     </td>
                     <td>{{ '{:.2f}'.format(value) }} seconds</td>
                 </tr>
