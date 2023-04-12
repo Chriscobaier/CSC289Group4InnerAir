@@ -126,28 +126,28 @@
 			"firstname": "TestUserOne",
 			"email": "TestUserOne@test.com",
 			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
-			"consecutive_days": 420,
+			"consecutive_days": 5,
 			"confirmed": 1
 		},
 		{
 			"firstname": "TestUserTwo",
 			"email": "TestUserTwo@test.com",
 			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
-			"consecutive_days": 69,
+			"consecutive_days": 3,
 			"confirmed": 1
 		},
 		{
 			"firstname": "TestUserThree",
 			"email": "TestUserThree@test.com",
 			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
-			"consecutive_days": 6,
+			"consecutive_days": 2,
 			"confirmed": 1
 		},
 		{
 			"firstname": "TestUserFour",
 			"email": "TestUserFour@test.com",
 			"password_hash": "$2b$12$nEfHRbAwWBJYrk05CvH/x.WEa1DK.mWjmM0HU6LDIIYr9V4ra6l4S",
-			"consecutive_days": 9,
+			"consecutive_days": 1,
 			"confirmed": 1
 		}
 	]

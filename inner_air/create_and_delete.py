@@ -190,8 +190,8 @@ def DeleteAndCreateDB():
                                 is_confirmed=1))
             db.session.commit()
             demoUser = db.session.query(User).filter(User.email == 'demo@demo.com').first()
-            j = 160.20
-            k = 190.34
+            j = 90.20
+            k = 120.34
             for i in range(45):
                 x = datetime.today() - timedelta(days=i)
                 db.session.add(
