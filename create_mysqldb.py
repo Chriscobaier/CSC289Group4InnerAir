@@ -13,9 +13,9 @@ from decouple import config
 
 
 DB = mysql.connector.connect(
-    # host='url',
-    # user='your_username',
-    # passwd='your_password'
+    host=config('HOST'),
+    user=config('USR'),
+    passwd=config('PASSWD')
 )
 
 # prepare a cursor

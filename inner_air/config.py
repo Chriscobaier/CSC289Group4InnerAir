@@ -1,6 +1,9 @@
 from decouple import config
 
 DB_NAME = config('DB_NAME')
+HOST = config('HOST')
+USR = config('USR')
+PASSWD = config('PASSWD')
 
 
 class Config(object):
@@ -20,9 +23,9 @@ class Config(object):
     """
         MYSQL SETTINGS
     """
-    # HOST = config('HOST')
-    # USER = config('USER')
-    # PASSWD = config('PASSWD')
+    HOST = config('HOST')
+    USR = config('USR')
+    PASSWD = config('PASSWD')
 
     """
         mail settings.
@@ -53,7 +56,7 @@ class DevelopmentConfig(Config):
             Example:
                 instead of inner-air-dev would be inner_air_dev
     """""
-    # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://<your_username>:<your_password>@<url>/{DB_NAME}'
+    # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://{USR}:{PASSWD}@{HOST}/{DB_NAME}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG_TB_ENABLED = True
 
