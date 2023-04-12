@@ -18,6 +18,13 @@ class Config(object):
     DEBUG_TB_ENABLED = False
 
     """
+        MYSQL SETTINGS
+    """
+    # HOST = config('HOST')
+    # USER = config('USER')
+    # PASSWD = config('PASSWD')
+
+    """
         mail settings.
     """
     MAIL_DEFAULT_SENDER = config('APP_MAIL_DEFAULT_SENDER')
@@ -33,6 +40,20 @@ class DevelopmentConfig(Config):
     DEVELOPMENT = True
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = f'sqlite:///{DB_NAME}'
+    """""
+        MySQL DB - SETUP
+        'mysql+pymysql://username:password@localhost/DB_NAME' 
+        
+        You can replace <localhost> with the <URL> if you want to put it online.
+        'mysql+pymysql://username:password@<url>/DB_NAME'
+        
+        NOTE:
+            You can't use '-' to name the database. You would need to use '_' underscores.
+            
+            Example:
+                instead of inner-air-dev would be inner_air_dev
+    """""
+    # SQLALCHEMY_DATABASE_URI = f'mysql+pymysql://<your_username>:<your_password>@<url>/{DB_NAME}'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     DEBUG_TB_ENABLED = True
 
