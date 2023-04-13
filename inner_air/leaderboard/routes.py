@@ -38,7 +38,10 @@ def leaderboard():
             usersHeldDict[j] = usersHeldDict.get(j) + i.hold_length
         except:
             usersHeldDict[j] = i.hold_length
-    usersHeldOrderedDict = OrderedDict(reversed(usersHeldDict.items()))
+    tempList = sorted(usersHeldDict.items(), key=lambda x: x[1], reverse=True)
+    usersHeldOrderedDict = dict(tempList)
+
+
     usersHeldOrderedList = list(usersHeldOrderedDict)
 
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
