@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(120), nullable=False, unique=True)
     password_hash = db.Column(db.String(128), nullable=False)
     is_admin = db.Column(db.Boolean, nullable=False, default=False)
-    created_time = db.Column(db.DateTime, default=db.func.current_timestamp())
+    created_time = db.Column(db.DateTime, default=datetime.now())
     is_confirmed = db.Column(db.Boolean, nullable=False, default=False)
     confirmed_on = db.Column(db.DateTime, nullable=True)
     password_reset_token = db.Column(db.String(2048), nullable=True)
@@ -109,7 +109,7 @@ class Favorites(db.Model):
 class Statistics(db.Model):
     __tablename__ = 'Users.Statistics'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True, nullable=False)
-    date_completed = db.Column(db.DateTime, default=db.func.current_timestamp())
+    date_completed = db.Column(db.DateTime, default=datetime.now())
     exercise_id = db.Column(db.Integer, db.ForeignKey('Exercise.Details.id'), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('User.Users.id'), nullable=False)
     hold_length = db.Column(db.Float)
