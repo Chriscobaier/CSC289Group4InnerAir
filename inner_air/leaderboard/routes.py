@@ -22,22 +22,25 @@ def leaderboard():
 
     # Assumes control pause is exercise 11 (could be problematic if it isn't)
     # Query statistics table, join User table, only get data where exercise is control pause, top 10 values
-    usersHeld = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11).order_by(
+    usersHeld = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11, Statistics.user_id != 7).order_by(
         Statistics.hold_length.desc()).limit(10).all()
     usersHeldMax = []
     for i, j in usersHeld:
         usersHeldMax.append({j: i.hold_length})
 
+
     # Get all breath hold data
-    usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11).order_by(
+    usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11, Statistics.user_id != 7).order_by(
         Statistics.hold_length.desc()).all()
     usersHeldDict = dict()
 
+
     for i, j in usersHeldTotal:
-        try:
-            usersHeldDict[j] = usersHeldDict.get(j) + i.hold_length
-        except:
-            usersHeldDict[j] = i.hold_length
+        if i.user_id != 7:
+            try:
+                usersHeldDict[j] = usersHeldDict.get(j) + i.hold_length
+            except:
+                usersHeldDict[j] = i.hold_length
     tempList = sorted(usersHeldDict.items(), key=lambda x: x[1], reverse=True)
     usersHeldOrderedDict = dict(tempList)
 
