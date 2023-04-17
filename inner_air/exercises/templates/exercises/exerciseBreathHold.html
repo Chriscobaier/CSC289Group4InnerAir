@@ -9,7 +9,7 @@ Exercises
 
 
 <div class="stopwatch-container">
-    <h1 class="exe-name">{{ this_exercise.exercise_name }} - {{this_exercise.cumulative_rating}} ★</h1>
+    <h1 class="exe-name">{{ this_exercise.exercise_name }} - {{ "%.2f"|format(this_exercise.cumulative_rating|default(5.0, true)) }} ★</h1>
     <h3 class="exe-description">{{ this_exercise.exercise_description }}</h3>
     <p class="exe-instructions">{{ this_exercise.exercise_instructions }}</p>
     <div class="timer">
