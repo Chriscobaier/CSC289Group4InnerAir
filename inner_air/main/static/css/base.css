@@ -354,8 +354,7 @@ body {
   background-image: url("/inner_air.main.routes/img/background_image.svg");
   background-size: cover;
   color: #e6e8ff;
-  font-size: 19px;
-  line-height: 1.6rem;
+  font-size: 14px;
   font-family: "Comfortaa", Verdana, Tahoma, sans-serif;
 }
 body .container {
