@@ -63,7 +63,7 @@ Leaderboard
                         {% endif %}
                         {{ user.firstname }}
                     </td>
-                    <td>{{ usersHeldDict[user]|round|int }} seconds</td>
+                    <td>{{ (usersHeldDict[user]/60)|round|int }} minutes {{ (usersHeldDict[user]%60)|round|int }} seconds</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -95,7 +95,7 @@ Leaderboard
                         {% endif %}
                         {{ key.firstname }}
                     </td>
-                    <td>{{ '{:.2f}'.format(value) }} seconds</td>
+                    <td>{{(value/60)|round|int }} minutes {{ (value%60)|round|int }} seconds</td>
                 </tr>
                 {% endfor %}
                 {% endfor %}
