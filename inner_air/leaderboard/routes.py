@@ -3,6 +3,8 @@ from inner_air.utils.decorators import check_confirmed
 from flask_login import login_required
 from inner_air.models import User, Statistics, Exercise
 from inner_air import db
+from sqlalchemy import func
+
 from collections import OrderedDict
 
 leaderboard_bp = Blueprint(
@@ -44,9 +46,15 @@ def leaderboard():
     tempList = sorted(usersHeldDict.items(), key=lambda x: x[1], reverse=True)
     usersHeldOrderedDict = dict(tempList)
 
-
     usersHeldOrderedList = list(usersHeldOrderedDict)
+
+    usersNumberOfExercises = db.session.query(User, func.count(Statistics.id)).join(Statistics,
+                                                                                    User.id == Statistics.user_id).group_by(
+        User.id).order_by(func.count(Statistics.id).desc()).limit(10).all()
+    usersNumberOfExercisesList = []
+    for i,j in usersNumberOfExercises:
+        usersNumberOfExercisesList.append(i.firstname)
 
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
                            usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,
-                           usersHeldOrderedList=usersHeldOrderedList)
+                           usersHeldOrderedList=usersHeldOrderedList, usersNumberOfExercises=usersNumberOfExercises,usersNumberOfExercisesList=usersNumberOfExercisesList)
