@@ -102,4 +102,35 @@ Leaderboard
             </tbody>
         </table>
     </div>
+
+ <div class="container-fluid overlay min-vh-100 py-5 mt-5">
+
+        <h2 class="text-center">Leaderboard - Total Exercises Done </h2>
+        <table class="table table-hover table-dark">
+            <!-- Leaderboard -->
+            <thead>
+                <tr>
+                    <th scope="col">Rank</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Number of Exercises</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user, value in usersNumberOfExercises %}
+                <tr>
+                    <td>{{ usersNumberOfExercisesList.index(user.firstname) + 1 }}</td>
+                    <td style="display: flex; align-items: center;">
+                        {% if user.profile_picture %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + key.profile_picture) }}" class="img">
+                        {% else %}
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        {% endif %}
+                        {{ user.firstname }}
+                    </td>
+                    <td>{{ value }} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
