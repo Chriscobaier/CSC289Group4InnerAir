@@ -121,7 +121,7 @@ Leaderboard
                     <td>{{ usersNumberOfExercisesList.index(user.firstname) + 1 }}</td>
                     <td style="display: flex; align-items: center;">
                         {% if user.profile_picture %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + key.profile_picture) }}" class="img">
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
                         {% else %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
                         {% endif %}
