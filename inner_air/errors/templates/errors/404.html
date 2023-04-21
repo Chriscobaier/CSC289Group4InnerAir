@@ -8,9 +8,10 @@
         <div class='error-content'>
             <!-- error header -->
             <div class="error-header">
-                <img src=" {{ url_for('errors.static', filename='img/404image.png' ) }}" class="logo"width="400"
-     height="450" />
-
+                    <img
+                            src="{{ url_for('errors.static', filename='img/404image.png' ) }}"
+                            class="error-header__img"
+                    />
                     <h2>404</h2>
                     <h4>oops! page not found</h4>
             </div>

@@ -14,7 +14,7 @@ body {
     justify-content: initial;
     align-items: initial;
     z-index: 1000;
-    overflow: auto;
+    overflow: hidden;
 }
 
 .error-content {
@@ -28,9 +28,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    overflow: auto;
+    overflow: hidden;
     box-shadow: initial;
     font-family: 'Poppins', sans-serif;
+}
+
+.error-header {
+}
+
+.error-header__img {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .error-content h2 {

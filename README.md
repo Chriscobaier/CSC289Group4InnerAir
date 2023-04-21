@@ -22,24 +22,45 @@
 - [Getting started](#getting-started)
     - [Setup & Installation](#setup--installation)
     - [Quick start](#quick-start)
+    - [Contributors](#contributors)
 
 ## Introduction
+***
 
 ## Getting started
+***
 
 ## Setup & Installation
+***
 ```commandline
     git clone <repo-url>
 ```
+***Creating Virtual environment***
+```commandline
+    python -m venv venv
+```
+***Activate the environment***
+```commandline
+    source venv/bin/activate
+```
+***Install ```requirements.txt```***
 ```commandline
     pip install -r requirements.txt
 ```
 ***or***
 
-*note that before running the following command you must [set the environment variables](docs/1.md#set-environment-variables).*
+*note that before running the following command you must [set the environment variables](docs/wiki.md#set-environment-variables).*
 ````commandline
   make
 ````
-
 ## Quick start
-[See the wiki for details](docs/1.md)
+***
+[See the wiki for details](docs/wiki.md)
+
+## Contributors
+***
+* ***Jade Oakes***
+* ***Andrew Bader***
+* ***Christian Baier***
+* ***Jose Chvez***
+* ***Karina Osmanova***
