@@ -15,7 +15,7 @@
 [![GitHub Stars](https://img.shields.io/github/stars/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/Chriscobaier/CSC289Group4InnerAir.svg?style=flat-square&colorA=4c566a&logo=GitHub&colorB=ebcb8b)](https://github.com/Chriscobaier/CSC289Group4InnerAir/network/members)
 
-**[Documentation](#) | [Setup & Installation](#setup--installation)**
+**[Documentation](#) | [Setup & Installation](#setup--installation) | [Wiki](docs/wiki.md)**
 
 ## Table of contents
 ---
