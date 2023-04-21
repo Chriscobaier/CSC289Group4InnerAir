@@ -13,7 +13,7 @@
             <!-- User Model -->
             <thead>
                 <tr>
-                    <th scope="col">EDIT</th>
+                    <th scope="col"></th>
                     <th scope="col">ID</th>
                     <th scope="col">First Name</th>
                     <th scope="col">Email</th>
@@ -30,12 +30,18 @@
                 <tr>
                     <td>
                         <div class="td-wrapper">
-                            <a href="{{ url_for('admin.update', id=user.id) }}">
-                                <i class="fa-solid fa-pen fa-pen--hover"></i>
-                            </a>
-                            <a href="{{ url_for('admin.delete', id=user.id) }}">
-                                <i class="fa-sharp fa-solid fa-trash fa-trash--hover"></i>
-                            </a>
+                            {% if user.is_confirmed %}
+                                <a href="{{ url_for('admin.update', id=user.id) }}">
+                                    <i class="fa-solid fa-pen fa-pen--hover"></i>
+                                </a>
+                            {% else %}
+                                <a href="{{ url_for('admin.update', id=user.id) }}">
+                                    <i class="fa-solid fa-pen fa-pen--hover"></i>
+                                </a>
+                                <a href="{{ url_for('admin.delete', id=user.id) }}">
+                                    <i class="fa-sharp fa-solid fa-trash fa-trash--hover"></i>
+                                </a>
+                            {% endif %}
                         </div>
                     </td>
                     <td>{{ user.id }}</td>

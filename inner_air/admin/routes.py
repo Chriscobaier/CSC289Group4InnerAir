@@ -32,6 +32,9 @@ def update(id):
     form = UserRecordForm()
     user = db.session.query(User).get_or_404(id)
 
+    if not current_user.is_admin:
+        abort(403)
+
     if form.validate_on_submit():
         user.firstname = request.form['firstname']
         user.email = request.form['email']
@@ -52,6 +55,9 @@ def update(id):
 @check_confirmed
 def delete(id):
     user = db.session.query(User).get_or_404(id)
+
+    if not current_user.is_admin:
+        abort(403)
 
     try:
         db.session.delete(user)

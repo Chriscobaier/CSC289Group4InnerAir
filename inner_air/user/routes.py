@@ -35,6 +35,9 @@ def login():
             db.session.commit()
             if user.is_confirmed:
                 flash(f'Success! You are logged in as: {user.firstname}', category='success')
+
+            if user.is_admin:
+                return redirect(url_for('admin.admin'))
             return redirect(url_for('profile.profile'))
         else:
             flash('You have entered an invalid email address or password.', category='danger')
@@ -183,8 +186,11 @@ def profile(id):
     form = ProfileForm()
     user_profile = db.session.query(User).get_or_404(id)
 
-    if user_profile != current_user:
-        abort(403)
+    if user_profile.is_authenticated and current_user.is_admin:
+        print('is admin')
+    elif user_profile.is_authenticated and not current_user.is_admin:
+        if user_profile != current_user:
+            abort(403)
 
     if form.validate_on_submit():
         user_profile.firstname = request.form['firstname']
@@ -218,8 +224,11 @@ def emails(id):
     form = EmailForm()
     user_email = db.session.query(User).get_or_404(id)
 
-    if user_email != current_user:
-        abort(403)
+    if user_email.is_authenticated and current_user.is_admin:
+        print('is admin')
+    elif user_email.is_authenticated and not current_user.is_admin:
+        if user_email != current_user:
+            abort(403)
 
     if form.validate_on_submit():
         user_email.email = request.form['email']
@@ -252,8 +261,11 @@ def security(id):
     form = SecurityAndAuthForm()
     user_password = db.session.query(User).get_or_404(id)
 
-    if user_password != current_user:
-        abort(403)
+    if user_password.is_authenticated and current_user.is_admin:
+        print('is admin')
+    elif user_password.is_authenticated and not current_user.is_admin:
+        if user_password != current_user:
+            abort(403)
 
     if form.validate_on_submit():
         user_password.password = request.form['password']

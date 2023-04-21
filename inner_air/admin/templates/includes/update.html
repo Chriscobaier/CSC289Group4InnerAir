@@ -66,7 +66,17 @@
 			</div>
 
 		</fieldset>
-		{{ form.submit(class="button--blue") }}
+
+		{% if user.is_confirmed %}
+			{{ form.submit(class="button--blue") }}
+		{% else %}
+			<div class="" style="display: flex; justify-content: space-between;">
+				{{ form.submit(class="button--blue", style="font-size: 10px;") }}
+				<a href="{{ url_for('admin.delete', id=user.id) }}" class="button--red--dynamic" style="font-size: 10px;">
+					DELETE RECORD
+				</a>
+			</div>
+		{% endif %}
 	</form>
 </div>
 
