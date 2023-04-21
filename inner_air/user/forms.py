@@ -1,8 +1,7 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
-
 
 class RegistrationForm(FlaskForm):
     firstname = StringField(
@@ -87,6 +86,8 @@ class ProfileForm(FlaskForm):
         label='Edit',
         validators=[FileAllowed(['jpg', 'png'])],
     )
+    anonymous_mode = BooleanField('Anonymous Mode (Do not show on leaderboards)')
+
     submit = SubmitField(
         label='Update Profile',
     )

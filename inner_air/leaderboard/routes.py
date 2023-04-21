@@ -20,22 +20,22 @@ leaderboard_bp = Blueprint(
 @check_confirmed
 def leaderboard():
     # Get all user's consecutive day values, simple list
-    usersConsecutive = User.query.order_by(User.consecutive_days.desc()).limit(10).all()
+    usersConsecutive = User.query.filter(User.is_anonymous == 0).order_by(User.consecutive_days.desc()).limit(10).all()
 
     # Assumes control pause is exercise 11 (could be problematic if it isn't)
     # Query statistics table, join User table, only get data where exercise is control pause, top 10 values
-    usersHeld = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11, Statistics.user_id != 7).order_by(
+    usersHeld = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11,
+                                                                     User.is_anonymous == 0).order_by(
         Statistics.hold_length.desc()).limit(10).all()
     usersHeldMax = []
     for i, j in usersHeld:
         usersHeldMax.append({j: i.hold_length})
 
-
     # Get all breath hold data
-    usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11, Statistics.user_id != 7).order_by(
+    usersHeldTotal = db.session.query(Statistics, User).join(User).filter(Statistics.exercise_id == 11,
+                                                                          User.is_anonymous == 0).order_by(
         Statistics.hold_length.desc()).all()
     usersHeldDict = dict()
-
 
     for i, j in usersHeldTotal:
         if i.user_id != 7:
@@ -50,11 +50,12 @@ def leaderboard():
 
     usersNumberOfExercises = db.session.query(User, func.count(Statistics.id)).join(Statistics,
                                                                                     User.id == Statistics.user_id).group_by(
-        User.id).order_by(func.count(Statistics.id).desc()).limit(10).all()
+        User.id).filter(User.is_anonymous == 0).order_by(func.count(Statistics.id).desc()).limit(10).all()
     usersNumberOfExercisesList = []
-    for i,j in usersNumberOfExercises:
+    for i, j in usersNumberOfExercises:
         usersNumberOfExercisesList.append(i.firstname)
 
     return render_template('leaderboard/leaderboard.html', usersConsecutive=usersConsecutive,
                            usersHeldDict=usersHeldOrderedDict, usersHeldMax=usersHeldMax,
-                           usersHeldOrderedList=usersHeldOrderedList, usersNumberOfExercises=usersNumberOfExercises,usersNumberOfExercisesList=usersNumberOfExercisesList)
+                           usersHeldOrderedList=usersHeldOrderedList, usersNumberOfExercises=usersNumberOfExercises,
+                           usersNumberOfExercisesList=usersNumberOfExercisesList)

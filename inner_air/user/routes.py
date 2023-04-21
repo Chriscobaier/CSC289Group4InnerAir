@@ -191,9 +191,13 @@ def profile(id):
     elif user_profile.is_authenticated and not current_user.is_admin:
         if user_profile != current_user:
             abort(403)
+    if user_profile.is_authenticated:
+        form.anonymous_mode.checked = user_profile.is_anonymous
 
     if form.validate_on_submit():
         user_profile.firstname = request.form['firstname']
+        print(form.anonymous_mode.data)
+        user_profile.is_anonymous = form.anonymous_mode.data
 
         if request.files['profile_picture']:
             user_profile.profile_picture = request.files['profile_picture']

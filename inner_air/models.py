@@ -18,6 +18,7 @@ class User(db.Model, UserMixin):
     profile_picture = db.Column(db.String(128), nullable=True)
     consecutive_days = db.Column(db.Integer, default=0)
     last_login = db.Column(db.DateTime)
+    is_anonymous = db.Column(db.Integer, default=0)
 
     routines = db.relationship('Routine', backref='User', lazy=True)
     favorites = db.relationship('Favorites', backref='User', lazy=True)
