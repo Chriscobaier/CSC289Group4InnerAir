@@ -18,6 +18,7 @@
 **[Documentation](#) | [Setup & Installation](#setup--installation)**
 
 ## Table of contents
+---
 - [Introduction](#introduction)
 - [Getting started](#getting-started)
     - [Setup & Installation](#setup--installation)
@@ -25,13 +26,13 @@
     - [Contributors](#contributors)
 
 ## Introduction
-***
+---
 
 ## Getting started
-***
+---
 
 ## Setup & Installation
-***
+---
 ```commandline
     git clone <repo-url>
 ```
@@ -54,11 +55,11 @@
   make
 ````
 ## Quick start
-***
+---
 [See the wiki for details](docs/wiki.md)
 
 ## Contributors
-***
+---
 * ***Jade Oakes***
 * ***Andrew Bader***
 * ***Christian Baier***

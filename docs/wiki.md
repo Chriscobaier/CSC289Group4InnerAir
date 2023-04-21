@@ -1,6 +1,6 @@
 
 ### Set Environment Variables
-
+---
 ***Create a file named ```.env``` in the root directory and add the following content there:***
 ```dotenv
 #####################
@@ -37,7 +37,7 @@ APP_MAIL_PASSWORD=<your_passwd>
 ```
 
 ### Run the App
-
+---
 ***Create admin account***
 ```commandline
   python wsgi.py create_admin
