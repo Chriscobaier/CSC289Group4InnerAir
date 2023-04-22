@@ -1,0 +1,32 @@
+.about {
+    width: 1200px;
+    height: 400px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+/*    background: black; */
+}
+
+.box {
+    margin: 30px;
+    width: 200px;
+    text-align: center;
+}
+
+.about_img {
+    position: center;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 25px;
+}
+
+.contact {
+    margin-top: 50px;
+    text-align: center;
+}

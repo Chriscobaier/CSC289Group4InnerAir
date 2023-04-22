@@ -3,6 +3,27 @@
 Inner Air
 {% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{{ url_for('main.static', filename='css/about.css') }}">
+
+<div class="about">
+    <div class="box">
+        <img src="{{ url_for('main.static', filename='img/about/test.jpg') }}" class="about_img">
+        <h2>Alan (Test) </h2>
+        <p>Alan is an Inca tern. He can be found in parts of Peru and Chile. He likes long walks on the beach, piña coladas, and getting caught in the rain.</p>
+    </div>
+    <div class="box">
+          <img src="{{ url_for('main.static', filename='img/about/jade.jpg') }}" class="about_img">
+        <h2>Jade</h2>
+        <p>Jade is a human who enjoys eating food and drinking water.</p>
+    </div>
+</div>
+<div class="contact">
+    <h1>Questions?</h1>
+    <h2>Contact us at admin@inner-air.com</h2>
+</div>
+
+
+
 
 
 {% endblock %}
