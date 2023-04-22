@@ -1,0 +1,38 @@
+@use "../../../dev/scss/toolbox" as tl;
+@use "components";
+
+.about {
+    @include tl.rounded;
+    @include tl.flex-spread;
+    flex-direction: row;
+    justify-content: center;
+    margin: auto 10%;
+    background: tl.$dark-black;
+    gap: 1.5em;
+
+    .box {
+        @include tl.flex-spread;
+        flex-direction: column;
+        padding: 1em;
+
+        width: 200px;
+        text-align: center;
+
+        .about_img {
+            position: center;
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+    }
+
+}
+
+.contact {
+    display: block;
+    margin: 1em auto;
+    padding: 1em;
+    text-align: center;
+}
