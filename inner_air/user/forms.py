@@ -86,7 +86,7 @@ class ProfileForm(FlaskForm):
         label='Edit',
         validators=[FileAllowed(['jpg', 'png'])],
     )
-    anonymous_mode = BooleanField('Anonymous Mode (Do not show on leaderboards)',render_kw={'style': 'width: 7ch'})
+    anonymous_mode = BooleanField('Anonymous Mode (Do not show on leaderboards)')
 
     submit = SubmitField(
         label='Update Profile',

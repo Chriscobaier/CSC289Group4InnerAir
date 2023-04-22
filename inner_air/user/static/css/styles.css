@@ -357,7 +357,9 @@ input[type="file"] {
 
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .tooltip .tooltiptext {
@@ -372,6 +374,12 @@ input[type="file"] {
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
+}
+
+.tooltip #anonymous_mode{
+    margin: 0 9px;
+    height: 20px;
+    width: 20px;
 }
 
 .tooltip:hover .tooltiptext {
