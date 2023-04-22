@@ -195,6 +195,7 @@ def profile(id):
         form.anonymous_mode.checked = user_profile.is_anonymous
 
     if form.validate_on_submit():
+
         user_profile.firstname = request.form['firstname']
         print(form.anonymous_mode.data)
         user_profile.is_anonymous = form.anonymous_mode.data
@@ -216,6 +217,8 @@ def profile(id):
         else:
             db.session.commit()
             flash('Your profile has been updated successfully.', category='success')
+            form.anonymous_mode.checked = user_profile.is_anonymous
+
             return render_template('user/profile.html', form=form, user_profile=user_profile)
     else:
         return render_template('user/profile.html', form=form, user_profile=user_profile)
