@@ -146,3 +146,4 @@ dmypy.json
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/old2 group-project.iml
 /migrations/versions/
+/migrations/
