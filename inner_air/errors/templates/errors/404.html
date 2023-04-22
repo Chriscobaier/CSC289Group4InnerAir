@@ -10,15 +10,14 @@
             <div class="error-header">
                     <h2>404</h2>
                     <h4>oops! page not found</h4>
-                    <img
-                            src="{{ url_for('errors.static', filename='img/404image.png' ) }}"
-                            class="error-header__img"
-                    />
+                <p style="text-align:center"><img src=" {{ url_for('errors.static', filename='img/404image.png' ) }}" class="logo"width="400"
+     height="450" /></p>
             </div>
             <!-- error body -->
             <div class="error-body">
                 <p>
-                    The page you were looking for doesn't exist. You may have<br>mistyped the address or the page may have moved.
+                    The page you were looking for doesn't exist. You may have<br>mistyped the address or the page may have moved.<br>
+                   If you think you found this page when you shouldn't have, please let us know at admin@inner-air.com.  See our <a href="/about">about</a> page for more!
                 </p>
             </div>
             <!-- error footer -->
