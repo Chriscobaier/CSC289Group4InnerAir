@@ -353,3 +353,10 @@ input[type="file"] {
 .dl__pen--color {
     color: #E6EDF3;
 }
+
+
+.extra-info {
+  color: $tinted-azure;
+  font-size: 12px;
+  display: none;
+}

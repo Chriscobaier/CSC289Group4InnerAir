@@ -12,3 +12,12 @@ first_name.addEventListener('keyup', () => {
     }
 
 });
+
+
+
+document.querySelector('input[name="anonymous_mode"]').addEventListener('mouseover', function() {
+  document.querySelector('.extra-info').style.display = 'flex';
+});
+document.querySelector('input[name="anonymous_mode"]').addEventListener('mouseout', function() {
+  document.querySelector('.extra-info').style.display = 'none';
+});
