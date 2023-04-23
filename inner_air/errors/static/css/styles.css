@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 body {
@@ -36,21 +37,13 @@ body {
 .error-header {
 }
 
-.error-header__img {
-    width: 380px;
-    height: 380px;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-}
-
-.error-content h2 {
+.second-heading {
     font-size: 80px;
     text-align: center;
     line-height: 1em;
 }
 
-.error-content h4 {
+.fourth-heading {
     font-size: 2rem;
     font-weight: 300;
     text-align: center;
@@ -59,27 +52,44 @@ body {
     padding: 10px 20px;
 }
 
-.error-content p {
+.error-header__img {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.error-body {
+    font-size: 1.2rem;
+    margin: 0 10%;
+}
+
+.error-body__text {
     text-align: center;
 }
 
-.error-content .error-body {
-    font-size: 1.2rem;
-    margin: 0 10%
-}
-
-.error-content .error-body a {
+.error-body__link {
     color: #74c9eb;
+    transition: all 0.4s;
 }
 
-.error-content .error-body a:hover {
+.error-body__link:hover {
     color: #f5b66d;
 }
 
-.error-content .error-footer a {
+.error-footer {
+}
+
+.error-footer__item {
+    text-align: center;
+}
+
+.error-footer__link {
     position: relative;
     display: inline-block;
     padding: 10px 25px;
     margin-top: 25px;
     border-radius: 25px;
 }
+

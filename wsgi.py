@@ -42,6 +42,7 @@ def create_admin(firstname='admin', email='admin@inner-air.com',
                 firstname=firstname,
                 email=email,
                 password=password,
+                is_anonymous=True,
                 is_admin=True,
                 is_confirmed=True,
                 confirmed_on=datetime.datetime.now()
