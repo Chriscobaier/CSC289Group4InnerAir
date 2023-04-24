@@ -37,7 +37,7 @@
 .wrapper .sec-boxes .box {
   border-radius: 10px;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   display: grid;
   grid-auto-flow: dense;
   grid-template-columns: 1fr auto;
