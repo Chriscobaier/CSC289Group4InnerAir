@@ -4,7 +4,7 @@
 }
 
 .list-container {
-  margin: 1rem;
+  margin: 1rem 5rem;
 }
 .list-container .list {
   display: flex;
@@ -13,7 +13,6 @@
   flex-wrap: wrap;
   flex-direction: column;
   list-style-type: none;
-  margin: 0 10%;
   gap: 0.5rem;
 }
 .list-container .list .plate {
@@ -22,11 +21,12 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
   flex-direction: column;
   overflow: hidden;
   padding: 1.5rem;
   gap: 1rem;
-  width: 100%;
   transition: all 0.2s ease-out;
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
 }
@@ -72,5 +72,5 @@
   transition-duration: 1s;
   display: none;
   text-justify: left;
-  width: 100%;
+  width: 90%;
 }
