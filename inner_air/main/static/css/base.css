@@ -237,6 +237,9 @@ table {
   margin: 1rem auto;
   min-width: 90%;
 }
+table thead .rank {
+  width: 4rem;
+}
 table thead th,
 table thead td {
   padding: 1rem 0.5rem;

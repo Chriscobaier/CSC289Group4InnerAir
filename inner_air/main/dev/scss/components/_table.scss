@@ -11,6 +11,10 @@ table {
     min-width: 90%;
 
     thead {
+        .rank{
+            width: 4rem;
+        }
+
         th,
         td {
             padding: 1rem 0.5rem;
