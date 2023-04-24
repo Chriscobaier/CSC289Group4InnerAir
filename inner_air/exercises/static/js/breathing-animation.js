@@ -66,11 +66,13 @@ function timer_count(state, time, timeout) {
         timer.textContent = state + " for " + time + " seconds";
         time--;
         let id = setInterval(() => {
-            timer.textContent = state + " for " + time + " seconds";
-            if (time <= 1) {
-                clearInterval(id);
+            // If the timer is done
+            if (time <= 0) clearInterval(id);
+            // else Keep ticking
+            else {
+                timer.textContent = state + " for " + time + " seconds";
+                time--;
             }
-            time--;
         }, 1000);
     }, timeout);
 }
