@@ -230,25 +230,28 @@
 
 table {
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-  border-collapse: collapse;
+  border-radius: 10px;
+  background-color: #050f1b;
   letter-spacing: 0.05rem;
   font-size: 15px;
-  border-radius: 10px;
   margin: 1rem auto;
   min-width: 90%;
 }
-table th,
-table td {
-  padding: 1rem;
+table thead th,
+table thead td {
+  padding: 1rem 0.5rem;
   height: -moz-fit-content;
   height: fit-content;
   text-align: left;
   word-wrap: break-word;
 }
-table th {
-  background-color: #050f1b;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+table tbody th,
+table tbody td {
+  padding: 0.5rem 1rem;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: left;
+  word-wrap: break-word;
 }
 table tr:nth-child(odd) {
   background-color: #050f1b;
