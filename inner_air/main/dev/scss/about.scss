@@ -11,7 +11,7 @@
     margin: auto 10%;
     background: rgba(tl.$dark-black, 0.8);
     row-gap: 3em;
-    column-gap: 8em;
+    column-gap: 6em;
 
     .box {
         @include tl.flex-spread;
@@ -37,7 +37,16 @@
 }
 
 .contact {
+    padding: 1em;
     display: block;
     margin: 0 auto;
     text-align: center;
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
 }

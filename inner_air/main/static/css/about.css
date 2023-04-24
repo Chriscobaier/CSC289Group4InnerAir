@@ -351,8 +351,8 @@ h4 {
   margin: auto 10%;
   background: rgba(5, 15, 27, 0.8);
   row-gap: 3em;
-  -moz-column-gap: 8em;
-       column-gap: 8em;
+  -moz-column-gap: 6em;
+       column-gap: 6em;
 }
 .about .box {
   display: flex;
@@ -380,7 +380,14 @@ h4 {
 }
 
 .contact {
+  padding: 1em;
   display: block;
   margin: 0 auto;
   text-align: center;
+}
+.contact h1 {
+  font-size: 30px;
+}
+.contact h2 {
+  font-size: 20px;
 }
