@@ -4,36 +4,40 @@
 .about {
     @include tl.rounded;
     @include tl.flex-spread;
+    @include tl.drop-shade;
+    padding: 1rem;
     flex-direction: row;
     justify-content: center;
     margin: auto 10%;
-    background: tl.$dark-black;
-    gap: 1.5em;
+    background: rgba(tl.$dark-black, 0.8);
+    row-gap: 3em;
+    column-gap: 8em;
 
     .box {
         @include tl.flex-spread;
         flex-direction: column;
+        justify-content: start;
         padding: 1em;
-
-        width: 200px;
+        height: 350px;
+        width: 250px;
         text-align: center;
 
         .about_img {
-            padding: 10px;
+            @include tl.drop-shade;
+            border: 2px tl.$light-white solid;
+            margin-bottom: 0.5rem;
             position: center;
-            height: 150px;
-            width: 150px;
+            height: 200px;
+            width: 200px;
             object-fit: cover;
             border-radius: 50%;
             display: block;
         }
     }
-
 }
 
 .contact {
     display: block;
-    margin: 1em auto;
-    padding: 1em;
+    margin: 0 auto;
     text-align: center;
 }

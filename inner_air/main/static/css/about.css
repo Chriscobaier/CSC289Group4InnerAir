@@ -344,11 +344,15 @@ h4 {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  padding: 1rem;
   flex-direction: row;
   justify-content: center;
   margin: auto 10%;
-  background: #050f1b;
-  gap: 1.5em;
+  background: rgba(5, 15, 27, 0.8);
+  row-gap: 3em;
+  -moz-column-gap: 8em;
+       column-gap: 8em;
 }
 .about .box {
   display: flex;
@@ -356,15 +360,19 @@ h4 {
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
+  justify-content: start;
   padding: 1em;
-  width: 200px;
+  height: 350px;
+  width: 250px;
   text-align: center;
 }
 .about .box .about_img {
-  padding: 10px;
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+  border: 2px #e6e8ff solid;
+  margin-bottom: 0.5rem;
   position: center;
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
@@ -373,7 +381,6 @@ h4 {
 
 .contact {
   display: block;
-  margin: 1em auto;
-  padding: 1em;
+  margin: 0 auto;
   text-align: center;
 }
