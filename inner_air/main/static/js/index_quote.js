@@ -18,7 +18,7 @@ function getQuote() {
     },
     {
         "author":"Micheal Altshuler",
-        "quote":"The bad news is that time flies. THe good news is you're the pilot."
+        "quote":"The bad news is that time flies. The good news is you're the pilot."
     },
     {
         "author":"Nicole Kidman",
