@@ -1,5 +1,6 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "components";
+@use "sass:color";
 
 .about {
     @include tl.rounded;
@@ -10,6 +11,10 @@
     justify-content: center;
     margin: auto 10%;
     background: rgba(tl.$dark-black, 0.8);
+    background-image: radial-gradient(
+        color.adjust(tl.$tinted-azure, $lightness: -30%),
+        tl.$dark-black
+    );
     row-gap: 3em;
     column-gap: 6em;
 

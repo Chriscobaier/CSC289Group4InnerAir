@@ -350,6 +350,7 @@ h4 {
   justify-content: center;
   margin: auto 10%;
   background: rgba(5, 15, 27, 0.8);
+  background-image: radial-gradient(#0e1830, #050f1b);
   row-gap: 3em;
   -moz-column-gap: 6em;
        column-gap: 6em;
