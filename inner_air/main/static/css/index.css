@@ -26,7 +26,6 @@
 }
 .wrapper .top .description .desc-text {
   letter-spacing: 1px;
-  font-size: 14px;
 }
 .wrapper .sec-boxes {
   display: flex;
@@ -52,8 +51,7 @@
 }
 .wrapper .sec-boxes .box .box-description {
   letter-spacing: 1px;
-  line-height: 1.2rem;
-  font-size: 14px;
+  line-height: 1.5rem;
   padding: 0 1rem;
   grid-area: 2/1;
 }
