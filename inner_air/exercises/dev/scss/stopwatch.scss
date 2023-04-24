@@ -15,6 +15,7 @@
 
     .timer {
         @include tl.rounded;
+        @include tl.drop-shade;
         padding: 1rem;
         background-image: radial-gradient(
             color.adjust(tl.$tinted-azure, $lightness: -30%),
