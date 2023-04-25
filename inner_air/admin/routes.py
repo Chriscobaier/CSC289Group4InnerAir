@@ -39,6 +39,9 @@ def update(id):
         user.firstname = request.form['firstname']
         user.email = request.form['email']
 
+        if user.is_confirmed:
+            user.is_confirmed = False
+
         try:
             db.session.commit()
             flash('User Updated Successfully!', category='success')
