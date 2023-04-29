@@ -3,7 +3,7 @@
              {% if current_user.profile_picture %}
              <img src="{{ url_for('user.static', filename='img/profile_pics/' + current_user.profile_picture) }}" class="img">
              {% else %}
-             <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png' ) }}" class="img">
+             <img src="{{ url_for('user.static', filename='img/profile_pics/user.svg' ) }}" class="img">
              {% endif %}
              <h1>Welcome, {{ current_user.firstname }} </h1>
          </div>

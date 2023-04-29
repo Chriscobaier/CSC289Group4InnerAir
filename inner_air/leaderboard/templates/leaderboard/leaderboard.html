@@ -28,7 +28,7 @@ Leaderboard
                         {% if user.profile_picture %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
                         {% else %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/user.svg') }}" class="img">
                         {% endif %}
                         {{ user.firstname }}
                     </td>
@@ -59,7 +59,7 @@ Leaderboard
                         {% if user.profile_picture %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
                         {% else %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/user.svg') }}" class="img">
                         {% endif %}
                         {{ user.firstname }}
                     </td>
@@ -91,7 +91,7 @@ Leaderboard
                         {% if key.profile_picture %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/' + key.profile_picture) }}" class="img">
                         {% else %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/user.svg') }}" class="img">
                         {% endif %}
                         {{ key.firstname }}
                     </td>
@@ -123,7 +123,7 @@ Leaderboard
                         {% if user.profile_picture %}
                         <img src="{{ url_for('user.static', filename='img/profile_pics/' + user.profile_picture) }}" class="img">
                         {% else %}
-                        <img src="{{ url_for('user.static', filename='img/profile_pics/def_pic.png') }}" class="img">
+                        <img src="{{ url_for('user.static', filename='img/profile_pics/user.svg') }}" class="img">
                         {% endif %}
                         {{ user.firstname }}
                     </td>
