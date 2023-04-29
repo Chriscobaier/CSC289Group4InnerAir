@@ -1,4 +1,5 @@
 import datetime
+from collections import OrderedDict
 
 import flask_login
 from flask import Blueprint, request, render_template
@@ -6,7 +7,6 @@ from flask import Blueprint, request, render_template
 from inner_air import db
 from inner_air.models import Favorites, Exercise, Statistics
 from inner_air.utils.decorators import check_confirmed
-from collections import OrderedDict
 
 profile_bp = Blueprint(
     'profile', __name__,

@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta
+
 from flask_login import UserMixin
 
 from inner_air import db, bcrypt

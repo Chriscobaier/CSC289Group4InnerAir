@@ -3,9 +3,9 @@ from flask import Blueprint, request, render_template, jsonify
 from flask_login import login_required
 
 from inner_air import db
+from inner_air.exercises.forms import RateEx
 from inner_air.models import Favorites, Exercise, UserRating, Statistics
 from inner_air.utils.decorators import check_confirmed
-from inner_air.exercises.forms import RateEx
 
 exercises_bp = Blueprint(
     'exercises', __name__,

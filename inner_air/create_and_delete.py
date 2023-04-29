@@ -2,9 +2,10 @@ import json
 from datetime import datetime, timedelta
 from random import uniform, randint
 
+from sqlalchemy import text
+
 from inner_air import app, db
 from inner_air.models import DBVersion, Exercise, User, Statistics
-from sqlalchemy import text
 
 
 def DeleteAndCreateDB():

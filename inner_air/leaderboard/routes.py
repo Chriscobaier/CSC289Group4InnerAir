@@ -1,11 +1,10 @@
 from flask import Blueprint, render_template
-from inner_air.utils.decorators import check_confirmed
 from flask_login import login_required
-from inner_air.models import User, Statistics, Exercise
-from inner_air import db
 from sqlalchemy import func
 
-from collections import OrderedDict
+from inner_air import db
+from inner_air.models import User, Statistics
+from inner_air.utils.decorators import check_confirmed
 
 leaderboard_bp = Blueprint(
     'leaderboard', __name__,

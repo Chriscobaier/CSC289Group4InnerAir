@@ -1,7 +1,10 @@
 import datetime
+import os
+import uuid
 
 from flask import Blueprint, render_template, flash, redirect, url_for, request, abort
 from flask_login import login_user, logout_user, login_required, current_user
+from werkzeug.utils import secure_filename
 
 from inner_air import db, app
 from inner_air.models import User
@@ -10,10 +13,6 @@ from inner_air.user.forms import LoginForm, RegistrationForm, ForgotForm, Change
 from inner_air.user.token import generate_confirmation_token, confirm_token
 from inner_air.utils.decorators import logout_required, check_confirmed
 from inner_air.utils.email import send_email
-
-from werkzeug.utils import secure_filename
-import uuid
-import os
 
 user_bp = Blueprint(
     'user', __name__,
