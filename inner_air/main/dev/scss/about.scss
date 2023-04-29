@@ -2,6 +2,7 @@
 @use "components";
 @use "sass:color";
 
+// container fro developer info
 .about {
     @include tl.rounded;
     @include tl.flex-spread;
@@ -18,6 +19,7 @@
     row-gap: 3em;
     column-gap: 6em;
 
+    // contains separate developer info
     .box {
         @include tl.flex-spread;
         flex-direction: column;
@@ -41,6 +43,7 @@
     }
 }
 
+// contact message containing the info
 .contact {
     padding: 1em;
     display: block;

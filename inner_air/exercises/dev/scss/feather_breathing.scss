@@ -1,6 +1,7 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
+// feather animation widget
 .breathing-animation-container {
     @include tl.flex-spread;
     @include tl.rounded;
@@ -16,6 +17,7 @@
     width: 100%;
     padding: 1rem;
 
+    // box of feather movement
     .animation-scope {
         @include tl.rounded;
         height: 80%;
@@ -33,6 +35,7 @@
         );
         box-shadow: 0px 0px 10px inset color.adjust(tl.$tinted-azure, $lightness: -30%);
 
+        // feather class
         .float-object {
             position: relative;
             transition-property: all;

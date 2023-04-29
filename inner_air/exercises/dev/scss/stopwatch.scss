@@ -1,6 +1,7 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
+// page container
 .stopwatch-container {
     @include tl.flex-spread;
     flex-direction: column;
@@ -13,6 +14,7 @@
         color: azure;
     }
 
+    // actual timer box
     .timer {
         @include tl.rounded;
         @include tl.drop-shade;
@@ -22,6 +24,7 @@
             tl.$dark-black
         );
 
+        // row of digits
         #time {
             @include tl.flex-spread;
             justify-content: center;
@@ -35,6 +38,7 @@
             }
         }
 
+        // timer buttons overwrite
         .buttons {
             @include tl.flex-spread;
             justify-content: center;

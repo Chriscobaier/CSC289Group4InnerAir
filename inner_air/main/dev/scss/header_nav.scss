@@ -1,6 +1,7 @@
 @use "../../../dev/scss/toolbox" as tl;
 @use "sass:color";
 
+// Header for the whole site
 header {
     @include tl.drop-shade;
     position: fixed;
@@ -11,16 +12,19 @@ header {
     padding: 0.5rem;
     background: tl.$dark-black;
 
+    // Container for elements
     .header-container {
         @include tl.flex-spread;
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 0.5rem;
 
+        // left most image
         .logo {
             width: 110px;
         }
 
+        // centered in the header
         .navigation-container {
             @include tl.flex-spread;
             justify-content: center;
@@ -36,6 +40,7 @@ header {
                 @include tl.flex-spread;
                 flex-direction: row;
 
+                // navigation buttons for logged in users
                 .nav-link {
                     font-weight: bold;
                     color: tl.$light-white;
@@ -66,6 +71,7 @@ header {
             }
         }
 
+        // right most buttons
         .buttons {
             @include tl.flex-spread;
             flex-wrap: nowrap;
