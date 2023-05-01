@@ -19,8 +19,8 @@ exercises_bp = Blueprint(
 @login_required
 @check_confirmed
 def exercises():
-    # Check if the request method is POST
     if request.method == 'POST':
+
         # Check if the request form contains "favoriteButton" key
         if "favoriteButton" in request.form:
             # Retrieve user and exercise IDs from the request form
@@ -71,11 +71,13 @@ def exercises():
 """
 
 
+# Exercise route - intent is to generate exercise pages dynamically via data in a database. This way if we wanted to update by adding new exercises we can make changes to db.
+
 @exercises_bp.route('/exercises/<exid>/', methods=['GET', 'POST'])
 @login_required
 @check_confirmed
 def get_exercise_id(exid):
-    # Update cumulative ratings
+    # Update cumulative ratings on page load
     def updateRatings():
         all_ex_data = db.session.query(
             UserRating).filter_by(exercise_id=exid).all()
@@ -90,6 +92,7 @@ def get_exercise_id(exid):
             db.session.commit()
 
     updateRatings()
+
     if exid.upper() == "DEMO":
         this_exercise = db.session.query(
             Exercise).filter_by(exercise_name="Demo Exercise").first_or_404()
