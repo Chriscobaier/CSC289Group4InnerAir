@@ -1,8 +1,7 @@
 # CSC289Group4InnerAir
 
 <p>
-  <img src="docs/_static/banner-img-inner-air.png#gh-light-mode-only" alt="inner-air" width="1051px" height="531px">
-  <img src="docs/_static/banner-img-inner-air-dark-mode.png#gh-dark-mode-only" alt="inner-air" width="1051px" height="531px">
+  <img src="inner_air/main/static/img/logo.svg" alt="inner-air" width="1000px">
 </p>
 
 ---
@@ -20,16 +19,13 @@
 ## Table of contents
 ---
 - [Introduction](#introduction)
-- [Getting started](#getting-started)
-    - [Setup & Installation](#setup--installation)
-    - [Quick start](#quick-start)
-    - [Contributors](#contributors)
+- [Setup & Installation](#setup--installation)
+- [Quick start](#quick-start)
+- [Contributors](#contributors)
 
 ## Introduction
 ---
-
-## Getting started
----
+Welcome to Inner Air, a web app that aims to provide assistance with breathing exercises. This project was developed by five individuals as their capstone project during their time at Wake Tech Community College. 
 
 ## Setup & Installation
 ---
@@ -56,12 +52,12 @@
 ````
 ## Quick start
 ---
-[See the wiki for details](docs/wiki.md)
+[See the user guide for details](docs/wiki.md)
 
 ## Contributors
 ---
-* ***Jade Oakes***
-* ***Andrew Bader***
-* ***Christian Baier***
-* ***Jose Chvez***
-* ***Karina Osmanova***
+* [***Jade Oakes***](https://github.com/jadeoakes1) - Scum Master and Data Analyst
+* [***Christian Baier***](https://github.com/Chriscobaier) - Backend Developer
+* [***Jose Chvez***](https://github.com/Jrchavez09) - Fullstack Developer
+* [***Karina Osmanova***](https://github.com/kmosmanova) - Fronend Developer and the Design Lead
+* [***Andrew Bader***](https://github.com/BaderAJ21) - Fullstack Developer
